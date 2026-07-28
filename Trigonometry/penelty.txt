@@ -9,3 +9,21 @@ Fix applied (q9 only, not a template-wide rule): extend each affected clip's dat
 - stack-*, options-reveal, q-pinned were already fine (already ran clean to video end or matched exit point)
 
 Check for this same bug on every future question: any clip whose data-duration ends exactly at a morphToStack/fadeOut/pinFlow call needs +1.5-2s buffer past that transition's completion, or the animation will visibly cut off.
+
+Issue found in q10: illustration side/angle text labels got clipped ("Opposite" rendered as "Oppos") because the SVG viewBox was too tight around the label text, and the triangle itself rendered too small at default scale.
+
+Check for this same bug on every future question: size illustration text labels' containing viewBox with enough margin for the full label string at its font-size (don't just fit the geometry), and keep the theta arc's endpoint computed exactly from the true triangle angle (never hand-guess arc endpoint coordinates) so it stays precise even after rescaling.
+
+STANDARD (from q10 onward): render every angle arc with the CSS stroke-dasharray circle technique below, not a hand-built <path> arc. A full <circle> stroked only (fill="transparent"), dash length driven by a CSS custom property --angle (the EXACT angle in degrees, computed via acos/asin/atan from the known sides - never eyeballed), so the visible arc is always precisely theta degrees no matter how the illustration gets rescaled later.
+
+<circle
+  cx="VERTEX_X" cy="VERTEX_Y" r="RADIUS"
+  fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round"
+  transform="translate(0, calc(2*VERTEX_Y)) scale(1,-1)"
+  style="--angle: THETA_DEGREES; stroke-dasharray: calc((var(--angle) / 360) * CIRCUMFERENCE) CIRCUMFERENCE;"
+/>
+<!-- CIRCUMFERENCE = 2 * PI * RADIUS -->
+
+The transform vertically flips the circle about its own center so the stroke starts at 0deg (pointing +x, same direction as the adjacent/base ray) and sweeps UP toward the hypotenuse - without it, the default sweep goes clockwise/downward, off the triangle. Apply this to both the full-size Phase 1 illustration arc and the shrunk Phase 2 pinned-icon arc (same technique, smaller radius/circumference).
+
+WORKFLOW GATE - read before starting: before writing a storyboard.md OR building index.html for any question in this Trigonometry folder, first read this penelty.txt (or the equivalent <Topic>/penelty.txt in another topic folder) top to bottom and apply every standing fix/standard listed here. This applies to every future question, not just the ones where the issue was first found. See also _template/README.md Step 4A / Step 5A, which now cross-reference this gate.

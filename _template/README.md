@@ -272,6 +272,8 @@ MasterAptitude/<Topic>/<Tier>/quesN/
 
 ### 4A. Trigger
 
+**Before anything else in this step:** check for a `penelty.txt` (or similarly named check/fixes-log file) in the current topic's folder (e.g. `<Topic>/penelty.txt`) and read it top to bottom. It accumulates standing fixes and standards found while building earlier questions in that topic (timing/duration bugs, illustration/label sizing, angle-arc rendering, etc.) - apply every item listed there to this question's storyboard and composition. This check is mandatory for every question, not just the one where an issue was first logged. Do the same check again immediately before Step 5 (composition build), since a fix may only become relevant once you're writing HTML/GSAP rather than prose.
+
 Immediately after transcription completes (Step 3), generate the storyboard - no separate approval gate here (see 3E).
 
 By this point you have:
@@ -449,6 +451,8 @@ No stop here - the model switch already happened at Step 3E, and Step 5 (composi
 ## 🎥 STEP 5 - Composition Build (Storyboard + Voiceover → index.html)
 
 ### 5A. Trigger
+
+**Before writing index.html:** re-check the current topic's `penelty.txt` (see Step 4A) - a fix logged there (timing buffers, illustration/label sizing, angle-arc technique, etc.) must be applied here even if it was already accounted for in the storyboard prose.
 
 Immediately after the storyboard is written (Step 4) - no separate approval gate.
 

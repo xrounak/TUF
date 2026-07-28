@@ -247,3 +247,19 @@ All absolute positioning uses a 4-column × 3-row grid instead of ad-hoc pixel v
 > **Question card** - no asset needed. Pure CSS via `.q-card` (white card + 4px black border + offset black `::before` shadow). Reference design lives in `_template/assets/question-card.html`.
 
 Per-question illustrations (trains, cars, etc.) live in each question's own folder.
+
+### Angle arcs (theta, elevation/depression angles, etc.)
+
+Render every angle arc with the CSS `stroke-dasharray` circle technique, not a hand-built SVG `<path>` arc:
+
+```html
+<circle
+  cx="VERTEX_X" cy="VERTEX_Y" r="RADIUS"
+  fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round"
+  transform="translate(0, calc(2*VERTEX_Y)) scale(1,-1)"
+  style="--angle: THETA_DEGREES; stroke-dasharray: calc((var(--angle) / 360) * CIRCUMFERENCE) CIRCUMFERENCE;"
+/>
+<!-- CIRCUMFERENCE = 2 * PI * RADIUS -->
+```
+
+`THETA_DEGREES` must be computed exactly (acos/asin/atan from the known sides), never eyeballed - this is what keeps the arc precise across any rescale. The `translate/scale(1,-1)` flip makes the stroke start at 0deg (the adjacent/base ray, pointing +x) and sweep UP toward the hypotenuse, instead of the default clockwise/downward sweep. Use the same technique at both the full-size Phase 1 illustration scale and the shrunk Phase 2 pinned-icon scale.
