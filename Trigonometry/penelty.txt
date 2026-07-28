@@ -1,0 +1,11 @@
+PENALTY / CHECK NOTE - read this before finishing any question build in this Trigonometry folder.
+
+Issue found in q9: card/illustration clip data-duration ended exactly AT their morphToStack/fadeOut start time, so the transition animation got cut mid-motion when the clip unmounted.
+
+Fix applied (q9 only, not a template-wide rule): extend each affected clip's data-duration by ~1.5-2s past its morph/fade completion time (morph = start+0.8s, fadeOut default ~0.4s), so the transition finishes fully before unmount.
+
+- card-given, card-step1, card-step2, card-step3 durations bumped
+- illus-pinned duration bumped (fadeOut at RECENTER_TIME needed room to finish)
+- stack-*, options-reveal, q-pinned were already fine (already ran clean to video end or matched exit point)
+
+Check for this same bug on every future question: any clip whose data-duration ends exactly at a morphToStack/fadeOut/pinFlow call needs +1.5-2s buffer past that transition's completion, or the animation will visibly cut off.
