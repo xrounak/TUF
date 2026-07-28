@@ -1,0 +1,43 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, a boat travels 36 kilo-mee-ter downstream and 36 kilo-mee-ter upstream.
+
+The speed of the boat in still water is 15 kilo-mee-ter per hour, and the speed of the stream is 3 kilo-mee-ter per hour.
+
+We need to find the total time taken for the whole journey.
+
+Now before solving, let us quickly recall one basic concept.
+
+The boat's speed in still water means the speed when there is no current.
+
+The stream helps the boat while moving downstream, so the speeds get added.
+
+And the stream slows down the boat while moving upstream, so the speeds get subtracted.
+
+This is the main idea of the question.
+
+So first, let us find both speeds.
+
+Downstream speed = speed of boat + stream speed which is 15 + 3 = 18 kilo-mee-ter per hour.
+
+Upstream speed = speed of boat - stream speed which is 15 - 3 = 12 kilo-mee-ter per hour.
+
+Done. Now we have both speeds.
+
+The formula we need is:
+
+Time = Distance divided by Speed.
+
+Now that we have the speeds, finding the time becomes easy.
+
+Time taken downstream = 36 divided by 18 = 2 hours.
+
+Time taken upstream = 36 divided by 12 = 3 hours.
+
+Now only one step is left.
+
+The total time is 2 + 3 = 5 hours.
+
+<break time="0.6s" />
+
+So the final answer is "5 hours", which is Option C.

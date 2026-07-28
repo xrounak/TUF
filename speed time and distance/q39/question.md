@@ -1,0 +1,27 @@
+Question:
+Two runners start together on a 720 m circular path and run in the same direction at 6 m/s and 4 m/s. After how many seconds will they meet again?
+
+Options:
+A. 360 seconds
+B. 300 seconds
+C. 330 seconds
+D. 390 seconds
+
+Correct Option: A
+
+Solution:
+Given: Track = 720 m, Runner A speed = 6 m/s, Runner B speed = 4 m/s, Direction = Same direction.
+
+Concept: Every second, the faster runner (Runner A) covers 6 m and the slower runner (Runner B) covers 4 m. So every second, the faster runner gains 2 m on the slower runner.
+Since they started from the same point and run in the same direction, the faster runner can only meet the slower runner again by coming from behind, that is, by gaining one complete round (720 m) on the slower runner.
+
+Step 1: Find the gain per second.
+Gain per second = 6 - 4 = 2 m/s
+
+Step 2: Find the time to gain a full lap (720 m) using the unit-rate method.
+Gain of 1 m takes 0.5 sec (since 1/2 = 0.5)
+Gain of 720 m takes 720 x 0.5
+= 360 sec
+
+So the two runners will meet again after 360 seconds.
+Hence, the correct answer is Option A, 360 seconds.

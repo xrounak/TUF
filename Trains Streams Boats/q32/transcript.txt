@@ -1,0 +1,33 @@
+[00:00.10 -> 00:00.28]  So
+[00:00.64 -> 00:01.46]  welcome back again.
+[00:02.18 -> 00:03.08]  It's time to solve
+[00:03.68 -> 00:04.72]  one more problem.
+[00:05.14 -> 00:13.28]  Now let us first read the question. A train crosses a one hundred fifty meter platform in twenty seconds and a two hundred fifty meter platform in twenty-five seconds.
+[00:13.64 -> 00:15.10]  We need to find the speed of the train.
+[00:15.58 -> 00:15.84]  Given
+[00:16.20 -> 00:18.86]  platform one length equals one hundred fifty meters.
+[00:19.24 -> 00:21.64]  Time to cross platform one equals twenty seconds.
+[00:22.16 -> 00:24.32]  Platform two length equals two hundred fifty meter.
+[00:24.86 -> 00:27.12]  Time to cross platform two equals twenty-five seconds.
+[00:27.64 -> 00:27.98]  Let
+[00:28.56 -> 00:31.64]  length of the train equals L meter.
+[00:32.26 -> 00:33.14]  Speed of the train
+[00:33.74 -> 00:34.04]  equals
+[00:34.34 -> 00:35.32]  S meter per second.
+[00:35.88 -> 00:36.08]  Now,
+[00:36.62 -> 00:39.58]  when a train crosses a platform, it does not cover only the platform.
+[00:40.08 -> 00:43.88]  The entire train has to enter the platform, and then the last coach has to come out.
+[00:44.46 -> 00:51.76]  So the total distance covered is distance equals length of train plus length of platform.
+[00:52.26 -> 00:58.38]  So distance equals L plus one hundred fifty. Also, we know speed equals distance divided by time.
+[00:58.90 -> 01:00.28]  Now for the first platform,
+[01:00.86 -> 01:11.74]  time taken equals twenty, so S equals L plus one hundred fifty divided by twenty. So twenty S equals L plus one hundred fifty. Now for the second platform,
+[01:12.22 -> 01:14.26]  time taken equals twenty-five seconds.
+[01:14.94 -> 01:15.38]  S equals
+[01:15.74 -> 01:16.82]  L plus two hundred fifty
+[01:17.52 -> 01:18.80]  divided by twenty-five.
+[01:19.30 -> 01:25.44]  So twenty-five S equals L plus two hundred fifty. Now subtract equation one from equation two.
+[01:26.00 -> 01:27.96]  Twenty-five S minus twenty S equals
+[01:28.30 -> 01:31.16]  L plus two hundred fifty minus
+[01:32.04 -> 01:34.04]  L plus one hundred fifty.
+[01:34.58 -> 01:37.20]  The train length gets canceled automatically.
+[01:37.70 -> 01:48.58]  Five seconds equals one hundred seconds equals twenty meters per second. Hence, the speed of the train is twenty meter per second. So the correct option is option D.

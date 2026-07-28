@@ -1,0 +1,26 @@
+Question:
+Excluding stoppages, a bus runs at 60 km/hr. Including stoppages, its average speed is 45 km/hr. How many minutes does it stop per hour?
+
+Options:
+A. 18 minutes
+B. 15 minutes
+C. 10 minutes
+D. 12 minutes
+
+Correct Option: B
+
+Solution:
+Given: Speed without stoppages = 60 km/hr, average speed with stoppages = 45 km/hr.
+
+Step 1: Suppose the bus moves continuously for 1 hour without stopping.
+Distance = 60 km/hr x 1 hr = 60 km
+
+Step 2: But with stoppages, the average speed is 45 km/hr, so in 1 hour of clock time the bus actually covers only 45 km.
+Missed distance = 60 - 45 = 15 km
+
+Step 3: Find the time needed to cover this missed 15 km at the original speed of 60 km/hr.
+Time = Distance / Speed
+Time = 15 / 60 hr
+Time = 1/4 hr = 15 minutes
+
+So the bus stops for 15 minutes per hour. Hence, the correct answer is Option B, 15 minutes.

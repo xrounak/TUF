@@ -1,0 +1,22 @@
+[00:00.10 -> 00:02.10]  So welcome back again. Time for one more problem.
+[00:02.54 -> 00:03.26]  Now, in this problem,
+[00:03.82 -> 00:06.32]  we are given that the total journey is one hundred kilometer.
+[00:06.88 -> 00:09.34]  The total time taken for the journey is six hours.
+[00:09.90 -> 00:11.78]  Part of the journey is covered by train
+[00:12.30 -> 00:13.74]  at thirty kilometer per hour.
+[00:14.32 -> 00:18.12]  The remaining part of the journey is covered by bus at ten kilometer per hour.
+[00:18.68 -> 00:21.58]  The question is asking us to find the distance traveled by the train.
+[00:22.06 -> 00:25.62]  Now, let us assume the distance traveled by the train is x kilometer.
+[00:26.20 -> 00:29.32]  Since the total journey is one hundred kilometer,
+[00:29.90 -> 00:33.92]  the distance traveled by the bus will be one hundred minus x kilometers.
+[00:34.36 -> 00:36.18]  Now, let us find the time taken by each.
+[00:36.54 -> 00:37.36]  We know the formula,
+[00:37.96 -> 00:40.48]  time is equal to distance divided by speed.
+[00:41.04 -> 00:41.16]  So
+[00:41.76 -> 00:46.74]  time taken by the train is distance covered by the train divided by the speed of the train,
+[00:47.08 -> 00:48.70]  which is x divided by thirty,
+[00:49.22 -> 00:58.92]  and time taken by the bus is distance covered by the bus divided by the speed of the bus, which is one hundred minus x divided by ten.
+[00:59.44 -> 01:04.36]  Now, we know that the total journey takes six hours, so we simply add both the times.
+[01:04.84 -> 01:12.74]  That gives us x divided by thirty plus one hundred minus x divided by ten is equal to six. After simplifying this,
+[01:13.40 -> 01:22.16]  x plus three hundred minus three x is equal to one hundred eighty. After solving this, x is equal to sixty. So the train traveled sixty kilometers.
+[01:22.62 -> 01:25.98]  Hence, the correct answer is option B.

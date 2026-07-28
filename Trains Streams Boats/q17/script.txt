@@ -1,0 +1,53 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given that the motorboat travels at 20 kilo-mee-ter per hour with the current, and 12 kilo-mee-ter per hour against the current.
+
+The question is asking us to find the speed of the boat in still water.
+
+Let the speed of the boat in still water be b kilo-mee-ter per hour.
+
+And let the speed of the current be c kilo-mee-ter per hour.
+
+Now what do these two values mean?
+
+The value b is the speed of the boat when the water is completely still. That means there is no current in the river.
+
+And c is the speed at which the river water itself is flowing.
+
+Now let us understand "downstream" and "upstream".
+
+When the boat moves along with the current, the current helps the boat move faster.
+
+So,
+
+Downstream Speed = b pluss c.
+
+When the boat moves against the current, the current slows the boat down.
+
+So,
+
+Upstream Speed = b my-nus c.
+
+Now we can use the given values.
+
+ downstream speed ,b pluss c = 20
+
+upstream speed, b my-nus c = 12
+
+Now this part is done.
+
+If we add both equations, c gets cancelled.
+
+After simplifying, we get:
+
+2b = 32
+
+So,
+
+b = 16.
+
+<break time="0.6s" />
+
+Hence, the speed of the boat in still water is "16 kilo-mee-ter per hour."
+
+So the correct option is "Option A".

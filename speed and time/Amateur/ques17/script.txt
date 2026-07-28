@@ -1,0 +1,58 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, Alice travels by car to reach point C.
+If she travels at 40 kilo-mee-ter per hour, she reaches at 5 P.M.
+If she travels at 60 kilo-mee-ter per hour, she reaches at 1 P.M.
+
+The question is asking us to find the speed required to reach at 3 P.M.
+
+Now first understand the time difference.
+At 40 kilo-mee-ter per hour, she reaches at 5 P.M.
+At 60 kilo-mee-ter per hour, she reaches at 1 P.M.
+
+So the slower speed takes 4 hours more.
+This is the main point.
+
+Let the time taken at 60 kilo-mee-ter per hour be t hours.
+Then the time taken at 40 kilo-mee-ter per hour will be t plus 4 hours.
+
+Now distance is same in both cases.
+So we can use,
+
+distance is equal to speed into time.
+
+At 60 kilo-mee-ter per hour , distance will be 60 into t.
+At 40 kilo-mee-ter per hour , distance will be 40 into t plus 4.
+
+Since distance is same, we can write,
+60t is equal to 40 into t plus 4.
+
+After simplifying this,
+60t is equal to 40t plus 160.
+
+So 20t is equal to 160.
+That gives t equal to 8.
+
+So time taken at 60 kilo-mee-ter per hour is 8 hours.
+
+Now distance will be 60 into 8.
+That is 480 kilo-mee-ter.
+
+Now let us find the starting time.
+At 60 kilo-mee-ter per hour, Alice reaches at 1 P.M.
+And the journey time is 8 hours.
+
+So starting time is 1 P.M. minus 8 hours.
+That gives 5 A.M.
+
+Now she wants to reach at 3 P.M.
+From 5 A.M. to 3 P.M., total time is 10 hours.
+
+So required speed is distance divided by time.
+That is 480 divided by 10.
+
+So required speed is 48 kilo-mee-ter per hour.
+
+hence the final answer will be 48 kilo-mee-ter per hour.
+
+so, option D  is the correct answer.

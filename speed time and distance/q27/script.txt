@@ -1,0 +1,55 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that the length of the train is 180 m.
+
+The speed of the train is 54 km/h.
+
+And the train takes 30 seconds to completely pass a platform.
+
+The question is asking us to find the length of the platform.
+
+Now first, let us understand one important concept.
+
+When a train crosses a platform, it does not cover only its own length.
+
+It covers the length of the train "plus" the length of the platform.
+
+Now first, let us convert the speed into m/s.
+
+We know,
+
+Speed in m/s is equal to Speed in km/h into 5 by 18.
+
+Putting the values,
+
+54 into 5 by 18.
+
+This gives us 15 m/s.
+
+Now that we know the speed, we can find the total distance covered in 30 seconds.
+
+We know the formula.
+
+Distance is equal to Speed into Time.
+
+Distance is equal to 15 into 30.
+
+This gives us 450 m.
+
+Now this 450 m is the total distance covered while crossing the platform.
+
+That means,
+
+Train Length plus Platform Length is equal to 450.
+
+The train length is already given as 180 m.
+
+So,
+
+Platform Length is equal to 450 my-nus 180.
+
+This gives us 270 m.
+
+So the length of the platform is "270 m."
+
+Hence, the correct answer is "Option C."

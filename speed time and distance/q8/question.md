@@ -1,0 +1,36 @@
+Question:
+A boat's downstream and upstream speeds are 24 km/hr and 16 km/hr. Find the speed of the current.
+
+Options:
+A. 3 km/hr
+B. 5 km/hr
+C. 6 km/hr
+D. 4 km/hr
+
+Correct Option: D
+
+Solution:
+Let the speed of the boat in still water be B km/hr, and the speed of the current be C km/hr.
+
+When the boat moves in the same direction as the river, the boat's speed and the current's speed add up:
+Downstream Speed = B + C
+
+When the boat moves against the flow of the river, the current's speed is subtracted from the boat's speed:
+Upstream Speed = B - C
+
+Given:
+Downstream: B + C = 24 km/hr
+Upstream: B - C = 16 km/hr
+
+Step 1: Subtract equation (2) from equation (1).
+(B + C) - (B - C) = 24 - 16
+The B terms cancel out, leaving:
+2C = 8
+
+Step 2: Divide both sides by 2.
+C = 4
+Speed of Current = 4 km/hr
+
+So the speed of the current is 4 km/hr.
+
+Hence, the correct answer is Option D.

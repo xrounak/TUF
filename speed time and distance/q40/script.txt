@@ -1,0 +1,51 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that the circular track is 600 mee-ter long.
+
+The speed of the first walker is 7 mee-ter per second.
+
+The speed of the second walker is 5 mee-ter per second.
+
+Both start from the same point, but they move in "opposite directions."
+
+The question is asking us to find after how many seconds they will meet for the first time.
+
+Now before solving, let us understand the idea first.
+
+Since they are moving in opposite directions, they are moving towards each other.
+
+Every second, the first walker covers 7 mee-ter.
+
+The second walker covers 5 mee-ter.
+
+So together, they reduce the distance between them by 12 mee-ter every second.
+
+Or simply, every second, together they cover 12 mee-ter of the track.
+
+Now they started from the same point.
+
+To meet again, together they must complete one full round of the circular track.
+
+One full round is 600 mee-ter.
+
+Got it? Perfect.
+
+Now let us solve it.
+
+Since together they cover 12 mee-ter every second,
+
+Time is equal to Total Distance divided by Relative Speed.
+
+Here, the Relative Speed is equal to 7 pluss 5, which is 12 mee-ter per second.
+
+Putting the values,
+
+Time is equal to 600 divided by 12.
+
+After simplifying this,
+
+we get 50 seconds.
+
+So, the two walkers will meet for the first time after "50 seconds."
+
+Hence, the correct answer is "Option A."

@@ -1,0 +1,23 @@
+
+  ⚠ composition_file_too_large: This HTML composition file has 309 lines. Smaller sub-compositions are easier to read, iterate on, and diff.
+    Fix: Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently.
+  ⚠ timeline_track_too_dense: Track 4 has 4 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.
+    Fix: Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate.
+  ✗ overlapping_clips_same_track: Track 4: clip ending at 48.9s overlaps with clip starting at 48.82s. Overlapping clips on the same track cause rendering conflicts.
+    Fix: Adjust data-start or data-duration so clips on the same track do not overlap, or move one clip to a different data-track-index.
+  ✗ overlapping_clips_same_track: Track 4: clip ending at 68.02s overlaps with clip starting at 68s. Overlapping clips on the same track cause rendering conflicts.
+    Fix: Adjust data-start or data-duration so clips on the same track do not overlap, or move one clip to a different data-track-index.
+  ✗ overlapping_clips_same_track: Track 4: clip ending at 79.5s overlaps with clip starting at 79.46s. Overlapping clips on the same track cause rendering conflicts.
+    Fix: Adjust data-start or data-duration so clips on the same track do not overlap, or move one clip to a different data-track-index.
+  ⚠ google_fonts_import: Composition loads fonts from fonts.googleapis.com. The producer resolves Google Fonts during compile/render, but raw external font requests add latency and can fail before canonicalization. Prefer mapped family names or local @font-face declarations when possible.
+    Fix: For bundled fonts, remove the Google Fonts <link> or @import and keep the font-family declaration. For custom fonts, use @font-face { font-family: '...'; src: url('...woff2'); }.
+
+┌  hyperframes preview
+[?25l│
+◇  Already running
+[?25h
+  Project   ques24
+  Studio    http://localhost:3002
+
+  Reusing existing server. Use --force-new to start a fresh instance.
+

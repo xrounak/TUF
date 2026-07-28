@@ -1,0 +1,19 @@
+<svg width="180" height="110" viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#6373db" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- wheels -->
+    <circle cx="40" cy="82" r="22" />
+    <circle cx="140" cy="82" r="22" />
+    <!-- body -->
+    <path d="M40 82 L78 50 L108 50 L140 82" />
+    <path d="M78 50 L70 30 L96 30" />
+    <path d="M96 30 L118 45 L140 82" />
+    <!-- seat -->
+    <path d="M108 50 L128 44" />
+    <!-- handlebar -->
+    <path d="M70 30 L58 20 M70 30 L84 18" />
+    <!-- exhaust -->
+    <path d="M108 50 L96 70 L60 70" />
+  </g>
+  <circle cx="40" cy="82" r="8" fill="#6373db" />
+  <circle cx="140" cy="82" r="8" fill="#6373db" />
+</svg>

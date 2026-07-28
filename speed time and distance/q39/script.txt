@@ -1,0 +1,55 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that the length of the circular track is 720 mee-ter.
+
+The speed of the first runner is 6 mee-ter per second.
+
+The speed of the second runner is 4 mee-ter per second.
+
+Both runners start together and run in the "same direction."
+
+The question is asking us to find after how many seconds they will meet again.
+
+Now before solving, let us understand the idea first.
+
+Every second, the faster runner covers 6 mee-ter.
+
+The slower runner covers 4 mee-ter.
+
+So every second, the faster runner gets "2 mee-ter" farther ahead.
+
+Or you can also think of it like this.
+
+The faster runner gains 2 mee-ter every second on the slower runner.
+
+Now they started from the same point.
+
+So how can the faster runner meet the slower runner again?
+
+He cannot meet him from the front.
+
+He has to come from "behind."
+
+That will happen only when the faster runner gets one complete round ahead of the slower runner.
+
+And one complete round is 720 mee-ter.
+
+So the faster runner has to gain a total lead of 720 mee-ter.
+
+Got it? Perfect.
+
+Now let us solve it.
+
+The gain every second is 2 mee-ter.
+
+so to gain 1 mee-ter it takes 0.5 sec 
+
+and to gain 720 it takes 720 into 0.5.
+
+After simplifying this,
+
+we get 360 seconds.
+
+So, the two runners will meet again after "360 seconds."
+
+Hence, the correct answer is "Option A."

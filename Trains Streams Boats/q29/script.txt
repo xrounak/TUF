@@ -1,0 +1,63 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given that the boat covers 60 kilo-mee-ter downstream in 3 hours, and the same 60 kilo-mee-ter upstream in 5 hours.
+
+The question is asking us to find the speed of the boat in still water.
+
+Let the speed of the boat in still water be b kilo-mee-ter per hour.
+
+And let the speed of the current be c kilo-mee-ter per hour.
+
+Now let us understand "downstream" and "upstream".
+
+When the boat moves along with the current, the current helps the boat move faster.
+
+So,
+
+Downstream Speed = b pluss c.
+
+When the boat moves against the current, the current slows the boat down.
+
+So,
+
+Upstream Speed = b my-nus c.
+
+Now the important point is, we are not given the speeds directly.
+
+We are given distance and time.
+
+So first, we need to find both speeds using the formula,
+
+Speed = Distance divided by Time.
+
+For downstream,
+
+60 divided by 3 gives 20.
+
+So,
+
+downstream speed ,b pluss c = 20.
+
+Now let us find the upstream speed.
+
+60 divided by 5 gives 12.
+
+So,
+
+upstream speed b my-nus c = 12.
+
+Done. Now the remaining part is easy.
+
+If we add both equations, c gets cancelled.
+
+After simplifying,
+
+2b = 32,
+
+so b = 16.
+
+<break time="0.6s" />
+
+Hence, the speed of the boat in still water is "16 kilo-mee-ter per hour."
+
+So the correct option is "Option A".

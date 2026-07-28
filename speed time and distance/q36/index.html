@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration CSS (car + road + formula/value labels) — not
+     a shared component, per design.md's "Illustration" section. Follows the
+     .car-scene pattern established in q6/index.html. */
+  .car-scene {
+    position: relative;
+    width: 900px;
+    height: 220px;
+  }
+  .car-scene .road {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    height: 6px;
+    background: #000000;
+    border-radius: 3px;
+    transform-origin: left center;
+  }
+  .car-scene .car-icon {
+    position: absolute;
+    left: 50%;
+    bottom: 66px;
+    width: 180px;
+    height: 180px;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  .car-scene .formula-tag {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--text);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+  }
+  .car-scene .value-label {
+    position: absolute;
+    bottom: 92px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--text);
+    white-space: nowrap;
+    opacity: 0;
+  }
+  .car-scene .value-label .hi { color: var(--primary); }
+  .car-scene .value-label.left { left: 20px; }
+  .car-scene .value-label.right { right: 20px; }
+
+  /* Positioned (not static) so it's ALREADY the containing block for its
+     two absolutely-positioned label children before apt.emphasize ever
+     touches it — GSAP's scale() would otherwise make it become the
+     containing block for the first time mid-tween (any non-"none"
+     transform does), snapping the labels to a different position for
+     that instant. inset:0 keeps it matching .car-scene's own box exactly,
+     so this has zero effect on the labels' resting position. */
+  #need-both-wrap {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Pinned recap — single icon + one short line, centered per design.md's
+     "single-icon recap → justify-content:center" rule. */
+  .pinned-car-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .pinned-car-scene .car-icon {
+    width: 90px;
+    height: 90px;
+  }
+  .pinned-car-scene .pinned-label {
+    font-size: 22px;
+    color: var(--text);
+    font-family: var(--font);
+    white-space: nowrap;
+  }
+  .pinned-car-scene .pinned-label .hi { color: var(--primary); }
+
+  /* DS-style options are full verdict sentences, not short numeric answers
+     — the template's 2x2 .options-grid (sized for e.g. "66 km/hr" at 28px)
+     would overflow/wrap badly here. Per-question override to a single
+     column of 4 rows with left-aligned, smaller text — still the same
+     .options-grid/.opt-btn components, just re-sized to fit this
+     question's actual content (same principle as SolutionCard's
+     "size it to actual content" rule in design.md). */
+  .options-grid.ds-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ds-list .opt-btn {
+    font-size: 22px;
+    text-align: left;
+    padding: 16px 28px 16px 80px;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-s9f6" id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="128.16" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Concept (0–37.74s)
+       Data-duration extends past PIN_TIME(37.74)+pinFlow(0.8)+buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-5krl" id="phase1" class="clip" data-start="0" data-duration="39.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <!-- Question card (full) — widened to 1600px for the 3-sentence DS prompt. -->
+    <div data-hf-id="hf-pjut" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:70px;width:1600px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-80g5" class="q-text">
+        Is the car's <span data-hf-id="hf-fk6x" class="num">average speed</span> above <span data-hf-id="hf-rp5q" class="num">60 km/hr</span>?<br data-hf-id="hf-x5px">
+        Statement I: The car covers <span data-hf-id="hf-h7se" class="num">180 km</span>.<br data-hf-id="hf-rsrt">
+        Statement II: The journey takes less than <span data-hf-id="hf-97v7" class="num">3 hours</span>.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: car + road, formula tag, "need both" value labels -->
+    <div data-hf-id="hf-bxaj" id="illustration" class="illustration" style="position:absolute;left:50%;top:520px;transform:translateX(-50%);
+                width:900px;height:220px;">
+      <div data-hf-id="hf-n2f9" class="car-scene">
+        <div data-hf-id="hf-7zfm" class="road"></div>
+        <img data-hf-id="hf-ek7s" id="car-icon" class="car-icon" src="illustration/car.svg">
+        <div data-hf-id="hf-q46o" id="formula-tag" class="formula-tag" style="left: 220px;">
+          Avg Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-36mc" class="bot hi">Time</span></span>
+        </div>
+        <div data-hf-id="hf-7rq8" id="need-both-wrap">
+          <div data-hf-id="hf-g8e9" id="label-distance" class="value-label left">Distance = <span data-hf-id="hf-sou9" class="hi">?</span></div>
+          <div data-hf-id="hf-9ty0" id="label-time" class="value-label right">Time = <span data-hf-id="hf-4xjp" class="hi">?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (37.74s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vjjk" id="q-pinned" class="clip" data-start="37.74" data-duration="93.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-mycd" class="q-text">
+        Is average speed &gt; <span data-hf-id="hf-0j5u" class="num">60 km/hr</span>? (I: <span data-hf-id="hf-5igi" class="num">180 km</span> &#160;·&#160; II: &lt; <span data-hf-id="hf-auhn" class="num">3 hrs</span>)
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration: small car + static formula recap. Nothing about
+       this recap changes over time (unlike arithmetic siblings where the
+       pinned label crossfades into a computed value) — every derived value
+       in this video lives in the solution cards, not the illustration — so
+       apt.ambientLoop is the only thing keeping it alive, for the longest
+       stretch of any sibling video (see storyboard PART 4). -->
+  <div data-hf-id="hf-rkz5" id="illus-pinned" class="clip" data-start="37.74" data-duration="88.5" data-track-index="3" style="position:absolute;left:280px;top:170px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <div data-hf-id="hf-klgc" class="pinned-car-scene">
+      <img data-hf-id="hf-jcge" id="illus-pinned-icon" class="car-icon" src="illustration/car.svg">
+      <div data-hf-id="hf-omkm" class="pinned-label">Avg Speed = Distance ÷ Time</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       Given = formula anchor (not raw given values — none exist yet at
+       this point in a DS question). Steps 1/2 = Statement I / II tested
+       independently. Step 3 = Combined reasoning.
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — brief formula recap, single paraphrased beat (not fresh
+       narration — the formula was already taught in Phase 1). -->
+  <div data-hf-id="hf-5jil" id="card-given" class="clip" data-start="38.6" data-duration="2.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-84ni" class="rv" data-t="38.60">Avg Speed = <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-g4i8" class="top hi">Distance</span><span data-hf-id="hf-ypoc" class="bot hi">Time</span></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Statement I alone -->
+  <div data-hf-id="hf-930c" id="card-step1" class="clip" data-start="40.8" data-duration="16.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-idsn" class="chip">Statement I</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-hbrj" class="rv" data-t="40.80">Distance =</span> <span data-hf-id="hf-4qul" class="hi rv" data-t="42.46">180 km</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-ylzc" class="rv" data-t="47.40">Time = <span data-hf-id="hf-64gs" class="hi">?</span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-nv30" class="ans rv" data-t="52.38">→ Not Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Statement II alone -->
+  <div data-hf-id="hf-5ir8" id="card-step2" class="clip" data-start="56.9" data-duration="16.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-kwmy" class="chip">Statement II</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-477e" class="rv" data-t="56.90">Time &lt;</span> <span data-hf-id="hf-e7ro" class="hi rv" data-t="60.50">3 hr</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-m2sb" class="rv" data-t="63.98">Distance = <span data-hf-id="hf-5q5r" class="hi">?</span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-0ful" class="ans rv" data-t="69.60">→ Not Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Combined (widened to 720px: longer lines than the default 640px) -->
+  <div data-hf-id="hf-1qk7" id="card-step3" class="clip" data-start="73.5" data-duration="53.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-8hiu" class="solution-card" style="position:absolute;left:600px;top:420px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-i870" class="chip">Combined</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-ssb6" class="rv" data-t="82.54">Speed = <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-clsi" class="top hi">180</span><span data-hf-id="hf-xir9" class="bot hi">Time</span></span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-db3i" class="rv" data-t="104.02">If Time = 3 hr → Speed = <span data-hf-id="hf-5ak9" class="hi">60 km/hr</span></span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-t1i8" class="rv" data-t="109.88">Time &lt; 3 hr ⇒ Speed</span> <span data-hf-id="hf-dhyr" class="hi rv" data-t="113.94">&gt; 60 km/hr</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-zuus" class="ans rv" data-t="120.06">⇒ Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — top values hand-spaced with a
+       real ~40px+ gap estimated from each card's line count (1/2/2/2
+       lines respectively — see storyboard PART 4).
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vapa" id="stack-given" class="clip" data-start="39.8" data-duration="91.5" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-d62m" class="math">
+          Avg Speed = <span data-hf-id="hf-sw1f" class="frac"><span data-hf-id="hf-exl5" class="top hi">Distance</span><span data-hf-id="hf-xx2a" class="bot hi">Time</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-hb9r" id="stack-step1" class="clip" data-start="55.9" data-duration="75.5" data-track-index="12" style="position:absolute;left:100px;top:260px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-wgvo" class="math">
+          Statement I: Distance = <span data-hf-id="hf-hk6l" class="hi">180 km</span>, Time = <span data-hf-id="hf-6x2u" class="hi">?</span><br data-hf-id="hf-ombl">
+          <span data-hf-id="hf-tpxc" class="ans">Not Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-uvel" id="stack-step2" class="clip" data-start="72.5" data-duration="58.5" data-track-index="13" style="position:absolute;left:100px;top:400px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-60j0" class="math">
+          Statement II: Time &lt; <span data-hf-id="hf-m0mt" class="hi">3 hr</span>, Distance = <span data-hf-id="hf-6irt" class="hi">?</span><br data-hf-id="hf-qsyj">
+          <span data-hf-id="hf-pjso" class="ans">Not Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ks52" id="stack-step3" class="clip" data-start="125.5" data-duration="5.5" data-track-index="14" style="position:absolute;left:100px;top:550px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-h8d4" class="math">
+          Combined: Speed = 180÷Time, T&lt;3hr<br data-hf-id="hf-r79k">
+          ⇒ Speed &gt; 60 &#160;→&#160; <span data-hf-id="hf-s72n" class="ans">Sufficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines — geometry set at runtime by apt.setStackLine(). -->
+  <div data-hf-id="hf-z0tr" id="line-g-1" class="clip stack-line" data-start="55.9" data-duration="75.5" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-f5gn" id="line-1-2" class="clip stack-line" data-start="72.5" data-duration="58.5" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-qicf" id="line-2-3" class="clip stack-line" data-start="125.5" data-duration="5.5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (125.5–128.16s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-swly" id="options-reveal" class="clip" data-start="125.5" data-duration="5.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid ds-list">
+        <div data-hf-id="hf-83h0" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>Statement II alone is sufficient.</div>
+        <div data-hf-id="hf-3z4i" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>Even both statements together are not sufficient.</div>
+        <div data-hf-id="hf-g3je" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>Both statements together are sufficient, but neither alone is sufficient.</div>
+        <div data-hf-id="hf-vrfd" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>Statement I alone is sufficient.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6; // "...time for one more problem." ends 4.24
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Car + road build in, then idle-bob for the rest of Phase 1 — the car
+  // never drives anywhere in this video (there's no distance/speed to
+  // animate yet, which is the whole point of the question).
+  apt.roadSweep(tl, "#illustration .road", 4.9);
+  apt.cardEnter(tl, "#car-icon", 5.3);
+  apt.ambientLoop(tl, "#car-icon", 5.3, 37.74);
+
+  // The formula, taught as its own beat.
+  apt.cardEnter(tl, "#formula-tag", 20.28);
+
+  // "We must know BOTH the distance and the time" — the core DS rule,
+  // planted visually before either statement is tested.
+  apt.cardEnter(tl, "#label-distance", 29.84);
+  apt.cardEnter(tl, "#label-time", 31.26);
+  apt.emphasize(tl, "#need-both-wrap", 32.16);
+
+  // PHASE 2 — Pin, then Given
+  const PIN_TIME = 37.74;
+  const GIVEN_TIME = 38.6; // formula recap — a brief bridge, not fresh narration
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Pinned car keeps its idle bob for the entire solving stretch — nothing
+  // about the pinned illustration itself ever changes (no crossfading
+  // label, no brake/flip), so this is the only thing keeping it alive.
+  const RECENTER_TIME = 125.5;
+  apt.ambientLoop(tl, "#illus-pinned-icon", PIN_TIME + 1, RECENTER_TIME);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — Statement I alone: distance known, time unknown → Not Sufficient
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 39.8);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 40.8);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Statement II alone: time bounded, distance unknown → Not Sufficient
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 55.9);
+  apt.stackLineGrow(tl, "#line-g-1", 55.9);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 56.9);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — Combined: divide-by-smaller-value insight → Sufficient. By far
+  // the longest-held active card (52s) — one unbroken logical argument with
+  // no natural mid-point to split into a second card (see storyboard PART 4).
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 72.5);
+  apt.stackLineGrow(tl, "#line-1-2", 72.5);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 73.5);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 3 joins the stack: grow the 2→3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 125.9);
+  apt.optionsStagger(tl, ".opt-btn", 126.3);
+  apt.correctPulse(tl, ".opt-btn.correct", 128.02);
+
+  // ── END FADE
+  const END_FADE_TIME = 129.2;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},132)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

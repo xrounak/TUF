@@ -1,0 +1,13 @@
+<svg width="90" height="54" viewBox="0 0 90 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- wheels -->
+  <circle cx="18" cy="42" r="10" stroke="#000" stroke-width="3" fill="none"/>
+  <circle cx="72" cy="42" r="10" stroke="#000" stroke-width="3" fill="none"/>
+  <!-- frame -->
+  <path d="M18 42 L38 18 L58 42 M38 18 L48 18 L72 42 M48 18 L44 8 M58 42 L38 42" stroke="#6373db" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- seat -->
+  <path d="M40 8 L50 8" stroke="#6373db" stroke-width="4" stroke-linecap="round"/>
+  <!-- handlebar -->
+  <path d="M58 12 L58 20 M53 12 L63 12" stroke="#6373db" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- pedal -->
+  <circle cx="48" cy="42" r="4" fill="#000"/>
+</svg>

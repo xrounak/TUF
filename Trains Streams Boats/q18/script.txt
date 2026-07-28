@@ -1,0 +1,60 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given that a train is 200 mee-ter long and it is running at 54 kilo-mee-ter per hour.
+
+The train crosses a platform in 30 seconds.
+
+The question is asking us to find the length of the platform.
+
+Now the important words here are "crosses a platform."
+<break time="0.5s" />
+
+What does this actually mean?
+
+When a train crosses a platform, it does not cover only the platform.
+
+The entire train has to enter the platform and then completely come out of it.
+
+So the total distance covered is,
+
+Length of the Train pluss Length of the Platform.
+
+This is the basic concept to remember.
+
+Now let us assume the length of the platform is **x** mee-ter.
+
+Before using the formula, let us convert the speed into mee-ter per second.
+
+54 multiplied by 5 divided by 18 gives us 15 mee-ter per second.
+
+Done. Now we have all the values we need.
+
+We know,
+
+Distance = Speed multiplied by Time.
+
+So,
+
+Distance = 15 multiplied by 30 = 450 mee-ter.
+
+Now that we have found the total distance, we can use it in the next step.
+
+Since,
+
+Length of Train pluss Length of Platform = Total Distance,
+
+we get,
+
+200 pluss x = 450.
+
+After simplifying this, we get,
+
+x = 450 my-nus 200,
+
+which is 250 mee-ter.
+
+<break time="0.6s" />
+
+Hence, the length of the platform is "250 mee-ter."
+
+So the final answer will be Option B.

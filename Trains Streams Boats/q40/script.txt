@@ -1,0 +1,54 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, a passenger is sitting inside a train moving at 36 kilo-mee-ter per hour.
+
+He sees another train of length 180 mee-ter coming from the opposite direction at 54 kilo-mee-ter per hour.
+
+The question is asking us to find how much time the other train takes to completely pass the passenger.
+
+Now the important point here is that the passenger is treated as a "point".
+
+Since a passenger has no length, the other train only needs to cover its own length, which is 180 mee-ter.
+<break time="0.5s" />
+
+The trains are moving in opposite directions.
+
+What does that mean?
+
+It means their speeds add up.
+
+So the relative speed will be,
+
+36 pluss 54 <break time="0.5s" />= 90 kilo-mee-ter per hour.
+
+Now we need the speed in mee-ter per second.
+
+So,
+
+90 × 5 by 18<break time="0.5s" /> = 25 mee-ter per second.
+
+Done. Now we have everything we need.
+<break time="0.5s" />
+
+We know,
+
+Distance = Length of the other train = 180 mee-ter.
+
+Relative Speed = 25 mee-ter per second.
+
+Using the formula,
+
+Time = Distance divided by Speed.
+
+So,
+
+Time = 180 divided by 25.
+
+After calculating this, we get,
+
+Time = 7.2 seconds.
+<break time="0.6s" />
+
+Hence, the other train takes "7.2 seconds" to completely pass the passenger.
+
+So the correct option is "Option D".

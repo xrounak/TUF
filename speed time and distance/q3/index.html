@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ── Per-question illustration (runner on a road) ──
+     Custom to this question, not part of the shared design system. */
+  #road {
+    position: absolute; left: 50px; top: 140px; width: 1300px; height: 14px;
+    background: #c7cbd6; border-radius: 7px;
+  }
+  #road .center-line {
+    position: absolute; top: 50%; left: 0; right: 0; height: 3px; transform: translateY(-50%);
+    background-image: repeating-linear-gradient(90deg, #ffffff 0 22px, transparent 22px 40px);
+  }
+  #runner { position: absolute; left: 20px; top: 20px; width: 130px; height: 130px; opacity: 0; }
+  #runner img { width: 100%; height: 100%; display: block; }
+
+  .speed-label, .time-label {
+    position: absolute; font-family: var(--font); font-weight: 400; opacity: 0;
+  }
+  .speed-label { left: 560px; top: 30px; font-size: 30px; color: var(--primary); }
+  .time-label {
+    left: 560px; top: 172px; font-size: 24px; color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .time-label svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+  /* Pinned (small) illustration re-uses the same icon */
+  #runner-pinned-icon { width: 110px; height: 110px; display: block; }
+  .pinned-recap {
+    font-family: var(--font); font-weight: 400; font-size: 22px; color: var(--topic);
+  }
+  .pinned-recap .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-u1rw" class="topic-name">Speed-Time-Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-owui" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="86.6" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–14.3s)
+       data-duration extends past PIN_TIME (13.3) + pinFlow's 0.8s glide + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mhdq" id="phase1" class="clip" data-start="0" data-duration="14.3" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-ywyz" class="q-text">
+        A runner maintains a speed of <span data-hf-id="hf-ceku" class="num">6 m/sec</span> for <span data-hf-id="hf-etq1" class="num">12 minutes</span>. What distance does the runner cover?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — runner on a road -->
+    <div data-hf-id="hf-w7qn" id="illustration" class="illustration" style="position:absolute;left:50%;top:480px;transform:translateX(-50%);
+                width:1400px;height:300px;">
+      <div data-hf-id="hf-mftz" id="road">
+        <div data-hf-id="hf-a8gq" class="center-line"></div>
+      </div>
+      <div data-hf-id="hf-49wv" id="runner"><img data-hf-id="hf-hpl9" src="illustration/runner.svg" alt=""></div>
+      <div data-hf-id="hf-w6bh" id="speed-label" class="speed-label">6 m/s</div>
+      <div data-hf-id="hf-xhvx" id="time-label" class="time-label">
+        <svg data-hf-id="hf-aq7j" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle data-hf-id="hf-v7r9" cx="12" cy="12" r="9.5" stroke="#6373db" stroke-width="2" />
+          <path data-hf-id="hf-xdne" d="M12 7v5l3.2 2" stroke="#6373db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        12 min
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (13.3s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-3ub0" id="q-pinned" class="clip" data-start="13.3" data-duration="75.7" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-ro0n" class="q-text">
+        A runner maintains a speed of <span data-hf-id="hf-8qh2" class="num">6 m/s</span> for <span data-hf-id="hf-7epw" class="num">12 min</span>. Find the distance.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, single icon — centered per design.md) -->
+  <div data-hf-id="hf-jqtr" id="illus-pinned" class="clip" data-start="13.3" data-duration="71" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:24px;">
+    <img data-hf-id="hf-uwha" id="runner-pinned-icon" src="illustration/runner.svg" alt="">
+    <div data-hf-id="hf-zi35" class="pinned-recap">Speed = <span data-hf-id="hf-4umi" class="num">6 m/s</span> · Time = <span data-hf-id="hf-x4e4" class="num">12 min</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — data-duration extends past its own morphToStack completion (20.6+0.8=21.4, +0.3 buffer). -->
+  <div data-hf-id="hf-auwe" id="card-given" class="clip" data-start="16.4" data-duration="5.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-pi6o" class="rv" data-t="16.4">Speed = <span data-hf-id="hf-su9r" class="hi">6 m/s</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-9n4c" class="rv" data-t="19.1">Time = <span data-hf-id="hf-8ipj" class="hi">12 min</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Convert time to seconds (the common-mistake / unit-mismatch beat).
+       data-duration extends past its own morphToStack completion (44.2+0.8=45.0, +0.3 buffer). -->
+  <div data-hf-id="hf-x7zu" id="card-step1" class="clip" data-start="21.6" data-duration="23.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-th4x" class="rv" data-t="22.8">Units don't match — convert time</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-80mj" class="rv" data-t="34.0">1 min = 60 sec</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-jgz1" class="rv" data-t="37.98">12</span> <span data-hf-id="hf-vdiy" class="rv" data-t="37.98">min</span> <span data-hf-id="hf-ny2k" class="rv" data-t="39.24">=</span> <span data-hf-id="hf-m11t" class="rv" data-t="39.7">12</span> <span data-hf-id="hf-pbau" class="rv" data-t="40.02">×</span> <span data-hf-id="hf-32oo" class="rv" data-t="40.56">60</span> <span data-hf-id="hf-d6jd" class="rv" data-t="41.28">=</span> <span data-hf-id="hf-rir9" class="ans rv" data-t="42.84">720 sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Apply the formula.
+       data-duration extends past its own morphToStack completion (61.9+0.8=62.7, +0.3 buffer). -->
+  <div data-hf-id="hf-84rv" id="card-step2" class="clip" data-start="45.2" data-duration="17.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-81aw" class="rv" data-t="48.24">Distance = Speed × Time</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-cctl" class="rv" data-t="53.56">=</span> <span data-hf-id="hf-zq1j" class="hi rv" data-t="54.06">6</span> <span data-hf-id="hf-4npu" class="rv" data-t="54.58">×</span> <span data-hf-id="hf-36af" class="hi rv" data-t="55.28">720</span>
+          <span data-hf-id="hf-mw7o" class="rv" data-t="58.54">=</span> <span data-hf-id="hf-qbz2" class="ans rv" data-t="59.14">4320 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Convert meters to kilometers.
+       data-duration extends past its own morphToStack completion (82.7+0.8=83.5, +0.3 buffer). -->
+  <div data-hf-id="hf-8ig9" id="card-step3" class="clip" data-start="62.9" data-duration="20.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-tbvm" class="rv" data-t="69.2">1000 m = 1 km</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-99vv" class="rv" data-t="73.78">4320</span> <span data-hf-id="hf-099e" class="rv" data-t="75.24">÷</span> <span data-hf-id="hf-mym2" class="rv" data-t="76.1">1000</span> <span data-hf-id="hf-6off" class="rv" data-t="77.3">=</span> <span data-hf-id="hf-lklo" class="ans rv" data-t="77.82">4.32 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — G / 1 / 2 / 3
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-4nx5" id="stack-given" class="clip" data-start="20.6" data-duration="68.4" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-j60q" class="math">
+          Speed = <span data-hf-id="hf-gny7" class="hi">6 m/s</span><br data-hf-id="hf-q7jp">
+          Time = <span data-hf-id="hf-sddj" class="hi">12 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-7ejk" id="stack-step1" class="clip" data-start="44.2" data-duration="44.8" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-dc75" class="math">
+          12 min = 12 × 60 = <span data-hf-id="hf-76fj" class="ans">720 sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-0ja7" id="stack-step2" class="clip" data-start="61.9" data-duration="27.1" data-track-index="13" style="position:absolute;left:100px;top:440px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-pnfd" class="math">
+          Distance = 6 × 720 = <span data-hf-id="hf-qr5f" class="ans">4320 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-izkb" id="stack-step3" class="clip" data-start="82.7" data-duration="6.3" data-track-index="14" style="position:absolute;left:100px;top:590px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-atdq" class="math">
+          4320 ÷ 1000 = <span data-hf-id="hf-vafw" class="ans">4.32 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines — geometry set at runtime via apt.setStackLine(). -->
+  <div data-hf-id="hf-mc2f" id="line-g-1" class="clip stack-line" data-start="44.2" data-duration="44.8" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-0fn9" id="line-1-2" class="clip stack-line" data-start="61.9" data-duration="27.1" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-c07k" id="line-2-3" class="clip stack-line" data-start="82.7" data-duration="6.3" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (~84s onward)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-420w" id="options-reveal" class="clip" data-start="84.0" data-duration="5.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-4eii" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>4.8 km</div>
+        <div data-hf-id="hf-h2pr" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>4.32 km</div>
+        <div data-hf-id="hf-g2zf" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>3.6 km</div>
+        <div data-hf-id="hf-lp3w" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>4 km</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set each stack-line's geometry from the ACTUAL rendered circle centers.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal (starts lowered, rises exactly as the
+  // opening narration line ends at 2.6s — "...one more problem.")
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 2.6;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build — road sweeps in, the runner enters, then drifts
+  // steadily along the road while the problem is restated (linear, no
+  // bounce — represents continuous running, not a punctual entrance).
+  apt.roadSweep(tl, "#road", 3.0);
+  apt.cardEnter(tl, "#runner", 3.4);
+  tl.to("#runner", { x: 880, duration: 9.3, ease: "none" }, 3.7);
+
+  // Speed/time labels land exactly on the words that name them.
+  apt.fadeIn(tl, "#speed-label", 6.0);
+  apt.fadeIn(tl, "#time-label", 7.3);
+
+  // PHASE 2 — Pin, then Given (two SEPARATE timestamps).
+  const PIN_TIME = 13.3;
+  const GIVEN_TIME = 16.4;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Ambient bob on the pinned icon — keeps the pinned area alive through
+  // the long Given/Step1/Step2/Step3 stretch.
+  apt.ambientLoop(tl, "#runner-pinned-icon", PIN_TIME + 1.2, 83.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — morph Given card into Given stack (0.8s).
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 20.6);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 21.6);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 joins the stack: grow the G→1 connector line.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 44.2);
+  apt.stackLineGrow(tl, "#line-g-1", 44.2);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 45.2);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — Step 2 joins the stack: grow the 1→2 connector line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 61.9);
+  apt.stackLineGrow(tl, "#line-1-2", 61.9);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 62.9);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  const RECENTER_TIME = 83.5;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 3 joins the stack: grow the 2→3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 82.7);
+  apt.stackLineGrow(tl, "#line-2-3", 82.7);
+  apt.fadeIn(tl, "#options-reveal", 84.0);
+  apt.optionsStagger(tl, ".opt-btn", 84.5);
+  apt.correctPulse(tl, ".opt-btn.correct", 85.8);
+
+  // ── END FADE — everything fades out together, once, after the correct
+  // pulse and narration have both settled (narration ends 86.52s).
+  const END_FADE_TIME = 86.9;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},89)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

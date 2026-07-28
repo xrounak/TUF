@@ -1,0 +1,60 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given two trains.
+
+The length of the faster train is 180 mee-ter.
+The length of the slower train is 120 mee-ter.
+
+Their speeds are 72 kilo-mee-ter per hour and 54 kilo-mee-ter per hour.
+
+The question is asking us to find how much time the faster train takes to completely overtake the slower train.
+
+<break time="0.5s" />
+
+Now the important point here is that both trains are moving in the "same direction".
+
+What does that mean?
+
+It means we will not add the speeds.
+
+We will take the "difference of speeds", because one train is catching up with the other.
+
+So the relative speed is 72 my-nus 54, which is 18 kilo-mee-ter per hour.
+
+Now we need the speed in mee-ter per second.
+
+So 18 multiplied by 5 upon 18 gives us 5 mee-ter per second.
+
+Got it? Perfect.
+
+<break time="0.5s" />
+
+Now let us find the distance that the faster train has to cover.
+
+When one train completely overtakes another train, it has to pass its own length as well as the entire length of the other train.
+
+So we add both train lengths.
+
+180 pluss 120 gives us 300 mee-ter.
+
+Now this part is done.
+
+We have the distance, and we also have the relative speed.
+
+<break time="0.5s" />
+
+Now we can use the formula.
+
+Time equals Distance divided by Speed.
+
+Putting the values,
+
+Time equals 300 divided by 5.
+
+After solving this, we get 60 seconds.
+
+<break time="0.6s" />
+
+Hence, the faster train will take "60 seconds" to completely overtake the slower train.
+
+So the final answer is "Option D".

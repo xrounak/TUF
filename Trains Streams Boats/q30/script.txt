@@ -1,0 +1,65 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now let us first read the question.
+
+A 210 mee-ter train passes a cyclist moving in the same direction at 6 kilo-mee-ter per hour in 14 seconds. We need to find the speed of the train.
+
+Given,
+
+Length of train = 210 mee-ter
+
+Cyclist Speed = 6 kilo-mee-ter per hour
+
+Time = 14 seconds
+
+Let the speed of the train be "T" kilo-mee-ter per hour.
+
+Now what is our approach?
+
+The important words are "same direction".
+
+When two objects move in the same direction, we never use the actual speed. We use "relative speed" because the train is only catching up with the cyclist.
+
+So,
+
+Relative Speed = Train Speed − Cyclist Speed
+
+= T − 6.
+
+Now we need the value of this relative speed.
+
+When a train passes a cyclist, the cyclist is treated like a point.
+
+So the train covers only its own length.
+
+Hence,
+
+Relative Speed = Distance ÷ Time
+
+where distance covered is length of the train
+
+so Relative speed = 210 ÷ 14
+
+= 15 mee-ter per second.
+
+But our variable T is in kilo-mee-ter per hour.
+
+So first convert the relative speed.
+
+15 × 3.6 = 54 kilo-mee-ter per hour.
+
+Now substitute this into our equation.
+
+relative speed = T - 6 so 
+
+T − 6 = 54.
+
+Adding 6 on both sides,
+
+T = 60 kilo-mee-ter per hour.
+
+<break time="0.6s" />
+
+Hence, the speed of the train is "60 kilo-mee-ter per hour".
+
+So the correct option is "Option B".

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration (train + platform, single crossing) */
+  #illus-track {
+    position:absolute; left:260px; top:150px; width:900px; height:0;
+    border-top:3px dashed #c7cbf2; opacity:0; transform:scaleX(0); transform-origin:left center;
+  }
+
+  #illus-train-wrap { position:absolute; left:260px; top:0; width:180px; text-align:center; z-index:3; }
+  #illus-train { width:160px !important; height:160px !important; max-width:160px; max-height:160px; object-fit:contain; display:block; margin:16px auto 0; opacity:0; }
+  #illus-train-label { margin-top:10px; font-size:24px; color:var(--primary); opacity:0; white-space:nowrap; }
+
+  #illus-platform-wrap { position:absolute; left:720px; top:20px; width:260px; text-align:center; z-index:1; }
+  #illus-platform { display:block; margin:0 auto; width:240px !important; height:130px !important; max-width:240px; max-height:130px; object-fit:contain; opacity:0; }
+  #illus-platform-label { margin-top:10px; font-size:24px; color:var(--primary); opacity:0; white-space:nowrap; }
+
+  #illus-pinned-icon { width:70px !important; height:70px !important; max-width:70px; max-height:70px; object-fit:contain; display:block; }
+  .pinned-recap { font-size:22px; color:var(--topic); }
+  .pinned-recap .num { color:var(--primary); }
+
+  /* Distance-measure chip + growing measure line (10-28s liveliness beat) */
+  #illus-distance-chip {
+    position:absolute; left:260px; top:-46px; width:900px; text-align:center;
+    font-size:22px; color:var(--primary); opacity:0; white-space:nowrap;
+  }
+  #illus-measure-line {
+    position:absolute; left:700px; top:250px; width:460px; height:4px;
+    background:var(--primary); opacity:0; transform:scaleX(0); transform-origin:left center;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- BACKGROUND LAYERS (always visible) -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-kpxf" class="topic-name">Trains, Boats and Streams</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- VOICEOVER -->
+  <audio data-hf-id="hf-23yh" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="71.72" data-track-index="0"></audio>
+
+  <!-- PHASE 1 - Question + Illustration -->
+  <div data-hf-id="hf-5qnk" id="phase1" class="clip" data-start="0" data-duration="30.3" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-vfo8" class="q-text">
+        A <span data-hf-id="hf-dbl0" class="num">240 m</span> long train crosses a platform of length <span data-hf-id="hf-fonm" class="num">260 m</span> in <span data-hf-id="hf-ympz" class="num">25 seconds</span>. Find the speed of the train in <span data-hf-id="hf-ojzo" class="num">km/h</span>.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <div data-hf-id="hf-ofr2" id="illustration" style="position:absolute;left:50%;top:370px;transform:translateX(-50%);width:1500px;height:330px;">
+
+      <div data-hf-id="hf-513g" id="illus-track"></div>
+
+      <div data-hf-id="hf-p0cn" id="illus-distance-chip">Distance to cover = Train + Platform</div>
+      <div data-hf-id="hf-i958" id="illus-measure-line"></div>
+
+      <div data-hf-id="hf-k9ns" id="illus-train-wrap">
+        <img data-hf-id="hf-v7in" id="illus-train" src="illustration/train.svg" alt="">
+        <div data-hf-id="hf-45qn" id="illus-train-label">240 m</div>
+      </div>
+
+      <div data-hf-id="hf-ephb" id="illus-platform-wrap">
+        <img data-hf-id="hf-86in" id="illus-platform" src="illustration/train-station.svg" alt="">
+        <div data-hf-id="hf-kb05" id="illus-platform-label">260 m · 25 s</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 - Pinned question -->
+  <div data-hf-id="hf-vgoo" id="q-pinned" class="clip" data-start="28.98" data-duration="44.62" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-kvuk" class="q-text">
+        A <span data-hf-id="hf-uw0s" class="num">240 m</span> train crosses a <span data-hf-id="hf-daza" class="num">260 m</span> platform in <span data-hf-id="hf-yjdv" class="num">25 s</span>. Find the speed in km/h.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, single-icon recap, centered) -->
+  <div data-hf-id="hf-1uno" id="illus-pinned" class="clip" data-start="28.98" data-duration="44.62" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:40px;">
+    <img data-hf-id="hf-pvgx" id="illus-pinned-icon" src="illustration/train.svg" alt="">
+    <div data-hf-id="hf-xiby" class="pinned-recap">Train = <span data-hf-id="hf-tp3p" class="num">240 m</span> · Platform = <span data-hf-id="hf-jzy5" class="num">260 m / 25 s</span></div>
+  </div>
+
+  <!-- SOLUTION CARDS (Given, Step 1-2, center) -->
+
+  <div data-hf-id="hf-0oo3" id="card-given" class="clip" data-start="28.98" data-duration="12.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-o3d9" class="rv" data-t="28.98">Train length = <span data-hf-id="hf-o6rh" class="hi">240 m</span>, <br data-hf-id="hf-sldv">Platform length = <span data-hf-id="hf-vu7n" class="hi">260 m</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-uvv2" class="rv" data-t="34.26">240</span> <span data-hf-id="hf-vlxw" class="rv" data-t="34.98">+</span> <span data-hf-id="hf-arku" class="rv" data-t="35.3">260</span> <span data-hf-id="hf-prmj" class="rv" data-t="36.28">=</span> <span data-hf-id="hf-6wra" class="ans rv" data-t="36.62">500 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2yap" id="card-step1" class="clip" data-start="42.30" data-duration="13.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-7yr8" class="solution-card" style="position:absolute;left:610px;top:430px;text-align:center;width:700px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-s3xa" class="rv" data-t="43.1">Speed</span> <span data-hf-id="hf-12db" class="rv" data-t="43.64">=</span>
+          <span data-hf-id="hf-2q69" class="frac rv" data-t="44.04"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-36mc" class="bot hi">Time</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-wxl4" class="rv" data-t="47.32">Speed</span> <span data-hf-id="hf-gz0h" class="rv" data-t="47.8">=</span>
+          <span data-hf-id="hf-ennd" class="frac rv" data-t="48.22"><span data-hf-id="hf-nl0u" class="top hi">500</span><span data-hf-id="hf-6t40" class="bot hi">25</span></span>
+          <span data-hf-id="hf-711n" class="rv" data-t="52.04">=</span> <span data-hf-id="hf-hlha" class="ans rv" data-t="52.9">20 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-fx2l" id="card-step2" class="clip" data-start="56.5" data-duration="9.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-pp9o" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-wod9" class="math">
+          <span data-hf-id="hf-3vne" class="rv" data-t="56.5">Speed = 20 ×</span>
+          <span data-hf-id="hf-hitt" class="frac rv" data-t="59.42"><span data-hf-id="hf-gx3q" class="top hi">18</span><span data-hf-id="hf-m8wg" class="bot hi">5</span></span> km/h<br data-hf-id="hf-szow">
+          <span data-hf-id="hf-5ums" class="rv" data-t="62.68">=</span> <span data-hf-id="hf-numj" class="ans rv" data-t="62.68">72 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEFT STACK CARDS (completed steps) - G/1/2 -->
+  <div data-hf-id="hf-6bu3" id="stack-given" class="clip" data-start="39.64" data-duration="33.96" data-track-index="11" style="position:absolute;left:100px;top:180px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-ofls" class="math">
+          Total distance = <span data-hf-id="hf-v3no" class="hi">500 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2696" id="stack-step1" class="clip" data-start="54.48" data-duration="19.12" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-8idy" class="math">
+          Speed = <span data-hf-id="hf-hzcv" class="hi">20 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-b6na" id="stack-step2" class="clip" data-start="64.96" data-duration="8.64" data-track-index="13" style="position:absolute;left:100px;top:400px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-4liy" class="math">
+          Speed = <span data-hf-id="hf-f5ud" class="ans">72 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines - top/height computed at runtime by apt.setStackLine -->
+  <div data-hf-id="hf-4in7" id="line-g-1" class="clip stack-line" data-start="54.48" data-duration="19.12" data-track-index="20" style="opacity:0;"></div>
+  <div data-hf-id="hf-b8pe" id="line-1-2" class="clip stack-line" data-start="64.96" data-duration="8.64" data-track-index="21" style="opacity:0;"></div>
+
+  <!-- PHASE 3 - OPTIONS REVEAL -->
+  <div data-hf-id="hf-yp0l" id="options-reveal" class="clip" data-start="65.9" data-duration="7.7" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-ucmb" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>57.6 km/h</div>
+        <div data-hf-id="hf-w65v" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>64.8 km/h</div>
+        <div data-hf-id="hf-1f4u" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>72 km/h</div>
+        <div data-hf-id="hf-76mv" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>80 km/h</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.48;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build - dashed track sweeps in, train lands with its
+  // length label, platform lands with its length + time label.
+  apt.roadSweep(tl, "#illus-track", 4.8);
+  apt.fadeIn(tl, "#illus-train", 5.2);
+  apt.fadeIn(tl, "#illus-train-label", 5.6);
+  apt.fadeIn(tl, "#illus-platform", 9.32);
+  apt.fadeIn(tl, "#illus-platform-label", 9.8);
+
+  // 10-28s liveliness beat: the "crosses a platform" concept demonstrated
+  // as real motion instead of a static hold - distance chip announces the
+  // idea, the train physically slides across the platform, and a measure
+  // line grows underneath tracking exactly how much distance has been
+  // covered so far. This is per-question custom illustration motion (not
+  // a solution-card animation), so a direct gsap tween is used for the
+  // train's position - the same way q32's own illustration built its
+  // track/platform reveal with plain tl.fromTo calls.
+  apt.fadeIn(tl, "#illus-distance-chip", 10.2);
+  tl.to("#illus-train-wrap", { x: 700, duration: 8.5, ease: "power2.inOut" }, 12.5);
+  tl.fromTo("#illus-measure-line",
+    { scaleX: 0, opacity: 0 },
+    { scaleX: 1, opacity: 1, duration: 8.5, ease: "power2.inOut" },
+    12.5);
+  tl.call(() => {
+    document.querySelector("#illus-distance-chip").textContent = "240 + 260 = 500 m total distance";
+  }, null, 21.3);
+  apt.emphasize(tl, "#illus-distance-chip", 21.6);
+
+  // PHASE 2 - Pin, then Given (two SEPARATE timestamps - narration flows
+  // straight from the pin into the Given math here, so they land close
+  // together, but they remain distinct constants per the design rule).
+  const PIN_TIME = 28.98;
+  const GIVEN_TIME = 28.98;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 39.64);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 42.30);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 54.48);
+  apt.stackLineGrow(tl, "#line-g-1", 54.48);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 56.5);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Recenter - clear the stack column before options reveal.
+  const RECENTER_TIME = 65.7;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal - Step 2 joins the stack: grow the 1->2 line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 64.96);
+  apt.stackLineGrow(tl, "#line-1-2", 64.96);
+  apt.fadeIn(tl, "#options-reveal", 65.9);
+  apt.optionsStagger(tl, ".opt-btn", 66.3);
+  apt.correctPulse(tl, ".opt-btn.correct", 67.8);
+  apt.correctPulse(tl, ".opt-btn.correct", 71);
+
+  // END FADE - must start AFTER narration fully ends (71.72s total, the
+  // final "...option C." finishes at 71.64) - starting at 69.5 cut the
+  // fade before the voiceover was done, reading as unsynced silence.
+  const END_FADE_TIME = 72.2;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},74)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

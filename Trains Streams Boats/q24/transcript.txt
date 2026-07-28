@@ -1,0 +1,26 @@
+[00:00.10 -> 00:01.18]  So welcome back again.
+[00:01.80 -> 00:03.70]  It's time to solve one more problem.
+[00:04.22 -> 00:06.66]  Now, in this problem, we are given two trains.
+[00:07.20 -> 00:08.80]  The length of the faster train is
+[00:09.26 -> 00:10.66]  one hundred eighty meter.
+[00:11.26 -> 00:14.58]  The length of the slower train is one hundred twenty meter.
+[00:15.14 -> 00:16.66]  Their speeds are seventy-two
+[00:17.32 -> 00:18.34]  kilometer per hour
+[00:18.88 -> 00:19.70]  and fifty-four
+[00:20.20 -> 00:21.64]  kilometer per hour.
+[00:22.28 -> 00:23.88]  The question is asking us to find
+[00:24.58 -> 00:28.68]  how much time the faster train takes to completely overtake the slower train.
+[00:29.26 -> 00:34.56]  Now, the important point here is that both trains are moving in the same direction.
+[00:34.92 -> 00:35.60]  What does that mean?
+[00:36.12 -> 00:37.88]  It means we will not add the speeds.
+[00:38.34 -> 00:41.70]  We will take the difference of speeds because one train is catching up with the other.
+[00:42.16 -> 00:47.88]  So the relative speed is seventy-two minus fifty-four, which is eighteen kilometers per hour.
+[00:48.30 -> 00:54.98]  Now, we need the speed in meters per second. So eighteen multiplied by five over eighteen gives us five meters per second. Got it?
+[00:55.58 -> 00:55.94]  Perfect.
+[00:56.80 -> 01:00.02]  Now let us find the distance that the faster train has to cover.
+[01:00.40 -> 01:07.36]  When one train completely overtakes another train, it has to pass its own length as well as the entire length of the other train.
+[01:07.84 -> 01:09.30]  So we add both train lengths,
+[01:09.66 -> 01:14.44]  one hundred eighty plus one hundred twenty gives us three hundred meter. Now this part is done.
+[01:14.86 -> 01:19.66]  We have the distance, and we also have the relative speed. Now we can use the formula,
+[01:20.26 -> 01:22.94]  time equals distance divided by speed.
+[01:23.42 -> 01:38.90]  Putting the values, time equals three hundred divided by five. After solving this, we get sixty seconds. Hence, the faster train will take sixty seconds to completely overtake the slower train. So the final answer is option D.

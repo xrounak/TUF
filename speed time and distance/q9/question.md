@@ -1,0 +1,32 @@
+Question:
+A boat's speed in still water is 18 km/hr and the stream speed is 3 km/hr. How long will it take to go 84 km downstream?
+
+Options:
+A. 3 hours
+B. 3.5 hours
+C. 4.5 hours
+D. 4 hours
+
+Correct Option: D
+
+Solution:
+Given values:
+Boat speed in still water = 18 km/hr
+Stream speed = 3 km/hr
+Distance to travel = 84 km (downstream)
+
+When a boat moves downstream, it moves in the same direction as the flowing water. Because both the boat and the stream move in the same direction, the stream helps the boat move faster. So for downstream movement, we always add the speed of the stream to the speed of the boat.
+
+Downstream Speed = Speed of Boat in Still Water + Speed of Stream
+Downstream Speed = 18 + 3 = 21 km/hr
+
+Since we know the distance and the speed, we can find the time.
+Time = Distance / Speed
+
+Putting the values:
+Time = 84 / 21
+= 4 hours
+
+So the boat will take 4 hours to travel 84 km downstream.
+
+Hence, the correct answer is Option D.

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     PER-QUESTION ILLUSTRATION — Round-trip bus with a mid-journey
+     halt (per README "Illustration" section, per-question custom
+     CSS). Combines two sibling techniques: the bus literally drives
+     origin→destination and back (q18's point-to-point trip), and
+     halts at the destination with a brake squash + clock sweep
+     (q7's stop technique). All colors reuse existing tokens.
+     ═══════════════════════════════════════════════════════════════ */
+
+  #illustration {
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    transform: translateX(-50%);
+    width: 1300px;
+    height: 260px;
+  }
+
+  .trip-scene { position: relative; width: 1300px; height: 260px; }
+
+  .trip-scene .road {
+    position: absolute;
+    left: 150px; right: 150px; bottom: 70px;
+    height: 6px;
+    background: #000000;
+    border-radius: 3px;
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  #origin-marker, #dest-marker {
+    position: absolute;
+    bottom: 64px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  #origin-marker { left: 138px; }
+  #dest-marker { right: 138px; }
+  .marker-label {
+    position: absolute;
+    top: 34px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--topic);
+    white-space: nowrap;
+  }
+
+  /* Bus + its badges + skid-marks, one wrapper so they travel together
+     during the onward/return drive tweens. */
+  #bus-wrap {
+    position: absolute;
+    left: 150px; bottom: 40px;
+    width: 170px; height: 230px;
+    opacity: 0;
+  }
+  #bus-icon {
+    position: absolute; left: 0; bottom: 0;
+    width: 170px; height: 170px;
+    display: block;
+    transform: scaleX(-1); /* faces right — onward direction of travel */
+  }
+  .badge-col { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 220px; }
+  #dist-badge {
+    position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    opacity: 0;
+  }
+  #speed-badge-onward, #speed-badge-return, #halt-badge {
+    position: absolute; left: 50%; top: 44px; transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    opacity: 0;
+  }
+  .skid-mark {
+    position: absolute; bottom: -6px;
+    width: 16px; height: 4px;
+    background: var(--primary-light);
+    border-radius: 2px;
+    opacity: 0;
+  }
+  #skid-1 { left: 20px; }
+  #skid-2 { left: 120px; }
+
+  /* Halt clock — fixed at the destination (illustration-relative, not
+     part of #bus-wrap, so it stays put while the bus is parked). */
+  #halt-clock {
+    position: absolute; left: 950px; top: 0px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid var(--primary);
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  #clock-center {
+    position: absolute; left: 36px; top: 36px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+  #clock-hand {
+    position: absolute; left: 38.5px; top: 10px;
+    width: 3px; height: 28px;
+    background: var(--primary);
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: rotate(0deg);
+  }
+  #halt-label {
+    position: absolute; left: 890px; top: 90px;
+    width: 200px;
+    text-align: center;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--primary);
+    opacity: 0;
+  }
+
+  .avg-ghost {
+    position: absolute;
+    left: 50%; bottom: -4px;
+    transform: translateX(-50%);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--topic);
+    white-space: nowrap;
+    opacity: 0;
+  }
+
+  /* Pinned (Phase 2+) illustration recap — single icon + one short line,
+     centered per design.md's "Pinned illustration layout" guidance. */
+  .pinned-trip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%; height: 100%;
+  }
+  #illus-pinned-icon { width: 90px; height: 90px; transform: scaleX(-1); }
+  .pinned-trip-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .pinned-trip-label .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-vavb" id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="107.959" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Round-trip Bus Illustration
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-zmli" id="phase1" class="clip" data-start="0" data-duration="25.7" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-tqux" class="q-text">
+        A tour bus covers <span data-hf-id="hf-gvh1" class="num">150 km</span> at <span data-hf-id="hf-l7qo" class="num">75 km/hr</span>, halts for
+        <span data-hf-id="hf-7a11" class="num">30 minutes</span>, and returns the same <span data-hf-id="hf-g1op" class="num">150 km</span> at
+        <span data-hf-id="hf-nlsx" class="num">50 km/hr</span>. Find the <span data-hf-id="hf-fk6x" class="num">average speed</span>, including the halt.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <div data-hf-id="hf-y427" id="illustration">
+      <div data-hf-id="hf-q6ni" class="trip-scene">
+        <div data-hf-id="hf-dmxu" id="road" class="road"></div>
+        <div data-hf-id="hf-2nrm" id="origin-marker">
+          <div data-hf-id="hf-eb45" class="marker-label">Start</div>
+        </div>
+        <div data-hf-id="hf-at9k" id="dest-marker">
+          <div data-hf-id="hf-eput" class="marker-label">Destination</div>
+        </div>
+
+        <div data-hf-id="hf-h7ty" id="bus-wrap">
+          <div data-hf-id="hf-m7gg" class="badge-col">
+            <div data-hf-id="hf-akxp" id="dist-badge">150 km</div>
+            <div data-hf-id="hf-6mf3" id="speed-badge-onward">75 km/hr</div>
+            <div data-hf-id="hf-mv8p" id="speed-badge-return">50 km/hr</div>
+            <div data-hf-id="hf-o40o" id="halt-badge">Halted</div>
+          </div>
+          <img data-hf-id="hf-k535" id="bus-icon" src="illustration/bus.svg" alt="">
+          <div data-hf-id="hf-694c" class="skid-mark" id="skid-1"></div>
+          <div data-hf-id="hf-h4lz" class="skid-mark" id="skid-2"></div>
+        </div>
+
+        <div data-hf-id="hf-joot" id="halt-clock">
+          <div data-hf-id="hf-uu65" id="clock-center"></div>
+          <div data-hf-id="hf-7h9p" id="clock-hand"></div>
+        </div>
+        <div data-hf-id="hf-gzbl" id="halt-label">30 min halt</div>
+
+        <div data-hf-id="hf-kcjs" id="avg-ghost" class="avg-ghost">Average Speed = ?</div>
+      </div>
+    </div>
+
+    <!-- Given — opens early, in the SAME frame as the trip illustration,
+         fully populated by the time the pin fires (no re-entry needed —
+         morphs straight into the stack at PIN_TIME). -->
+    <div data-hf-id="hf-mxhc" id="card-given" class="solution-card" style="position:absolute;left:640px;top:700px;text-align:center;opacity:0;transform:translateY(40px) scale(0.92);">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-3epq" class="rv" data-t="6.899">Distance (each way) = <span data-hf-id="hf-vseu" class="hi">150 km</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-5w5j" class="rv" data-t="9.719">Speed (onward) = <span data-hf-id="hf-e4e7" class="hi">75 km/hr</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-vxuk" class="rv" data-t="12.84">Halt = <span data-hf-id="hf-2oov" class="hi">30 min</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-befr" class="rv" data-t="18.68">Speed (return) = <span data-hf-id="hf-kyhi" class="hi">50 km/hr</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-ws36" id="q-pinned" class="clip" data-start="24.34" data-duration="86.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-8br1" class="q-text">
+        Bus: <span data-hf-id="hf-h8ls" class="num">150 km</span> at <span data-hf-id="hf-q3lz" class="num">75</span> / <span data-hf-id="hf-thrp" class="num">50 km/hr</span>,
+        halt <span data-hf-id="hf-pv2w" class="num">30 min</span> — find <span data-hf-id="hf-81jh" class="num">average speed</span>.
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-cpi0" id="illus-pinned" class="clip" data-start="24.34" data-duration="75.0" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-0w32" class="pinned-trip">
+      <img data-hf-id="hf-y1kp" id="illus-pinned-icon" src="illustration/bus.svg" alt="">
+      <div data-hf-id="hf-6jxo" class="pinned-trip-label">Distance = <span data-hf-id="hf-guar" class="num">150 km</span> · Halt = <span data-hf-id="hf-dtyo" class="num">30 min</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — Total Distance (opens with the master formula as its
+       bridging first line, right as PIN_TIME fires) -->
+  <div data-hf-id="hf-sxgv" id="card-step1" class="clip" data-start="25.14" data-duration="22.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-npp5" class="solution-card" style="position:absolute;left:610px;top:460px;text-align:center;width:700px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-5kwl" class="rv" data-t="25.659">Avg Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-hn5z" class="top">Total Distance</span><span data-hf-id="hf-r4p7" class="bot">Total Time</span></span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-ezn1" class="rv" data-t="41.579">Total Distance = 150</span> <span data-hf-id="hf-9age" class="rv" data-t="42.419">+</span>
+          <span data-hf-id="hf-yhok" class="rv" data-t="42.719">150</span> <span data-hf-id="hf-mf32" class="rv" data-t="43.939"></span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-lci6" class="ans rv" data-t="44.619">= 300 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Time for Each Leg -->
+  <div data-hf-id="hf-e5j7" id="card-step2" class="clip" data-start="48.0" data-duration="19.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-1hjr" class="solution-card" style="position:absolute;left:610px;top:440px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-3sqf" class="rv" data-t="48.139">Time = <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-6iu9" class="top">Distance</span><span data-hf-id="hf-9pef" class="bot">Speed</span></span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-3jnn" class="rv" data-t="52.079">Onward:</span>
+          <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-t3s8" class="top hi rv" data-t="53.739">150</span><span data-hf-id="hf-jgyp" class="bot hi rv" data-t="55.699">75</span></span>
+          <span data-hf-id="hf-3bb5" class="rv" data-t="56.899">=</span> <span data-hf-id="hf-pwtd" class="ans rv" data-t="57.479">2 hr</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-ew0q" class="rv" data-t="58.299">Return:</span>
+          <span data-hf-id="hf-sw1f" class="frac"><span data-hf-id="hf-oolm" class="top hi rv" data-t="62.139">150</span><span data-hf-id="hf-dzyy" class="bot hi rv" data-t="63.719">50</span></span>
+          <span data-hf-id="hf-nb91" class="rv" data-t="64.76">=</span> <span data-hf-id="hf-q4qb" class="ans rv" data-t="65.479">3 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Total Time (Including the Halt) -->
+  <div data-hf-id="hf-amk6" id="card-step3" class="clip" data-start="66.639" data-duration="15.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-oq1b" class="rv" data-t="66.639">Halt =</span>
+          <span data-hf-id="hf-8v00" class="rv" data-t="68.379"><span data-hf-id="hf-70jj" class="hi">30 min</span></span>
+          <span data-hf-id="hf-aduz" class="rv" data-t="70.699">= <span data-hf-id="hf-vym9" class="hi">0.5 hr</span></span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-lpqu" class="rv" data-t="73.979">Total Time =</span> <span data-hf-id="hf-kanf" class="hi rv" data-t="75.18">2</span>
+          <span data-hf-id="hf-1col" class="rv" data-t="75.939">+</span> <span data-hf-id="hf-1uvv" class="hi rv" data-t="76.799">3</span>
+          <span data-hf-id="hf-t30l" class="rv" data-t="77.839">+ 0.5</span> <span data-hf-id="hf-yrqd" class="rv" data-t="79.119">=</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-orh9" class="ans rv" data-t="79.68">5.5 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — Average Speed -->
+  <div data-hf-id="hf-4qst" id="card-step4" class="clip" data-start="82.839" data-duration="16.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:560px;top:440px;text-align:center;width:800px;">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-4pch" class="chip">Step 4</span>
+        <div data-hf-id="hf-lgo5" class="math">
+          <span data-hf-id="hf-kkwx" class="rv" data-t="82.839">Average Speed = <span data-hf-id="hf-qwia" class="frac"><span data-hf-id="hf-cr6v" class="top">Total Distance</span><span data-hf-id="hf-8w6j" class="bot">Total Time</span></span></span><br data-hf-id="hf-ombl">
+          <span data-hf-id="hf-m68u" class="rv" data-t="86.619">=</span>
+          <span data-hf-id="hf-qi79" class="frac"><span data-hf-id="hf-hz6v" class="top hi rv" data-t="88.959">300</span><span data-hf-id="hf-mwlm" class="bot hi rv" data-t="90.299">5.5</span></span><br data-hf-id="hf-qsyj">
+          <span data-hf-id="hf-5s8t" class="rv" data-t="92.86">=</span> <span data-hf-id="hf-sr5r" class="hi rv" data-t="93.059">600/11</span><br data-hf-id="hf-r79k">
+          <span data-hf-id="hf-k3y4" class="rv" data-t="94.919">=</span> <span data-hf-id="hf-4mjk" class="ans rv" data-t="95.479">54 + (6/11) km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — top values are set at
+       runtime by layoutStack() below, from each card's real rendered
+       height, not hand-guessed.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-lp4a" id="stack-given" class="clip" data-start="24.34" data-duration="86.6" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-mxcs" class="math">
+          Distance (each way) = <span data-hf-id="hf-o6t6" class="hi">150 km</span><br data-hf-id="hf-q0ch">
+          Speed (onward) = <span data-hf-id="hf-c727" class="hi">75 km/hr</span><br data-hf-id="hf-qeni">
+          Halt = <span data-hf-id="hf-6m8i" class="hi">30 min</span><br data-hf-id="hf-p7qf">
+          Speed (return) = <span data-hf-id="hf-pim2" class="hi">50 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-bq39" id="stack-step1" class="clip" data-start="46.2" data-duration="64.7" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-uefk" class="math">
+          150 + 150 = <span data-hf-id="hf-g4s8" class="ans">300 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2hbs" id="stack-step2" class="clip" data-start="66.2" data-duration="44.7" data-track-index="13" style="position:absolute;left:100px;top:420px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-e9h8" class="math">
+          Onward: <span data-hf-id="hf-rp4c" class="frac"><span data-hf-id="hf-x7lg" class="top">150</span><span data-hf-id="hf-cy0c" class="bot">75</span></span> = <span data-hf-id="hf-fjl4" class="hi">2 hr</span><br data-hf-id="hf-pm1g">
+          Return: <span data-hf-id="hf-ratb" class="frac"><span data-hf-id="hf-a6rw" class="top">150</span><span data-hf-id="hf-er0h" class="bot">50</span></span> = <span data-hf-id="hf-m0mt" class="hi">3 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-v218" id="stack-step3" class="clip" data-start="81.159" data-duration="29.8" data-track-index="14" style="position:absolute;left:100px;top:550px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-xe81" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-v18r" class="math">
+          Halt = 0.5 hr<br data-hf-id="hf-of4d">
+          Total Time = <span data-hf-id="hf-kfuf" class="ans">5.5 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ge2b" id="stack-step4" class="clip" data-start="98.339" data-duration="12.6" data-track-index="18" style="position:absolute;left:100px;top:660px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2fcs" class="stack-card">
+      <div data-hf-id="hf-xsj2" class="card-content">
+        <span data-hf-id="hf-y1wg" class="step-circle">4</span>
+        <div data-hf-id="hf-d62m" class="math">
+          Avg Speed = <span data-hf-id="hf-54t8" class="ans">54 6/11 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines between stack circles — top/height are
+       set at runtime by apt.setStackLine() from the actual rendered
+       circle centers, not hand-guessed. -->
+  <div data-hf-id="hf-eze6" id="line-g-1" class="clip stack-line" data-start="46.2" data-duration="64.7" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-cpk0" id="line-1-2" class="clip stack-line" data-start="66.2" data-duration="44.7" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-wfqp" id="line-2-3" class="clip stack-line" data-start="81.159" data-duration="29.8" data-track-index="17" style="opacity:0;"></div>
+  <div data-hf-id="hf-dtmn" id="line-3-4" class="clip stack-line" data-start="98.339" data-duration="12.6" data-track-index="19" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-tjos" id="options-reveal" class="clip" data-start="99.139" data-duration="11.8" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-9kry" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>50 km/hr</div>
+        <div data-hf-id="hf-ffec" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>52 km/hr</div>
+        <div data-hf-id="hf-d2cw" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>56 km/hr</div>
+        <div data-hf-id="hf-wjwb" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>54 + (6/11) km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Space the stack column with a real, measured gap between each card's
+  // actual rendered height (Given has 4 lines and is the tallest) instead
+  // of a hand-guessed evenly-spaced value.
+  (function layoutStack() {
+    const ids = ["stack-given", "stack-step1", "stack-step2", "stack-step3", "stack-step4"];
+    const root = document.querySelector("#root");
+    const rootBox = root.getBoundingClientRect();
+    const pxScale = 1920 / rootBox.width;
+    const gap = 40;
+    let top = 140;
+    ids.forEach(function (id) {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      wrapper.style.top = top + "px";
+      const card = wrapper.querySelector(".stack-card");
+      const h = card ? card.getBoundingClientRect().height * pxScale : 120;
+      top += h + gap;
+    });
+  })();
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+  apt.setStackLine("#line-3-4", "#stack-step3 .step-circle", "#stack-step4 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6; // end of "Time for one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Scene build: markers + road, then the bus literally drives the
+  // round trip — origin→destination while the onward line plays, then
+  // destination→origin while the return line plays (q18's technique).
+  const ROAD_TRAVEL = 880;
+
+  tl.fromTo("#origin-marker, #dest-marker",
+    { opacity: 0, scale: 0.85 },
+    { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" },
+    3.9);
+  apt.roadSweep(tl, "#road", 4.0, 0.9);
+  tl.fromTo("#bus-wrap", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 4.5);
+
+  // Given card — pops in at 5s, right in the same frame as the trip
+  // scene, so it's already on screen a beat before its first value
+  // ("150 km") is spoken at 6.899s. Word/line reveal is synced straight
+  // off transcript.json. Morphs into the stack later, at PIN_TIME.
+  apt.cardEnter(tl, "#card-given", 5.0);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Onward leg — drive to the destination, synced to land right as
+  // "...per hour." finishes (11.439s).
+  tl.to("#bus-wrap", { x: ROAD_TRAVEL, duration: 6.5, ease: "power1.inOut" }, 4.9);
+
+  tl.fromTo("#dist-badge",
+    { y: -14, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" },
+    6.899);
+  tl.fromTo("#speed-badge-onward",
+    { y: -14, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" },
+    9.719);
+
+  // ── The halt — brake squash, badge swap, clock sweep (q7's technique)
+  tl.to("#bus-wrap", { scaleX: 1.07, scaleY: 0.93, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 11.98);
+  tl.fromTo("#skid-1, #skid-2", { opacity: 0 }, { opacity: 0.9, duration: 0.15, yoyo: true, repeat: 1 }, 11.98);
+  tl.to("#speed-badge-onward", { opacity: 0, duration: 0.3 }, 11.98);
+  tl.to("#halt-badge", { opacity: 1, duration: 0.3 }, 11.98);
+  apt.cardEnter(tl, "#halt-clock", 12.1);
+  apt.fadeIn(tl, "#halt-label", 12.84, 0.4);
+  tl.to("#clock-hand", { rotation: 90, duration: 2.5, ease: "none" }, 12.1);
+
+  // ── Return leg — clear the halt, flip the bus, drive back, synced to
+  // land right as "...per hour." finishes (20.059s).
+  tl.to("#halt-clock", { opacity: 0, duration: 0.3 }, 14.1);
+  tl.to("#halt-label", { opacity: 0, duration: 0.3 }, 14.1);
+  tl.to("#halt-badge", { opacity: 0, duration: 0.3 }, 14.1);
+  // Flip just the bus icon (not the whole wrap/badges) — a real -1→1
+  // scaleX transform so it visibly mirrors to face the return direction,
+  // instead of driving backwards in its onward-facing orientation.
+  tl.fromTo("#bus-icon",
+    { scaleX: -1 },
+    { scaleX: 1, duration: 0.4, ease: "power1.inOut" },
+    14.0);
+  tl.to("#bus-wrap", { x: 0, duration: 5.2, ease: "power1.inOut" }, 14.9);
+  tl.fromTo("#speed-badge-return",
+    { y: -14, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" },
+    18.68);
+
+  // ── Framing beat: endpoints pulse, "Average Speed = ?" ghost fades in
+  tl.fromTo("#origin-marker, #dest-marker",
+    { scale: 1 },
+    { scale: 1.08, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 },
+    20.8);
+  apt.fadeIn(tl, "#avg-ghost", 22.359);
+
+  // ── PHASE 2 — Pin, then Step 1 (Given is already fully populated since
+  // 18.68s — it morphs straight into the stack, no re-entry needed).
+  const PIN_TIME = 24.34;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  apt.morphToStack(tl, "#card-given", "#stack-given .stack-card", PIN_TIME);
+
+  // ── STEP 1 — Total Distance (opens with the master formula line).
+  // Extra emphasis on this step per request: a pulse on the formula's
+  // fraction right as it lands, and a pulse on the final "300 km" answer
+  // just after its own textReveal fade completes.
+  apt.cardEnter(tl, "#card-step1 .solution-card", 25.14);
+  apt.textReveal(tl, "#card-step1 .math");
+  apt.emphasize(tl, "#card-step1 .frac", 26.2);
+  apt.emphasize(tl, "#card-step1 .ans", 44.9);
+
+  // ── STEP 2 — Time for Each Leg
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 46.2);
+  apt.stackLineGrow(tl, "#line-g-1", 46.2);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 48.0);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── STEP 3 — Total Time (Including the Halt)
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 66.2);
+  apt.stackLineGrow(tl, "#line-1-2", 66.2);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 66.639);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── STEP 4 — Average Speed
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 81.159);
+  apt.stackLineGrow(tl, "#line-2-3", 81.159);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 82.839);
+  apt.textReveal(tl, "#card-step4 .math");
+
+  // ── Recenter + clear illustration recap before options
+  const RECENTER_TIME = 98.339;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal — Step 4 joins the stack, grow the 3→4 line
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-3-4", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 99.139);
+  apt.optionsStagger(tl, ".opt-btn", 99.7);
+  apt.correctPulse(tl, ".opt-btn.correct", 107.5);
+
+  // ── END FADE
+  const END_FADE_TIME = 109.2;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 111);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

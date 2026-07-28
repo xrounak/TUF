@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--
+  APTITUDE VIDEO - MASTER TEMPLATE
+  Copy this file into a new question folder (e.g. /q002-train-meeting/index.html)
+  Then:
+    1. Leave the SerialNum digit as "Q" (fixed on every question - not the question number)
+    2. Replace QUESTION_TEXT with the problem
+    3. Replace TOPIC_NAME (e.g. "Trains, Boats and Streams")
+    4. Drop your illustration SVG/PNG into the .illustration div
+    5. Fill in given values + steps in the SolutionCard blocks - wrap each
+       reveal unit in <span class="rv" data-t="ABSOLUTE_SECONDS">: one span
+       PER WORD for lines the narration says near-verbatim, or one span
+       around the WHOLE line for paraphrased lines with no clean word
+       match. Pull every data-t from transcript.json.
+    6. Fill in options A/B/C/D and mark correct one with class="correct"
+    7. Adjust GSAP timings to match voiceover transcript
+
+  See _template/design.md for full design spec.
+  See _template/README.md for workflow guide.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../_template/design-system.css">
+</head>
+<body>
+<div id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div class="dotted-grid"></div>
+  <div class="bottom-strip"></div>
+  <div class="topic-name">TOPIC_NAME</div>
+  <div class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="60" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0–22s)
+       ══════════════════════════════════════════════ -->
+  <!-- data-duration extends ~0.5s past PIN_TIME + pinFlow's 0.8s glide (21.5+0.8=22.3),
+       NOT just up to PIN_TIME itself - the clip's data-start/data-duration window controls
+       when HyperFrames actually keeps this element mounted, independent of any GSAP tween
+       still running on it. If the window ends exactly when a glide/morph starts, the
+       element gets hidden by the framework the instant the transition begins, before the
+       animation has any time to render - it reads as a hard cut, not a glide. Always size
+       data-duration as (transition_start - this_data_start) + transition_duration (0.8s
+       for pinFlow/morphToStack) + a small buffer, never just "until the next event." -->
+  <div id="phase1" class="clip" data-start="0" data-duration="22.5" data-track-index="1"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <!-- Question card (full).
+
+         The static "transform:translateX(-50%);opacity:0;" here matters:
+         GSAP's fromTo/entrance tween only takes effect once the timeline
+         playhead reaches its start time (commonly 0.3s). Before that, the
+         browser renders whatever is in the raw HTML - with no static
+         opacity/transform, that's a one-frame flash of the card at full
+         opacity in its untransformed (un-centered) position. Setting these
+         two properties statically closes that gap. -->
+    <div id="q-full-card" class="q-card"
+         style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div class="q-text">
+        QUESTION_TEXT - with <span class="num">numbers</span> in primary blue,
+        and the key term like <span class="num">faster</span> in primary blue.
+      </div>
+    </div>
+
+    <!-- Serial number badge - sibling of the card (NOT nested), positioned
+         at its final resting spot. If the card uses apt.heroEnterLowered
+         (starts lowered, rises at riseTime), the badge needs its OWN
+         parallel tween that mirrors the same y-offset and rise timing -
+         see the script block below - otherwise it sits at its final
+         position while the card is still lower on screen, reading as
+         "badge above, question below" until the card catches up. -->
+    <div id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area -->
+    <div id="illustration" class="illustration"
+         style="position:absolute;left:50%;top:480px;transform:translateX(-50%);
+                width:1400px;height:300px;display:flex;align-items:center;justify-content:space-between;">
+      <!-- Drop your illustration assets here -->
+      <!-- Example: <img src="train-blue.svg" /> <div>Ratio 3:4</div> <img src="train-red.svg" /> -->
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (22s onwards)
+       ══════════════════════════════════════════════ -->
+  <div id="q-pinned" class="clip" data-start="22" data-duration="40" data-track-index="2"
+       style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <!-- left:385px is intentional - it's the PRE-recenter position (see
+         apt.recenterForOptions in the script below, xShift:160), which lands
+         at ~545px, aligning with the options-reveal column (.pinned-col,
+         left:540px) once the recenter shift fires before Phase 3. -->
+    <div class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div class="q-text">
+        QUESTION_TEXT_SHORT - with <span class="num">accents</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller). Give the illustration's own icon (not
+       the whole wrapper) an id so apt.ambientLoop can put a small finite
+       bob on it - this is what keeps the pinned area from reading as dead
+       and static through long stretches with no new reveal (see
+       apt.ambientLoop call in the script block below). Only loop the
+       actual icon/figure, never the labels/tags around it. -->
+  <div id="illus-pinned" class="clip" data-start="22" data-duration="40" data-track-index="3"
+       style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:space-between;">
+    <!-- shrunk illustration copy - e.g. <img id="illus-pinned-icon" src="..."> -->
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN
+
+       Text-sync reveal (see design.md "Text Reveal" section + animations.js
+       apt.textReveal): every unit inside .math that should reveal on its
+       own is wrapped in <span class="rv" data-t="ABSOLUTE_SECONDS">. Two
+       granularities, picked per line:
+         - word-level: one .rv span PER WORD for a line the narration says
+           near-verbatim (numbers/equation terms) - each word its own
+           transcript.json timestamp.
+         - line-level: one .rv span around the WHOLE line for a paraphrased
+           line with no clean word match - single timestamp = start of the
+           corresponding spoken phrase.
+       data-t values below are placeholders - replace with real
+       transcript.json word/phrase start times per question. This ONLY
+       applies to ACTIVE (center) cards; collapsed .stack-card .math blocks
+       below keep their plain single fade-in (no .rv wrapping there). -->
+  <!-- GIVEN_TIME (see script block) is a SEPARATE constant from PIN_TIME -
+       do not default this card's data-start to the same value as the pin.
+       Set data-start/cardEnter time to whenever the narration ACTUALLY
+       starts stating given values in transcript.json. There is very often
+       a real gap (question restated, a "now let's see what we know" beat,
+       an illustration recap) between "layout pins to top" and "Given card
+       opens" - collapsing them into one moment is a shortcut, not the
+       default. -->
+  <!-- duration extends past its own morphToStack completion (29.5+0.8=30.3), not just to
+       30 - see the phase1 comment above for why this buffer matters. -->
+  <div id="card-given" class="clip" data-start="22" data-duration="8.5" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div class="card-content">
+        <span class="chip">Given</span>
+        <div class="math">
+          <!-- word-level: narration says these values near-verbatim -->
+          <span class="rv" data-t="22.50">Train</span> <span class="rv" data-t="22.70">A</span> <span class="rv" data-t="22.85">=</span> <span class="hi rv" data-t="23.00">180 m</span><br>
+          <span class="rv" data-t="23.60">Train</span> <span class="rv" data-t="23.80">B</span> <span class="rv" data-t="23.95">=</span> <span class="hi rv" data-t="24.10">220 m</span><br>
+          <span class="rv" data-t="24.80">Ratio</span> <span class="rv" data-t="25.00">of</span> <span class="rv" data-t="25.10">their</span> <span class="rv" data-t="25.30">speeds</span> <span class="rv" data-t="25.55">=</span> <span class="hi rv" data-t="25.70">3:4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <!-- duration extends past its own morphToStack completion (37.5+0.8=38.3), not just to 38. -->
+  <div id="card-step1" class="clip" data-start="30" data-duration="8.5" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div class="card-content">
+        <span class="chip">Step 1</span>
+        <div class="math">
+          <!-- line-level: paraphrased, no clean word match -->
+          <span class="rv" data-t="30.50">They are moving in same direction</span><br>
+          <!-- word-level: numeric/equation terms said verbatim -->
+          <span class="rv" data-t="32.20">Total</span> <span class="rv" data-t="32.40">distance</span> <span class="rv" data-t="32.65">=</span> <span class="hi rv" data-t="32.85">180 + 220m</span><br>
+          <span class="rv" data-t="34.00">=</span> <span class="ans rv" data-t="34.15">400m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <!-- duration extends past its own morphToStack completion (47.5+0.8=48.3), not just to 48. -->
+  <div id="card-step2" class="clip" data-start="38" data-duration="10.5" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div class="card-content">
+        <span class="chip">Step 2</span>
+        <div class="math">
+          <span class="rv" data-t="38.50">They completely cross each other in 12 seconds.</span><br>
+          <span class="rv" data-t="40.20">Relative</span> <span class="rv" data-t="40.45">Speed</span> <span class="rv" data-t="40.70">=</span>
+          <span class="frac rv" data-t="41.00"><span class="top hi">Distance</span><span class="bot hi">Time</span></span>
+          <span class="rv" data-t="41.80">=</span>
+          <span class="frac rv" data-t="42.10"><span class="top hi">400</span><span class="bot hi">12</span></span>
+          <span class="rv" data-t="43.00">=</span> <span class="ans rv" data-t="43.20">100/3 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <!-- duration extends past its own morphToStack completion (57.5+0.8=58.3), not just to 58. -->
+  <div id="card-step3" class="clip" data-start="48" data-duration="10.5" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:580px;top:420px;text-align:center;width:760px;">
+      <div class="card-content">
+        <span class="chip">Step 3</span>
+        <div class="math">
+          <span class="rv" data-t="48.50">Faster</span> <span class="rv" data-t="48.75">train</span> <span class="rv" data-t="48.95">speed</span> <span class="rv" data-t="49.15">=</span> <span class="hi rv" data-t="49.30">4x</span><br>
+          <span class="rv" data-t="50.00">4x</span> <span class="rv" data-t="50.20">=</span> <span class="rv" data-t="50.35">4</span> <span class="rv" data-t="50.50">×</span>
+          <span class="frac rv" data-t="50.70"><span class="top hi">100</span><span class="bot hi">21</span></span>
+          <span class="rv" data-t="51.60">≈</span> <span class="hi rv" data-t="51.80">19.05</span> <span class="rv" data-t="52.10">m/s</span><br>
+          <span class="rv" data-t="52.80">Converting to km/hr</span><br>
+          <span class="rv" data-t="54.00">19.05</span> <span class="rv" data-t="54.30">×</span>
+          <span class="frac rv" data-t="54.50"><span class="top hi">18</span><span class="bot hi">5</span></span>
+          <span class="rv" data-t="55.40">≈</span> <span class="ans rv" data-t="55.60">68.57 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+
+       Circle badges (G/1/2/3) replace the old text chip inside stack
+       cards - the ACTIVE center card above still uses the normal
+       <span class="chip">Given/Step 1/...</span>, only the collapsed
+       stack version swaps to a circle. `top` values below (140/290/460/660)
+       are hand-spaced with a real ~40px+ gap computed from each card's
+       actual rendered height - don't space stack cards evenly by a fixed
+       guess; measure/estimate each card's height first (a cramped/uneven
+       version of this exact template previously shipped with tops of
+       140/520/670/800, which read as inconsistent gaps - fixed here).
+       ══════════════════════════════════════════════ -->
+  <div id="stack-given" class="clip" data-start="30" data-duration="32" data-track-index="11"
+       style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">G</span>
+        <div class="math">
+          Train A = <span class="hi">180 m</span><br>
+          Train B = <span class="hi">220 m</span><br>
+          Ratio of their speeds = <span class="hi">3:4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="stack-step1" class="clip" data-start="38" data-duration="24" data-track-index="12"
+       style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">1</span>
+        <div class="math">
+          They are moving in same direction<br>
+          Total distance = <span class="hi">180 + 220m</span><br>
+          = <span class="ans">400m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="stack-step2" class="clip" data-start="48" data-duration="14" data-track-index="13"
+       style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">2</span>
+        <div class="math">
+          Relative Speed =
+          <span class="frac"><span class="top hi">Dist</span><span class="bot hi">Time</span></span>
+          =
+          <span class="frac"><span class="top hi">400</span><span class="bot hi">12</span></span>
+          m/s
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="stack-step3" class="clip" data-start="58" data-duration="4" data-track-index="14"
+       style="position:absolute;left:100px;top:660px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">3</span>
+        <div class="math">
+          Faster train = 4x ≈ <span class="hi">19.05</span> m/s<br>
+          ≈ <span class="ans">68.57 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines between stack circles - siblings of the
+       stack cards (not nested inside one). Their top/height are NOT
+       hand-guessed here - they're set at runtime by apt.setStackLine()
+       (see the script block below), which measures the ACTUAL rendered
+       centers of the two .step-circle badges each line connects. Hardcoded
+       guesses drift from the real card heights (Given/Step1/Step2/... all
+       have different line counts) and leave a visible gap or overshoot -
+       that's why the style attrs below are just an opacity:0 placeholder,
+       not real geometry. -->
+  <div id="line-g-1" class="clip stack-line" data-start="38" data-duration="24" data-track-index="15"
+       style="opacity:0;"></div>
+  <div id="line-1-2" class="clip stack-line" data-start="48" data-duration="14" data-track-index="16"
+       style="opacity:0;"></div>
+  <div id="line-2-3" class="clip stack-line" data-start="58" data-duration="4" data-track-index="17"
+       style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL (58–65s)
+       ══════════════════════════════════════════════ -->
+  <div id="options-reveal" class="clip" data-start="58" data-duration="7" data-track-index="10"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div class="pinned-col" style="top:400px;">
+      <div class="options-grid">
+        <div class="opt-btn correct"><span class="letter">A</span>66 km/hr</div>
+        <div class="opt-btn"><span class="letter">B</span>68.6 km/hr</div>
+        <div class="opt-btn"><span class="letter">C</span>70.2 km/hr</div>
+        <div class="opt-btn"><span class="letter">D</span>72.5 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="../_template/animations.js"></script>
+<script>
+  /* Customize the timeline by editing per-question timings below.
+     The animations.js helpers handle the standard enter/exit patterns. */
+
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline - do this for every line, every question.
+  // Never hand-guess top/height (see the markup comment above #line-g-1).
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal (starts lowered - frame reads as vertically
+  // centered while only the question is visible - then rises to its resting
+  // slot exactly when the opening narration line ends)
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6; // end of the opening narration line - adjust per video
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  // Badge enters at the lowered position and rises in tandem with the
+  // question card - a plain apt.serialEnter() here would pop the badge in
+  // at its final resting spot while the card is still lower on screen
+  // (heroEnterLowered hasn't risen yet), reading as "badge above, question
+  // below" until RISE_TIME. This parallel tween mirrors the card's own
+  // y:HERO_OFFSET_Y→0 motion so badge and card move as one unit.
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // PHASE 2 - Pin, then Given (two SEPARATE timestamps - see comment above
+  // #card-given in the markup). PIN_TIME is when the layout reorganizes
+  // (question+illustration move to the top). GIVEN_TIME is whenever the
+  // narration actually starts stating given values in transcript.json -
+  // pull it from the transcript, don't default it to PIN_TIME. There is
+  // often a real gap here (a restated question, a setup beat) where the
+  // pinned layout sits alone before the Given card opens.
+  const PIN_TIME = 21.5;
+  const GIVEN_TIME = 22.5; // ← replace with the real transcript timestamp; only equals PIN_TIME by coincidence, never by default
+
+  // apt.pinFlow glides the full question/illustration into their pinned
+  // slot (measured real positions, see animations.js) instead of a hard
+  // fadeOut/fadeIn swap - the transition should read as one continuous
+  // motion, not two unrelated elements trading places.
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  // #serial-num has no pinned counterpart (only the question+illustration
+  // do) and isn't touched by pinFlow, so without this it just hard-cuts
+  // when phase1's clip window ends instead of leaving together with the
+  // question - fade it out in step with the glide.
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Ambient loop on the pinned illustration's own icon, covering the
+  // stretch until it's cleared by recenterForOptions - keeps the pinned
+  // area from reading as dead/static through long silent narration
+  // spans. Give the actual icon element the id (not the wrapper). Remove
+  // this call if the question's pinned illustration has no single icon to
+  // loop, or if the content already changes often enough to stay alive.
+  // apt.ambientLoop(tl, "#illus-pinned-icon", PIN_TIME + 1, RECENTER_TIME);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  // Word/line fades - .math content stays hidden (per-.rv opacity:0 in CSS)
+  // through cardEnter's box fade, then reveals in sync with the voiceover.
+  // This is the ONLY reveal for this text - no apt.emphasize/resultReveal
+  // pulse layered on top (that would be a double animation on the same
+  // content). Call once per card, right after its cardEnter.
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 - morph Given card into Given stack (0.8s).
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 29.5);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 30.5);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 - Step 1 joins the stack: grow the G→1 connector line at the
+  // SAME time (this is the moment both circles are actually on screen
+  // together - never grow a line before its lower circle exists).
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 37.5);
+  apt.stackLineGrow(tl, "#line-g-1", 37.5);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 38.5);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 - Step 2 joins the stack: grow the 1→2 connector line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 47.5);
+  apt.stackLineGrow(tl, "#line-1-2", 47.5);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 48.5);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter - clear the stack column before options reveal, and align
+  // the pinned question+options block vertically against the stack's span.
+  // The illustration has done its job by now, so it drops out instead of
+  // being recentered. The stack cards, circles, and connector lines are
+  // deliberately NOT faded here - they stay fully visible and continuous
+  // through the options reveal.
+  const RECENTER_TIME = 57.7;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal - Step 3 joins the stack: grow the 2→3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 57.5);
+  apt.stackLineGrow(tl, "#line-2-3", 57.5);
+  apt.fadeIn(tl, "#options-reveal", 58.2);
+  apt.optionsStagger(tl, ".opt-btn", 58.8);
+  apt.correctPulse(tl, ".opt-btn.correct", 60.5);
+
+  // ── END FADE - everything fades out together, once, after the correct
+  // pulse and narration have both settled (give it ~0.5–1s past both).
+  // Selecting every direct child of #root fades the background layers,
+  // pinned question, stack column, and options grid as one synchronized
+  // beat rather than each element cutting separately when the clip ends.
+  // Pick END_FADE_TIME per video from the real transcript/pulse time -
+  // the value below is illustrative for this template's own example timing.
+  const END_FADE_TIME = 61.5;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},63)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

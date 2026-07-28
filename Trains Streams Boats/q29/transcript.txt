@@ -1,0 +1,33 @@
+[00:00.10 -> 00:00.26]  So
+[00:00.68 -> 00:01.54]  welcome back again.
+[00:02.22 -> 00:03.14]  It's time to solve
+[00:03.72 -> 00:04.98]  one more problem.
+[00:05.50 -> 00:08.28]  Now, in this problem, we are given that the boat covers
+[00:08.60 -> 00:11.26]  sixty kilometer downstream in three hours,
+[00:11.76 -> 00:14.76]  and the same sixty kilometer upstream in five hours.
+[00:15.38 -> 00:16.02]  The question is
+[00:16.48 -> 00:18.46]  asking us to find the speed of the boat
+[00:18.94 -> 00:19.78]  in still water.
+[00:20.28 -> 00:23.58]  Let the speed of the boat in still water be b kilometer per hour,
+[00:24.24 -> 00:27.44]  and let the speed of the current be c kilometer per hour.
+[00:28.10 -> 00:31.08]  Now, let us understand downstream and upstream.
+[00:31.86 -> 00:33.76]  When the boat moves along with the current,
+[00:34.18 -> 00:36.16]  the current helps the boat move faster.
+[00:36.50 -> 00:39.50]  So downstream speed equals b plus c.
+[00:40.06 -> 00:41.66]  When the boat moves against the current,
+[00:42.06 -> 00:43.84]  the current slows the boat down.
+[00:44.36 -> 00:50.44]  So upstream speed equals b minus c. Now, the important point is we are not given the speeds directly.
+[00:50.86 -> 00:56.14]  We are given distance and time. So first, we need to find both speeds using the formula,
+[00:56.60 -> 00:59.00]  speed equals distance divided by time.
+[00:59.36 -> 01:00.18]  For downstream,
+[01:00.70 -> 01:03.24]  sixty divided by three gives twenty.
+[01:03.88 -> 01:07.48]  So downstream speed b plus c equals twenty.
+[01:07.82 -> 01:12.32]  Now, let us find the upstream speed. Sixty divided by five gives twelve.
+[01:12.90 -> 01:14.10]  So upstream speed
+[01:14.66 -> 01:17.04]  b minus c equals twelve. Done.
+[01:17.52 -> 01:19.08]  Now, the remaining part is easy.
+[01:19.42 -> 01:22.38]  If we add both equations, c gets canceled.
+[01:22.88 -> 01:26.92]  After simplifying, two b equals thirty-two, so b equals sixteen.
+[01:27.68 -> 01:28.14]  Hence,
+[01:28.60 -> 01:33.60]  the speed of the boat in still water is sixteen kilometer per hour.
+[01:34.20 -> 01:36.50]  So the correct option is option A.

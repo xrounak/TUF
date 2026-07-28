@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-jjjg" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="108.38" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–48.9s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-o02x" id="phase1" class="clip" data-start="0" data-duration="50" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-ywpo" class="q-text">
+        A cyclist is <span data-hf-id="hf-8907" class="num">24 km</span> behind another cyclist. Their speeds are
+        <span data-hf-id="hf-0h11" class="num">54 km/hr</span> and <span data-hf-id="hf-8xau" class="num">42 km/hr</span>. How long will the
+        <span data-hf-id="hf-spaq" class="num">faster</span> cyclist take to overtake?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: faster cyclist (behind, left) — gap — slower cyclist (ahead, right).
+         Absolute-positioned (not flex) so the two cyclists can be driven independently by a
+         numeric proxy (see script block) that keeps the SOLID live-gap line mathematically
+         exact (gapKm × pxPerKm) while the DOTTED original-gap line stays a fixed reference. -->
+    <div data-hf-id="hf-cfec" id="illustration" class="illustration" style="position:absolute;left:50%;top:460px;transform:translateX(-50%);width:1400px;height:280px;">
+
+      <!-- Original gap (reference, dotted) — sits inside its own wrapper so the wrapper's
+           plain `left` can be nudged by renderDemo() (tracking the slower cyclist's own
+           drift) without colliding with GSAP's transform-based scaleX entrance on the line
+           itself. -->
+      <div data-hf-id="hf-3unq" id="gap-orig-wrap" style="position:absolute;left:0;top:0;width:100%;height:100%;">
+        <div data-hf-id="hf-0osy" id="gap-orig-line" style="opacity:0;position:absolute;left:450px;top:40px;width:500px;height:0;border-top:2px dashed #949494;"></div>
+        <div data-hf-id="hf-5zzx" id="gap-orig-label" style="opacity:0;position:absolute;left:450px;top:12px;width:500px;text-align:center;font-size:22px;color:var(--topic);">24 km (original gap)</div>
+      </div>
+
+      <!-- Live gap (dynamic, solid) — left/width recomputed every frame from the two
+           cyclists' current centers, driven by the gapKm/slowLeft proxy. -->
+      <div data-hf-id="hf-lu09" id="gap-live-line" style="opacity:0;position:absolute;left:450px;top:210px;width:500px;height:0;border-top:3px solid var(--primary);"></div>
+      <div data-hf-id="hf-gfd6" id="gap-live-label" style="opacity:0;position:absolute;left:450px;top:222px;width:500px;text-align:center;font-size:24px;color:var(--primary);">gap: 24 km</div>
+
+      <div data-hf-id="hf-scz9" id="wrap-fast" style="position:absolute;left:400px;top:80px;width:100px;display:flex;flex-direction:column;align-items:center;">
+        <img data-hf-id="hf-ktfx" id="cyc-fast" src="illustration/cyclist.svg" style="width:100px;height:100px;">
+        <div data-hf-id="hf-od9f" id="lbl-fast" style="opacity:0;font-size:24px;color:var(--primary);margin-top:6px;white-space:nowrap;">54 km/hr</div>
+      </div>
+      <div data-hf-id="hf-zjt3" id="wrap-slow" style="position:absolute;left:900px;top:80px;width:100px;display:flex;flex-direction:column;align-items:center;">
+        <img data-hf-id="hf-k33m" id="cyc-slow" src="illustration/cyclist.svg" style="width:100px;height:100px;">
+        <div data-hf-id="hf-rhbc" id="lbl-slow" style="opacity:0;font-size:24px;color:var(--topic);margin-top:6px;white-space:nowrap;">42 km/hr</div>
+      </div>
+
+      <!-- Ghost overtake preview — a translucent fast-cyclist sweeps past the slow one
+           right when the narration poses the question ("how long will the faster cyclist
+           take to overtake..."), previewing the answer before it's derived. -->
+      <img data-hf-id="hf-vrzl" id="cyc-ghost" src="illustration/cyclist.svg" style="position:absolute;left:350px;top:80px;width:100px;height:100px;opacity:0;">
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (48.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-f2d7" id="q-pinned" class="clip" data-start="48.5" data-duration="62" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-ydg7" class="q-text">
+        A cyclist is <span data-hf-id="hf-7rfb" class="num">24 km</span> behind. Speeds: <span data-hf-id="hf-v7ou" class="num">54</span> &amp;
+        <span data-hf-id="hf-jtru" class="num">42 km/hr</span>. Time to overtake?
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-f6v1" id="illus-pinned" class="clip" data-start="48.5" data-duration="62" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:140px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:24px;">
+    <img data-hf-id="hf-f94t" id="illus-pinned-icon" src="illustration/cyclist.svg" style="width:90px;height:90px;">
+    <div data-hf-id="hf-u3q3" style="font-size:24px;color:var(--text);">Gap = <span data-hf-id="hf-aufu" style="color:var(--primary);">24 km</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-f6cq" id="card-given" class="clip" data-start="48.8" data-duration="4.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-7fw2" class="rv" data-t="49.16">Faster cyclist = <span data-hf-id="hf-tk36" class="hi">54 km/hr</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-qlqp" class="rv" data-t="49.5">Slower cyclist = <span data-hf-id="hf-r365" class="hi">42 km/hr</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-tzqp" class="rv" data-t="49.7">Gap</span> <span data-hf-id="hf-f0g6" class="rv" data-t="50.34">=</span> <span data-hf-id="hf-r7dm" class="hi rv" data-t="50.52">24 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Unitary method: 12 km/hr closes gap, so 24 km takes 2 hours -->
+  <div data-hf-id="hf-tn29" id="card-step1" class="clip" data-start="52.4" data-duration="21" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-f8th" class="rv" data-t="52.1">12 km gap <span data-hf-id="hf-4c02" class="hi">→</span> 1 hour</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-cka0" class="rv" data-t="55.42">1 km gap <span data-hf-id="hf-vdba" class="hi">→</span> <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-53oq" class="top hi">1</span><span data-hf-id="hf-7xd6" class="bot hi">12</span></span> hour</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-mgq3" class="rv" data-t="61.0">24 km gap <span data-hf-id="hf-vrmb" class="hi">→</span> 24 × <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-xd4e" class="top hi">1</span><span data-hf-id="hf-b59q" class="bot hi">12</span></span></span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-3apv" class="rv" data-t="70.88">= <span data-hf-id="hf-7s78" class="ans">2 hours</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Relative speed formula -->
+  <div data-hf-id="hf-2oph" id="card-step2" class="clip" data-start="73.7" data-duration="17.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-xgi9" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-ibmo" class="rv" data-t="76.0">Same direction <span data-hf-id="hf-w5xc" class="hi">→</span> use difference of speeds</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-5uz7" class="rv" data-t="83.5">Relative</span> <span data-hf-id="hf-v06u" class="rv" data-t="83.96">Speed</span> <span data-hf-id="hf-mu08" class="rv" data-t="84.28">=</span>
+          <span data-hf-id="hf-0yge" class="rv" data-t="85.14">54</span> <span data-hf-id="hf-lvjw" class="rv" data-t="86.32">−</span> <span data-hf-id="hf-0q7a" class="rv" data-t="86.74">42</span>
+          <span data-hf-id="hf-0of5" class="rv" data-t="87.88">=</span> <span data-hf-id="hf-y8fw" class="hi ans rv" data-t="88.26">12 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Time formula: confirms 2 hours -->
+  <div data-hf-id="hf-n92c" id="card-step3" class="clip" data-start="91.8" data-duration="11.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-5b47" class="solution-card" style="position:absolute;left:640px;top:450px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-iznz" class="rv" data-t="92.1">Distance = <span data-hf-id="hf-tcz2" class="hi">24 km</span>, Relative Speed = <span data-hf-id="hf-89kg" class="hi">12 km/hr</span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-atoz" class="rv" data-t="94.72">Time = <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-8ble" class="bot hi">Relative Speed</span></span></span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-muwa" class="rv" data-t="98.96">= <span data-hf-id="hf-sw1f" class="frac"><span data-hf-id="hf-ek7t" class="top hi">24</span><span data-hf-id="hf-bjkr" class="bot hi">12</span></span></span>
+          <span data-hf-id="hf-l5es" class="rv" data-t="100.94">= <span data-hf-id="hf-2toc" class="ans">2 hours</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-xxl2" id="stack-given" class="clip" data-start="51.8" data-duration="58" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-18d8" class="math">
+          Faster = <span data-hf-id="hf-e27q" class="hi">54 km/hr</span><br data-hf-id="hf-p0mm">
+          Slower = <span data-hf-id="hf-hkox" class="hi">42 km/hr</span><br data-hf-id="hf-ombl">
+          Gap = <span data-hf-id="hf-tpte" class="hi">24 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-h3da" id="stack-step1" class="clip" data-start="72.2" data-duration="38" data-track-index="12" style="position:absolute;left:100px;top:286px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-rs4v" class="math">
+          12 km/hr closes the gap<br data-hf-id="hf-qsyj">
+          24 ÷ 12 = <span data-hf-id="hf-1mr9" class="ans">2 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3uvh" id="stack-step2" class="clip" data-start="90.3" data-duration="20" data-track-index="13" style="position:absolute;left:100px;top:406px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-6udw" class="math">
+          Relative Speed = 54 − 42<br data-hf-id="hf-r79k">
+          = <span data-hf-id="hf-e45f" class="ans">12 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ryyq" id="stack-step3" class="clip" data-start="102.0" data-duration="8" data-track-index="14" style="position:absolute;left:100px;top:526px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-dfcj" class="math">
+          Time = 24 ÷ 12<br data-hf-id="hf-q0ch">
+          = <span data-hf-id="hf-212a" class="ans">2 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-t8p3" id="line-g-1" class="clip stack-line" data-start="72.2" data-duration="38" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-fejz" id="line-1-2" class="clip stack-line" data-start="90.3" data-duration="20" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-a2ph" id="line-2-3" class="clip stack-line" data-start="102.0" data-duration="8" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-wt5b" id="options-reveal" class="clip" data-start="102.5" data-duration="7.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-fgsm" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>3 hours</div>
+        <div data-hf-id="hf-1trn" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>2 hours</div>
+        <div data-hf-id="hf-6r25" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>1.5 hours</div>
+        <div data-hf-id="hf-dodk" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>2.5 hours</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.4;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build-in
+  tl.fromTo("#illustration", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }, 3.6);
+  tl.fromTo("#gap-orig-line", { opacity: 0, scaleX: 0.7 }, { opacity: 1, scaleX: 1, duration: 0.4, ease: "back.out(1.4)" }, 5.74);
+  tl.fromTo("#gap-orig-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 5.9);
+  tl.fromTo("#lbl-fast", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 10.16);
+  tl.fromTo("#lbl-slow", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 13.98);
+
+  // ─── Intuitive 1-hour demo: a numeric proxy drives BOTH cyclists' positions
+  // and the live (solid) gap line/label every frame, so the gap always reads
+  // exactly gapKm × pxPerKm — precise, not a hand-tuned guess. The dotted
+  // "24 km" line above never moves; it's the fixed original-gap reference.
+  // pxPerKm is calibrated so 24 km == the 500px starting gap between the two
+  // cyclists' centers (450 → 950). Only the GAP itself is drawn to that
+  // scale; the cyclists' own absolute travel is illustrative (a to-scale
+  // 42km/54km advance would run off the 1400px stage), decoupled via
+  // slowLeft's own small drift.
+  const PX_PER_KM = 500 / 24;
+  const demoState = { gapKm: 24, slowLeft: 900 };
+  function renderDemo() {
+    const gapPx = demoState.gapKm * PX_PER_KM;
+    const slowLeft = demoState.slowLeft;
+    const fastLeft = slowLeft - gapPx;
+    const fastCenter = fastLeft + 50;
+    const slowCenter = slowLeft + 50;
+    document.getElementById("wrap-fast").style.left = fastLeft + "px";
+    document.getElementById("wrap-slow").style.left = slowLeft + "px";
+    const liveLine = document.getElementById("gap-live-line");
+    liveLine.style.left = fastCenter + "px";
+    liveLine.style.width = (slowCenter - fastCenter) + "px";
+    const liveLabel = document.getElementById("gap-live-label");
+    liveLabel.style.left = fastCenter + "px";
+    liveLabel.style.width = (slowCenter - fastCenter) + "px";
+    liveLabel.textContent = "gap: " + demoState.gapKm.toFixed(1) + " km";
+    // The dotted ORIGINAL-gap reference tracks the slower cyclist's own
+    // drift (moves at the slower cyclist's pace) while keeping its fixed
+    // 500px/24km length — a moving reference frame anchored to the slower
+    // rider, distinct from the shrinking solid live-gap line.
+    document.getElementById("gap-orig-wrap").style.left = (slowLeft - 900) + "px";
+  }
+  renderDemo();
+
+  // Ghost overtake preview — right when the narration poses the question
+  // ("how long will the faster cyclist take to overtake the slower
+  // cyclist"), a translucent fast-cyclist sweeps the full stage in a quick
+  // burst, previewing the answer before it's derived.
+  tl.fromTo("#cyc-ghost",
+    { opacity: 0, left: 350 },
+    { opacity: 0.5, left: 1050, duration: 2.2, ease: "power1.in" },
+    18.56);
+  tl.to("#cyc-ghost", { opacity: 0, duration: 0.4 }, 20.9);
+
+  tl.fromTo("#gap-live-line", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 22.94);
+  tl.fromTo("#gap-live-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 22.94);
+
+  // Slower cyclist moves 42km, faster cyclist moves 54km, "at the same
+  // time" — two snappier bursts (was one slow 21.5s crawl) so the motion
+  // actually reads as two cyclists riding, not a slow drift. The live gap
+  // shrinks from 24 to 12 km exactly across both, driven via onUpdate.
+  // Phase A (26.62s, "the slower cyclist moves..."): both icons advance
+  // together at the slower cyclist's pace (gapKm unchanged, so fastLeft
+  // tracks slowLeft 1:1) — the shared "42 km" base speed.
+  tl.to(demoState, { slowLeft: 1010, duration: 1.4, ease: "power2.out", onUpdate: renderDemo }, 26.62);
+  // Phase B (33.0s, "the faster cyclist moves..."): the faster cyclist
+  // gains the extra ground — gapKm shrinks 24 → 12, closing 12 km more
+  // than the slower cyclist covered in the same beat.
+  tl.to(demoState, { gapKm: 12, duration: 1.4, ease: "power2.out", onUpdate: renderDemo }, 33.0);
+
+  // PHASE 2 — Pin, then Given
+  const PIN_TIME = 48.9;
+  const GIVEN_TIME = 49.16;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.ambientLoop(tl, "#illus-pinned-icon", 49.7, 102.0);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — unitary method, reaches 2 hours
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 51.8);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 52.7);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — relative speed formula
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 72.2);
+  apt.stackLineGrow(tl, "#line-g-1", 72.2);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 74.0);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — time formula, confirms 2 hours
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 90.3);
+  apt.stackLineGrow(tl, "#line-1-2", 90.3);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 92.1);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // Recenter before options
+  const RECENTER_TIME = 102.0;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 103.0);
+  apt.optionsStagger(tl, ".opt-btn", 103.4);
+  apt.correctPulse(tl, ".opt-btn.correct", 107.7);
+
+  // END FADE
+  const END_FADE_TIME = 108.6;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 111);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that a tour bus covers 150 kilo-mee-ter at a speed of 75 kilo-mee-ter per hour.
+
+Then it halts for 30 minutes.
+
+After that, it returns the same 150 kilo-mee-ter at a speed of 50 kilo-mee-ter per hour.
+
+The question is asking us to find the "average speed", including the halt.
+
+so, we know the formula.
+
+Average Speed is equal to Total Distance divided by Total Time.
+
+So first, let us find the total distance.
+
+The bus travels 150 kilo-mee-ter in the onward journey and another 150 kilo-mee-ter while returning.
+
+So,
+
+Total Distance is equal to 150 pluss 150.
+
+That gives us 300 kilo-mee-ter.
+
+Now let us find the total time.
+
+We know,
+
+Time is equal to Distance divided by Speed.
+
+For the onward journey,
+
+Time is equal to 150 divided by 75.
+
+This gives us 2 hours.
+
+Now let us find the time for the return journey.
+
+Time is equal to 150 divided by 50.
+
+This gives us 3 hours.
+
+We are also given that the bus halts for 30 minutes.
+
+Thirty minutes means 0.5 hour.
+
+Now we have all the time values.
+
+So,
+
+Total Time is equal to 2 pluss 3 pluss 0.5.
+
+That gives us 5.5 hours.
+
+Now we have everything we need.
+
+Average Speed is equal to Total Distance divided by Total Time.
+
+Putting the values,
+
+Average Speed is equal to 300 divided by 5.5.
+
+After simplifying this,
+
+we get 600 by 11, which is equal to 54 and 6 by 11 kilo-mee-ter per hour.
+
+So the average speed of the bus, including the halt, is "54 and 6 by 11 kilo-mee-ter per hour."
+
+Hence, the correct answer is "Option D."

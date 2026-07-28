@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-z2ul" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="64.34" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + illustration + concept beat (0 → 28.4s)
+       The train physically CROSSES the pole (18.539–22.42s), then a
+       measuring bracket appears spanning exactly the distance it just
+       covered — proving "crossing distance = train's own length" by
+       motion, not just a label. The Given card opens after the concept
+       beat, right where the narration cleanly restates the two values
+       ("So distance covered is 210 meter, and time taken is 14 seconds").
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-9gip" id="phase1" class="clip" data-start="0" data-duration="29.6" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-cd57" class="q-text">
+        A train of length <span data-hf-id="hf-01kt" class="num">210 m</span> crosses a pole in <span data-hf-id="hf-ousb" class="num">14 seconds</span>. Find its speed in km/hr.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: train on a track, a fixed pole ahead of it. The train
+         wrapper slides by exactly its own rendered width during the
+         crossing beat — that slide distance IS the train's own length,
+         shown by motion instead of a static label. -->
+    <div data-hf-id="hf-a2q7" id="illustration" style="position:absolute;left:50%;top:400px;transform:translateX(-50%);
+                width:1400px;height:260px;">
+
+      <div data-hf-id="hf-mcgx" id="illus-track" style="position:absolute;left:450px;top:150px;width:500px;height:0;
+                  border-top:3px dashed #c7cbf2;opacity:0;transform:scaleX(0);transform-origin:left center;"></div>
+
+      <!-- Train (slides right during the crossing beat) -->
+      <div data-hf-id="hf-p1ht" id="illus-train-wrap" style="position:absolute;left:450px;top:0;width:200px;text-align:center;z-index:3;">
+        <div data-hf-id="hf-mpym" id="illus-length-tag" style="font-size:26px;color:var(--primary);opacity:0;white-space:nowrap;">210 m</div>
+        <img data-hf-id="hf-olx8" id="illus-train" src="illustration/train.svg" style="width:170px;margin-top:14px;opacity:0;">
+      </div>
+
+      <!-- Pole (fixed — the train visibly passes it) -->
+      <div data-hf-id="hf-mihw" id="illus-pole-wrap" style="position:absolute;left:635px;top:0;width:20px;text-align:center;z-index:1;">
+        <div data-hf-id="hf-a0uj" id="illus-pole-label" style="position:absolute;margin:38px 50px 0;transform:translateX(-50%);font-size:26px;color:var(--primary);opacity:0;white-space:nowrap;">14 s</div>
+        <div data-hf-id="hf-tgts" id="illus-pole" style="margin:38px auto 0;width:10px;height:130px;background:var(--primary);border-radius:0px 0px 0px 0px;opacity:0;transform:scaleY(0);transform-origin:bottom center;"></div>
+        <div data-hf-id="hf-zk44" id="illus-pole-cap" style="width:20px;height:20px;border-radius:50%;background:var(--primary);margin:-146px auto 0;opacity:0;"></div>
+      </div>
+
+      <!-- Measuring bracket — appears ONLY after the train has fully
+           crossed, spanning the exact distance it just travelled (its own
+           170px width). -->
+      <div data-hf-id="hf-9dyt" id="brace-length" style="position:absolute;left:635px;top:230px;width:170px;
+                  border-bottom:5px solid var(--primary);opacity:0;transform:scaleX(0);transform-origin:left center;"></div>
+      <div data-hf-id="hf-685y" id="brace-length-tick-l" style="position:absolute;left:635px;top:224px;width:4px;height:14px;background:var(--primary);opacity:0;"></div>
+      <div data-hf-id="hf-5y59" id="brace-length-tick-r" style="position:absolute;left:801px;top:224px;width:4px;height:14px;background:var(--primary);opacity:0;"></div>
+      <div data-hf-id="hf-n8mb" id="brace-length-label" style="position:absolute;left:450px;top:250px;width:500px;text-align:center;
+                  font-size:26px;font-weight:500;color:var(--primary);opacity:0;">Distance = Length of Train</div>
+    </div>
+
+    <!-- GIVEN — lives here in Phase 1, right where the narration restates
+         both values cleanly (22.8s), well after the concept beat has
+         proven why the crossing distance equals the train's length. -->
+    <div data-hf-id="hf-j8nb" id="card-given" style="position:absolute;left:640px;top:700px;text-align:center;opacity:1;">
+      <div data-hf-id="hf-5q0c" class="solution-card">
+        <div data-hf-id="hf-3rv6" class="card-content">
+          <span data-hf-id="hf-7r0o" class="chip">Given</span>
+          <div data-hf-id="hf-8tlu" class="math">
+            <span data-hf-id="hf-wms4" class="rv" data-t="22.80">Length = <span data-hf-id="hf-qaku" class="hi rv" data-t="23.92">210 m</span></span><br data-hf-id="hf-x5px">
+            <span data-hf-id="hf-rb1h" class="rv" data-t="25.52">Time = <span data-hf-id="hf-0tkd" class="hi rv" data-t="27.02">14 s</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (28.4s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-v3o9" id="q-pinned" class="clip" data-start="28.4" data-duration="39.3" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-npbt" class="q-text">
+        A train of length <span data-hf-id="hf-wmxd" class="num">210 m</span> crosses a pole in <span data-hf-id="hf-c1ef" class="num">14 s</span>. Find its speed.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, single-icon recap, centered) -->
+  <div data-hf-id="hf-bjyi" id="illus-pinned" class="clip" data-start="28.4" data-duration="33.6" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:40px;">
+    <img data-hf-id="hf-159j" id="illus-pinned-icon" src="illustration/train.svg" style="width:70px;">
+    <div data-hf-id="hf-09fk" style="width:8px;height:56px;background:var(--primary);border-radius:4px;"></div>
+    <div data-hf-id="hf-o2cg" style="font-size:22px;color:var(--primary);">210 m · 14 s</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Step 1-2, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — Speed = Distance ÷ Time (in m/s) -->
+  <div data-hf-id="hf-f14l" id="card-step1" class="clip" data-start="29.4" data-duration="18.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-xgi9" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-dxcd" class="math">
+          <span data-hf-id="hf-fxfd" class="rv" data-t="29.879">Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-6iu9" class="top">Distance</span><span data-hf-id="hf-efx9" class="bot">Time</span></span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-88us" class="rv" data-t="33.759">Speed =</span>
+          <span data-hf-id="hf-cgox" class="frac rv" data-t="34.579"><span data-hf-id="hf-jgna" class="top hi">210</span><span data-hf-id="hf-ab7c" class="bot hi">14</span></span><br data-hf-id="hf-szow">
+          = <span data-hf-id="hf-h3bp" class="ans rv" data-t="38.459">15 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Unit conversion, m/s to km/hr -->
+  <div data-hf-id="hf-acif" id="card-step2" class="clip" data-start="47.3" data-duration="14.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-p8cq" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:740px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-9rup" class="math">
+          <span data-hf-id="hf-7iix" class="rv" data-t="48.00">Speed (km/hr) = Speed (m/s) × <span data-hf-id="hf-jpi9" class="hi">18/5</span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-j8ni" class="rv" data-t="53.18">15</span> <span data-hf-id="hf-b32d" class="rv" data-t="53.50">×</span>
+          <span data-hf-id="hf-yu1w" class="frac rv" data-t="53.779"><span data-hf-id="hf-gx3q" class="top hi">18</span><span data-hf-id="hf-m8wg" class="bot hi">5</span></span><br data-hf-id="hf-qluq">
+          = <span data-hf-id="hf-tft1" class="ans rv" data-t="55.86">54 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bfq4" id="stack-given" class="clip" data-start="28.4" data-duration="39.3" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-y6j9" class="math">
+          Length = <span data-hf-id="hf-1gro" class="hi">210 m</span><br data-hf-id="hf-q7jp">
+          Time = <span data-hf-id="hf-bg9s" class="hi">14 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-kmqm" id="stack-step1" class="clip" data-start="46.3" data-duration="21.4" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-oums" class="math">
+          Speed = <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-k7be" class="top hi">210</span><span data-hf-id="hf-gmj4" class="bot hi">14</span></span><br data-hf-id="hf-regs">
+          = <span data-hf-id="hf-m6gw" class="ans">15 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-bhhp" id="stack-step2" class="clip" data-start="61.0" data-duration="6.7" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-bp22" class="math">
+          Speed = 15 × <span data-hf-id="hf-h88l" class="hi">18/5</span><br data-hf-id="hf-r05r">
+          = <span data-hf-id="hf-4ubp" class="ans">54 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stack connector lines -->
+  <div data-hf-id="hf-f77j" id="line-g-1" class="clip stack-line" data-start="46.3" data-duration="21.4" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-vnrb" id="line-1-2" class="clip stack-line" data-start="61.0" data-duration="6.7" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-293p" id="options-reveal" class="clip" data-start="62.0" data-duration="5.7" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-9kry" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>50 km/hr</div>
+        <div data-hf-id="hf-oqy9" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>60 km/hr</div>
+        <div data-hf-id="hf-4hzs" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>54 km/hr</div>
+        <div data-hf-id="hf-znln" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>48 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 2.9;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration builds in as each given value is narrated (precise
+  // transcript.json word timestamps).
+  apt.roadSweep(tl, "#illus-track", 5.6, 0.7);
+  tl.fromTo("#illus-track", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 5.6);
+  tl.fromTo("#illus-train", { x: -200, scale: 0.7, opacity: 0 }, { x: 0, scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 5.6);
+  tl.fromTo("#illus-length-tag", { y: -14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" }, 6.5);
+  tl.fromTo("#illus-pole, #illus-pole-cap", { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.4, ease: "back.out(1.6)" }, 7.96);
+  tl.fromTo("#illus-pole-label", { y: -14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" }, 8.32);
+
+  // ── CONCEPT BEAT — the train physically crosses the pole. Its front
+  // edge starts exactly at the pole; the slide moves it by exactly its own
+  // rendered width (170px), so its REAR edge ends exactly at the pole —
+  // a literal geometric proof that crossing distance = own length. Synced to:
+  //   18.539 "crosses" (in "When a train crosses a pole,")  → crossing begins
+  //   19.819–22.42 "it covers a distance equal to its own length." → ends
+  const SLIDE_START = 18.539;
+  const SLIDE_DIST = 170; // exactly the train icon's own rendered width
+  tl.to("#illus-length-tag", { opacity: 0, duration: 0.4 }, SLIDE_START);
+  tl.to("#illus-train-wrap", { x: SLIDE_DIST, duration: 3.881, ease: "power1.inOut" }, SLIDE_START);
+
+  tl.fromTo("#brace-length", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 22.5);
+  tl.fromTo("#brace-length-tick-l, #brace-length-tick-r", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 22.9);
+  tl.fromTo("#brace-length-label", { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 23.1);
+
+  // GIVEN — opens right where the narration cleanly restates both values
+  // ("So distance covered is 210 meter, and time taken is fourteen
+  // seconds."), a separate, later timestamp than the concept beat above.
+  const GIVEN_TIME = 22.8;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── PHASE 2 — Pin, right after the formula intro begins. The Given card
+  // has been visible since 22.8s, so it morphs straight into the stack —
+  // no re-entry needed.
+  const PIN_TIME = 28.4;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", PIN_TIME);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 29.4);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Pinned illustration would otherwise sit dead-static through Step 1's
+  // hold (including the "but km/hr, not m/s" bridge line) — bob its icon.
+  apt.ambientLoop(tl, "#illus-pinned-icon", 30.0, 46.0);
+
+  // ── Step 1 → stack, Step 2
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 46.3);
+  apt.stackLineGrow(tl, "#line-g-1", 46.3);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 47.3);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── Recenter — clear stack column before options reveal
+  const RECENTER_TIME = 61.0;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── Step 2 → stack, Options reveal
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 62.0);
+  apt.optionsStagger(tl, ".opt-btn", 62.4);
+  apt.correctPulse(tl, ".opt-btn.correct", 63.9);
+
+  // ── END FADE
+  const END_FADE_TIME = 65.5;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},67.7)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

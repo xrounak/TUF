@@ -1,0 +1,45 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, a boat travels 24 kilo-mee-ter upstream at 8 km/h, and then 36 kilo-mee-ter downstream at 12 km/h.
+
+The question is asking us to find the "total time" taken for the whole journey.
+
+Now the important point here is that the journey has two different parts.
+One part is upstream, and the other part is downstream.
+So we cannot calculate the total time directly.
+We first find the time for each part separately, and then add them.
+<break time="0.5s" />
+
+Given,
+
+Upstream Distance = 24 kilo-mee-ter
+
+Upstream Speed = 8 km/h
+
+Downstream Distance = 36 kilo-mee-ter
+
+Downstream Speed = 12 km/h
+
+Now we know the formula for time.
+
+Time = Distance ÷ Speed
+
+So let us use this formula one by one.
+
+First, the time taken upstream.
+
+Time = 24 ÷ 8 = 3 hours.
+
+Done. Now let us move to the downstream journey.
+
+Time = 36 ÷ 12 = 3 hours.
+
+Now that both parts are clear, we simply add them because the boat completes both journeys one after the other.
+<break time="0.5s" />
+
+Total Time = 3 + 3 = 6 hours.
+<break time="0.6s" />
+
+Hence, the total time taken is "6 hours".
+
+So the correct option is "Option C".

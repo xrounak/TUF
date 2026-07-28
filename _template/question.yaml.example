@@ -1,0 +1,88 @@
+# Aptitude Video Question - Input Spec
+# Copy this to your question folder and fill in the values.
+# This is the SINGLE FILE you need to write for each new video.
+
+question_id: "q001-trains-crossing"
+serial_num: 1
+topic: "Trains, Boats and Streams"
+
+question:
+  text: |
+    Two trains – one 180m long and the other 220m long – travel
+    in opposite directions. Their speeds are in the ratio 3:4, and
+    they completely cross each other in 12 seconds.
+    What is the speed of the faster train?
+  # Words / phrases to highlight in primary blue (#6373db)
+  highlight_terms:
+    - "180m"
+    - "220m"
+    - "faster"
+
+illustration:
+  type: "two_trains"          # or "road_segments", "marbles", "tank", etc.
+  assets:
+    left:  "train-blue.svg"   # filename in this question's illustration/ folder
+    right: "train-red.svg"
+  label_left:  "180m"
+  label_right: "220m"
+  middle_text: "Ratio of speeds 3:4"
+
+# Initial given values (shows in "Given" card)
+given:
+  - "Train A = <span class='hi'>180 m</span>"
+  - "Train B = <span class='hi'>220 m</span>"
+  - "Ratio of their speeds = <span class='hi'>3:4</span>"
+
+# Solution steps (each becomes one SolutionCard → SolutionStackCard)
+steps:
+  - chip: "Step 1"
+    body: |
+      They are moving in same direction<br>
+      Total distance = <span class="hi">180 + 220m</span><br>
+      = <span class="ans">400m</span>
+  - chip: "Step 2"
+    body: |
+      They completely cross each other in 12 seconds.<br>
+      Relative Speed =
+      <span class="frac"><span class="top hi">Distance</span><span class="bot hi">Time</span></span>
+      =
+      <span class="frac"><span class="top hi">400</span><span class="bot hi">12</span></span>
+      =
+      <span class="frac"><span class="top hi">100</span><span class="bot hi">3</span></span>
+      m/s<br>
+      Since they move in opposite directions:<br>
+      3x + 4x = 7x =
+      <span class="frac"><span class="top hi">100</span><span class="bot hi">3</span></span><br>
+      x =
+      <span class="frac"><span class="top hi">100</span><span class="bot hi">21</span></span>
+  - chip: "Step 3"
+    body: |
+      Faster train speed = <span class="hi">4x</span><br>
+      4x = 4 × <span class="frac"><span class="top hi">100</span><span class="bot hi">21</span></span>
+      ≈ <span class="hi">19.05</span> m/s<br>
+      Converting to km/hr<br>
+      19.05 × <span class="frac"><span class="top hi">18</span><span class="bot hi">5</span></span>
+      ≈ <span class="ans">68.57 km/hr</span>
+
+options:
+  A: "66 km/hr"           # mark correct below
+  B: "68.6 km/hr"
+  C: "70.2 km/hr"
+  D: "72.5 km/hr"
+correct: A
+
+# Voiceover settings (used by build script)
+voiceover:
+  voice_id: "arlADLNClXgT4QpDXygV"   # Striver Professional
+  model: "eleven_multilingual_v2"
+  voice_settings:
+    stability: 0.65
+    similarity_boost: 0.85
+    style: 0.25
+    speed: 0.95
+
+# Optional: pre-written script (else generate from steps)
+script: |
+  Let's break this one down. Two trains, one 180 meters long,
+  the other 220 meters long, travel in opposite directions...
+  (continue script here)

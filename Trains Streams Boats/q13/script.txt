@@ -1,0 +1,48 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given a train of length 140 mee-ter, a bridge of length 220 mee-ter, and the speed of the train is 18 mee-ter per second.
+
+The question is asking us to find how much time the train takes to completely cross the bridge.
+
+Now the important point here is "completely cross the bridge."
+<break time="0.5s" />
+
+What does this actually mean?
+
+It means the last compartment of the train should also come out of the bridge.
+
+So the train has to cover its own length as well as the length of the bridge.
+
+This is a simple rule to remember.
+
+Whenever a train crosses a bridge,
+
+Total Distance = Length of Train + Length of Bridge.
+
+Got it? Perfect.
+
+Now let us put the given values.
+
+Length of train = 140 mee-ter.
+
+Length of bridge = 220 mee-ter.
+
+So the total distance becomes 140 pluss 220, which is 360 mee-ter.
+
+Now this part is done. We already know the total distance.
+The remaining work is very easy.
+
+We know,
+
+Time = Distance divided by Speed.
+
+Putting the values,
+
+Time = 360 divided by 18.
+
+After solving this, we get 20 seconds.
+<break time="0.6s" />
+
+Hence, the train takes "20 seconds" to completely cross the bridge.
+
+So the final answer will be Option A.

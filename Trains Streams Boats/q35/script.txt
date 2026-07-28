@@ -1,0 +1,78 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, the boat's downstream speed is 25 per-sen-tage more than its upstream speed.
+
+Also, the boat's still-water speed is 18 km/h.
+
+The question is asking us to find the speed of the stream.
+
+Let us first take our variables.
+
+Let the downstream speed be D.
+
+Let the upstream speed be U.
+
+Let the stream speed be c.
+
+And the boat's still-water speed be b.
+
+Now let us quickly understand what downstream and upstream actually mean.
+
+When the boat moves "with" the flow of the stream, the stream helps the boat move faster.
+
+So the effective speed becomes,
+
+Downstream Speed = Boat Speed pluss Stream Speed = b + c.
+
+On the other hand, when the boat moves "against" the flow of the stream, the stream slows the boat down.
+
+So the effective speed becomes,
+
+Upstream Speed = Boat Speed my-nus Stream Speed = b - c.
+
+<break time="0.5s" />
+
+Now let us use the condition given in the question.
+
+Since downstream speed is 25 per-sen-tage more than upstream, we can write,
+
+Downstream Speed = <break time="0.4s" /> U + <break time="0.4s" /> 25% of U.
+
+And 25 per-sen-tage is one-fourth.
+
+So,
+
+Downstream Speed = U + <break time="0.4s" /> U by 4 = <break time="0.4s" /> 5U by 4.
+
+Done.
+
+Now we have found the downstream speed in terms of the upstream speed.
+
+But we already know that downstream speed is also equal to b + c.
+
+So,
+
+b + c  <break time="0.4s" />=  <break time="0.4s" />5 by 4  <break time="0.4s" />× U.
+
+Now replace U with its actual value. <break time="0.4s" />
+
+Since upstream speed is b - c, <break time="0.4s" />
+we get, <break time="0.4s" />
+
+b + c <break time="0.4s" /> = <break time="0.4s" /> 5 by 4 × <break time="0.4s" /> (b - c).
+
+Now the boat's still-water speed is given as 18 km/h.
+
+So,
+
+18 + c  <break time="0.4s" />=  <break time="0.4s" />5 by 4 × <break time="0.4s" /> (18 - c).
+
+After simplifying this equation, we get <break time="0.4s" />,
+
+c = 2 km/h.
+
+<break time="0.6s" />
+
+Hence, the speed of the stream is "2 km/h".
+
+So the correct answer is Option C.

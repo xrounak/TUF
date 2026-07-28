@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<!--
+  APTITUDE VIDEO — ques23 (Speed and Time / Intermediate) — v2
+  "A bus, without stoppage, covers a distance at 90 km/hr, and with
+  stoppage, covers the same distance at 75 km/hr. Find stoppage time/hr."
+  Built from _template/template.html per storyboard.md (v2). See
+  storyboard.md's "v2 revision notes" for what changed and why.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-2918" class="topic-name">Speed and Time</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-l3q8" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="111.72" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question only (0–7.0s). No separate illustration build
+       here — per ques21/22's pattern, everything pins early (7.0s) and the
+       illustration + Given card both reveal live, timed to the exact
+       words in transcript.json, instead of a standalone Phase 1 scene. -->
+  <div data-hf-id="hf-2qdm" id="phase1" class="clip" data-start="0" data-duration="7.4" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <!-- Question card (full) -->
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;opacity:0;">
+      <div data-hf-id="hf-kp3l" class="q-text">
+        A bus, without stoppage, covers a certain distance at a speed of <span data-hf-id="hf-507x" class="num">90 km/hr</span>,
+        and with stoppage, it covers the same distance at a speed of <span data-hf-id="hf-l7qo" class="num">75 km/hr</span>.
+        Find the <span data-hf-id="hf-f0c5" class="num">stoppage time</span> per hour.
+      </div>
+    </div>
+
+    <!-- Serial number badge -->
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (7.0s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vszm" id="q-pinned" class="clip" data-start="7.0" data-duration="107" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-w7dj" class="q-text">
+        Bus: <span data-hf-id="hf-6hdd" class="num">90 km/hr</span> without stoppage, <span data-hf-id="hf-4f2g" class="num">75 km/hr</span> with stoppage.
+        Find <span data-hf-id="hf-0d61" class="num">stoppage time</span> per hour.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller) — appears at 7.0s alongside the Given
+       card. Every piece fades in on its own real transcript timestamp
+       (bus ~7.2s, "90 km/hr" tag 8.3s, stop sign 16.3s, "75 km/hr" tag
+       17.4s), the same live-reveal pattern used in ques21/22, instead of
+       building a separate Phase 1 scene first. Layout, top to bottom:
+         row 1 (y:0–28)   the two speed labels (now also the reveal targets
+                           — no separate "tag" elements needed)
+         row 2 (y:36–120) bus + road + stop sign (real and ghost bus share
+                           the exact same top/left/width, so they are
+                           always pixel-identical except for X position
+                           and tint)
+         row 3 (y:126+)   ghost caption, only visible with the ghost bus
+       Positioned at left:545px (grid column 2) so it never overlaps the
+       stack column (left:100–485px). -->
+  <div data-hf-id="hf-rkvj" id="illus-pinned" class="clip" data-start="7.0" data-duration="102" data-track-index="3" style="position:absolute;left:545px;top:150px;width:780px;height:150px;z-index:5;opacity:0;">
+
+    <!-- Row 1: speed labels — these ARE the timed reveal elements (fadeIn
+         at 8.3s / 17.4s in the script), not decorative recaps. -->
+    <div data-hf-id="hf-to7g" id="tag-90" style="position:absolute;left:0;top:0;opacity:0;
+                font-family:var(--font);font-size:22px;color:var(--text);white-space:nowrap;">
+      Without stoppage = <span data-hf-id="hf-yiuu" style="color:var(--primary);">90 km/hr</span>
+    </div>
+    <div data-hf-id="hf-kdbg" id="tag-75" style="position:absolute;left:460px;top:0;opacity:0;
+                font-family:var(--font);font-size:22px;color:var(--text);white-space:nowrap;">
+      With stoppage = <span data-hf-id="hf-reo3" style="color:var(--primary);">75 km/hr</span>
+    </div>
+
+    <!-- Row 2: single shared road, real bus (fades in ~7.2s) + ghost bus
+         (fades in and drives ahead 60.0–64.5s only) + stop-sign icon
+         (fades in 16.3s, near the road's far end). Real and ghost bus use
+         identical top/left/width/height so they are always exactly
+         aligned. -->
+    <div data-hf-id="hf-qe86" style="position:absolute;left:20px;top:116px;width:660px;height:3px;background:var(--text);"></div>
+    <img data-hf-id="hf-4pck" id="bus-icon" src="illustration/bus-bus-svgrepo-com.svg" alt="bus" style="position:absolute;left:20px;top:36px;width:80px;height:80px;opacity:0;">
+    <img data-hf-id="hf-l9bx" id="ghost-bus" src="illustration/bus-bus-svgrepo-com.svg" alt="ghost bus" style="position:absolute;left:20px;top:36px;width:80px;height:80px;opacity:0;filter:hue-rotate(320deg) saturate(1.4);">
+    <div data-hf-id="hf-kzb8" id="stop-marker" style="position:absolute;left:600px;top:40px;opacity:0;text-align:center;">
+      <img data-hf-id="hf-stopicon" src="illustration/stop-sign-svgrepo-com.svg" alt="stop"
+           style="width:32px;height:32px;display:block;margin:0 auto;" />
+      <div data-hf-id="hf-93iy" style="width:0;height:40px;margin:4px auto 0;border-left:3px dashed var(--primary);"></div>
+    </div>
+
+    <!-- Row 3: ghost caption, sits below the road so it never collides with
+         the labels above -->
+    <div data-hf-id="hf-hnb3" id="ghost-caption" style="position:absolute;left:20px;top:124px;opacity:0;
+                font-family:var(--font);font-size:18px;color:#c23b3b;white-space:nowrap;">
+      Could have covered this distance
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — now opens at 7.0s, right after the brief Phase 1 hero beat
+       (fix: "make the given card start from 7th sec to sync more"). Every
+       line now uses genuine LIVE narration timestamps — since the card is
+       open well before any of this content is spoken, lines 1–2 are no
+       longer "recap" fades, they reveal exactly as the words land, same
+       as ques21/22. -->
+  <div data-hf-id="hf-st3r" id="card-given" class="clip" data-start="7.0" data-duration="24.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-lado" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;width:700px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-h24a" class="rv" data-t="7.36">Without</span> <span data-hf-id="hf-h24b" class="rv" data-t="7.72">stoppage</span>
+          <span data-hf-id="hf-h24c" class="rv" data-t="8.1">=</span> <span data-hf-id="hf-wrpu" class="hi rv" data-t="8.32">90 km/hr</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-yika" class="rv" data-t="16.12">With</span> <span data-hf-id="hf-yikb" class="rv" data-t="16.34">stoppage</span>
+          <span data-hf-id="hf-yikc" class="rv" data-t="16.84">=</span> <span data-hf-id="hf-e4e7" class="hi rv" data-t="17.44">75 km/hr</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-rwud" class="rv" data-t="21.5">Moving</span> <span data-hf-id="hf-qa99" class="rv" data-t="21.86">time</span>
+          <span data-hf-id="hf-kz1l" class="rv" data-t="22.18">+</span> <span data-hf-id="hf-8xmd" class="rv" data-t="22.52">Stoppage</span>
+          <span data-hf-id="hf-b553" class="rv" data-t="23.02">time</span> <span data-hf-id="hf-ws18" class="rv" data-t="23.68">→</span>
+          <span data-hf-id="hf-a1zj" class="rv" data-t="23.92">Avg.</span> <span data-hf-id="hf-71e1" class="rv" data-t="24.32">speed</span>
+          <span data-hf-id="hf-sj3q" class="rv" data-t="24.64">=</span> <span data-hf-id="hf-ydlx" class="hi rv" data-t="25.03">75 km/hr</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-a3ju" class="rv" data-t="27.72">Find:</span> <span data-hf-id="hf-0j26" class="hi rv" data-t="29.2">stoppage</span>
+          <span data-hf-id="hf-fo61" class="hi rv" data-t="29.78">time</span> <span data-hf-id="hf-psgz" class="rv" data-t="30.64">/ hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — 1-hour mental model ONLY (no arithmetic — that's Step 2 now).
+       Ends at 44.64s / morphs at 44.7s, per review: "should last till 45th sec". -->
+  <div data-hf-id="hf-jgmb" id="card-step1" class="clip" data-start="32.0" data-duration="13.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-xgi9" class="solution-card" style="position:absolute;left:560px;top:470px;text-align:center;width:800px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-1gfs" class="rv" data-t="33.2">In 1 hour, without stoppage →</span> <span data-hf-id="hf-1oq2" class="hi rv" data-t="37.12">90 km</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-gnm2" class="rv" data-t="38.96">In 1 hour, with stoppage →</span> <span data-hf-id="hf-brs1" class="hi rv" data-t="43.4">75 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — lost distance + guardrail + formula + bridging line + fraction.
+       Long card (45.6–98.8s) matching the transcript's own extended
+       explanation of this exact idea; see storyboard.md Scene 7 sub-beats. -->
+  <div data-hf-id="hf-volt" id="card-step2" class="clip" data-start="45.6" data-duration="53.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-zy4y" class="solution-card" style="position:absolute;left:570px;top:380px;text-align:center;width:780px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-di4c" class="math">
+          <span data-hf-id="hf-o4gg" class="rv" data-t="49.02">Lost</span> <span data-hf-id="hf-ej08" class="rv" data-t="49.36">distance</span>
+          <span data-hf-id="hf-pv7h" class="rv" data-t="50.04">=</span> <span data-hf-id="hf-rwu3" class="hi rv" data-t="50.58">90</span>
+          <span data-hf-id="hf-hkcc" class="rv" data-t="51.1">−</span> <span data-hf-id="hf-4fwj" class="hi rv" data-t="51.52">75</span>
+          <span data-hf-id="hf-nn2m" class="rv" data-t="52.7">=</span> <span data-hf-id="hf-moom" class="ans rv" data-t="53.76">15 km</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-a0up" class="rv" data-t="55.24" style="font-size:0.65em;color:var(--topic);font-style:italic;">(not actually travelled — the bus could have covered it)</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-3t8t" class="rv" data-t="64.92">Time</span> <span data-hf-id="hf-6m90" class="rv" data-t="65.36">=</span>
+          <span data-hf-id="hf-egbs" class="rv" data-t="65.74">Distance</span> <span data-hf-id="hf-dfmb" class="rv" data-t="66.16">÷</span>
+          <span data-hf-id="hf-zszo" class="rv" data-t="66.82">Speed</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-0npd" class="rv" data-t="67.42">Stoppage time =</span>
+          <span data-hf-id="hf-rlys" id="lost-15" class="hi rv" data-t="72.0">15 km</span>
+          <span data-hf-id="hf-jij9" class="rv" data-t="73.16">÷</span>
+          <span data-hf-id="hf-c4al" id="moving-90" class="hi rv" data-t="73.5">90 km/hr</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-zfuk" class="rv" data-t="91.62">=</span>
+          <span data-hf-id="hf-njnk" class="frac rv" data-t="93.16"><span data-hf-id="hf-br4d" class="top hi">15</span><span data-hf-id="hf-6ih8" class="bot hi">90</span></span>
+          <span data-hf-id="hf-yalm" class="rv" data-t="96.3">hr =</span>
+          <span data-hf-id="hf-poir" class="frac ans rv" data-t="96.56"><span data-hf-id="hf-ycvl" class="top">1</span><span data-hf-id="hf-mk8u" class="bot">6</span></span>
+          <span data-hf-id="hf-2f9u" class="ans rv" data-t="97.54">hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Convert to minutes -->
+  <div data-hf-id="hf-lakk" id="card-step3" class="clip" data-start="99.0" data-duration="10" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:460px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-wf69" class="frac rv" data-t="98.52"><span data-hf-id="hf-53oq" class="top hi">1</span><span data-hf-id="hf-l1zd" class="bot hi">6</span></span>
+          <span data-hf-id="hf-czrv" class="rv" data-t="99.08">hr</span> <span data-hf-id="hf-mnv5" class="rv" data-t="99.36">=</span>
+          <span data-hf-id="hf-knso" class="frac rv" data-t="100.08"><span data-hf-id="hf-xd4e" class="top hi">1</span><span data-hf-id="hf-gpbx" class="bot hi">6</span></span>
+          <span data-hf-id="hf-tnon" class="rv" data-t="101.14">×</span> <span data-hf-id="hf-3cnf" class="hi rv" data-t="101.5">60</span>
+          <span data-hf-id="hf-k5nu" class="rv" data-t="101.98">min</span><br data-hf-id="hf-qsyj">
+          <span data-hf-id="hf-k1ao" class="rv" data-t="102.9">=</span> <span data-hf-id="hf-i7eh" class="ans rv" data-t="103.82">10 minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-5xt8" id="stack-given" class="clip" data-start="31.0" data-duration="83" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-jj4e" class="math">
+          Without stoppage = <span data-hf-id="hf-y7py" class="hi">90 km/hr</span><br data-hf-id="hf-r79k">
+          With stoppage = <span data-hf-id="hf-c727" class="hi">75 km/hr</span><br data-hf-id="hf-q0ch">
+          Find: stoppage time / hr
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-81el" id="stack-step1" class="clip" data-start="44.7" data-duration="69.3" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-k028" class="math">
+          In 1 hr, without stoppage = <span data-hf-id="hf-964z" class="hi">90 km</span><br data-hf-id="hf-qeni">
+          In 1 hr, with stoppage = <span data-hf-id="hf-5mnc" class="hi">75 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-snnk" id="stack-step2" class="clip" data-start="98.0" data-duration="16" data-track-index="13" style="position:absolute;left:100px;top:450px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-h0b6" class="math">
+          Lost distance = 90 − 75 = <span data-hf-id="hf-a9ku" class="hi">15 km</span><br data-hf-id="hf-p7qf">
+          Time = Dist ÷ Speed →
+          <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-awch" class="top hi">15</span><span data-hf-id="hf-6plw" class="bot hi">90</span></span>
+          = <span data-hf-id="hf-hyvf" class="ans">1/6 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-mwh2" id="stack-step3" class="clip" data-start="108.2" data-duration="6" data-track-index="14" style="position:absolute;left:100px;top:600px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-72u5" class="math">
+          <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-xrff" class="top hi">1</span><span data-hf-id="hf-hw90" class="bot hi">6</span></span>
+          hr × 60 = <span data-hf-id="hf-sq66" class="ans">10 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines between stack circles -->
+  <div data-hf-id="hf-ds9c" id="line-g-1" class="clip stack-line" data-start="44.7" data-duration="69.3" data-track-index="15" style="top:200px;height:150px;opacity:0;"></div>
+  <div data-hf-id="hf-nzcj" id="line-1-2" class="clip stack-line" data-start="98.0" data-duration="16" data-track-index="16" style="top:350px;height:150px;opacity:0;"></div>
+  <div data-hf-id="hf-0mh4" id="line-2-3" class="clip stack-line" data-start="108.2" data-duration="6" data-track-index="17" style="top:500px;height:145px;opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (109.2–114s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-qiom" id="options-reveal" class="clip" data-start="109.2" data-duration="5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-a4t2" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>12 minutes</div>
+        <div data-hf-id="hf-ehwu" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>10 minutes</div>
+        <div data-hf-id="hf-vcp1" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>8 minutes</div>
+        <div data-hf-id="hf-6l2n" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>15 minutes</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+
+  // Centering for #q-full-card is GSAP-owned (xPercent:-50) instead of a
+  // static CSS `transform: translateX(-50%)`, so it stays consistent with
+  // how heroEnterLowered drives it — StaticGuard flags any CSS `transform`
+  // on an element that GSAP also tweens.
+  gsap.set("#q-full-card", { xPercent: -50 });
+
+  // PHASE 1 — brief opening beat: the question card pops in centered, and
+  // that's it — no separate illustration build. Per ques21/22's pattern,
+  // everything else (pinned question, pinned illustration, Given card)
+  // starts together at PIN_TIME (7.0s), and the illustration pieces + the
+  // Given card's own text both reveal live, timed to transcript.json,
+  // instead of front-loading a whole Phase 1 scene first.
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.3;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // PHASE 2 — Pinned + Given, both starting at 7.0s (fix: "make the given
+  // card start from 7th sec to sync more").
+  const PIN_TIME = 7.0;
+  apt.fadeOut(tl, "#phase1", PIN_TIME);
+  apt.fadeIn(tl, "#q-pinned", PIN_TIME);
+  apt.fadeIn(tl, "#illus-pinned", PIN_TIME);
+  apt.cardEnter(tl, "#card-given .solution-card", PIN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Illustration pieces inside #illus-pinned reveal live, each timed to
+  // its own real word in transcript.json (all after PIN_TIME=7.0, so these
+  // are genuine live reveals — the bus appears first as the general
+  // scenario, then each speed tag/stop-sign lands exactly as it's spoken).
+  apt.cardEnter(tl, "#bus-icon", 7.2);
+  apt.fadeIn(tl, "#tag-90", 8.3);
+  apt.fadeIn(tl, "#stop-marker", 16.3);
+  apt.fadeIn(tl, "#tag-75", 17.4);
+  apt.emphasize(tl, "#tag-75 span", 18.9);
+
+  // STEP 1 — Given joins stack; Step 1 (1-hour mental model only) opens
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 31.0);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 32.0);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 joins stack at 44.7s (fix: "first step should last
+  // till 45th sec"). Step 2 now carries the lost-distance arithmetic +
+  // guardrail + formula + bridging line + fraction.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 44.7);
+  apt.stackLineGrow(tl, "#line-g-1", 44.7);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 45.6);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // GHOST BUS (fix: "a ghost bus should travel in animation" for "it is the
+  // distance the bus could have traveled if it had not stopped",
+  // 60.06–63.36s). Drives on the SAME road/position as the real bus (no
+  // separate ghost lane — that was the source of the misalignment) so it
+  // visually "splits off" from the real bus, then drives ahead alone.
+  tl.fromTo("#ghost-bus", { opacity: 0 }, { opacity: 0.6, duration: 0.3 }, 60.1);
+  apt.fadeIn(tl, "#ghost-caption", 60.1, 0.3);
+  // Shorter, slower drive — travels only part of the lane (440px of the
+  // 660px road) at a gentler pace, so it reads as a deliberate, easy-to-
+  // follow motion rather than a quick dart across the screen.
+  tl.to("#ghost-bus", { x: 440, duration: 4.0, ease: "power1.inOut" }, 60.3);
+  apt.fadeOut(tl, "#ghost-bus", 64.4, 0.3);
+  apt.fadeOut(tl, "#ghost-caption", 64.4, 0.3);
+
+  // Bridging-logic emphasis (fix: "some animation" for 01:07.42–01:14.64,
+  // "the time spent in stoppages is equal to the time needed to cover this
+  // lost distance at the actual moving speed"). Fired AFTER each span's own
+  // textReveal fade (not simultaneous), as a deliberate one-off emphasis
+  // beat on the problem's core logical bridge.
+  apt.emphasize(tl, "#lost-15", 72.3);
+  apt.emphasize(tl, "#moving-90", 73.8);
+
+  // The narration repeats "15 km at 90 km/hr" two more times before the
+  // fraction resolves (75.18–94.44s) — the script's own repetition style —
+  // but nothing new was on screen for that whole stretch, which read as
+  // static. Re-pulse the same two spans on each real repeated mention
+  // instead of adding more text, so the card stays visually alive without
+  // getting more cluttered.
+  apt.emphasize(tl, "#lost-15", 78.3);   // "...this fifteen kilometer distance..." (78.26)
+  apt.emphasize(tl, "#moving-90", 82.6); // "...at ninety kilometer per hour." (82.42)
+  apt.emphasize(tl, "#lost-15", 86.6);   // "...lost distance is fifteen kilometer..." (86.4)
+  apt.emphasize(tl, "#moving-90", 89.6); // "...moving speed is ninety kilometer..." (89.36)
+
+  // STEP 3 — Step 2 joins stack; Step 3 (convert to minutes) opens
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 98.0);
+  apt.stackLineGrow(tl, "#line-1-2", 98.0);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 99.0);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // Recenter — clear the stack column before options reveal
+  const RECENTER_TIME = 108.0;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 3 joins stack
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 108.2);
+  apt.stackLineGrow(tl, "#line-2-3", 108.2);
+  apt.fadeIn(tl, "#options-reveal", 109.2);
+  apt.optionsStagger(tl, ".opt-btn", 109.6);
+  apt.correctPulse(tl, ".opt-btn.correct", 110.9);
+
+  // Must be >= the document duration (the latest clip end — here
+  // #options-reveal at 109.2+5=114.2s) or the HyperFrames player falls back
+  // to seek-driven playback and audio/media never starts. Padded slightly
+  // past 114.2 for safety margin.
+  tl.set({},{},114.3)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

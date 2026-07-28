@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-2918" class="topic-name">Speed and Time</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-f2gp" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="84.5" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–26.7s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-6t0n" id="phase1" class="clip" data-start="0" data-duration="26.7" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-rivn" class="q-text">
+        If a person walks at <span data-hf-id="hf-lvyq" class="num">20 km/hr</span> instead of <span data-hf-id="hf-5swq" class="num">15 km/hr</span>,
+        he travels <span data-hf-id="hf-kgnk" class="num">30 km</span> more in the same time. The actual distance travelled is:
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: two flat 2D walking lanes — 15 km/hr (shorter) vs 20 km/hr (longer, +30km) -->
+    <div data-hf-id="hf-cw1d" id="illustration" class="illustration" style="position:absolute;left:50%;top:440px;transform:translateX(-50%);
+                width:1000px;height:320px;">
+
+      <!-- LANE 1 — 15 km/hr (road: black surface + dashed white center line; roadSweep only
+           scales it in via scaleX, so it must start at opacity:1, not opacity:0) -->
+      <div data-hf-id="hf-88zt" id="road-1" style="position:absolute;left:80px;top:110px;width:600px;height:18px;
+                               background:var(--text);transform-origin:left center;overflow:hidden;">
+        <div data-hf-id="hf-tlui" style="position:absolute;top:50%;left:0;width:100%;height:3px;transform:translateY(-50%);
+                    background-image:repeating-linear-gradient(to right, var(--bg) 0px, var(--bg) 18px, transparent 18px, transparent 36px);"></div>
+      </div>
+      <div data-hf-id="hf-p7jm" id="label-1" style="position:absolute;left:80px;top:40px;
+                                font-family:'Google Sans Flex','Inter','Helvetica Neue',sans-serif;
+                                font-size:22px;color:var(--primary);opacity:0;">15 km/hr</div>
+      <div data-hf-id="hf-hepp" id="walker-1" style="position:absolute;left:70px;top:14px;width:70px;height:100px;opacity:0;">
+        <img data-hf-id="hf-5aaq" src="illustration/man-walking-svgrepo-com.svg" width="70" height="100" style="display:block;transform:scaleX(-1);">
+      </div>
+
+      <!-- LANE 2 — 20 km/hr (longer road, +30 km extra segment) -->
+      <div data-hf-id="hf-c2y6" id="road-2" style="position:absolute;left:80px;top:250px;width:600px;height:18px;
+                               background:var(--text);transform-origin:left center;overflow:hidden;">
+        <div data-hf-id="hf-rapq" style="position:absolute;top:50%;left:0;width:100%;height:3px;transform:translateY(-50%);
+                    background-image:repeating-linear-gradient(to right, var(--bg) 0px, var(--bg) 18px, transparent 18px, transparent 36px);"></div>
+      </div>
+      <div data-hf-id="hf-dsgl" id="road-2-extra" style="position:absolute;left:680px;top:250px;width:180px;height:18px;
+                                     background:var(--primary);transform-origin:left center;"></div>
+      <div data-hf-id="hf-djki" id="label-2" style="position:absolute;left:80px;top:180px;
+                                font-family:'Google Sans Flex','Inter','Helvetica Neue',sans-serif;
+                                font-size:22px;color:var(--primary);opacity:0;">20 km/hr</div>
+      <div data-hf-id="hf-1q2d" id="walker-2" style="position:absolute;left:70px;top:154px;width:70px;height:100px;opacity:0;">
+        <img data-hf-id="hf-mqme" src="illustration/running-svgrepo-com.svg" width="70" height="100" style="display:block;transform:scaleX(-1);">
+      </div>
+
+      <!-- Extra distance bracket + label -->
+      <div data-hf-id="hf-fov7" id="extra-tick-1" style="position:absolute;left:678px;top:238px;width:4px;height:42px;background:var(--primary);opacity:0;"></div>
+      <div data-hf-id="hf-f7go" id="extra-tick-2" style="position:absolute;left:858px;top:238px;width:4px;height:42px;background:var(--primary);opacity:0;"></div>
+      <div data-hf-id="hf-xx4p" id="extra-label" style="position:absolute;left:678px;top:284px;width:180px;text-align:center;
+                                    font-family:'Google Sans Flex','Inter','Helvetica Neue',sans-serif;
+                                    font-size:20px;color:var(--primary);opacity:0;">+30 km</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (27.0s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-u1hs" id="q-pinned" class="clip" data-start="27.0" data-duration="58" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-jt9h" class="q-text">
+        Walks at <span data-hf-id="hf-co5y" class="num">20 km/hr</span> instead of <span data-hf-id="hf-w6ny" class="num">15 km/hr</span>,
+        travels <span data-hf-id="hf-sug8" class="num">30 km</span> more. Find actual distance.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (large, static — same simple two-line design, just bigger) -->
+  <div data-hf-id="hf-3jeg" id="illus-pinned" class="clip" data-start="27.0" data-duration="50.6" data-track-index="3" style="position:absolute;left:500px;top:180px;width:1300px;height:230px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-k5cj" style="position:absolute;left:20px;top:70px;width:740px;height:8px;background:var(--primary);"></div>
+    <div data-hf-id="hf-lom0" style="position:absolute;left:20px;top:170px;width:890px;height:8px;background:var(--primary);"></div>
+    <div data-hf-id="hf-be6s" style="position:absolute;left:20px;top:24px;font-family:'Google Sans Flex','Inter','Helvetica Neue',sans-serif;font-size:26px;color:var(--primary);">15 km/hr</div>
+    <div data-hf-id="hf-manv" style="position:absolute;left:20px;top:124px;font-family:'Google Sans Flex','Inter','Helvetica Neue',sans-serif;font-size:26px;color:var(--primary);">20 km/hr (+30 km)</div>
+    <img data-hf-id="hf-i60a" src="illustration/man-walking-svgrepo-com.svg" width="60" height="86" style="position:absolute;left:700px;top:0px;display:block;transform:scaleX(-1);">
+    <img data-hf-id="hf-l27o" src="illustration/running-svgrepo-com.svg" width="60" height="86" style="position:absolute;left:850px;top:100px;display:block;transform:scaleX(-1);">
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-0kn6" id="card-given" class="clip" data-start="29.98" data-duration="9.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-rmj5" class="rv" data-t="29.98">First case distance =</span> <span data-hf-id="hf-72bc" class="hi rv" data-t="31.22">D km</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-xel6" class="rv" data-t="32.40">Second case distance =</span> <span data-hf-id="hf-nrix" class="hi rv" data-t="37.76">D + 30 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-qb75" id="card-step1" class="clip" data-start="39.86" data-duration="18.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-ca25" class="rv" data-t="41.54">Time is the same.</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-k3m0" class="rv" data-t="43.14">Time = Distance ÷ Speed</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-rty6" class="frac rv" data-t="47.42"><span data-hf-id="hf-n7wh" class="top hi">D</span><span data-hf-id="hf-9wwb" class="bot hi">15</span></span>
+          <span data-hf-id="hf-b6js" class="rv" data-t="52.78">=</span>
+          <span data-hf-id="hf-y40z" class="frac rv" data-t="50.32"><span data-hf-id="hf-37w3" class="top hi">D + 30</span><span data-hf-id="hf-4tkv" class="bot hi">20</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-g2wx" id="card-step2" class="clip" data-start="59.24" data-duration="12.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vssm" class="solution-card" style="position:absolute;left:590px;top:440px;text-align:center;width:740px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-nezk" class="rv" data-t="60.76">20D</span> <span data-hf-id="hf-dmzv" class="rv" data-t="61.46">=</span> <span data-hf-id="hf-7pau" class="hi rv" data-t="61.86">15(D + 30)</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-a7r2" class="rv" data-t="66.14">20D</span> <span data-hf-id="hf-542h" class="rv" data-t="66.74">=</span> <span data-hf-id="hf-4hl2" class="hi rv" data-t="67.14">15D + 450</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-3swa" class="rv" data-t="69.62">(Subtract 15D from both sides)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-mzfv" id="card-step3" class="clip" data-start="72.26" data-duration="5.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-hbx9" class="solution-card" style="position:absolute;left:660px;top:460px;text-align:center;width:600px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-kiw3" class="rv" data-t="72.26">5D</span> <span data-hf-id="hf-e0ed" class="rv" data-t="72.80">=</span> <span data-hf-id="hf-xspi" class="hi rv" data-t="73.18">450</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-ql7d" class="rv" data-t="74.54">Divide both sides by 5</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-m2gq" class="rv" data-t="76.40">D</span> <span data-hf-id="hf-e28u" class="rv" data-t="76.78">=</span> <span data-hf-id="hf-pvup" class="ans rv" data-t="77.18">90 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-9qqj" id="stack-given" class="clip" data-start="39.16" data-duration="45" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-sv88" class="math">
+          First case = <span data-hf-id="hf-k6w0" class="hi">D</span><br data-hf-id="hf-r05r">
+          Second case = <span data-hf-id="hf-4gv4" class="hi">D + 30</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-t200" id="stack-step1" class="clip" data-start="58.80" data-duration="25.4" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-dxcd" class="math">
+          <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-j3dh" class="top hi">D</span><span data-hf-id="hf-nf3f" class="bot hi">15</span></span>
+          = <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-dwyb" class="top hi">D + 30</span><span data-hf-id="hf-grsv" class="bot hi">20</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-evnm" id="stack-step2" class="clip" data-start="71.80" data-duration="12.4" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-rt9o" class="math">
+          20D = 15D + <span data-hf-id="hf-z6nx" class="hi">450</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-bxai" id="stack-step3" class="clip" data-start="77.60" data-duration="6.2" data-track-index="14" style="position:absolute;left:100px;top:610px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-ddsh" class="math">
+          D = <span data-hf-id="hf-bhk2" class="ans">90 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines between stack circles -->
+  <div data-hf-id="hf-o34z" id="line-g-1" class="clip stack-line" data-start="58.80" data-duration="25.4" data-track-index="15" style="top:209px;height:96px;opacity:0;"></div>
+  <div data-hf-id="hf-iq6h" id="line-1-2" class="clip stack-line" data-start="71.80" data-duration="12.4" data-track-index="16" style="top:369px;height:96px;opacity:0;"></div>
+  <div data-hf-id="hf-b72w" id="line-2-3" class="clip stack-line" data-start="77.60" data-duration="6.2" data-track-index="17" style="top:529px;height:86px;opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-3gq5" id="options-reveal" class="clip" data-start="78.20" data-duration="6.3" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-wdst" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>100 km</div>
+        <div data-hf-id="hf-xkhd" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>70 km</div>
+        <div data-hf-id="hf-hieg" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>80 km</div>
+        <div data-hf-id="hf-i7fx" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>90 km</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question reveal (opens lowered, rises at 3.4s — end of "problem.")
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.4;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration: lane 1 (15 km/hr) — appears with "In the first case..."
+  apt.roadSweep(tl, "#road-1", 9.34, 0.9);
+  apt.cardEnter(tl, "#walker-1", 9.6);
+  apt.fadeIn(tl, "#label-1", 12.38);
+
+  // Walker 1 drifts along its lane through the rest of Phase 1
+  tl.to("#walker-1", { x: 500, duration: 14.0, ease: "none" }, 9.6);
+
+  // ── Illustration: lane 2 (20 km/hr) — "In the second case, faster..."
+  apt.roadSweep(tl, "#road-2", 14.64, 0.9);
+  apt.cardEnter(tl, "#walker-2", 14.9);
+  apt.fadeIn(tl, "#label-2", 17.94);
+
+  // Walker 2 drifts faster (covers more ground in same duration)
+  tl.to("#walker-2", { x: 680, duration: 11.3, ease: "none" }, 14.9);
+
+  // ── Extra distance bracket — "the distance also becomes longer. The extra distance is thirty kilometers."
+  apt.roadSweep(tl, "#road-2-extra", 19.90, 0.7);
+  apt.fadeIn(tl, "#extra-tick-1", 19.90);
+  apt.fadeIn(tl, "#extra-tick-2", 20.5);
+  apt.fadeIn(tl, "#extra-label", 25.64);
+
+  // ── PHASE 2 — Pinned + Given
+  apt.fadeOut(tl, "#phase1", 26.7);
+  apt.fadeIn(tl, "#q-pinned", 27.0);
+  apt.fadeIn(tl, "#illus-pinned", 27.0);
+  apt.cardEnter(tl, "#card-given .solution-card", 29.98);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — Given → stack morph (aligned to "Now look at the important clue.")
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 39.16);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 39.86);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 → stack morph, line G-1 grows (aligned to "Now cross multiply.")
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 58.80);
+  apt.stackLineGrow(tl, "#line-g-1", 58.80);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 59.24);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — Step 2 → stack morph, line 1-2 grows (aligned to "Five d is equal to four hundred fifty.")
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 71.80);
+  apt.stackLineGrow(tl, "#line-1-2", 71.80);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 72.26);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter before options reveal — Step 3 joins the stack, line 2-3 grows
+  const RECENTER_TIME = 77.60;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal (aligned to "the correct answer is option d")
+  apt.fadeIn(tl, "#options-reveal", 78.20);
+  apt.optionsStagger(tl, ".opt-btn", 78.60);
+  apt.correctPulse(tl, ".opt-btn.correct", 80.60);
+
+  tl.set({}, {}, 85);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

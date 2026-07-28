@@ -1,0 +1,51 @@
+So "welcome back again", time for one more problem.
+
+Imagine a person walking for the same number of hours in two different cases.
+
+In the first case, the person walks at 15 kilometres per hour.
+
+In the second case, the person walks faster, at 20 kilometres per hour.
+
+Because the person walks faster, the distance also becomes longer.
+The extra distance is 30 kilometres.
+
+We need to find the distance covered in the first case.
+
+Let us call this distance D kilometres.
+
+So the first distance is D.
+
+The second distance is 30 kilometres more.
+So it becomes D pluss 30.
+
+Now look at the important clue: the time is the same.
+
+Time is equal to distance divided by speed.
+
+For the first case, time is D divided by 15.
+
+For the second case, time is D pluss 30, divided by 20.
+
+Since both times are equal, we can write:
+
+D divided by 15 is equal to D pluss 30, divided by 20.
+
+Now cross-multiply.
+
+20 D is equal to 15 multiplied by D pluss 30.
+
+Opening the bracket gives:
+
+20 D is equal to 15 D pluss 450.
+
+Now subtract 15 D from both sides.
+
+5 D is equal to 450.
+
+Divide both sides by 5.
+
+D is equal to 90.
+
+So the actual distance travelled is 90 kilometres.
+
+The correct answer is option D, 90 kilometres.

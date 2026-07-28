@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--
+  Speed and Time / Beginner / Q6 — Woman's average speed (two-lenjourney)
+  Built from _template/template.html per storyboard.md
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-r001" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-r002" class="dotted-grid"></div>
+  <div data-hf-id="hf-r003" class="bottom-strip"></div>
+  <div data-hf-id="hf-r004" class="topic-name">Speed and Time</div>
+  <div data-hf-id="hf-r005" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-r006" id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="79.34" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–20.3s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-r007" id="phase1" class="clip" data-start="0" data-duration="20.3" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <!-- Question card (full) -->
+    <div data-hf-id="hf-r008" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;">
+      <div data-hf-id="hf-r009" class="q-text">
+        A woman travels the first <span data-hf-id="hf-r010" class="num">100 km</span> at <span data-hf-id="hf-r011" class="num">50 km/hr</span> and the next <span data-hf-id="hf-r012" class="num">100 km</span> at <span data-hf-id="hf-r013" class="num">100 km/hr</span>. Find the average speed for the whole journey.
+      </div>
+    </div>
+
+    <!-- Serial number badge -->
+    <div data-hf-id="hf-r014" id="serial-num" class="serial-num" style="left:60px;top:60px;">
+      <div data-hf-id="hf-r015" class="digit">6</div>
+    </div>
+
+    <!-- Illustration area: two stacked roads, len 1 (50 km/hr) then len 2 (100 km/hr) -->
+    <div data-hf-id="hf-r016" id="illustration" class="illustration" style="position:absolute;left:50%;top:400px;transform:translateX(-50%);width:1600px;height:280px;opacity:0;">
+
+      <!-- Road 1: len 1, 100 km at 50 km/hr -->
+      <div data-hf-id="hf-r017" style="position:absolute;left:0;top:60px;width:1600px;height:80px;">
+        <div data-hf-id="hf-r018" style="position:absolute;left:60px;right:220px;top:56px;height:3px;background:#000;"></div>
+        <div data-hf-id="hf-r019" style="position:absolute;left:60px;top:60px;font-size:22px;color:var(--text);">len 1 &middot; 100 km</div>
+        <div data-hf-id="hf-r020" id="speed-1-label" style="position:absolute;right:40px;top:6px;font-size:30px;font-weight:500;color:var(--primary);opacity:0;">50 km/hr</div>
+        <div data-hf-id="hf-r021" id="car-1" style="position:absolute;left:60px;top:2px;width:90px;height:54px;">
+          <div data-hf-id="hf-r022" style="position:absolute;left:0;bottom:10px;width:64px;height:34px;background:var(--primary);border-radius:6px;"></div>
+          <div data-hf-id="hf-r023" style="position:absolute;left:64px;bottom:10px;width:26px;height:24px;background:var(--primary);border-radius:4px;"></div>
+          <div data-hf-id="hf-r024" style="position:absolute;left:12px;bottom:0;width:18px;height:18px;border-radius:50%;background:#000;"></div>
+          <div data-hf-id="hf-r025" style="position:absolute;left:70px;bottom:0;width:18px;height:18px;border-radius:50%;background:#000;"></div>
+        </div>
+      </div>
+
+      <!-- Road 2: len 2, 100 km at 100 km/hr -->
+      <div data-hf-id="hf-r026" style="position:absolute;left:0;top:200px;width:1600px;height:80px;">
+        <div data-hf-id="hf-r027" style="position:absolute;left:60px;right:220px;top:56px;height:3px;background:#000;"></div>
+        <div data-hf-id="hf-r028" style="position:absolute;left:60px;top:60px;font-size:22px;color:var(--text);">len 2 &middot; 100 km</div>
+        <div data-hf-id="hf-r029" id="speed-2-label" style="position:absolute;right:40px;top:6px;font-size:30px;font-weight:500;color:var(--primary);opacity:0;">100 km/hr</div>
+        <div data-hf-id="hf-r030" id="car-2" style="position:absolute;left:60px;top:2px;width:90px;height:54px;">
+          <div data-hf-id="hf-r031" style="position:absolute;left:0;bottom:10px;width:64px;height:34px;background:var(--primary);border-radius:6px;"></div>
+          <div data-hf-id="hf-r032" style="position:absolute;left:64px;bottom:10px;width:26px;height:24px;background:var(--primary);border-radius:4px;"></div>
+          <div data-hf-id="hf-r033" style="position:absolute;left:12px;bottom:0;width:18px;height:18px;border-radius:50%;background:#000;"></div>
+          <div data-hf-id="hf-r034" style="position:absolute;left:70px;bottom:0;width:18px;height:18px;border-radius:50%;background:#000;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (20.3s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-r035" id="q-pinned" class="clip" data-start="20.3" data-duration="59.04" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r036" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-r037" class="q-text">
+        First <span data-hf-id="hf-r038" class="num">100 km</span> @ <span data-hf-id="hf-r039" class="num">50 km/hr</span>, next <span data-hf-id="hf-r040" class="num">100 km</span> @ <span data-hf-id="hf-r041" class="num">100 km/hr</span>. Find average speed.
+        <span data-hf-id="hf-r041b" id="result-span" style="opacity:0;"> &rarr; <span data-hf-id="hf-r041c" class="num">66.67 km/hr</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, compact, centered above the active solution card) -->
+  <div data-hf-id="hf-r042" id="illus-pinned" class="clip" data-start="20.3" data-duration="49.5" data-track-index="3" style="position:absolute;left:960px;top:140px;transform:translateX(-50%);width:340px;height:96px;z-index:5;opacity:0;
+              display:flex;flex-direction:column;justify-content:center;gap:16px;">
+    <!-- mini road 1 -->
+    <div data-hf-id="hf-r043" style="position:relative;width:340px;height:34px;">
+      <div data-hf-id="hf-r044" style="position:absolute;left:6px;right:6px;top:24px;height:2px;background:#000;"></div>
+      <div data-hf-id="hf-r045" style="position:absolute;left:280px;top:2px;width:30px;height:18px;background:var(--primary);border-radius:4px;"></div>
+      <div data-hf-id="hf-r046" style="position:absolute;right:6px;top:-2px;font-size:15px;font-weight:500;color:var(--primary);">50</div>
+    </div>
+    <!-- mini road 2 -->
+    <div data-hf-id="hf-r047" style="position:relative;width:340px;height:34px;">
+      <div data-hf-id="hf-r048" style="position:absolute;left:6px;right:6px;top:24px;height:2px;background:#000;"></div>
+      <div data-hf-id="hf-r049" style="position:absolute;left:280px;top:2px;width:30px;height:18px;background:var(--primary);border-radius:4px;"></div>
+      <div data-hf-id="hf-r050" style="position:absolute;right:6px;top:-2px;font-size:15px;font-weight:500;color:var(--primary);">100</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-r051" id="card-given" class="clip" data-start="20.3" data-duration="10" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-r052" class="solution-card" style="position:absolute;width:46%;left:600px;top:440px;text-align:center;">
+      <span data-hf-id="hf-r053" class="chip">Given</span>
+      <div data-hf-id="hf-r054" class="math">
+        Distance 1 = <span data-hf-id="hf-r055" class="hi">100 km</span>, Speed 1 = <span data-hf-id="hf-r056" class="hi">50 km/hr</span><br data-hf-id="hf-r057">
+        Distance 2 = <span data-hf-id="hf-r058" class="hi">100 km</span>, Speed 2 = <span data-hf-id="hf-r059" class="hi">100 km/hr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-r060" id="card-step1" class="clip" data-start="30.4" data-duration="12.76" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-r061" class="solution-card" style="position:absolute;left:590px;top:420px;text-align:center;width:740px;">
+      <span data-hf-id="hf-r062" class="chip">Step 1</span>
+      <div data-hf-id="hf-r063" class="math">
+        Time for len 1<br data-hf-id="hf-r064">
+        <span data-hf-id="hf-r065" class="frac" style="opacity:0;"><span data-hf-id="hf-r066" class="top hi">Distance</span><span data-hf-id="hf-r067" class="bot hi">Speed</span></span>
+        =
+        <span data-hf-id="hf-r068" class="frac" style="opacity:0;"><span data-hf-id="hf-r069" class="top hi">100</span><span data-hf-id="hf-r070" class="bot hi">50</span></span>
+        = <span data-hf-id="hf-r071" class="ans" style="opacity:0;">2 hours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-r072" id="card-step2" class="clip" data-start="43.6" data-duration="5.16" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-r073" class="solution-card" style="position:absolute;left:610px;top:460px;text-align:center;">
+      <span data-hf-id="hf-r074" class="chip">Step 2</span>
+      <div data-hf-id="hf-r075" class="math">
+        Time for len 2<br data-hf-id="hf-r076">
+        <span data-hf-id="hf-r077" class="frac"><span data-hf-id="hf-r078" class="top hi">100</span><span data-hf-id="hf-r079" class="bot hi">100</span></span>
+        = <span data-hf-id="hf-r080" class="ans" style="opacity:0;">1 hour</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-r081" id="card-step3" class="clip" data-start="49.2" data-duration="7.74" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-r082" class="solution-card" style="position:absolute;left:580px;top:420px;text-align:center;width:760px;">
+      <span data-hf-id="hf-r083" class="chip">Step 3</span>
+      <div data-hf-id="hf-r084" class="math">
+        Total distance = 100 + 100 = <span data-hf-id="hf-r085" class="ans" style="opacity:0;">200 km</span><br data-hf-id="hf-r086">
+        Total time = 2 + 1 = <span data-hf-id="hf-r087" class="ans" style="opacity:0;">3 hours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div data-hf-id="hf-r088" id="card-step4" class="clip" data-start="57.4" data-duration="12.18" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-r089" class="solution-card" style="position:absolute;left:580px;top:410px;text-align:center;width:760px;">
+      <span data-hf-id="hf-r090" class="chip">Step 4</span>
+      <div data-hf-id="hf-r091" class="math">
+        Average speed =
+        <span data-hf-id="hf-r092" class="frac" style="opacity:0;"><span data-hf-id="hf-r093" class="top hi">Total distance</span><span data-hf-id="hf-r094" class="bot hi">Total time</span></span><br data-hf-id="hf-r095">
+        =
+        <span data-hf-id="hf-r096" class="frac" style="opacity:0;"><span data-hf-id="hf-r097" class="top hi">200</span><span data-hf-id="hf-r098" class="bot hi">3</span></span>
+        = <span data-hf-id="hf-r099" class="ans" style="opacity:0;">66.67 km/hr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-r100" id="stack-given" class="clip" data-start="29.7" data-duration="49.64" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r101" class="stack-card">
+      <span data-hf-id="hf-r102" class="chip">Given</span>
+      <div data-hf-id="hf-r103" class="math">
+        D1=<span data-hf-id="hf-r104" class="hi">100km</span>, S1=<span data-hf-id="hf-r105" class="hi">50</span><br data-hf-id="hf-r106">
+        D2=<span data-hf-id="hf-r107" class="hi">100km</span>, S2=<span data-hf-id="hf-r108" class="hi">100</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r109" id="stack-step1" class="clip" data-start="43.16" data-duration="36.18" data-track-index="12" style="position:absolute;left:100px;top:295px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r110" class="stack-card">
+      <span data-hf-id="hf-r111" class="chip">Step 1</span>
+      <div data-hf-id="hf-r112" class="math" style="font-size:20px;">
+        T1 = <span data-hf-id="hf-r113" class="frac"><span data-hf-id="hf-r114" class="top hi">100</span><span data-hf-id="hf-r115" class="bot hi">50</span></span>
+        = <span data-hf-id="hf-r116" class="ans">2 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r117" id="stack-step2" class="clip" data-start="48.76" data-duration="30.58" data-track-index="13" style="position:absolute;left:100px;top:440px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r118" class="stack-card">
+      <span data-hf-id="hf-r119" class="chip">Step 2</span>
+      <div data-hf-id="hf-r120" class="math" style="font-size:20px;">
+        T2 = <span data-hf-id="hf-r121" class="frac"><span data-hf-id="hf-r122" class="top hi">100</span><span data-hf-id="hf-r123" class="bot hi">100</span></span>
+        = <span data-hf-id="hf-r124" class="ans">1 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r125" id="stack-step3" class="clip" data-start="56.94" data-duration="22.4" data-track-index="14" style="position:absolute;left:100px;top:585px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r126" class="stack-card">
+      <span data-hf-id="hf-r127" class="chip">Step 3</span>
+      <div data-hf-id="hf-r128" class="math" style="font-size:20px;">
+        D=<span data-hf-id="hf-r129" class="ans">200km</span>, T=<span data-hf-id="hf-r130" class="ans">3 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r131" id="stack-step4" class="clip" data-start="69.58" data-duration="9.76" data-track-index="15" style="position:absolute;left:100px;top:720px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-r132" class="stack-card">
+      <span data-hf-id="hf-r133" class="chip">Step 4</span>
+      <div data-hf-id="hf-r134" class="math" style="font-size:20px;">
+        <span data-hf-id="hf-r135" class="frac"><span data-hf-id="hf-r136" class="top hi">200</span><span data-hf-id="hf-r137" class="bot hi">3</span></span>
+        = <span data-hf-id="hf-r138" class="ans">66.67</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (70–79.34s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-r139" id="options-reveal" class="clip" data-start="70" data-duration="9.34" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-r140" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-r141" class="options-grid">
+        <div data-hf-id="hf-r142" class="opt-btn"><span data-hf-id="hf-r143" class="letter">A</span>60 km/hr</div>
+        <div data-hf-id="hf-r144" class="opt-btn"><span data-hf-id="hf-r145" class="letter">B</span>80 km/hr</div>
+        <div data-hf-id="hf-r146" class="opt-btn"><span data-hf-id="hf-r147" class="letter">C</span>75 km/hr</div>
+        <div data-hf-id="hf-r148" class="opt-btn correct"><span data-hf-id="hf-r149" class="letter">D</span>66.67 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  /* GSAP timeline wired to transcript.json word-level timestamps. */
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.3; // "problem," ends 4.28s — question settles as leg-1 narration begins
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  // Badge starts lowered like the card, pops in via serialEnter (no shared
+  // props with heroEnterLowered's fade/scale, so they don't fight), then
+  // rises back to rest in sync with #q-full-card at the same RISE_TIME.
+  tl.set("#serial-num", { y: HERO_OFFSET_Y }, 0);
+  apt.serialEnter(tl, "#serial-num", 0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration fades in at 5s, just before leg-1 starts driving
+  apt.fadeIn(tl, "#illustration", 5);
+
+  // len1 — car drives 5.0s -> 10.50s ("a woman travels the first 100km at 50km/hr"), starting right as the illustration fades in
+  const LEG1_START = 5.0, LEG1_END = 10.5;
+  tl.to("#car-1", { left: 1240, duration: LEG1_END - LEG1_START, ease: "power1.inOut" }, LEG1_START);
+  tl.to("#speed-1-label", { opacity: 1, duration: 0.3 }, LEG1_END - 0.2);
+
+  // len2 — car drives 11.02s -> 15.68s, faster ("...at 100km/hr")
+  const LEG2_START = 11.02, LEG2_END = 15.68;
+  tl.to("#car-2", { left: 1240, duration: LEG2_END - LEG2_START, ease: "power1.inOut" }, LEG2_START);
+  tl.to("#speed-2-label", { opacity: 1, duration: 0.3 }, LEG2_END - 0.2);
+
+  // "The question is asking us to find the average speed..." 16.24s — emphasize question
+  apt.emphasize(tl, "#q-full-card", 16.24);
+
+  // PHASE 2 — Pin question, clear stage ("Be careful here." starts 20.3s)
+  apt.fadeOut(tl, "#phase1", 20.3);
+  apt.fadeIn(tl, "#q-pinned", 20.6);
+  apt.fadeIn(tl, "#illus-pinned", 20.6);
+  apt.cardEnter(tl, "#card-given .solution-card", 21.5);
+
+  // STEP 1 — "First, let us find the time..." starts 29.70s
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 29.7);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 30.4);
+  // "We know that time is equal to distance divided by speed." 34.42s — reveal formula
+  apt.resultReveal(tl, "#card-step1 .math > .frac:nth-of-type(1)", 34.42);
+  // "one hundred divided by fifty" — "one hundred" starts 38.04s
+  apt.resultReveal(tl, "#card-step1 .math > .frac:nth-of-type(2)", 38.04);
+  // "two hours" starts 41.06s
+  apt.resultReveal(tl, "#card-step1 .ans", 41.06);
+
+  // STEP 2 — "For the next one hundred kilometer..." starts 43.16s
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 43.16);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 43.6);
+  // "This gives us one hour." starts 47.24s
+  apt.resultReveal(tl, "#card-step2 .ans", 47.24);
+
+  // STEP 3 — "Now, the total distance is..." starts 48.76s
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 48.76);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 49.2);
+  apt.resultReveal(tl, "#card-step3 .ans:nth-of-type(1)", 50.9);
+  // "The total time is two plus one, which is three hours." starts 52.70s
+  apt.resultReveal(tl, "#card-step3 .ans:nth-of-type(2)", 54.3);
+
+  // STEP 4 — "Now, average speed is equal to..." starts 56.94s
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 56.94);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 57.4);
+  apt.resultReveal(tl, "#card-step4 .math > .frac:nth-of-type(1)", 56.94);
+  // "two hundred divided by three" — "two hundred" starts 61.14s
+  apt.resultReveal(tl, "#card-step4 .math > .frac:nth-of-type(2)", 61.14);
+  // "sixty-six point six seven" starts 64.84s
+  apt.resultReveal(tl, "#card-step4 .ans", 64.84);
+
+  // ── Recenter before options reveal — "Hence, the average speed..." starts 68.82s
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", 69.58);
+  const RECENTER_TIME = 69.8;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 250, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal
+  apt.fadeIn(tl, "#options-reveal", 70.0);
+  apt.optionsStagger(tl, ".opt-btn", 70.3);
+  // Literal word timestamp: "D," starts 76.76s
+  apt.correctPulse(tl, ".opt-btn.correct", 76.76);
+
+  // End-question animation — restate the answer inline on the pinned question card
+  apt.resultReveal(tl, "#result-span", 77.4);
+
+  tl.set({},{},79.34);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

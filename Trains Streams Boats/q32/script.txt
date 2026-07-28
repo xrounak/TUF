@@ -1,0 +1,73 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now let us first read the question.
+
+A train crosses a 150 mee-ter platform in 20 seconds and a 250 mee-ter platform in 25 seconds. We need to find the speed of the train.
+
+Given,
+
+Platform 1 length = 150 mee-ter
+
+Time to cross Platform 1 = 20 seconds<break time="0.4s" />
+
+Platform 2 length = 250 mee-ter<break time="0.4s" />
+
+Time to cross Platform 2 = 25 seconds<break time="0.4s" />
+
+Let,
+
+Length of the train = L mee-ter<break time="0.4s" />
+
+Speed of the train = S mee-ter per second.<break time="0.4s" />
+
+Now<break time="0.4s" />
+
+When a train crosses a platform, it does not cover only the platform.<break time="0.4s" />
+
+The entire train has to enter the platform, and then the last coach has to come out.<break time="0.4s" />
+
+So the total distance covered is,<break time="0.4s" />
+
+Distance = Length of Train + Length of Platform.<break time="0.4s" />
+
+so distance = L + 150<break time="0.4s" />
+
+Also, we know,<break time="0.4s" />
+
+Speed = Distance ÷ Time.<break time="0.4s" />
+
+Now for the first platform,<break time="0.4s" />
+
+time taken = 20 so,<break time="0.4s" />
+
+ S = L + 150 <break time="0.4s" /> ÷ 20<break time="0.4s" />
+
+so,<break time="0.4s" />
+
+ 20S = L + 150<break time="0.4s" />
+
+Now for the second platform,<break time="0.4s" />
+
+time taken = 25 sec ,<break time="0.4s" />
+
+S = L + 250 <break time="0.4s" /> ÷ 25
+
+So,<break time="0.4s" />
+
+25S = L + 250
+
+Now subtract equation (1) from equation (2).
+
+25S − 20S = L + 250<break time="0.4s" /> − <break time="0.4s" />L + 150
+
+The train length gets cancelled automatically.
+
+5S = 100
+
+S = 20 mee-ter per second.
+
+<break time="0.6s" />
+
+Hence, the speed of the train is "20 mee-ter per second".
+
+So the correct option is "Option D".

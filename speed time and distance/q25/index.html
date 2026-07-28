@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration CSS — a single delivery van driving across a
+     two-leg road (design.md §7 — illustration content is per-question
+     custom, not a shared component). */
+  .illus-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .illus-pinned-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-8qq0" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="81.7" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–17.3s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-06n6" id="phase1" class="clip" data-start="0" data-duration="18.3" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-s8gy" class="q-text">
+        A delivery van travels for <span data-hf-id="hf-g0vo" class="num">2 hours</span> at <span data-hf-id="hf-ll9j" class="num">45 km/hr</span>
+        and then for <span data-hf-id="hf-97v7" class="num">3 hours</span> at <span data-hf-id="hf-rp5q" class="num">60 km/hr</span>.
+        Find the <span data-hf-id="hf-fk6x" class="num">average speed</span>.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: single van driving left → midpoint → right edge along
+         one road, split into two labeled legs. Same van icon persists into
+         the pinned recap (object continuity). -->
+    <div data-hf-id="hf-ax2p" id="illustration" style="position:absolute;left:50%;top:460px;transform:translateX(-50%);
+                width:1400px;height:260px;opacity:0;">
+      <div data-hf-id="hf-wvhz" id="leg1-label" class="illus-label" style="position:absolute;left:0;top:70px;width:50%;text-align:center;opacity:0;">45 km/hr · 2 hr</div>
+      <div data-hf-id="hf-vhpe" id="leg2-label" class="illus-label" style="position:absolute;left:50%;top:70px;width:50%;text-align:center;opacity:0;">60 km/hr · 3 hr</div>
+      <div data-hf-id="hf-8hiw" id="road-line" style="position:absolute;left:0;top:180px;width:100%;height:6px;background:#000000;transform-origin:left center;transform:scaleX(0);"></div>
+      <div data-hf-id="hf-gbck" id="road-split" style="position:absolute;left:50%;top:164px;width:4px;height:36px;background:#000000;opacity:0;"></div>
+      <img data-hf-id="hf-ffaz" id="van-icon" src="illustration/van-svgrepo-com.svg" style="position:absolute;left:3%;top:60px;width:120px;height:auto;transform:translateX(-50%);">
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (17.3s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-7x65" id="q-pinned" class="clip" data-start="17.3" data-duration="67.7" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-vopt" class="q-text">
+        Delivery van: <span data-hf-id="hf-scxr" class="num">2 hr</span> at <span data-hf-id="hf-m4cn" class="num">45 km/hr</span>, then
+        <span data-hf-id="hf-5bsa" class="num">3 hr</span> at <span data-hf-id="hf-0j5u" class="num">60 km/hr</span>. Find the <span data-hf-id="hf-81jh" class="num">average speed</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration: shrunk van icon + single centered recap line -->
+  <div data-hf-id="hf-n1is" id="illus-pinned" class="clip" data-start="17.3" data-duration="57.6" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:150px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:20px;">
+    <img data-hf-id="hf-h8k8" id="illus-pinned-icon" src="illustration/van-svgrepo-com.svg" style="width:70px;height:auto;">
+    <div data-hf-id="hf-f99c" class="illus-pinned-label">45 km/hr, 2 hr → then → 60 km/hr, 3 hr</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given, Step 1–4, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — recap card; GIVEN_TIME (5.0) is its own transcript timestamp,
+       opened early (during Phase 1, not glided by pinFlow — stays put like
+       q24's pattern) so its values reveal in sync with the moment the
+       question narration actually speaks each speed/time pair. -->
+  <div data-hf-id="hf-3f4u" id="card-given" class="clip" data-start="5.0" data-duration="16.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:580px;top:780px;text-align:center;width:760px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          Part 1: Time = <span data-hf-id="hf-lxul" class="hi rv" data-t="6.019">2 hr</span>, Speed = <span data-hf-id="hf-lxu2" class="hi rv" data-t="6.839">45 km/hr</span><br data-hf-id="hf-x5px">
+          Part 2: Time = <span data-hf-id="hf-8bma" class="hi rv" data-t="9.179">3 hr</span>, Speed = <span data-hf-id="hf-8bm2" class="hi rv" data-t="10.5">60 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Distance = Speed × Time, applied to both legs -->
+  <div data-hf-id="hf-h43t" id="card-step1" class="clip" data-start="21.239" data-duration="20.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-8hiu" class="solution-card" style="position:absolute;left:600px;top:420px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-qavm" class="rv" data-t="22.68">Distance</span> <span data-hf-id="hf-dcfs" class="rv" data-t="23.399">=</span>
+          <span data-hf-id="hf-50y3" class="rv" data-t="23.879">Speed</span> <span data-hf-id="hf-1bx3" class="rv" data-t="24.18">×</span>
+          <span data-hf-id="hf-uyv6" class="rv" data-t="24.479">Time</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-sjz8" class="rv" data-t="25.279">Part 1:</span>
+          <span data-hf-id="hf-k14t" class="rv" data-t="27.68">45</span> <span data-hf-id="hf-4dia" class="rv" data-t="28.239">×</span>
+          <span data-hf-id="hf-j8fi" class="rv" data-t="28.519">2</span> <span data-hf-id="hf-msfq" class="rv" data-t="29.539">=</span>
+          <span data-hf-id="hf-rmwd" class="hi rv" data-t="30.119">90 km</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-6kfv" class="rv" data-t="31.719">Part 2:</span>
+          <span data-hf-id="hf-94wn" class="rv" data-t="35.0">60</span> <span data-hf-id="hf-73s4" class="rv" data-t="35.639">×</span>
+          <span data-hf-id="hf-y93p" class="rv" data-t="35.979">3</span> <span data-hf-id="hf-kvae" class="rv" data-t="36.979">=</span>
+          <span data-hf-id="hf-ujt9" class="hi rv" data-t="37.419">180 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Total Distance -->
+  <div data-hf-id="hf-pp7t" id="card-step2" class="clip" data-start="41.439" data-duration="12.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-f65y" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-j44f" class="rv" data-t="43.319">Total</span> <span data-hf-id="hf-4fa1" class="rv" data-t="43.659">Distance</span>
+          <span data-hf-id="hf-6lln" class="rv" data-t="44.399">=</span> <span data-hf-id="hf-cs3v" class="hi rv" data-t="45.379">90</span>
+          <span data-hf-id="hf-5dc9" class="rv" data-t="45.84">+</span> <span data-hf-id="hf-9fus" class="hi rv" data-t="46.18">180</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-9fi5" class="rv" data-t="47.619">=</span> <span data-hf-id="hf-od1m" class="ans rv" data-t="48.259">270 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Total Time -->
+  <div data-hf-id="hf-x85r" id="card-step3" class="clip" data-start="53.759" data-duration="8.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-fkgz" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-pga2" class="rv" data-t="53.759">Total</span> <span data-hf-id="hf-hvkc" class="rv" data-t="54.119">Time</span>
+          <span data-hf-id="hf-t5sj" class="rv" data-t="55.119">=</span> <span data-hf-id="hf-6we5" class="hi rv" data-t="55.599">2 hr</span>
+          <span data-hf-id="hf-zyps" class="rv" data-t="56.919">+</span> <span data-hf-id="hf-iwlp" class="hi rv" data-t="57.219">3 hr</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-0ivz" class="rv" data-t="59.119">=</span> <span data-hf-id="hf-sxcy" class="ans rv" data-t="59.539">5 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — Average Speed = Total Distance ÷ Total Time -->
+  <div data-hf-id="hf-aw0x" id="card-step4" class="clip" data-start="62.159" data-duration="13.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-mnss" class="solution-card" style="position:absolute;left:560px;top:400px;text-align:center;width:800px;">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-4pch" class="chip">Step 4</span>
+        <div data-hf-id="hf-lgo5" class="math">
+          <span data-hf-id="hf-sdax" class="rv" data-t="62.159">Average</span> <span data-hf-id="hf-hpyg" class="rv" data-t="62.479">Speed</span>
+          <span data-hf-id="hf-qf2v" class="rv" data-t="62.979">=</span>
+          <span data-hf-id="hf-fr1" class="frac rv" data-t="63.399"><span data-hf-id="hf-299e" class="top hi">Total Distance</span><span data-hf-id="hf-75o6" class="bot hi">Total Time</span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-7tm7" class="rv" data-t="67.04">=</span>
+          <span data-hf-id="hf-fr2" class="frac rv" data-t="68.299"><span data-hf-id="hf-zx9s" class="top hi">270</span><span data-hf-id="hf-m8wg" class="bot hi">5</span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-bg3c" class="rv" data-t="72.18">=</span> <span data-hf-id="hf-9ym4" class="ans rv" data-t="72.4">54 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps — G, 1, 2, 3, 4)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-2r88" id="stack-given" class="clip" data-start="19.239" data-duration="64.8" data-track-index="11" style="position:absolute;left:100px;top:120px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-t93j" class="math">
+          Part 1: <span data-hf-id="hf-xx7s" class="hi">45 km/hr, 2 hr</span><br data-hf-id="hf-r05r">
+          Part 2: <span data-hf-id="hf-00gg" class="hi">60 km/hr, 3 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-za7i" id="stack-step1" class="clip" data-start="40.439" data-duration="44.6" data-track-index="12" style="position:absolute;left:100px;top:230px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-dso4" class="math">
+          Distance = Speed × Time<br data-hf-id="hf-p0mm">
+          Part 1 = <span data-hf-id="hf-964z" class="hi">90 km</span>, Part 2 = <span data-hf-id="hf-hk6l" class="hi">180 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-rfyb" id="stack-step2" class="clip" data-start="52.759" data-duration="32.3" data-track-index="13" style="position:absolute;left:100px;top:370px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-4nc2" class="math">
+          Total Distance = 90 + 180<br data-hf-id="hf-ombl">
+          = <span data-hf-id="hf-p7es" class="ans">270 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3dzg" id="stack-step3" class="clip" data-start="61.159" data-duration="23.9" data-track-index="14" style="position:absolute;left:100px;top:490px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-xe81" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-lwod" class="math">
+          Total Time = 2 hr + 3 hr<br data-hf-id="hf-qsyj">
+          = <span data-hf-id="hf-nw81" class="ans">5 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-gusy" id="stack-step4" class="clip" data-start="74.4" data-duration="10.6" data-track-index="15" style="position:absolute;left:100px;top:610px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2fcs" class="stack-card">
+      <div data-hf-id="hf-xsj2" class="card-content">
+        <span data-hf-id="hf-y1wg" class="step-circle">4</span>
+        <div data-hf-id="hf-memr" class="math">
+          Average Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-n6rs" class="top hi">270</span><span data-hf-id="hf-k8ko" class="bot hi">5</span></span><br data-hf-id="hf-r79k">
+          = <span data-hf-id="hf-4ubp" class="ans">54 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines between stack circles — geometry set at
+       runtime by apt.setStackLine() from the actual rendered circle centers. -->
+  <div data-hf-id="hf-jfii" id="line-g-1" class="clip stack-line" data-start="40.439" data-duration="44.6" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-g0is" id="line-1-2" class="clip stack-line" data-start="52.759" data-duration="32.3" data-track-index="17" style="opacity:0;"></div>
+  <div data-hf-id="hf-ow13" id="line-2-3" class="clip stack-line" data-start="61.159" data-duration="23.9" data-track-index="18" style="opacity:0;"></div>
+  <div data-hf-id="hf-twb6" id="line-3-4" class="clip stack-line" data-start="74.4" data-duration="10.6" data-track-index="19" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-fl9r" id="options-reveal" class="clip" data-start="74.4" data-duration="10.6" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-ffec" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>52 km/hr</div>
+        <div data-hf-id="hf-d2cw" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>56 km/hr</div>
+        <div data-hf-id="hf-4hzs" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>54 km/hr</div>
+        <div data-hf-id="hf-9kry" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>50 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+  apt.setStackLine("#line-3-4", "#stack-step3 .step-circle", "#stack-step4 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance (starts lowered, rises when the
+  // opening "welcome back / one more problem" line ends).
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration build (per-question custom, plain GSAP tweens — road,
+  // van, labels are not shared components, see design.md §7). The whole
+  // illustration stays hidden (opacity:0 in markup) until it fades in at
+  // 4s — nothing inside it should be visible before then, so the road
+  // sweep and van motion are timed to start right as the fade-in lands.
+  apt.fadeIn(tl, "#illustration", 4.0, 0.5);
+
+  apt.roadSweep(tl, "#road-line", 4.0, 0.9);
+
+  tl.to("#van-icon", { left: "50%", duration: 4.2, ease: "power1.inOut" }, 5.9);
+  tl.fromTo("#leg1-label", { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 7.2);
+
+  tl.fromTo("#road-split", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 10.0);
+  tl.to("#van-icon", { left: "96%", duration: 3.0, ease: "power1.inOut" }, 10.0);
+  tl.fromTo("#leg2-label", { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 10.3);
+
+  // ── PIN — question + illustration glide to their pinned slots.
+  const PIN_TIME = 17.3;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Small finite bob on the pinned van icon so the pinned area doesn't sit
+  // dead-static through the long step sequence.
+  apt.ambientLoop(tl, "#illus-pinned-icon", 19.2, 74.4);
+
+  // ── GIVEN — opens at 5s, early in Phase 1 (not glided by pinFlow — stays
+  // put through the pin transition, like q24's pattern). Its two values
+  // reveal in sync with the exact words in the question narration.
+  const GIVEN_TIME = 5.0;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── STEP 1 — Given morphs to stack; Step 1 (formula + both legs) opens.
+  const GIVEN_MORPH = 18.239;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_MORPH);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 21.239);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2 — Step 1 joins the stack (grow G→1 line); Step 2 (Total
+  // Distance) opens.
+  const STEP1_MORPH = 40.439;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_MORPH);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_MORPH);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 41.439);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── STEP 3 — Step 2 joins the stack (grow 1→2 line); Step 3 (Total Time)
+  // opens.
+  const STEP2_MORPH = 52.759;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_MORPH);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_MORPH);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 53.759);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── STEP 4 — Step 3 joins the stack (grow 2→3 line); Step 4 (Average
+  // Speed) opens.
+  const STEP3_MORPH = 61.159;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", STEP3_MORPH);
+  apt.stackLineGrow(tl, "#line-2-3", STEP3_MORPH);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 62.159);
+  apt.textReveal(tl, "#card-step4 .math");
+
+  // ── OPTIONS — Step 4 joins the stack (grow 3→4 line); clear the stack
+  // column, recenter the pinned question, and reveal the options grid.
+  const STEP4_MORPH = 74.4;
+  const RECENTER_TIME = 74.4;
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", STEP4_MORPH);
+  apt.stackLineGrow(tl, "#line-3-4", STEP4_MORPH);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  apt.fadeIn(tl, "#options-reveal", 75.3);
+  apt.optionsStagger(tl, ".opt-btn", 75.9);
+  apt.correctPulse(tl, ".opt-btn.correct", 80.9);
+
+  // ── END FADE — everything fades out together, once, after the correct
+  // pulse and the voiceover (ends 81.639s) have both settled.
+  const END_FADE_TIME = 82.3;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 86.1);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

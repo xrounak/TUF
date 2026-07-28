@@ -1,0 +1,119 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given two statements.
+
+The first statement says that the boat's downstream speed is 26 kilo-mee-ter per hour.
+
+The second statement says that the same boat's upstream speed is 18 kilo-mee-ter per hour.
+
+The question is "not" asking us to find the current speed directly.
+
+It is asking a data sufficiency question.
+
+In simple words, we need to check whether the given information is enough to find the speed of the river current.
+
+Got it? Perfect.
+
+Now before checking the statements, let us assume two unknowns.
+
+Let the speed of the boat in still water be "b" kilo-mee-ter per hour.
+
+And let the speed of the river current be "c" kilo-mee-ter per hour.
+
+Now remember these two very important formulas.
+
+Downstream Speed is equal to Boat Speed in Still Water pluss Current Speed.
+
+Because the river helps the boat move faster.
+
+And,
+
+Upstream Speed is equal to Boat Speed in Still Water my-nus Current Speed.
+
+Because the river is now slowing the boat down.
+
+These two formulas are the key to the entire question.
+
+Now let us check the statements one by one.
+
+First, Statement One.
+
+It says the downstream speed is 26 kilo-mee-ter per hour.
+
+Using the formula,
+
+Boat Speed pluss Current Speed is equal to 26.
+
+Now ask yourself one question.
+
+Can we find the current speed from this single equation?
+
+No.
+
+Because both "b" and "c" are unknown.
+
+There are two unknown values, but only one equation.
+
+Hence, Statement One alone is "not sufficient."
+
+Now let us check Statement Two.
+
+It says the upstream speed is 18 kilo-mee-ter per hour.
+
+Using the formula,
+
+Boat Speed my-nus Current Speed is equal to 18.
+
+Again, can we find the current speed?
+
+No.
+
+Once again we have only one equation with two unknowns.
+
+So Statement Two alone is also "not sufficient."
+
+Now comes the important part.
+
+What happens if we use "both" statements together?
+
+Now we know,
+
+Boat Speed pluss Current Speed is equal to 26.
+
+And,
+
+Boat Speed my-nus Current Speed is equal to 18.
+
+Now notice something beautiful.
+
+One equation has pluss current speed.
+
+The other has my-nus current speed.
+
+So if we add both equations, the current speed gets cancelled automatically.
+
+After adding them,
+
+we get 2 times the boat speed is equal to 44.
+
+So the boat speed becomes 22 kilo-mee-ter per hour.
+
+Now that we know the boat's speed in still water, finding the current speed is very easy.
+
+Current Speed is equal to Downstream Speed my-nus Boat Speed.
+
+That is,
+
+26 my-nus 22.
+
+Which gives us 4 kilo-mee-ter per hour.
+
+Now the current speed is fixed.
+
+There is only one possible answer.
+
+So together, both statements are enough to answer the question.
+
+But individually, neither statement was enough.
+
+Hence, the correct answer is "Option C" — both statements together are sufficient, but neither statement alone is sufficient.

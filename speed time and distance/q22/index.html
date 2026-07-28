@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  #illustration { gap: 60px; }
+  #bus-wrap { position: relative; display:flex; align-items:center; justify-content:center; }
+  #bus-wrap img { width: 200px; height:auto; opacity:0; }
+  #stop-badge {
+    position:absolute; top:-16px; right:-16px;
+    width:56px; height:56px; border-radius:50%;
+    background:#FFFFFF; border:3px solid var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; color:var(--primary); font-weight:600;
+    opacity:0;
+  }
+  #unknown-badge {
+    position:absolute; top:-46px; right:38px;
+    width:40px; height:40px; border-radius:50%;
+    background:var(--primary); color:#FFFFFF;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; font-weight:600;
+    opacity:0;
+  }
+  #speed-labels { display:flex; flex-direction:column; gap:16px; }
+  .speed-label { font-family:var(--font); font-size:26px; color:var(--text); opacity:0; }
+  .speed-label .val { color:var(--primary); font-weight:500; }
+
+  /* Pinned illustration */
+  #illus-pinned-wrap { display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; }
+  #illus-pinned-bus-wrap { position:relative; display:flex; align-items:center; justify-content:center; }
+  #illus-pinned-bus { width:90px; height:auto; }
+  #illus-pinned-stop-badge {
+    position:absolute; top:-10px; right:-10px;
+    width:28px; height:28px; border-radius:50%;
+    background:#FFFFFF; border:2px solid var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; color:var(--primary); font-weight:600;
+  }
+  #illus-pinned-label { font-family:var(--font); font-size:22px; color:var(--text); }
+  #illus-pinned-label .val { color:var(--primary); font-weight:500; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-e054" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="93.2" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–19.5s)
+       Unchanged from the previous build — same given
+       facts, same illustration — only timings shifted
+       to the new transcript.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-160e" id="phase1" class="clip" data-start="0" data-duration="20.6" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-4z2d" class="q-text">
+        Excluding stoppages, a bus runs at <span data-hf-id="hf-rp5q" class="num">60 km/hr</span>. Including stoppages, its average speed is <span data-hf-id="hf-ll9j" class="num">45 km/hr</span>. How many minutes does it stop per hour?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — single bus icon, centered (single-object layout) -->
+    <div data-hf-id="hf-pubd" id="illustration" class="illustration" style="position:absolute;left:50%;top:480px;transform:translateX(-50%);
+                width:1000px;height:300px;display:flex;align-items:center;justify-content:center;">
+      <div data-hf-id="hf-h7ty" id="bus-wrap">
+        <img data-hf-id="hf-7xce" src="illustration/bus-svgrepo-com.svg" alt="bus">
+        <div data-hf-id="hf-y9wf" id="stop-badge">❚❚</div>
+        <div data-hf-id="hf-ty94" id="unknown-badge">?</div>
+      </div>
+      <div data-hf-id="hf-mie6" id="speed-labels">
+        <div data-hf-id="hf-47t8" id="speed-excl-label" class="speed-label">Running: <span data-hf-id="hf-xz8f" class="val">60 km/hr</span></div>
+        <div data-hf-id="hf-qbat" id="speed-incl-label" class="speed-label">Avg (with stops): <span data-hf-id="hf-hd36" class="val">45 km/hr</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (19.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-ckee" id="q-pinned" class="clip" data-start="19.5" data-duration="75.1" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-mzsp" class="q-text">
+        Excl. stoppages: bus runs at <span data-hf-id="hf-0j5u" class="num">60 km/hr</span>. Incl. stoppages: avg = <span data-hf-id="hf-m4cn" class="num">45 km/hr</span>. Find stoppage time/hour.
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-1z11" id="illus-pinned" class="clip" data-start="19.5" data-duration="63.0" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <div data-hf-id="hf-a31a" id="illus-pinned-wrap">
+      <div data-hf-id="hf-3ikl" id="illus-pinned-bus-wrap">
+        <img data-hf-id="hf-sbvn" id="illus-pinned-bus" src="illustration/bus-svgrepo-com.svg" alt="bus">
+        <div data-hf-id="hf-xpk8" id="illus-pinned-stop-badge">❚❚</div>
+      </div>
+      <div data-hf-id="hf-dc4n" id="illus-pinned-label">Excl: <span data-hf-id="hf-ywz8" class="val">60</span> → Incl: <span data-hf-id="hf-b6kl" class="val">45</span> km/hr</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       Missed-distance method — 3 steps (G, 1, 2, 3)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-ugk5" id="card-given" class="clip" data-start="19.7" data-duration="3.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a18z" class="solution-card" style="position:absolute;left:600px;top:500px;width:720px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-fc2z" class="rv" data-t="19.7">Speed (no stops) = <span data-hf-id="hf-5ak9" class="hi">60 km/hr</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-mkid" class="rv" data-t="20.0">Avg speed (with stops) = <span data-hf-id="hf-01l4" class="hi">45 km/hr</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — hypothetical no-stop distance -->
+  <div data-hf-id="hf-ujdf" id="card-step1" class="clip" data-start="22.9" data-duration="10.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-35f7" class="solution-card" style="position:absolute;left:600px;top:500px;width:720px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-2cfz" class="rv" data-t="22.52">If the bus never stopped for 1 hour…</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-iqey" class="rv" data-t="27.16">Distance</span> <span data-hf-id="hf-rwu9" class="rv" data-t="27.64">=</span> <span data-hf-id="hf-ydjx" class="hi rv" data-t="27.80">60</span> <span data-hf-id="hf-kg8x" class="rv" data-t="28.10">km/hr</span> <span data-hf-id="hf-pcsx" class="rv" data-t="28.78">×</span> <span data-hf-id="hf-3v8z" class="hi rv" data-t="29.56">1</span> <span data-hf-id="hf-l5yj" class="rv" data-t="29.94">hr</span> <span data-hf-id="hf-eqwa" class="rv" data-t="30.10">=</span> <span data-hf-id="hf-3so3" class="ans rv" data-t="30.32">60 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — actual distance + missed distance -->
+  <div data-hf-id="hf-pg8j" id="card-step2" class="clip" data-start="33.0" data-duration="27.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-t961" class="solution-card" style="position:absolute;left:600px;top:450px;width:790px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-0r3q" class="rv" data-t="32.34">But with stoppages, avg speed = <span data-hf-id="hf-wjuo" class="hi">45 km/hr</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-inrk" class="rv" data-t="39.34">So</span> <span data-hf-id="hf-dxnj" class="rv" data-t="39.54">distance</span> <span data-hf-id="hf-9vw1" class="rv" data-t="39.92">in</span> <span data-hf-id="hf-iqq8" class="rv" data-t="40.22">1 hr</span> <span data-hf-id="hf-brwo" class="rv" data-t="42.08">=</span> <span data-hf-id="hf-ykod" class="ans rv" data-t="42.74">45 km</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-sbee" class="rv" data-t="46.02">Missed</span> <span data-hf-id="hf-smbs" class="rv" data-t="46.42">distance</span> <span data-hf-id="hf-4pgl" class="rv" data-t="46.94">=</span> <span data-hf-id="hf-7v15" class="hi rv" data-t="47.68">60</span> <span data-hf-id="hf-zmfs" class="rv" data-t="49.24">−</span> <span data-hf-id="hf-oswl" class="hi rv" data-t="51.62">45</span> <span data-hf-id="hf-wumk" class="rv" data-t="54.50">=</span> <span data-hf-id="hf-3qcn" class="ans rv" data-t="55.28">15 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — convert missed distance to time -->
+  <div data-hf-id="hf-g5th" id="card-step3" class="clip" data-start="59.9" data-duration="23.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-aowt" class="solution-card" style="position:absolute;left:600px;top:450px;width:720px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-33rc" class="rv" data-t="59.9">Time to cover the missed <span data-hf-id="hf-d13u" class="hi">15 km</span>?</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-y45f" class="rv" data-t="68.36">Time</span> <span data-hf-id="hf-th0q" class="rv" data-t="68.68">=</span> <span data-hf-id="hf-1kuu" class="rv" data-t="69.32">Distance</span> <span data-hf-id="hf-c0od" class="rv" data-t="69.86">/</span> <span data-hf-id="hf-6b6v" class="rv" data-t="70.62">Speed</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-07fn" class="rv" data-t="72.20">=</span> <span data-hf-id="hf-r329" class="hi rv" data-t="72.64">15</span> <span data-hf-id="hf-s7gr" class="rv" data-t="73.18">/</span> <span data-hf-id="hf-28wh" class="hi rv" data-t="73.92">60 hr</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-817d" class="rv" data-t="77.14">=</span> <span data-hf-id="hf-c3a8" class="hi rv" data-t="77.40">1/4 hr</span> <span data-hf-id="hf-rhlt" class="rv" data-t="80.30">=</span> <span data-hf-id="hf-u73e" class="ans rv" data-t="80.72">15 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-h8cr" id="stack-given" class="clip" data-start="21.9" data-duration="73.0" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-6dss" class="math">
+          No stop = <span data-hf-id="hf-0rd9" class="hi">60 km/hr</span><br data-hf-id="hf-r05r">
+          With stops = <span data-hf-id="hf-vcxl" class="hi">45 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-oul4" id="stack-step1" class="clip" data-start="32.0" data-duration="63.0" data-track-index="12" style="position:absolute;left:100px;top:294px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-19jk" class="math">
+          No-stop distance =<br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-uy73" class="ans">60 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-02r2" id="stack-step2" class="clip" data-start="58.9" data-duration="36.0" data-track-index="13" style="position:absolute;left:100px;top:448px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-ep65" class="math">
+          Actual = <span data-hf-id="hf-cn4d" class="hi">45 km</span><br data-hf-id="hf-ombl">
+          Missed = 60−45<br data-hf-id="hf-qsyj">
+          = <span data-hf-id="hf-tizf" class="ans">15 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-7j3h" id="stack-step3" class="clip" data-start="81.9" data-duration="13.0" data-track-index="14" style="position:absolute;left:100px;top:628px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-ptv9" class="math">
+          Time = 15/60 hr<br data-hf-id="hf-r79k">
+          = 1/4 hr = <span data-hf-id="hf-0lzl" class="ans">15 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines -->
+  <div data-hf-id="hf-zs2a" id="line-g-1" class="clip stack-line" data-start="32.0" data-duration="63.0" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-3oz3" id="line-1-2" class="clip stack-line" data-start="58.9" data-duration="36.0" data-track-index="17" style="opacity:0;"></div>
+  <div data-hf-id="hf-xlib" id="line-2-3" class="clip stack-line" data-start="81.9" data-duration="13.0" data-track-index="18" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-cfwt" id="options-reveal" class="clip" data-start="82.9" data-duration="12.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-viv0" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>18 minutes</div>
+        <div data-hf-id="hf-axft" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>15 minutes</div>
+        <div data-hf-id="hf-up5g" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>10 minutes</div>
+        <div data-hf-id="hf-a4t2" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>12 minutes</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 2.5;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Bus + labels build-in
+  tl.fromTo("#bus-wrap img",
+    { y: 20, scale: 0.85, opacity: 0 },
+    { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" },
+    4.6);
+  tl.fromTo("#speed-excl-label",
+    { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+    7.1);
+  apt.emphasize(tl, "#speed-excl-label .val", 7.9);
+  tl.fromTo("#stop-badge",
+    { scale: 0.5, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" },
+    9.3);
+  tl.fromTo("#speed-incl-label",
+    { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+    11.9);
+  apt.emphasize(tl, "#stop-badge", 17.3);
+  tl.fromTo("#unknown-badge",
+    { scale: 0.5, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" },
+    17.3);
+
+  // PHASE 2 — Pin, then Given
+  const PIN_TIME = 19.5;
+  const GIVEN_TIME = 19.7;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Ambient bob on the pinned bus — keeps the step-cycle stretch alive
+  apt.ambientLoop(tl, "#illus-pinned-bus", 20.5, 81.9);
+
+  // STEP 1 — hypothetical no-stop distance
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 21.9);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 22.9);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — actual distance + missed distance
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 32.0);
+  apt.stackLineGrow(tl, "#line-g-1", 32.0);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 33.0);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — convert missed distance to time
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 58.9);
+  apt.stackLineGrow(tl, "#line-1-2", 58.9);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 59.9);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — Step 3 joins the stack, illustration drops out, question
+  // recenters against the options column.
+  const RECENTER_TIME = 81.9;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal
+  apt.fadeIn(tl, "#options-reveal", 82.9);
+  apt.optionsStagger(tl, ".opt-btn", 83.5);
+  apt.correctPulse(tl, ".opt-btn.correct", 92.5);
+
+  // ── END FADE
+  const END_FADE_TIME = 93.6;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.0);
+
+  tl.set({},{},95.8)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

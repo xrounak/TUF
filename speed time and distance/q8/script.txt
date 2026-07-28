@@ -1,0 +1,81 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that the downstream speed of a boat is 24 km/h.
+The upstream speed of the same boat is 16 km/h.
+
+The question is asking us to find the speed of the current.
+
+Now first, let us assume,
+
+The speed of the boat in still water is B km/h.
+And the speed of the current is C km/h.
+
+Now let us understand what "downstream" and "upstream" mean.
+
+Imagine that the river is flowing in this direction.
+
+The boat itself can move at B km/h in still water.
+The river is also flowing at C km/h.
+
+Now when the boat moves in the "same direction" as the river, both the boat and the current help each other.
+So their speeds get added.
+
+That is why,
+
+Downstream Speed is equal to Speed of the Boat in Still Water pluss Speed of the Current.
+
+Or simply,
+
+B pluss C.
+
+Now let us look at the opposite case.
+
+When the boat moves "against" the flow of the river, the current tries to slow the boat down.
+So the speed of the current gets subtracted from the speed of the boat.
+
+That is why,
+
+Upstream Speed is equal to Speed of the Boat in Still Water my-nus Speed of the Current.
+
+Or simply,
+
+B my-nus C.
+
+Now let us use the given values.
+
+The downstream speed is 24.
+So,
+
+B pluss C is equal to 24.
+
+The upstream speed is 16.
+So,
+
+B my-nus C is equal to 16.
+
+Now we need to find the speed of the current, which is C.
+
+So let us subtract the second equation from the first.
+
+On the left side,
+
+B pluss C my-nus B my-nus C.
+
+The B terms cancel each other.
+So we are left with 2 C.
+
+On the right side,
+
+24 my-nus 16, which is 8.
+
+So,
+
+2 C is equal to 8.
+
+Dividing both sides by 2,
+
+we get C is equal to 4.
+
+So the speed of the current is "4 km/h."
+
+Hence, the correct answer is "Option D."

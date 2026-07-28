@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  .illustration { }
+  .illus-scooter-wrap { display:flex; align-items:center; gap:24px; }
+  .illus-scooter-wrap img { width:150px; height:150px; }
+  .illus-tag {
+    font-family: var(--font); font-weight:400; font-size:26px; color:var(--primary);
+    background:#fff; border:2px solid var(--primary); border-radius:12px; padding:6px 18px;
+  }
+  .illus-road {
+    position:absolute; left:0; top:190px; width:100%; height:0;
+    border-bottom:4px dashed #bbb; transform-origin:left center;
+  }
+  .illus-distance-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .illus-flag { font-size:44px; line-height:1; }
+  .illus-distance-label { font-family:var(--font); font-weight:400; font-size:28px; color:#333; }
+  .illus-time-tag {
+    font-family: var(--font); font-weight:400; font-size:26px; color:var(--primary);
+    background:#fff; border:2px solid var(--primary); border-radius:12px; padding:6px 18px;
+  }
+  #illus-pinned-inner { display:flex; align-items:center; gap:20px; justify-content:center; width:100%; }
+  #illus-pinned-icon { width:70px; height:70px; }
+  #illus-pinned-text { font-family:var(--font); font-weight:400; font-size:22px; color:#333; }
+  #illus-pinned-text .num { color:var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-69r1" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="74.04" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–15.5s)
+       data-duration extends past PIN_TIME(15.5) + pinFlow's 0.8s (=16.3) + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-qawa" id="phase1" class="clip" data-start="0" data-duration="16.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-jneo" class="q-text">
+        A scooter is moving at a speed of <span data-hf-id="hf-0h11" class="num">54 km/hr</span>. How many metres will it cover in <span data-hf-id="hf-n157" class="num">50 seconds</span>?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area: scooter on left, dashed road, distance query on right -->
+    <div data-hf-id="hf-50hg" id="illustration" class="illustration" style="position:absolute;left:50%;top:460px;transform:translateX(-50%);
+                width:1400px;height:260px;">
+      <div data-hf-id="hf-lfve" id="illus-road" class="illus-road" style="opacity:0;"></div>
+      <div data-hf-id="hf-bqus" style="position:absolute;left:0;top:0;width:100%;display:flex;align-items:flex-start;justify-content:space-between;">
+        <div data-hf-id="hf-zbkk" id="illus-scooter-wrap" class="illus-scooter-wrap" style="opacity:0;flex-direction:column;align-items:center;">
+          <div data-hf-id="hf-uyr4" id="illus-speed-tag" class="illus-tag" style="opacity:0;margin-bottom:14px;">54 km/hr</div>
+          <img data-hf-id="hf-cqcq" src="illustration/scooter-scooter-svgrepo-com.svg" alt="scooter">
+        </div>
+        <div data-hf-id="hf-b43u" id="illus-distance-wrap" class="illus-distance-wrap" style="opacity:0;">
+          <div data-hf-id="hf-0ndu" id="illus-time-tag" class="illus-tag" style="opacity:0;">50 s</div>
+          <div data-hf-id="hf-xna3" class="illus-flag">🏁</div>
+          <div data-hf-id="hf-x0j0" class="illus-distance-label">? m</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (15.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-y0nm" id="q-pinned" class="clip" data-start="15.5" data-duration="61" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-7l14" class="q-text">
+        A scooter is moving at a speed of <span data-hf-id="hf-qmax" class="num">54 km/hr</span>. How many metres will it cover in <span data-hf-id="hf-s5bf" class="num">50 seconds</span>?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration recap — single icon + one centered line -->
+  <div data-hf-id="hf-839v" id="illus-pinned" class="clip" data-start="15.5" data-duration="52" data-track-index="3" style="position:absolute;left:280px;top:210px;width:1300px;height:150px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <div data-hf-id="hf-to7u" id="illus-pinned-inner">
+      <img data-hf-id="hf-912i" id="illus-pinned-icon" src="illustration/scooter-scooter-svgrepo-com.svg" alt="scooter">
+      <div data-hf-id="hf-39jq" id="illus-pinned-text">Speed = <span data-hf-id="hf-rt80" class="num">54 km/hr</span> &#160;·&#160; Time = <span data-hf-id="hf-jp7r" class="num">50 s</span> &#160;·&#160; Distance = ?</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — data-start = GIVEN_TIME(18.659); duration past its own morphToStack completion (29.6+0.8=30.4) + buffer. -->
+  <div data-hf-id="hf-vpi2" id="card-given" class="clip" data-start="18.659" data-duration="12.1" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-u6f5" class="rv" data-t="18.659">Speed</span> <span data-hf-id="hf-r0y7" class="rv" data-t="19.52">=</span> <span data-hf-id="hf-07eo" class="hi rv" data-t="19.699">54 km/hr</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-yg16" class="rv" data-t="21.579">Time</span> <span data-hf-id="hf-qjbz" class="rv" data-t="22.18">=</span> <span data-hf-id="hf-jov5" class="hi rv" data-t="22.359">50 s</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-j5zj" class="rv" data-t="25.34">Units differ — convert speed first!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Unit conversion. data-start=30.6; duration past its own morphToStack completion (53.3+0.8=54.1) + buffer. -->
+  <div data-hf-id="hf-7i57" id="card-step1" class="clip" data-start="30.6" data-duration="23.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-yaw8" class="solution-card" style="position:absolute;left:600px;top:400px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-wbu1" class="rv" data-t="30.6">Convert speed into m/s</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-vrga" class="rv" data-t="34.599">km/hr × 5/18 = m/s</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-m6rr" class="rv" data-t="42.979">54</span> <span data-hf-id="hf-1ios" class="rv" data-t="46.02">×</span>
+          <span data-hf-id="hf-8ke9" class="frac rv" data-t="46.259"><span data-hf-id="hf-6owu" class="top hi">5</span><span data-hf-id="hf-bwfg" class="bot hi">18</span></span>
+          <span data-hf-id="hf-faul" class="rv" data-t="47.059">m/s</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-4gdq" class="rv" data-t="49.919">=</span> <span data-hf-id="hf-kxr4" class="ans rv" data-t="50.259">15</span> <span data-hf-id="hf-ialm" class="ans rv" data-t="50.599">m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Apply formula. data-start=58.599; duration past its own morphToStack completion (66.3+0.8=67.1) + buffer. -->
+  <div data-hf-id="hf-2vpg" id="card-step2" class="clip" data-start="58.599" data-duration="8.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-jes2" class="rv" data-t="58.599">Distance</span> <span data-hf-id="hf-9iec" class="rv" data-t="59.059">=</span> <span data-hf-id="hf-sn0a" class="rv" data-t="59.619">Speed</span> <span data-hf-id="hf-5nca" class="rv" data-t="59.859">×</span> <span data-hf-id="hf-f83v" class="rv" data-t="60.139">Time</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-0irr" class="hi rv" data-t="63.0">15</span> <span data-hf-id="hf-8c7m" class="rv" data-t="63.399">×</span> <span data-hf-id="hf-6688" class="hi rv" data-t="63.68">50</span>
+          <span data-hf-id="hf-wjnm" class="rv" data-t="64.439">=</span> <span data-hf-id="hf-7aeg" class="ans rv" data-t="64.779">750</span> <span data-hf-id="hf-dzqo" class="ans rv" data-t="65.76">m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-m1ta" id="stack-given" class="clip" data-start="30" data-duration="46" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-j60q" class="math">
+          Speed = <span data-hf-id="hf-tk36" class="hi">54 km/hr</span><br data-hf-id="hf-regs">
+          Time = <span data-hf-id="hf-19ns" class="hi">50 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-oybf" id="stack-step1" class="clip" data-start="53" data-duration="23" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-ardv" class="math">
+          54 × <span data-hf-id="hf-bygl" class="hi">5/18</span><br data-hf-id="hf-r05r">
+          = <span data-hf-id="hf-m6gw" class="ans">15 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ns0i" id="stack-step2" class="clip" data-start="66" data-duration="10" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-yi0b" class="math">
+          15 × 50<br data-hf-id="hf-p0mm">
+          = <span data-hf-id="hf-isnq" class="ans">750 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines — top/height computed at runtime via apt.setStackLine(). -->
+  <div data-hf-id="hf-kgqa" id="line-g-1" class="clip stack-line" data-start="53" data-duration="23" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-kjp6" id="line-1-2" class="clip stack-line" data-start="66" data-duration="10" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (66.8–74.04s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bfwf" id="options-reveal" class="clip" data-start="66.8" data-duration="9.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-4624" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>650 m</div>
+        <div data-hf-id="hf-k542" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>700 m</div>
+        <div data-hf-id="hf-jdm3" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>800 m</div>
+        <div data-hf-id="hf-g1qd" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>750 m</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  /* Customize the timeline by editing per-question timings below.
+     The animations.js helpers handle the standard enter/exit patterns. */
+
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal (starts lowered, rises when the opening
+  // narration line ends at 3.22s / before "Now in this problem," at 3.74s)
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration builds in as the scenario is narrated
+  apt.roadSweep(tl, "#illus-road", 3.9, 0.9);
+  tl.fromTo("#illus-road", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.9);
+  tl.fromTo("#illus-scooter-wrap", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 4.0);
+  tl.fromTo("#illus-speed-tag", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 8.38);
+  tl.fromTo("#illus-distance-wrap", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 10.8);
+  tl.fromTo("#illus-time-tag", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 14.42);
+
+  // Continuous drive: the scooter is never static once it has fully entered —
+  // it drifts steadily rightward toward the distance marker for the entire
+  // remainder of Phase 1 (from its entrance settling at 4.5s through
+  // PIN_TIME 15.5s), plus a small finite wheel-bounce riding on top so it
+  // reads as "moving" rather than "sliding". Finite reps only (no infinite
+  // repeat) since this timeline is paused/seek-driven.
+  const DRIVE_START = 4.5;
+  const DRIVE_END = 15.5; // = PIN_TIME
+  tl.to("#illus-scooter-wrap", { x: 480, duration: DRIVE_END - DRIVE_START, ease: "none" }, DRIVE_START);
+  const BOUNCE_PERIOD = 0.4;
+  const BOUNCE_REPS = Math.max(1, Math.floor((DRIVE_END - DRIVE_START) / (BOUNCE_PERIOD / 2)) - 1);
+  tl.fromTo("#illus-scooter-wrap", { y: 0 }, { y: -5, duration: BOUNCE_PERIOD / 2, ease: "sine.inOut", yoyo: true, repeat: BOUNCE_REPS }, DRIVE_START);
+
+  // PHASE 2 — Pin (layout reorganizes), then Given (own transcript timestamp)
+  const PIN_TIME = 15.5;
+  const GIVEN_TIME = 18.659;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Ambient loop on the pinned scooter icon through the long Given/Step1 stretch
+  apt.ambientLoop(tl, "#illus-pinned-icon", PIN_TIME + 0.8, 53.3);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Given → stack, Step 1 opens
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 29.6);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 30.6);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Step 1 → stack (compatible units transition), connector G→1 grows
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 53.3);
+  apt.stackLineGrow(tl, "#line-g-1", 53.3);
+
+  apt.cardEnter(tl, "#card-step2 .solution-card", 58.599);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Step 2 → stack, connector 1→2 grows, recenter for options
+  const RECENTER_TIME = 66.3;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal
+  apt.fadeIn(tl, "#options-reveal", 66.8);
+  apt.optionsStagger(tl, ".opt-btn", 67.4);
+  apt.correctPulse(tl, ".opt-btn.correct", 73.4);
+
+  // END FADE — everything settles out together
+  const END_FADE_TIME = 74.3;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},77)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

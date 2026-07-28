@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration CSS — two cars (A left, B right) with a
+     ratio chip between them, a time label under A, and an unknown-badge
+     on B. Not a shared component (design.md §7), lives only here. */
+  .ratio-chip {
+    display: inline-block;
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 8px 22px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 26px;
+    white-space: nowrap;
+  }
+  .ratio-chip-pinned {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .illus-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .car-letter {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--text);
+  }
+  .unknown-badge {
+    position: absolute;
+    top: -10px;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 22px;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-zco3" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="67.02" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–18.9s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-2lcr" id="phase1" class="clip" data-start="0" data-duration="19.1" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-6jhg" class="q-text">
+        The speeds of A and B are in the ratio <span data-hf-id="hf-e9zm" class="num">5 : 6</span>. If A takes
+        <span data-hf-id="hf-nmfb" class="num">72 minutes</span> to cover a fixed distance, how long will B take?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: Car A (left, known 72 min) and Car B (right, unknown) -->
+    <div data-hf-id="hf-98fd" id="illustration" style="position:absolute;left:50%;top:480px;transform:translateX(-50%);
+                width:1000px;height:220px;display:flex;align-items:center;justify-content:space-between;">
+
+      <div data-hf-id="hf-9nsc" id="car-a-wrap" style="display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;">
+        <div data-hf-id="hf-o51s" class="car-letter">Car A</div>
+        <img data-hf-id="hf-zt91" src="illustration/car.svg" style="width:150px;height:auto;">
+        <div data-hf-id="hf-54pv" id="time-a-label" class="illus-label" style="opacity:0;">72 min</div>
+      </div>
+
+      <div data-hf-id="hf-hc0v" id="ratio-chip" style="opacity:0;">
+        <span data-hf-id="hf-jbwc" class="ratio-chip">5 : 6</span>
+      </div>
+
+      <div data-hf-id="hf-xqyh" id="car-b-wrap" style="display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;position:relative;">
+        <div data-hf-id="hf-my4p" class="car-letter">Car B</div>
+        <div data-hf-id="hf-ccsx" style="position:relative;">
+          <img data-hf-id="hf-jtx9" src="illustration/car.svg" style="width:150px;height:auto;transform:scale(-x);">
+          <div data-hf-id="hf-rnf3" id="unknown-badge" class="unknown-badge" style="opacity:0;">?</div>
+        </div>
+        <div data-hf-id="hf-1lt4" class="illus-label" style="opacity:0;">&#160;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (18.1s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-a1w7" id="q-pinned" class="clip" data-start="18.1" data-duration="50.6" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-ntlz" class="q-text">
+        Speeds of A : B = <span data-hf-id="hf-5u1i" class="num">5 : 6</span>. A takes <span data-hf-id="hf-at3y" class="num">72 min</span>. Find B's time.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration: two small car icons either side of a ratio recap -->
+  <div data-hf-id="hf-p7vm" id="illus-pinned" class="clip" data-start="18.1" data-duration="44.0" data-track-index="3" style="position:absolute;left:680px;top:200px;width:560px;height:120px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:space-between;">
+    <img data-hf-id="hf-6yla" src="illustration/car.svg" style="width:70px;height:auto;">
+    <div data-hf-id="hf-ml49" class="ratio-chip-pinned">Ratio 5 : 6</div>
+    <img data-hf-id="hf-8u9w" src="illustration/car.svg" style="width:70px;height:auto;transform:scaleX(-1);">
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — 2 line-level recap lines (ratio, A's time — spoken earlier in
+       Phase 1) + 2 word-level live lines (the 5x/6x variable setup, spoken
+       right now). -->
+  <div data-hf-id="hf-rtr2" id="card-given" class="clip" data-start="19.0" data-duration="4.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-f272" class="solution-card" style="position:absolute;left:640px;top:440px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-3054" class="rv" data-t="19.0">Ratio of speeds (A : B) = <span data-hf-id="hf-se7r" class="hi">5 : 6</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-seet" class="rv" data-t="19.35">A's time to cover distance = <span data-hf-id="hf-uxc5" class="hi">72 min</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-wr5o" class="rv" data-t="19.66">Speed</span> <span data-hf-id="hf-famn" class="rv" data-t="19.90">of</span> <span data-hf-id="hf-fuig" class="rv" data-t="20.08">A</span> <span data-hf-id="hf-9rcf" class="rv" data-t="20.16">=</span> <span data-hf-id="hf-gjz3" class="hi rv" data-t="20.48">5x</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-ie94" class="rv" data-t="21.32">Speed</span> <span data-hf-id="hf-ts6q" class="rv" data-t="21.56">of</span> <span data-hf-id="hf-tn9r" class="rv" data-t="21.74">B</span> <span data-hf-id="hf-xklr" class="rv" data-t="21.82">=</span> <span data-hf-id="hf-iiyx" class="hi rv" data-t="22.14">6x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Find A's (and hence B's) distance -->
+  <div data-hf-id="hf-k8sg" id="card-step1" class="clip" data-start="23.9" data-duration="20.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-gxhg" class="solution-card" style="position:absolute;left:640px;top:420px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-m4ql" class="rv" data-t="25.88">Distance</span> <span data-hf-id="hf-g8lp" class="rv" data-t="26.30">=</span> <span data-hf-id="hf-i6lk" class="rv" data-t="26.82">Speed</span> <span data-hf-id="hf-rwbv" class="rv" data-t="27.06">×</span> <span data-hf-id="hf-7yp4" class="rv" data-t="27.30">Time</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-ohke" class="rv" data-t="28.02">For</span> <span data-hf-id="hf-aw97" class="hi rv" data-t="28.28">A:</span> <span data-hf-id="hf-ltm8" class="rv" data-t="28.42">distance</span> <span data-hf-id="hf-x7h4" class="rv" data-t="28.84">=</span> <span data-hf-id="hf-7ma7" class="hi rv" data-t="29.98">5x</span> <span data-hf-id="hf-buny" class="rv" data-t="30.52">×</span> <span data-hf-id="hf-d5wr" class="hi rv" data-t="31.06">72</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-etp7" class="rv" data-t="32.02">=</span> <span data-hf-id="hf-pkty" class="ans hi rv" data-t="32.82">360x</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-h578" class="rv" data-t="34.54">B's distance also = <span data-hf-id="hf-m0yx" class="hi">360x</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Find B's time -->
+  <div data-hf-id="hf-j9t6" id="card-step2" class="clip" data-start="44.6" data-duration="17.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:842px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-bagb" class="rv" data-t="45.20">Time</span> <span data-hf-id="hf-ymgg" class="rv" data-t="46.40">=</span> <span data-hf-id="hf-69pi" class="frac rv" data-t="48.94"><span data-hf-id="hf-845a" class="top hi">360x</span><span data-hf-id="hf-0kdf" class="bot hi">6x</span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-4brn" class="hi rv" data-t="54.04">x</span> <span data-hf-id="hf-xi44" class="rv" data-t="54.18">gets</span> <span data-hf-id="hf-i0fn" class="rv" data-t="54.46">cancelled</span> <span data-hf-id="hf-4g1m" class="rv" data-t="55.36">from</span> <span data-hf-id="hf-1lmz" class="rv" data-t="56.00">numerator</span> <span data-hf-id="hf-rle1" class="rv" data-t="57.10">and</span> <span data-hf-id="hf-i9ei" class="rv" data-t="57.70">denominator</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-lbpp" class="rv" data-t="58.84">=</span> <span data-hf-id="hf-fbdj" class="ans rv" data-t="60.26">60</span> <span data-hf-id="hf-fge5" class="ans rv" data-t="60.38">minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-fdez" id="stack-given" class="clip" data-start="22.9" data-duration="45.8" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-inn5" class="math">
+          Ratio A : B = <span data-hf-id="hf-gs8n" class="hi">5 : 6</span><br data-hf-id="hf-p0mm">
+          A's time = <span data-hf-id="hf-42op" class="hi">72 min</span><br data-hf-id="hf-ombl">
+          Speed A = <span data-hf-id="hf-2kkh" class="hi">5x</span>, Speed B = <span data-hf-id="hf-3c8a" class="hi">6x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-i3mb" id="stack-step1" class="clip" data-start="43.6" data-duration="25.1" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-zex8" class="math">
+          Distance = Speed × Time<br data-hf-id="hf-qsyj">
+          A: <span data-hf-id="hf-84td" class="hi">5x × 72</span> = <span data-hf-id="hf-fcpl" class="ans hi">360x</span><br data-hf-id="hf-r79k">
+          B's distance also = <span data-hf-id="hf-kpct" class="hi">360x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-n2gq" id="stack-step2" class="clip" data-start="61.4" data-duration="7.3" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-lbe2" class="math">
+          Time = <span data-hf-id="hf-lw9w" class="frac"><span data-hf-id="hf-mt42" class="top hi">360x</span><span data-hf-id="hf-un1f" class="bot hi">6x</span></span><br data-hf-id="hf-q0ch">
+          = <span data-hf-id="hf-vhbc" class="ans">60 minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3v1g" id="line-g-1" class="clip stack-line" data-start="43.6" data-duration="25.1" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-d99s" id="line-1-2" class="clip stack-line" data-start="61.4" data-duration="7.3" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-gekg" id="options-reveal" class="clip" data-start="62.4" data-duration="6.3" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-7dcp" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>66 minutes</div>
+        <div data-hf-id="hf-qeo9" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>60 minutes</div>
+        <div data-hf-id="hf-3mz0" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>54 minutes</div>
+        <div data-hf-id="hf-9s6v" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>64 minutes</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance (starts lowered, rises when the
+  // opening narration line ends).
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.4; // end of "Time for one more problem." (3.08s) + buffer
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration build (per-question custom, plain GSAP tweens — cars,
+  // ratio chip, labels, unknown-badge are not shared components).
+  tl.fromTo("#car-a-wrap", { y: 20, scale: 0.85, opacity: 0 },
+    { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 5.9);
+  tl.fromTo("#car-b-wrap", { y: 20, scale: 0.85, opacity: 0 },
+    { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 5.9);
+
+  tl.fromTo("#ratio-chip", { scale: 0.8, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }, 8.08);
+
+  tl.fromTo("#time-a-label", { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 10.54);
+
+  // Car B is the unknown — pulse it + reveal the "?" badge exactly as
+  // "...time B will take..." is spoken.
+  apt.emphasize(tl, "#car-b-wrap img", 15.44);
+  tl.fromTo("#unknown-badge", { scale: 0.5, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 15.44);
+
+  // ── PIN — question + illustration glide to their pinned slots.
+  const PIN_TIME = 18.1;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // ── GIVEN — its own timestamp, separate from PIN_TIME.
+  const GIVEN_TIME = 19.0;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── STEP 1 — Given morphs to stack; Step 1 opens (A's distance, then the
+  // bridge line establishing B's distance is also 360x).
+  const GIVEN_TO_STACK = 22.9;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_TO_STACK);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 23.9);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2 — Step 1 joins the stack (grow G→1 line); Step 2 opens (B's
+  // time, cancellation, final answer).
+  const STEP1_TO_STACK = 43.6;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_TO_STACK);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_TO_STACK);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 44.6);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  const STEP2_TO_STACK = 61.4;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_TO_STACK);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_TO_STACK);
+  apt.fadeOut(tl, "#illus-pinned", STEP2_TO_STACK);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, STEP2_TO_STACK);
+
+  // ── PHASE 3 — Options reveal.
+  apt.fadeIn(tl, "#options-reveal", 62.4);
+  apt.optionsStagger(tl, ".opt-btn", 63.0);
+  apt.correctPulse(tl, ".opt-btn.correct", 66.6);
+
+  // ── END FADE — everything fades out together, once, after the answer
+  // has landed and the voiceover (ends 67.02s) has finished.
+  const END_FADE_TIME = 67.4;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.0);
+
+  tl.set({}, {}, 68.7);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

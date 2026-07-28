@@ -1,0 +1,51 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that two cars start from two towns which are 330 km apart.
+
+The speed of the first car is 50 km/h.
+
+The speed of the second car is 60 km/h.
+
+Also, both the cars are moving "towards each other."
+
+The question is asking us to find after how many hours they will meet.
+
+Now let us understand one important concept.
+
+When two objects move "towards each other", the distance between them keeps reducing from both sides.
+
+So, in this case, we do not subtract the speeds.
+
+We add them.
+
+And we add the speeds only because both the cars are moving towards each other.
+
+Got it? Perfect.
+
+Now we know the formula.
+
+Relative Speed is equal to the Sum of their Speeds.
+
+Putting the values,
+
+Relative Speed is equal to 50 plus 60.
+
+This gives us 110 km/h.
+
+Now that we know the relative speed, we can find the time taken to meet.
+
+We know the formula.
+
+Time is equal to Distance divided by Relative Speed.
+
+Putting the values,
+
+Time is equal to 330 divided by 110.
+
+After simplifying this,
+
+we get 3 hours.
+
+So, the two cars will meet after "3 hours."
+
+Hence, the correct answer is "Option A."

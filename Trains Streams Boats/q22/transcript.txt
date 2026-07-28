@@ -1,0 +1,30 @@
+[00:00.12 -> 00:00.32]  So
+[00:00.80 -> 00:01.56]  welcome back again.
+[00:02.24 -> 00:03.70]  It's time to solve one more problem.
+[00:04.22 -> 00:04.98]  Now, in this problem,
+[00:05.52 -> 00:06.58]  we are given two trains.
+[00:06.96 -> 00:09.36]  The length of the first train is one hundred sixty meter,
+[00:09.92 -> 00:12.58]  and the length of the second train is one hundred forty meters.
+[00:13.18 -> 00:15.10]  Their speeds are fifty-four kilometers per hour
+[00:15.54 -> 00:17.08]  and thirty-six kilometers per hour.
+[00:17.58 -> 00:18.98]  Also, the question clearly says
+[00:19.48 -> 00:21.80]  both trains are moving in opposite directions.
+[00:22.42 -> 00:26.42]  The question is asking us to find in how many seconds they will completely cross each other.
+[00:27.04 -> 00:28.40]  Now, the important point here is
+[00:29.04 -> 00:31.24]  completely cross each other.
+[00:31.80 -> 00:32.50]  What does that mean?
+[00:32.92 -> 00:35.12]  It means both trains have to pass each other fully.
+[00:35.56 -> 00:39.86]  So together, they need to cover the sum of their lengths, not just one train's length.
+[00:40.20 -> 00:42.86]  The total distance will be one hundred sixty
+[00:43.46 -> 00:45.06]  plus one hundred forty,
+[00:45.60 -> 00:47.50]  which is three hundred meter. Got it?
+[00:47.88 -> 00:48.34]  Perfect.
+[00:48.82 -> 00:49.52]  Now, one more thing.
+[00:49.94 -> 00:52.18]  Since both trains are moving in opposite directions,
+[00:52.68 -> 00:53.62]  their speeds add up.
+[00:54.12 -> 00:57.62]  This is the basic concept. When two objects move towards each other,
+[00:57.96 -> 01:04.00]  the distance between them decreases using the relative speed, and for opposite directions, we simply add the speeds.
+[01:04.30 -> 01:09.32]  So the relative speed becomes fifty-four plus thirty-six, which is ninety kilometers per hour.
+[01:09.74 -> 01:28.70]  Now, we cannot use kilometers per hour because our distance is in meters, so let us convert it into meters per second. Ninety multiplied by five over eighteen gives us twenty-five meters per second. Now everything is ready. We know the total distance is three hundred meters, and the relative speed is twenty-five meters per second. So using the formula,
+[01:29.22 -> 01:32.48]  time equals distance divided by speed. Putting the values,
+[01:32.92 -> 01:44.60]  time equals three hundred divided by twenty-five. After solving this, we get twelve seconds. Hence, the trains will completely cross each other in twelve seconds. So the correct option is option B.

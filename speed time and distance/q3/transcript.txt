@@ -1,0 +1,35 @@
+[00:00.10 -> 00:01.06]  So welcome back again.
+[00:01.44 -> 00:02.52]  Time for one more problem.
+[00:03.06 -> 00:08.08]  Now, in this problem, we are given that a runner maintains a speed of six meter per second for 12 minutes.
+[00:08.48 -> 00:09.14]  The question is
+[00:09.66 -> 00:12.78]  asking us to find the total distance covered by the runner.
+[00:13.34 -> 00:13.80]  Now, first,
+[00:14.18 -> 00:15.78]  let us note down the given values.
+[00:16.38 -> 00:18.58]  Speed of the runner is six meter per second.
+[00:19.14 -> 00:20.52]  Time taken is 12 minutes.
+[00:21.00 -> 00:22.28]  Be very sure about one thing.
+[00:22.80 -> 00:25.24]  The speed is given in meter per second,
+[00:25.86 -> 00:28.14]  but the time is given in minutes.
+[00:28.76 -> 00:30.16]  So before using the formula,
+[00:30.74 -> 00:33.44]  we must first convert the time into seconds.
+[00:34.00 -> 00:36.22]  We know that one minute is equal to
+[00:36.56 -> 00:37.20]  60 seconds,
+[00:37.82 -> 00:40.20]  so 12 minutes is equal to 12 into
+[00:40.56 -> 00:40.80]  60.
+[00:41.28 -> 00:42.42]  That gives us
+[00:42.84 -> 00:44.14]  720 seconds.
+[00:44.70 -> 00:47.70]  Now that the units are the same, we can use the formula,
+[00:48.24 -> 00:50.92]  distance is equal to speed into time.
+[00:51.36 -> 00:52.32]  Putting the values,
+[00:52.68 -> 00:54.84]  distance is equal to six into
+[00:55.28 -> 00:58.74]  720. After multiplying this, we get
+[00:59.14 -> 01:00.74]  4,320
+[01:01.32 -> 01:01.84]  meter.
+[01:02.34 -> 01:08.76]  Now that we have found the distance in meters, let us convert it into kilometer because all the options are given in kilometer.
+[01:09.20 -> 01:10.16]  We know that
+[01:10.50 -> 01:13.02]  1000 meter is equal to one kilometer.
+[01:13.48 -> 01:15.78]  So 4,320 divided by
+[01:16.10 -> 01:19.10]  1000 is equal to 4.32 kilometer.
+[01:19.70 -> 01:22.64]  So the runner covers 4.32 kilometer.
+[01:23.18 -> 01:23.56]  Hence,
+[01:24.14 -> 01:26.52]  the correct answer is option B.

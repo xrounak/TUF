@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     PER-QUESTION ILLUSTRATION — Two trains on a rail, opposite edges,
+     Train A carries the passenger (collapses to a "point"), Train B
+     is the 180 m train whose length is the only relevant distance.
+     Two floating equation tags (relative speed, unit conversion) build
+     word-by-word via apt.textReveal, reusing .tag-pill + .frac only.
+     Colors reuse existing tokens only.
+     ═══════════════════════════════════════════════════════════════ */
+
+  #illustration {
+    position: absolute;
+    left: 50%;
+    top: 430px;
+    transform: translateX(-50%);
+    width: 1400px;
+    height: 320px;
+  }
+
+  #rail {
+    position: absolute; left: 0; top: 150px; width: 1400px; height: 16px;
+    background: repeating-linear-gradient(90deg, #b7bcc9 0 10px, transparent 10px 34px);
+    border-top: 4px solid #8b93a6; border-bottom: 4px solid #8b93a6; border-radius: 2px;
+    opacity: 0; transform: scaleX(0); transform-origin: left center;
+  }
+
+  #train-a-unit {
+    position: absolute; left: 20px; top: 10px; width: 190px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #train-a-unit img { width: 100%; height: 100%; display: block; }
+  #speed-badge-a {
+    position: absolute; left: 50%; top: -0px; width: 150px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+
+  #passenger-dot {
+    position: absolute; left: 118px; top: -34px; width: 40px; height: 40px;
+    border-radius: 50%; background: #FFFFFF; border: 3px solid var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0.6); transform-origin: center;
+  }
+  #passenger-dot .glyph {
+    width: 12px; height: 12px; border-radius: 50%; background: var(--primary);
+    position: relative;
+  }
+  #passenger-dot .glyph::after {
+    content: ""; position: absolute; top: 14px; left: -6px; width: 24px; height: 14px;
+    border-radius: 10px 10px 0 0; background: var(--primary);
+  }
+
+  #train-b-outer {
+    position: absolute; right: 20px; top: 10px; width: 190px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #train-b-img-wrap { width: 100%; height: 100%; transform: scaleX(-1); }
+  #train-b-img-wrap img { width: 100%; height: 100%; display: block; }
+  #speed-badge-b {
+    position: absolute; left: 50%; top: -0px; width: 150px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+  #length-badge-b {
+    position: absolute; left: 50%; top: -66px; width: 150px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary-light); color: var(--primary); border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+
+  #opp-arrows {
+    position: absolute; left: 700px; top: 62px; transform: translateX(-50%);
+    width: 260px; display: flex; align-items: center; justify-content: space-between;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  .chevron-right { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 18px solid var(--primary); }
+  .chevron-left  { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-right: 18px solid var(--primary); }
+
+  .tag-pill {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    white-space: nowrap; padding: 8px 22px; border-radius: var(--radius-pill);
+    background: var(--primary-light); color: var(--primary);
+    font-family: var(--font); font-weight: 400; font-size: 22px; opacity: 0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #point-tag { top: -132px; font-size: 20px; }
+
+  #relspeed-tag { top: 220px; font-size: 24px; }
+  #unitconv-tag { top: 268px; font-size: 24px; }
+  .tag-pill .rv { opacity: 0; }
+  .tag-pill .frac { transform: scale(0.62); }
+
+  /* Pinned (Phase 2+) recap — two mini trains, space-between */
+  .pinned-illus-content {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; height: 100%; padding: 0 20px;
+  }
+  .pinned-train-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .pinned-train-wrap img { width: 78px; height: 78px; display: block; }
+  #pinned-train-b-img { transform: scaleX(-1); }
+  .pinned-illus-label { font-family: var(--font); font-weight: 400; font-size: 23px; color: var(--text); }
+  .pinned-illus-label .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-1c6z" class="topic-name">Trains, Streams and Boats</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-f4mb" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="84.70" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Two-Train Illustration (0–55.4s)
+       data-duration extends past PIN_TIME (54.56) + pinFlow's 0.8s glide
+       (55.36) + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-4q1c" id="phase1" class="clip" data-start="0" data-duration="55.4" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-pob3" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1560px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-c1sq" class="q-text">
+        A <span data-hf-id="hf-2mth" class="num">passenger</span> in a train moving at <span data-hf-id="hf-p219" class="num">36 km/h</span> observes a <span data-hf-id="hf-l4b5" class="num">180 m</span> train coming from the opposite direction at <span data-hf-id="hf-m7ad" class="num">54 km/h</span>. How long does the other train take to pass him?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration — two trains approaching from opposite edges -->
+    <div data-hf-id="hf-y427" id="illustration">
+      <div data-hf-id="hf-gvf1" id="rail"></div>
+
+      <div data-hf-id="hf-o0he" id="train-a-unit">
+        <img data-hf-id="hf-q34n" src="illustration/train.svg" alt="">
+      </div>
+      <div data-hf-id="hf-l2z9" id="passenger-dot"><span data-hf-id="hf-7c4t" class="glyph"></span></div>
+      <div data-hf-id="hf-euqz" id="speed-badge-a" style="left: 115px;">36 km/hr</div>
+
+      <div data-hf-id="hf-fqsy" id="train-b-outer">
+        <div data-hf-id="hf-raif" id="train-b-img-wrap"><img data-hf-id="hf-ld93" src="illustration/train.svg" alt=""></div>
+      </div>
+      <div data-hf-id="hf-9skq" id="length-badge-b" style="left: 1285px;">180 m</div>
+      <div data-hf-id="hf-sanv" id="speed-badge-b" style="left: 1285px;">54 km/hr</div>
+
+      <div data-hf-id="hf-6amn" id="opp-arrows">
+        <span data-hf-id="hf-va0f" class="chevron-right"></span>
+        <span data-hf-id="hf-2328" class="chevron-left"></span>
+      </div>
+
+      <div data-hf-id="hf-i1zm" id="point-tag" class="tag-pill" style="left:110px;">Passenger = Point (no length)</div>
+
+      <!-- Relative speed equation, word-by-word via apt.textReveal -->
+      <div data-hf-id="hf-t7rb" id="relspeed-tag" class="tag-pill">
+        <span data-hf-id="hf-avl2" class="rv" data-t="39.78">Relative Speed =</span>
+        <span data-hf-id="hf-ubd8" class="rv" data-t="41.34">36</span>
+        <span data-hf-id="hf-fnak" class="rv" data-t="42.02">+</span>
+        <span data-hf-id="hf-mfz7" class="rv" data-t="42.36">54</span>
+        <span data-hf-id="hf-sqip" class="rv" data-t="43.88">= 90 km/hr</span>
+      </div>
+
+      <!-- Unit conversion equation, word-by-word, .frac for 5/18 -->
+      <div data-hf-id="hf-59n1" id="unitconv-tag" class="tag-pill">
+        <span data-hf-id="hf-vxg0" class="rv" data-t="48.90">90 ×</span>
+        <span data-hf-id="hf-cl66" class="rv" data-t="49.64">
+          <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-6owu" class="top hi">5</span><span data-hf-id="hf-bwfg" class="bot hi">18</span></span>
+        </span>
+        <span data-hf-id="hf-5nch" class="rv ans" data-t="51.56">= 25 m/s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (54.56s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-2ks8" id="q-pinned" class="clip" data-start="54.56" data-duration="30.14" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-zx7p" class="q-text">
+        Passenger's train <span data-hf-id="hf-le4h" class="num">36 km/h</span>, other train <span data-hf-id="hf-k9z9" class="num">180 m</span> at <span data-hf-id="hf-pdq1" class="num">54 km/h</span>, opposite directions. Time to pass?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration — two mini trains, space-between -->
+  <div data-hf-id="hf-vhzg" id="illus-pinned" class="clip" data-start="54.56" data-duration="21.68" data-track-index="3" style="position:absolute;left:660px;top:190px;width:700px;height:150px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-y0qg" class="pinned-illus-content">
+      <div data-hf-id="hf-q7cw" class="pinned-train-wrap">
+        <img data-hf-id="hf-aqpj" id="illus-pinned-icon-a" src="illustration/train.svg" alt="">
+        <div data-hf-id="hf-lln0" class="pinned-illus-label">Distance = <span data-hf-id="hf-p06a" class="num">180</span> m</div>
+      </div>
+      <div data-hf-id="hf-zxxh" class="pinned-illus-label" style="font-size:36px;color:var(--primary);">=</div>
+      <div data-hf-id="hf-45h4" class="pinned-train-wrap">
+        <img data-hf-id="hf-wq08" id="illus-pinned-icon-b" src="illustration/train.svg" alt="" style="transform:scaleX(-1);">
+        <div data-hf-id="hf-ygig" class="pinned-illus-label">Speed = <span data-hf-id="hf-vrkm" class="num">25</span> m/s</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — fresh statement of the two knowns (not a Phase-1 recap). -->
+  <div data-hf-id="hf-o4ce" id="card-given" class="clip" data-start="56.50" data-duration="16.14" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:6;">
+    <div data-hf-id="hf-zwlq" class="solution-card" style="position:absolute;left:50%;top:660px;transform:translateX(-50%);text-align:center;width:680px;opacity:0;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-iybd" class="rv" data-t="56.50">Distance = Length of other train =</span> <span data-hf-id="hf-s8wt" class="hi rv" data-t="59.70">180 m</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-o9sh" class="rv" data-t="61.36">Relative Speed =</span> <span data-hf-id="hf-m01q" class="hi rv" data-t="62.46">25 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — the formula, using .frac (never a bare ÷). -->
+  <div data-hf-id="hf-ojzg" id="card-step1" class="clip" data-start="65.20" data-duration="4.24" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-b4vl" class="solution-card" style="position:absolute;left:640px;top:440px;text-align:center;width: 640px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-x68e" class="rv" data-t="65.20">Time =</span>
+          <span data-hf-id="hf-zsrv" class="rv" data-t="65.70"><span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-42u8" class="bot hi">Speed</span></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — substitute, resolve. Holds through the final recap. -->
+  <div data-hf-id="hf-51oy" id="card-step2" class="clip" data-start="69.44" data-duration="14.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;">
+    <div data-hf-id="hf-dvmt" class="solution-card" style="position:absolute;left:640px;top:440px;text-align:center;width: 640px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-6k6o" class="rv" data-t="69.44">Time =</span>
+          <span data-hf-id="hf-w4lk" class="rv" data-t="69.42"><span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-clsi" class="top hi">180</span><span data-hf-id="hf-6t40" class="bot hi">25</span></span></span>
+          <span data-hf-id="hf-pwir" class="ans rv" data-t="74.22">= 7.2 seconds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-dxlq" id="stack-given" class="clip" data-start="65.00" data-duration="20.0" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-j3xr" class="math">
+          Distance = <span data-hf-id="hf-evxc" class="hi">180 m</span><br data-hf-id="hf-rsrt">
+          Rel. Speed = <span data-hf-id="hf-bsko" class="hi">25 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-urh4" id="stack-step1" class="clip" data-start="69.24" data-duration="7.2" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-mgwc" class="math">
+          Time = <span data-hf-id="hf-sw1f" class="frac"><span data-hf-id="hf-g4i8" class="top hi">Distance</span><span data-hf-id="hf-l36g" class="bot hi">Speed</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2suh" id="line-g-1" class="clip stack-line" data-start="69.24" data-duration="7.2" data-track-index="15" style="opacity:0;"></div>
+
+  <div data-hf-id="hf-cm23" id="stack-step2" class="clip" data-start="77.04" data-duration="4.2" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-604k" class="math">
+          Time = <span data-hf-id="hf-szdh" class="ans">7.2 sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-6gwj" id="line-1-2" class="clip stack-line" data-start="77.04" data-duration="4.2" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vv29" id="options-reveal" class="clip" data-start="77.20" data-duration="8.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:9;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-g53m" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>6.34 s</div>
+        <div data-hf-id="hf-ytph" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>8.06 s</div>
+        <div data-hf-id="hf-b747" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>8.93 s</div>
+        <div data-hf-id="hf-otr6" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>7.2 s</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Space the stack column with a real, measured gap.
+  (function layoutStack() {
+    const ids = ["stack-given", "stack-step1", "stack-step2"];
+    const root = document.querySelector("#root");
+    const rootBox = root.getBoundingClientRect();
+    const pxScale = 1920 / rootBox.width;
+    const gap = 40;
+    let top = 140;
+    ids.forEach(function (id) {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      wrapper.style.top = top + "px";
+      const card = wrapper.querySelector(".stack-card");
+      const h = card ? card.getBoundingClientRect().height * pxScale : 120;
+      top += h + gap;
+    });
+  })();
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  gsap.set("#passenger-dot", {
+    rotationX: 3,
+    rotationY: 2,
+    z: 0,
+    transformPerspective: 1080
+  });
+
+  gsap.set("#passenger-dot", {
+    x: 50,
+    y: 550
+  });
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.76; // end of "It's time to solve one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)", y: HERO_OFFSET_Y },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Rail + Train A + passenger, then Train B + its givens
+  apt.roadSweep(tl, "#rail", 4.0);
+  apt.cardEnter(tl, "#train-a-unit", 5.62);   // "passenger"
+  apt.cardEnter(tl, "#passenger-dot", 5.62);
+  apt.cardEnter(tl, "#speed-badge-a", 8.76);  // "thirty-six"
+
+  apt.cardEnter(tl, "#train-b-outer", 11.80);   // "another"
+  apt.cardEnter(tl, "#length-badge-b", 13.20);  // "one" (hundred eighty)
+  apt.cardEnter(tl, "#opp-arrows", 14.98);      // "opposite"
+  apt.cardEnter(tl, "#speed-badge-b", 16.08);   // "fifty-four"
+
+  // ── THE key concept: passenger collapses to a point
+  tl.to("#passenger-dot", { scale: 0.55, duration: 0.5, ease: "power2.inOut" }, 24.88); // "that"
+  apt.cardEnter(tl, "#point-tag", 25.18); // "passenger" (is treated as a point)
+  apt.emphasize(tl, "#length-badge-b", 32.50); // "one" (hundred eighty meter) — re-anchor 180 m
+
+  // ── Confirmatory drift: trains close distance while "opposite -> add" is spoken
+  tl.to("#train-a-unit", { x: 90, duration: 10.62, ease: "none" }, 34.50);
+  tl.to("#train-b-outer", { x: -90, duration: 10.62, ease: "none" }, 34.50);
+
+  // ── Relative speed equation builds
+  apt.cardEnter(tl, "#relspeed-tag", 39.78);
+  apt.textReveal(tl, "#relspeed-tag");
+
+  // ── Unit conversion equation builds
+  apt.cardEnter(tl, "#unitconv-tag", 46.04);
+  apt.textReveal(tl, "#unitconv-tag");
+  apt.emphasize(tl, "#unitconv-tag .ans", 53.56); // "Done."
+
+  // ── PHASE 2 — Pin flow
+  const PIN_TIME = 54.56;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  const RECENTER_TIME = 76.24;
+  apt.ambientLoop(tl, "#illus-pinned-icon-a", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+  apt.ambientLoop(tl, "#illus-pinned-icon-b", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+
+  const GIVEN_TIME = 56.50; // fresh statement, not a recap
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── STEP 1 — formula
+  const GIVEN_MORPH_TIME = 64.40;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 65.20);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2 — substitute + resolve
+  const STEP1_MORPH_TIME = 68.64;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 69.44);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── Recenter + clear illustration recap before options.
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 77.20);
+  apt.optionsStagger(tl, ".opt-btn", 77.60);
+  apt.correctPulse(tl, ".opt-btn.correct", 84.16);
+
+  // ── END FADE
+  const END_FADE_TIME = 85.70;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.0);
+
+  tl.set({}, {}, 87);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

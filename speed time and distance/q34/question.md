@@ -1,0 +1,31 @@
+Question:
+A boat's downstream speed is 27 km/hr and its speed in still water is 22 km/hr. Find the upstream speed of the boat.
+
+Options:
+A. 16 km/hr
+B. 18 km/hr
+C. 20 km/hr
+D. 17 km/hr
+
+Correct Option: D
+
+Solution:
+Given: Downstream Speed = 27 km/hr, Still Water Speed = 22 km/hr.
+
+Concept: When a boat moves downstream, the current helps the boat, so speeds add.
+Downstream Speed = Still Water Speed + Current
+This can also be written as: Current = Downstream Speed - Still Water Speed
+
+Step 1: Find the speed of the current.
+Current = Downstream - Still Water
+Current = 27 - 22
+Current = 5 km/hr
+
+Step 2: Find the upstream speed.
+When a boat moves upstream, the current moves against the boat, so speeds subtract.
+Upstream Speed = Still Water Speed - Current
+Upstream Speed = 22 - 5
+Upstream Speed = 17 km/hr
+
+So the upstream speed of the boat is 17 km/hr.
+Hence, the correct answer is Option D, 17 km/hr.

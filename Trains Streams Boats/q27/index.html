@@ -1,0 +1,1701 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="design-system.css" />
+    <style>
+      /* ═══════════════════════════════════════════════════════════════
+     PER-QUESTION ILLUSTRATION — River + boat, downstream/upstream
+     add/subtract demo (same badge/chip/formula-tag technique as
+     speed-time-distance q8): a B-badge on the boat swaps between
+     "B" / "B + C" / "B − C" states, small chip pills ("+3"/"−3")
+     fly in to sell the merge/resist beat, and formula-tag pills
+     spell out "Downstream = B + C" / "Upstream = B − C" once the
+     narration actually states each rule. Given-mini floaters recap
+     the raw numbers (36 km / 15 km/h / 3 km/h) as they're first
+     narrated, and the real Given SOLUTION card also opens early in
+     Phase 1 (synced to the same narration), not just at the pin.
+     ═══════════════════════════════════════════════════════════════ */
+
+      #illustration {
+        position: absolute;
+        left: 50%;
+        top: 470px;
+        transform: translateX(-50%);
+        width: 1500px;
+        height: 280px;
+      }
+
+      #river-scene {
+        position: absolute;
+        left: 0;
+        top: 140px;
+        width: 1500px;
+        height: 90px;
+        border-radius: 16px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+      #water-fill {
+        position: absolute;
+        inset: 0;
+        background: var(--primary-light);
+      }
+
+      #river-track-back,
+      #river-track-front {
+        position: absolute;
+        left: 0;
+        display: flex;
+      }
+      #river-track-back {
+        top: 8px;
+        width: 3000px;
+        height: 74px;
+      }
+      #river-track-front {
+        top: 22px;
+        width: 3000px;
+        height: 60px;
+      }
+      .wave-tile-back {
+        width: 150px;
+        height: 70px;
+        flex: none;
+      }
+      .wave-tile-front {
+        width: 125px;
+        height: 56px;
+        flex: none;
+      }
+
+      #boat-unit {
+        position: absolute;
+        left: 150px;
+        top: 95px;
+        width: 130px;
+        height: 130px;
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+      #boat-icon {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .badge-pill {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: #ffffff;
+        border-radius: var(--radius-pill);
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+      #b-badge {
+        left: 50%;
+        top: -46px;
+        width: 120px;
+        height: 40px;
+        transform: translateX(-50%);
+      }
+      .b-state {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #b-state-solo1 {
+        opacity: 1;
+      }
+      #b-state-sum {
+        opacity: 0;
+      }
+      #b-state-solo2 {
+        opacity: 0;
+      }
+      #b-state-diff {
+        opacity: 0;
+      }
+
+      #c-badge {
+        left: 700px;
+        top: 76px;
+        width: 86px;
+        height: 40px;
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      .chip-pill {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-light);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: var(--radius-pill);
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 16px;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      #merge-chip {
+        left: 30px;
+        top: -46px;
+        width: 68px;
+        height: 32px;
+      }
+      #resist-chip {
+        left: 30px;
+        top: -46px;
+        width: 68px;
+        height: 32px;
+      }
+
+      .wake-line {
+        position: absolute;
+        top: 62px;
+        width: 22px;
+        height: 4px;
+        background: var(--primary-light);
+        border-radius: 2px;
+        opacity: 0;
+      }
+      #wake-1 {
+        left: -18px;
+      }
+      #wake-2 {
+        left: -34px;
+      }
+      #wake-3 {
+        left: -50px;
+      }
+
+      #flow-arrows {
+        position: absolute;
+        left: 1060px;
+        top: 158px;
+        width: 150px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+      .chevron {
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 15px solid var(--primary);
+      }
+
+      .formula-tag {
+        position: absolute;
+        left: 50%;
+        top: -40px;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        padding: 8px 22px;
+        border-radius: var(--radius-pill);
+        background: var(--primary-light);
+        color: var(--primary);
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 22px;
+        opacity: 0;
+      }
+
+      /* Early given-fact cards — plain restatement of the narration, appear
+     early and stay maintained on screen (not faded) through Phase 1. */
+      .given-mini {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        padding: 10px 26px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 2px solid var(--primary);
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--text);
+        opacity: 0;
+      }
+      .given-mini .hi {
+        color: var(--primary);
+      }
+      #given-distance {
+        top: -110px;
+        transform: translate(-105%, 0);
+      }
+      #given-still {
+        top: -110px;
+        transform: translate(5%, 0);
+      }
+      #given-stream {
+        top: -110px;
+        left: 1181px;
+        transform: translate(-50%, 0);
+      }
+
+      /* Pinned (Phase 2+) recap — a MINIATURE river+boat that keeps
+     drifting gently through Given/Step1/Step2/Step3. */
+      .pinned-illus-content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        width: 100%;
+        height: 100%;
+      }
+      #pinned-river-wrap {
+        width: 280px;
+        height: 52px;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+      #pinned-water-fill {
+        position: absolute;
+        inset: 0;
+        background: var(--primary-light);
+      }
+      #river-track-mini-back,
+      #river-track-mini-front {
+        position: absolute;
+        left: 0;
+        display: flex;
+      }
+      #river-track-mini-back {
+        top: 4px;
+        width: 1040px;
+        height: 44px;
+      }
+      #river-track-mini-front {
+        top: 12px;
+        width: 1040px;
+        height: 34px;
+      }
+      .wave-tile-mini-back {
+        width: 65px;
+        height: 40px;
+        flex: none;
+      }
+      .wave-tile-mini-front {
+        width: 52px;
+        height: 30px;
+        flex: none;
+      }
+      #pinned-boat-wrap {
+        position: relative;
+        width: 72px;
+        height: 72px;
+      }
+      #illus-pinned-icon {
+        width: 72px;
+        height: 72px;
+      }
+      .pinned-illus-label {
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 23px;
+        color: var(--text);
+      }
+      .pinned-illus-label .num {
+        color: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      data-hf-id="hf-89uj"
+      id="root"
+      data-composition-id="root"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+      <div data-hf-id="hf-858h" class="dotted-grid"></div>
+      <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+      <div data-hf-id="hf-1c6z" class="topic-name">
+        Trains, Streams and Boats
+      </div>
+      <div data-hf-id="hf-e319" class="logo"></div>
+
+      <!-- ══════ VOICEOVER ══════ -->
+      <audio
+        data-hf-id="hf-u4ex"
+        id="voiceover"
+        class="clip"
+        src="voiceover.wav"
+        data-start="0"
+        data-duration="98.279"
+        data-track-index="0"
+      ></audio>
+
+      <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + River/Boat Illustration (0–44.3s).
+       ══════════════════════════════════════════════ -->
+      <div
+        data-hf-id="hf-xbjv"
+        id="phase1"
+        class="clip"
+        data-start="0"
+        data-duration="45.6"
+        data-track-index="1"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 5;
+        "
+      >
+        <div
+          data-hf-id="hf-lxc5"
+          id="q-full-card"
+          class="q-card"
+          style="
+            position: absolute;
+            left: 50%;
+            top: 80px;
+            width: 1500px;
+            transform: translateX(-50%);
+            opacity: 0;
+          "
+        >
+          <div data-hf-id="hf-ibhc" class="q-text">
+            A boat travels
+            <span data-hf-id="hf-9mjm" class="num">36 km</span> downstream and
+            <span data-hf-id="hf-6hc6" class="num">36 km</span> upstream. Its
+            still-water speed is
+            <span data-hf-id="hf-mgcs" class="num">15 km/h</span> and the stream
+            speed is <span data-hf-id="hf-0ztj" class="num">3 km/h</span>. Find
+            the total time.
+          </div>
+        </div>
+
+        <div
+          data-hf-id="hf-w62k"
+          id="serial-num"
+          class="serial-num"
+          style="left: 60px; top: 60px; opacity: 0"
+        >
+          <div data-hf-id="hf-yfde" class="digit">Q</div>
+        </div>
+
+        <!-- Illustration -->
+        <div data-hf-id="hf-y427" id="illustration">
+          <div data-hf-id="hf-hvlf" id="given-distance" class="given-mini">
+            Distance = <span data-hf-id="hf-z9jb" class="hi">36 km</span> (each
+            way)
+          </div>
+          <div data-hf-id="hf-bcse" id="given-still" class="given-mini">
+            Still-water = <span data-hf-id="hf-x3r9" class="hi">15 km/h</span>
+          </div>
+          <div data-hf-id="hf-nl6c" id="given-stream" class="given-mini">
+            Stream = <span data-hf-id="hf-zsgk" class="hi">3 km/h</span>
+          </div>
+
+          <div data-hf-id="hf-rw8e" id="river-scene">
+            <div data-hf-id="hf-xa78" id="water-fill"></div>
+            <div data-hf-id="hf-d3vh" id="river-track-back">
+              <img
+                data-hf-id="hf-nnvc"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-33e8"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-1wh5"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-2as6"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-13v3"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-1i64"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-0b91"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-0pk2"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-zimz"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-zwy0"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-0im8"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-04b7"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-zq06"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-zbp5"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-yxe4"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-yj33"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-y4s2"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-xqh1"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-xc60"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-wxuz"
+                class="wave-tile-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+            </div>
+            <div data-hf-id="hf-9dh5" id="river-track-front">
+              <img
+                data-hf-id="hf-e0xx"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-e00p"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-f6xs"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-esmr"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-ct3m"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-cesl"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-dlpo"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-d7en"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-b7vi"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-atkh"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-48i3"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-4mt4"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-3fw1"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-3u72"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-2n9z"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-31l0"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-1unx"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-28yy"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-7eyb"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-7t9c"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-kupc"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-kgeb"
+                class="wave-tile-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div data-hf-id="hf-f3vw" id="flow-arrows">
+            <span data-hf-id="hf-6h7y" class="chevron"></span
+            ><span data-hf-id="hf-xvoy" class="chevron"></span>
+          </div>
+
+          <div data-hf-id="hf-mteb" id="c-badge" class="badge-pill">C</div>
+
+          <div
+            data-hf-id="hf-czes"
+            id="formula-downstream"
+            class="formula-tag"
+            style="left: 530px"
+          >
+            Downstream = B + C
+          </div>
+          <div
+            data-hf-id="hf-ulfe"
+            id="formula-upstream"
+            class="formula-tag"
+            style="left: 900px"
+          >
+            Upstream = B − C
+          </div>
+
+          <div data-hf-id="hf-dyv6" id="boat-unit">
+            <img
+              data-hf-id="hf-578l"
+              id="boat-icon"
+              src="illustration/boat.svg"
+              alt=""
+            />
+            <div data-hf-id="hf-7697" id="wake-1" class="wake-line"></div>
+            <div data-hf-id="hf-wark" id="wake-2" class="wake-line"></div>
+            <div data-hf-id="hf-za15" id="wake-3" class="wake-line"></div>
+            <div data-hf-id="hf-rmp7" id="b-badge" class="badge-pill">
+              <span data-hf-id="hf-n960" class="b-state" id="b-state-solo1"
+                >B</span
+              >
+              <span data-hf-id="hf-srb1" class="b-state" id="b-state-sum"
+                >B + C</span
+              >
+              <span data-hf-id="hf-xngx" class="b-state" id="b-state-solo2"
+                >B</span
+              >
+              <span data-hf-id="hf-aim6" class="b-state" id="b-state-diff"
+                >B − C</span
+              >
+            </div>
+            <div data-hf-id="hf-qztx" id="merge-chip" class="chip-pill">+3</div>
+            <div data-hf-id="hf-nxom" id="resist-chip" class="chip-pill">
+              −3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (44.3s onwards)
+       ══════════════════════════════════════════════ -->
+      <div
+        data-hf-id="hf-drjk"
+        id="q-pinned"
+        class="clip"
+        data-start="44.3"
+        data-duration="56"
+        data-track-index="2"
+        style="
+          position: absolute;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 6;
+          opacity: 0;
+        "
+      >
+        <div
+          data-hf-id="hf-9jf4"
+          class="q-card pinned"
+          style="position: absolute; left: 385px; top: 30px; width: 1275px"
+        >
+          <div data-hf-id="hf-do9h" class="q-text">
+            Distance = <span data-hf-id="hf-6vn7" class="num">36 km</span> each
+            way. Still-water =
+            <span data-hf-id="hf-ck10" class="num">15 km/h</span>, Stream =
+            <span data-hf-id="hf-yogn" class="num">3 km/h</span>. Find total
+            time.
+          </div>
+        </div>
+      </div>
+
+      <!-- Pinned illustration (smaller) — mini river keeps flowing gently,
+       boat bobs in place through Given/Step1/Step2/Step3. -->
+      <div
+        data-hf-id="hf-56xo"
+        id="illus-pinned"
+        class="clip"
+        data-start="44.3"
+        data-duration="52.5"
+        data-track-index="3"
+        style="
+          position: absolute;
+          left: 280px;
+          top: 190px;
+          width: 1300px;
+          height: 150px;
+          z-index: 5;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-y0qg" class="pinned-illus-content">
+          <div data-hf-id="hf-muqj" id="pinned-river-wrap">
+            <div data-hf-id="hf-gc05" id="pinned-water-fill"></div>
+            <div data-hf-id="hf-vd9f" id="river-track-mini-back">
+              <img
+                data-hf-id="hf-1r80"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-9lns"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-8eqp"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-8t1q"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-7m4n"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-80fo"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-6til"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-77tm"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-cdsz"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-cs40"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-r214"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-qnq3"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-q9f2"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-pv41"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-pgt0"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-p2hz"
+                class="wave-tile-mini-back"
+                src="illustration/wave-light.svg"
+                alt=""
+              />
+            </div>
+            <div data-hf-id="hf-vqxr" id="river-track-mini-front">
+              <img
+                data-hf-id="hf-dnx9"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-trox"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-uym0"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-ukaz"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-skru"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-s6gt"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-tddw"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-sz2v"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-xcg6"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-wy55"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-aloz"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-b000"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-9t2x"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-a7dy"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-90gv"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+              <img
+                data-hf-id="hf-9erw"
+                class="wave-tile-mini-front"
+                src="illustration/wave.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div data-hf-id="hf-cv6v" id="pinned-boat-wrap">
+            <img
+              data-hf-id="hf-94jn"
+              id="illus-pinned-icon"
+              src="illustration/boat.svg"
+              alt=""
+            />
+          </div>
+          <div data-hf-id="hf-ubm8" class="pinned-illus-label">
+            B+C=<span data-hf-id="hf-xq5i" class="num">18</span> · B−C=<span
+              data-hf-id="hf-vcbc"
+              class="num"
+              >12</span
+            >
+            km/h
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given → Step 1 → Step 2 → Step 3)
+       ══════════════════════════════════════════════ -->
+
+      <!-- GIVEN — opens IN Phase 1 (8.74s), synced to the actual moment the
+       distance/still-water/stream values are narrated (8.74 / 14.62 /
+       19.00), not deferred to PIN_TIME. Recenters up to the standard
+       solution-card slot once Phase 1 pins (44.3s), same technique as
+       q25/q8's early card-given. -->
+      <div
+        data-hf-id="hf-yd65"
+        id="card-given"
+        class="clip"
+        data-start="8.44"
+        data-duration="41.2"
+        data-track-index="4"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 7;
+        "
+      >
+        <div
+          data-hf-id="hf-c6ce"
+          class="solution-card"
+          style="
+            position: absolute;
+            left: 640px;
+            top: 480px;
+            text-align: center;
+            opacity: 0;
+          "
+        >
+          <div data-hf-id="hf-3rv6" class="card-content">
+            <span data-hf-id="hf-7r0o" class="chip">Given</span>
+            <div data-hf-id="hf-8tlu" class="math">
+              <span data-hf-id="hf-r7zp" class="rv" data-t="8.74"
+                >Distance =
+                <span data-hf-id="hf-uqzr" class="hi">36 km</span> (each
+                way)</span
+              ><br data-hf-id="hf-x5px" />
+              <span data-hf-id="hf-cuku" class="rv" data-t="14.62"
+                >Still-water speed =
+                <span data-hf-id="hf-mmjd" class="hi">15 km/h</span></span
+              ><br data-hf-id="hf-rsrt" />
+              <span data-hf-id="hf-bmfh" class="rv" data-t="19.00"
+                >Stream speed =
+                <span data-hf-id="hf-g0rw" class="hi">3 km/h</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1 (48.86s) — downstream + upstream speed. -->
+      <div
+        data-hf-id="hf-68qe"
+        id="card-step1"
+        class="clip"
+        data-start="48.86"
+        data-duration="18.7"
+        data-track-index="4"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 7;
+        "
+      >
+        <div
+          data-hf-id="hf-bpph"
+          class="solution-card"
+          style="
+            position: absolute;
+            left: 560px;
+            top: 410px;
+            text-align: center;
+            width: 800px;
+          "
+        >
+          <div data-hf-id="hf-0yza" class="card-content">
+            <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+            <div data-hf-id="hf-ng7a" class="math">
+              <span data-hf-id="hf-raws" class="rv" data-t="48.86"
+                >Downstream speed = Boat + Stream</span
+              ><br data-hf-id="hf-szow" />
+              <span data-hf-id="hf-r4ej" class="rv" data-t="53.00"
+                >= 15 + 3 =
+                <span data-hf-id="hf-w2kd" class="ans">18 km/h</span></span
+              ><br data-hf-id="hf-sldv" />
+              <span data-hf-id="hf-dpm3" class="rv" data-t="57.92"
+                >Upstream speed = Boat − Stream</span
+              ><br data-hf-id="hf-qluq" />
+              <span data-hf-id="hf-cnn2" class="rv" data-t="61.50"
+                >= 15 − 3 =
+                <span data-hf-id="hf-zf37" class="ans">12 km/h</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 (67.54s) — time formula, downstream + upstream time. -->
+      <div
+        data-hf-id="hf-bpu5"
+        id="card-step2"
+        class="clip"
+        data-start="67.54"
+        data-duration="21.2"
+        data-track-index="4"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 7;
+        "
+      >
+        <div
+          data-hf-id="hf-9mhg"
+          class="solution-card"
+          style="
+            position: absolute;
+            left: 600px;
+            top: 440px;
+            text-align: center;
+            width: 720px;
+          "
+        >
+          <div data-hf-id="hf-1dab" class="card-content">
+            <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+            <div data-hf-id="hf-nuib" class="math">
+              <span data-hf-id="hf-lcol" class="rv" data-t="69.34"
+                >Time =
+                <span data-hf-id="hf-gq2t" class="frac"
+                  ><span data-hf-id="hf-buns" class="top hi">Distance</span
+                  ><span data-hf-id="hf-42u8" class="bot hi">Speed</span></span
+                ></span
+              ><br data-hf-id="hf-q7jp" />
+              <span data-hf-id="hf-060x" class="rv" data-t="77.58"
+                ><span data-hf-id="hf-s3fd" class="frac"
+                  ><span data-hf-id="hf-czxy" class="top hi">36</span
+                  ><span data-hf-id="hf-bwfg" class="bot hi">18</span></span
+                >
+                = <span data-hf-id="hf-xo5j" class="ans">2 h</span></span
+              ><br data-hf-id="hf-regs" />
+              <span data-hf-id="hf-18a6" class="rv" data-t="83.74"
+                ><span data-hf-id="hf-tacg" class="frac"
+                  ><span data-hf-id="hf-rn16" class="top hi">36</span
+                  ><span data-hf-id="hf-7xd6" class="bot hi">12</span></span
+                >
+                = <span data-hf-id="hf-mmvg" class="ans">3 h</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 (89.4s) — total time. -->
+      <div
+        data-hf-id="hf-objb"
+        id="card-step3"
+        class="clip"
+        data-start="89.4"
+        data-duration="7.9"
+        data-track-index="4"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 7;
+        "
+      >
+        <div
+          data-hf-id="hf-a1ig"
+          class="solution-card"
+          style="
+            position: absolute;
+            left: 640px;
+            top: 460px;
+            text-align: center;
+          "
+        >
+          <div data-hf-id="hf-1rlc" class="card-content">
+            <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+            <div data-hf-id="hf-o8tc" class="math">
+              <span data-hf-id="hf-dx39" class="rv" data-t="89.40"
+                >Total time = 2 + 3 =
+                <span data-hf-id="hf-sik6" class="ans">5 h</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — tops computed at runtime
+       by layoutStack() from each card's actual rendered height.
+       ══════════════════════════════════════════════ -->
+      <div
+        data-hf-id="hf-chqb"
+        id="stack-given"
+        class="clip"
+        data-start="48.3"
+        data-duration="51.5"
+        data-track-index="11"
+        style="
+          position: absolute;
+          left: 100px;
+          top: 140px;
+          z-index: 6;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-usjn" class="stack-card">
+          <div data-hf-id="hf-yzg5" class="card-content">
+            <span data-hf-id="hf-snhl" class="step-circle">G</span>
+            <div data-hf-id="hf-xqye" class="math">
+              Distance =
+              <span data-hf-id="hf-ucoq" class="hi">36 km</span> (each way)<br
+                data-hf-id="hf-r05r"
+              />
+              Still-water =
+              <span data-hf-id="hf-ntgg" class="hi">15 km/h</span> · Stream =
+              <span data-hf-id="hf-etut" class="hi">3 km/h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        data-hf-id="hf-hoga"
+        id="stack-step1"
+        class="clip"
+        data-start="66.48"
+        data-duration="33.32"
+        data-track-index="12"
+        style="
+          position: absolute;
+          left: 100px;
+          top: 290px;
+          z-index: 6;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-3m9v" class="stack-card">
+          <div data-hf-id="hf-zdr6" class="card-content">
+            <span data-hf-id="hf-w2db" class="step-circle">1</span>
+            <div data-hf-id="hf-v9rh" class="math">
+              Downstream = <span data-hf-id="hf-270x" class="ans">18 km/h</span
+              ><br data-hf-id="hf-p0mm" />
+              Upstream = <span data-hf-id="hf-eq03" class="ans">12 km/h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        data-hf-id="hf-hso3"
+        id="stack-step2"
+        class="clip"
+        data-start="87.4"
+        data-duration="12.4"
+        data-track-index="13"
+        style="
+          position: absolute;
+          left: 100px;
+          top: 460px;
+          z-index: 6;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-37yu" class="stack-card">
+          <div data-hf-id="hf-zs27" class="card-content">
+            <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+            <div data-hf-id="hf-si76" class="math">
+              Time down = <span data-hf-id="hf-9k87" class="ans">2 h</span> ·
+              Time up = <span data-hf-id="hf-valg" class="ans">3 h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        data-hf-id="hf-c9ni"
+        id="stack-step3"
+        class="clip"
+        data-start="96.4"
+        data-duration="3.4"
+        data-track-index="14"
+        style="
+          position: absolute;
+          left: 100px;
+          top: 560px;
+          z-index: 6;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-2tnt" class="stack-card">
+          <div data-hf-id="hf-06d8" class="card-content">
+            <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+            <div data-hf-id="hf-39t2" class="math">
+              Total time = <span data-hf-id="hf-rwbe" class="ans">5 h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical connector lines between stack circles — geometry set at
+       runtime by apt.setStackLine(), never hand-guessed. -->
+      <div
+        data-hf-id="hf-yijj"
+        id="line-g-1"
+        class="clip stack-line"
+        data-start="66.48"
+        data-duration="33.32"
+        data-track-index="15"
+        style="opacity: 0"
+      ></div>
+      <div
+        data-hf-id="hf-wsix"
+        id="line-1-2"
+        class="clip stack-line"
+        data-start="87.4"
+        data-duration="12.4"
+        data-track-index="16"
+        style="opacity: 0"
+      ></div>
+      <div
+        data-hf-id="hf-cbr6"
+        id="line-2-3"
+        class="clip stack-line"
+        data-start="96.4"
+        data-duration="3.4"
+        data-track-index="17"
+        style="opacity: 0"
+      ></div>
+
+      <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (~96.4s onward)
+       ══════════════════════════════════════════════ -->
+      <div
+        data-hf-id="hf-elh5"
+        id="options-reveal"
+        class="clip"
+        data-start="96.4"
+        data-duration="3.4"
+        data-track-index="10"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 8;
+          opacity: 0;
+        "
+      >
+        <div data-hf-id="hf-2tfv" class="pinned-col" style="top: 400px">
+          <div data-hf-id="hf-6knj" class="options-grid">
+            <div data-hf-id="hf-ib62" class="opt-btn">
+              <span data-hf-id="hf-sfug" class="letter">A</span>4.4 h
+            </div>
+            <div data-hf-id="hf-9zcr" class="opt-btn">
+              <span data-hf-id="hf-r8xd" class="letter">B</span>5.6 h
+            </div>
+            <div data-hf-id="hf-t4v5" class="opt-btn correct">
+              <span data-hf-id="hf-rn8e" class="letter">C</span>5 h
+            </div>
+            <div data-hf-id="hf-4n2m" class="opt-btn">
+              <span data-hf-id="hf-qgbb" class="letter">D</span>6.2 h
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end root -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="animations.js"></script>
+    <script>
+      /* Space the stack column with a real, measured gap instead of
+     hand-guessed top values. */
+      (function layoutStack() {
+        const ids = [
+          "stack-given",
+          "stack-step1",
+          "stack-step2",
+          "stack-step3",
+        ];
+        const root = document.querySelector("#root");
+        const rootBox = root.getBoundingClientRect();
+        const pxScale = 1920 / rootBox.width;
+        const gap = 40;
+        let top = 140;
+        ids.forEach(function (id) {
+          const wrapper = document.getElementById(id);
+          if (!wrapper) return;
+          wrapper.style.top = top + "px";
+          const card = wrapper.querySelector(".stack-card");
+          const h = card ? card.getBoundingClientRect().height * pxScale : 120;
+          top += h + gap;
+        });
+      })();
+
+      apt.setStackLine(
+        "#line-g-1",
+        "#stack-given .step-circle",
+        "#stack-step1 .step-circle",
+      );
+      apt.setStackLine(
+        "#line-1-2",
+        "#stack-step1 .step-circle",
+        "#stack-step2 .step-circle",
+      );
+      apt.setStackLine(
+        "#line-2-3",
+        "#stack-step2 .step-circle",
+        "#stack-step3 .step-circle",
+      );
+
+      const tl = gsap.timeline({ paused: true });
+
+      // ── Local helper: seamless "conveyor" wave-chain scroll.
+      function riverFlow(tl, selector, tileWidth, startTime, endTime, period) {
+        const reps = Math.max(1, Math.ceil((endTime - startTime) / period));
+        tl.fromTo(
+          selector,
+          { x: -tileWidth },
+          { x: 0, duration: period, ease: "none", repeat: reps },
+          startTime,
+        );
+      }
+
+      // ── Local helper: bounded wake-line flicker behind the boat.
+      function wakeFlicker(tl, start, end) {
+        const ids = ["#wake-1", "#wake-2", "#wake-3"];
+        const period = 0.4,
+          half = period / 2;
+        const reps = Math.max(1, Math.floor((end - start) / half) - 1);
+        ids.forEach(function (sel, i) {
+          tl.fromTo(
+            sel,
+            { opacity: 0 },
+            {
+              opacity: 0.85,
+              duration: half,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: reps,
+            },
+            start + i * 0.08,
+          );
+        });
+        tl.set(ids, { opacity: 0 }, end);
+      }
+
+      // ── Local helper: bounded rocking judder — "current resists the boat"
+      // during the upstream leg (rotation only, composes with x-travel tweens).
+      function boatJudder(tl, start, end, amp) {
+        const period = 0.7,
+          half = period / 2;
+        const reps = Math.max(1, Math.floor((end - start) / half) - 1);
+        const a = amp || 2.5;
+        tl.fromTo(
+          "#boat-unit",
+          { rotation: -a },
+          {
+            rotation: a,
+            duration: half,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: reps,
+          },
+          start,
+        );
+      }
+
+      // ── PHASE 1 — Question hero entrance
+      const HERO_OFFSET_Y = 180;
+      const RISE_TIME = 4.74; // end of "it's time to solve one more problem"
+      apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+      tl.fromTo(
+        "#serial-num",
+        { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+        {
+          scale: 1,
+          rotation: 0,
+          opacity: 1,
+          duration: 0.55,
+          ease: "back.out(2)",
+          y: HERO_OFFSET_Y,
+        },
+        0.8,
+      );
+      tl.to(
+        "#serial-num",
+        { y: 0, duration: 0.6, ease: "power2.inOut" },
+        RISE_TIME,
+      );
+
+      const PIN_TIME = 44.3;
+
+      // ── River + boat scene builds as "a boat travels..." is narrated.
+      apt.cardEnter(tl, "#river-scene", 5.2);
+      apt.cardEnter(tl, "#boat-unit", 5.2);
+      apt.cardEnter(tl, "#flow-arrows", 5.4);
+      apt.cardEnter(tl, "#chip-given", 5.4);
+      riverFlow(tl, "#river-track-front", 125, 5.2, PIN_TIME, 2.0);
+      riverFlow(tl, "#river-track-back", 150, 5.2, PIN_TIME, 3.4);
+
+      // ── Given-fact floaters — plain restatement, appear as each value is
+      // actually narrated, stay maintained on screen (not faded).
+      apt.cardEnter(tl, "#given-distance", 8.74); // "thirty-six kilometer downstream"
+      apt.cardEnter(tl, "#given-still", 14.62); // "still water is fifteen kilometer per hour"
+      apt.cardEnter(tl, "#given-stream", 19.0); // "speed of the stream is three kilometer per hour"
+      apt.cardEnter(tl, "#c-badge", 19.0); // C introduced on the boat the same moment
+
+      // ── DOWNSTREAM ADD demo (35.18–39.04s, "stream helps... speeds added")
+      // — boat glides right, B-badge swaps B → B+C, "+3" chip flies in and
+      // merges, formula-tag spells out the rule.
+      tl.to(
+        "#boat-unit",
+        { x: 780, duration: 3.86, ease: "power1.out" },
+        35.18,
+      );
+      wakeFlicker(tl, 35.18, 39.04);
+      tl.fromTo(
+        "#merge-chip",
+        { opacity: 0, x: -140 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
+        36.2,
+      );
+      tl.to("#b-state-solo1", { opacity: 0, duration: 0.25 }, 37.42);
+      tl.to("#b-state-sum", { opacity: 1, duration: 0.25 }, 37.42);
+      tl.to("#merge-chip", { opacity: 0, duration: 0.3 }, 37.42);
+      apt.cardEnter(tl, "#formula-downstream", 37.88);
+      apt.emphasize(tl, "#formula-downstream", 38.6);
+
+      // ── TURN (39.04–39.42s)
+      tl.to(
+        "#boat-unit",
+        {
+          scaleY: 0.94,
+          duration: 0.18,
+          ease: "power2.out",
+          yoyo: true,
+          repeat: 1,
+        },
+        39.04,
+      );
+      tl.to(
+        "#boat-icon",
+        { scaleX: -1, duration: 0.4, ease: "power2.inOut" },
+        39.1,
+      );
+      tl.to("#b-state-sum", { opacity: 0, duration: 0.25 }, 39.42);
+      tl.to("#b-state-solo2", { opacity: 1, duration: 0.25 }, 39.42);
+
+      // ── UPSTREAM SUBTRACT demo (39.42–43.82s, "slows down... subtracted")
+      // — boat glides back left, current resists (judder), B-badge swaps
+      // B → B−C, "−3" chip flies in, formula-tag spells out the rule.
+      tl.to(
+        "#boat-unit",
+        { x: 150, duration: 4.4, ease: "power1.inOut" },
+        39.42,
+      );
+      boatJudder(tl, 39.42, 43.82, 2.0);
+      wakeFlicker(tl, 39.42, 43.82);
+      tl.fromTo(
+        "#resist-chip",
+        { opacity: 0, x: 0 },
+        { opacity: 1, x: -30, duration: 0.4, ease: "power2.out" },
+        40.3,
+      );
+      tl.to(
+        "#resist-chip",
+        { opacity: 0, x: -60, duration: 0.4, ease: "power2.in" },
+        41.0,
+      );
+      tl.to("#b-state-solo2", { opacity: 0, duration: 0.25 }, 41.6);
+      tl.to("#b-state-diff", { opacity: 1, duration: 0.25 }, 41.6);
+      apt.cardEnter(tl, "#formula-upstream", 42.2);
+      apt.emphasize(tl, "#formula-upstream", 43.4);
+
+      // ── GIVEN — opens IN Phase 1 (8.74s), right below the illustration,
+      // synced to distance/still-water/stream narration exactly like the
+      // given-mini floaters above. Static top is already its FINAL resting
+      // value (480) — the lowered Phase-1 look is a pure y-transform that
+      // settles back to 0 before the later morph ever reads the element.
+      tl.fromTo(
+        "#card-given .solution-card",
+        { y: 280, scale: 0.92, opacity: 0 },
+        { y: 280, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" },
+        8.74,
+      );
+      apt.textReveal(tl, "#card-given .math");
+
+      // Recenter Given up to its standard slot the instant Phase 1 pins.
+      tl.to(
+        "#card-given .solution-card",
+        { y: 0, duration: 0.8, ease: "power2.inOut" },
+        PIN_TIME,
+      );
+
+      // ── PHASE 2 — Pin flow (44.3s).
+      apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+      apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+      apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+      const RECENTER_TIME = 96.0;
+      riverFlow(
+        tl,
+        "#river-track-mini-front",
+        52,
+        PIN_TIME + 1,
+        RECENTER_TIME,
+        1.1,
+      );
+      riverFlow(
+        tl,
+        "#river-track-mini-back",
+        65,
+        PIN_TIME + 1,
+        RECENTER_TIME,
+        1.8,
+      );
+      apt.ambientLoop(tl, "#illus-pinned-icon", PIN_TIME + 1, RECENTER_TIME);
+
+      // ── STEP 1 (48.86s) — downstream + upstream speeds.
+      apt.morphToStack(
+        tl,
+        "#card-given .solution-card",
+        "#stack-given .stack-card",
+        48.3,
+      );
+      apt.cardEnter(tl, "#card-step1 .solution-card", 48.86);
+      apt.textReveal(tl, "#card-step1 .math");
+
+      // ── STEP 2 (67.54s) — time formula + both times.
+      apt.morphToStack(
+        tl,
+        "#card-step1 .solution-card",
+        "#stack-step1 .stack-card",
+        66.48,
+      );
+      apt.stackLineGrow(tl, "#line-g-1", 66.48);
+      apt.cardEnter(tl, "#card-step2 .solution-card", 67.54);
+      apt.textReveal(tl, "#card-step2 .math");
+
+      // ── STEP 3 (89.4s) — total time.
+      apt.morphToStack(
+        tl,
+        "#card-step2 .solution-card",
+        "#stack-step2 .stack-card",
+        87.4,
+      );
+      apt.stackLineGrow(tl, "#line-1-2", 87.4);
+      apt.cardEnter(tl, "#card-step3 .solution-card", 89.4);
+      apt.textReveal(tl, "#card-step3 .math");
+
+      // ── Recenter — clear illustration recap, align pinned question
+      // against the completed stack, land Step 3's morph at the same time.
+      apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+      apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+      apt.morphToStack(
+        tl,
+        "#card-step3 .solution-card",
+        "#stack-step3 .stack-card",
+        RECENTER_TIME,
+      );
+      apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+
+      // ── PHASE 3 — Options reveal
+      apt.fadeIn(tl, "#options-reveal", 96.4);
+      apt.optionsStagger(tl, ".opt-btn", 97.0);
+      apt.correctPulse(tl, ".opt-btn.correct", 97.8);
+
+      // ── END FADE
+      const END_FADE_TIME = 98.6;
+      apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+      tl.set({}, {}, 100.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["root"] = tl;
+    </script>
+  </body>
+</html>

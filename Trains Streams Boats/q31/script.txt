@@ -1,0 +1,81 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now let us first read the question.
+
+A boat covers 40 kilo-mee-ter downstream in 2 hours and 40 kilo-mee-ter upstream in 2 hours 40 minutes. We need to find the speed of the stream.
+
+Given,
+
+Distance covered in both way = 40 kilo-mee-ter
+
+Time taken in downstream = 2 hours
+
+Time taken in upstream = 2 hours and 40 minutes which is 2 hours pluss 40 by 60 hours
+
+so Time taken in upstream = 2 plus 2 by 3 which is 8 by three
+
+Let,
+
+Boat's speed in still water = b kilo-mee-ter per hour
+
+Stream's speed = c kilo-mee-ter per hour.
+
+Now before solving, let us understand one small concept.
+
+When the boat moves "downstream", it moves in the same direction as the water current.
+
+So the stream pushes the boat forward.
+
+That means both the boat's own speed and the stream's speed help the boat move.
+
+So,
+
+Downstream Speed = b pluss c.
+
+Now think about "upstream".
+
+Here the boat moves against the water current.
+
+The boat tries to move forward, but the stream slows it down.
+
+So the stream's speed gets subtracted.
+
+Hence,
+
+Upstream Speed = b - c.
+
+Now what is our approach?
+
+The question does not directly give downstream and upstream speeds.
+
+So first we will find them using,
+
+Speed = Distance ÷ Time.
+
+for, Downstream Speed = 40 ÷ 2 = 20.
+
+So,
+
+downstream speed which is b pluss c = 20.
+
+Upstream Speed = 40 ÷ (8/3)
+
+= 15.
+
+So,
+
+upstream speed which is b - c = 15 .
+
+Now subtract the second equation from the first.
+
+b pluss c <break time="0.4s" /> minus <break time="0.4s" /> b minus c = 20 − 15
+
+after simplifying 
+
+c = 2.5 kilo-mee-ter per hour.
+
+<break time="0.6s" />
+
+Hence, the speed of the stream is "2.5 kilo-mee-ter per hour".
+
+So the correct option is "Option C".

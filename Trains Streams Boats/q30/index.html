@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  #illustration { gap: 60px; }
+  #train-cyclist-wrap { position:relative; width:100%; height:220px; }
+  #train-group { position:absolute; left:0; top:0; }
+  #cyclist-group { position:absolute; left:420px; top:0; }
+  #illus-train { position:absolute; left:0; top:20px; width:220px; height:auto; opacity:0; }
+  #illus-cyclist { position:absolute; left:0; top:70px; width:110px; height:auto; opacity:0; }
+  #road-line { position:absolute; left:0; right:0; bottom:10px; height:4px; background:var(--primary-light); border-radius:2px; }
+
+  .illus-chip {
+    position:absolute; display:inline-block; white-space:nowrap;
+    background:var(--primary); color:#FFFFFF; font-family:var(--font);
+    font-weight:400; font-size:18px; padding:5px 16px;
+    border-radius:var(--radius-pill); opacity:0;
+  }
+  #train-label-chip { left:70px; top:-16px; }
+  #train-length-chip { left:0px; top:30px; }
+  #train-speed-chip { left:90px; top:30px; }
+  #cyclist-label-chip { left:12px; top:38px; }
+  #cyclist-speed-chip { left:0; top:150px; }
+
+  #illus-pinned-wrap { position:relative; width:100%; height:100%; }
+  #illus-pinned-train-group { position:absolute; left:60px; top:8px; }
+  #illus-pinned-cyclist-group { position:absolute; left:230px; top:38px; }
+  #illus-pinned-train { width:110px; height:auto; }
+  #illus-pinned-cyclist { width:60px; height:auto; }
+  .illus-pinned-chip {
+    position:absolute; display:inline-block; white-space:nowrap;
+    background:var(--primary); color:#FFFFFF; font-family:var(--font);
+    font-weight:400; font-size:14px; padding:3px 10px;
+    border-radius:var(--radius-pill);
+  }
+  #pinned-train-chip { left:26px; top:-22px; }
+  #pinned-cyclist-chip { left:8px; top:-20px; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-1c6z" class="topic-name">Trains, Streams and Boats</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-jczi" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="95.459" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration + Given (0-46.3s)
+       Extended through PIN_TIME=45.5 - illustration keeps animating
+       (chips, speeds, length label) and the Given card lives here too,
+       morphing to the stack at the same moment the layout pins.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-4jek" id="phase1" class="clip" data-start="0" data-duration="46.8" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-4c2g" class="q-text">
+        A <span data-hf-id="hf-01kt" class="num">210 m</span> train passes a cyclist moving in the <span data-hf-id="hf-mctw" class="num">same direction</span> at <span data-hf-id="hf-q4oe" class="num">6 km/h</span> in <span data-hf-id="hf-ousb" class="num">14 seconds</span>. Find the train speed.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration - train (behind) catching up to cyclist (ahead), both moving right -->
+    <div data-hf-id="hf-izf8" id="illustration" class="illustration" style="position:absolute;left:50%;top:321px;transform:translateX(-50%);
+                width:1400px;height:220px;">
+      <div data-hf-id="hf-vl9e" id="train-cyclist-wrap">
+        <div data-hf-id="hf-f4ny" id="road-line"></div>
+        <div data-hf-id="hf-jktv" id="train-group">
+          <img data-hf-id="hf-moyz" id="illus-train" src="illustration/train.svg" alt="train">
+          <div data-hf-id="hf-unly" id="train-label-chip" class="illus-chip">Train</div>
+          <div data-hf-id="hf-98v0" id="train-length-chip" class="illus-chip">210 m</div>
+          <div data-hf-id="hf-7wta" id="train-speed-chip" class="illus-chip">T km/h</div>
+        </div>
+        <div data-hf-id="hf-9u8m" id="cyclist-group">
+          <img data-hf-id="hf-g0q4" id="illus-cyclist" src="illustration/cyclist.svg" alt="cyclist">
+          <div data-hf-id="hf-q6rc" id="cyclist-label-chip" class="illus-chip">Cyclist</div>
+          <div data-hf-id="hf-uv53" id="cyclist-speed-chip" class="illus-chip">6 km/h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIVEN - lives in Phase 1 alongside the illustration; each value
+         reveals when actually narrated, then the card absorbs the "same
+         direction -> relative speed" concept too, so the pin at 45.5
+         hands off directly into the numeric step cycle. -->
+    <div data-hf-id="hf-9ruy" id="card-given" class="solution-card" style="position:absolute;left:600px;top:550px;text-align:center;width:800px;opacity:0;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-j8ko" class="rv" data-t="17.10">Length</span> <span data-hf-id="hf-jqi9" class="rv" data-t="18.24">of</span> <span data-hf-id="hf-ykhq" class="rv" data-t="18.42">train</span> <span data-hf-id="hf-uzzo" class="rv" data-t="18.72">=</span> <span data-hf-id="hf-kx6r" class="hi rv" data-t="19.14">210 m</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-qhy8" class="rv" data-t="20.64">Cyclist</span> <span data-hf-id="hf-ih2v" class="rv" data-t="21.64">Speed</span> <span data-hf-id="hf-grzg" class="rv" data-t="22.02">=</span> <span data-hf-id="hf-pv2u" class="hi rv" data-t="22.36">6 km/h</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-bqpu" class="rv" data-t="24.06">Time</span> <span data-hf-id="hf-s32p" class="rv" data-t="24.32">=</span> <span data-hf-id="hf-jefs" class="hi rv" data-t="24.64">14 s</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-qirx" class="rv" data-t="25.80">Let Train Speed =</span> <span data-hf-id="hf-tehe" class="hi rv" data-t="27.64">T km/h</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-arcx" class="rv" data-t="31.20">Same direction - use relative speed</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-3ne0" class="rv" data-t="40.60">Relative Speed = Train Speed − Cyclist Speed</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-gety" class="rv" data-t="45.10">=</span> <span data-hf-id="hf-y2bh" class="ans rv" data-t="45.10">T − 6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (45.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-0cm7" id="q-pinned" class="clip" data-start="45.5" data-duration="51.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-g8z1" class="q-text">
+        <span data-hf-id="hf-wmxd" class="num">210 m</span> train passes cyclist, <span data-hf-id="hf-z34c" class="num">same direction</span>, at <span data-hf-id="hf-x3xu" class="num">6 km/h</span> in <span data-hf-id="hf-c1ef" class="num">14 s</span>. Find train speed.
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-bzl0" id="illus-pinned" class="clip" data-start="45.5" data-duration="51.5" data-track-index="3" style="position:absolute;left:880px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-a31a" id="illus-pinned-wrap">
+      <div data-hf-id="hf-cl2e" id="illus-pinned-train-group">
+        <img data-hf-id="hf-btum" id="illus-pinned-train" src="illustration/train.svg" alt="train">
+        <div data-hf-id="hf-50d9" id="pinned-train-chip" class="illus-pinned-chip">Train</div>
+      </div>
+      <div data-hf-id="hf-ujf3" id="illus-pinned-cyclist-group">
+        <img data-hf-id="hf-zy9r" id="illus-pinned-cyclist" src="illustration/cyclist.svg" alt="cyclist">
+        <div data-hf-id="hf-sc8n" id="pinned-cyclist-chip" class="illus-pinned-chip">Cyclist</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (numeric steps, post-pin, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- STEP 1 - distance/time -->
+  <div data-hf-id="hf-imlc" id="card-step1" class="clip" data-start="45.70" data-duration="22.1" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-keba" class="solution-card" style="position:absolute;left:580px;top:440px;text-align:center;width:880px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-s3ve" class="rv" data-t="45.70">Cyclist -&gt; a point, train covers only its own length</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-2cqw" class="rv" data-t="55.92">Relative Speed =</span>
+          <span data-hf-id="hf-0oam" class="frac rv" data-t="63.22"><span data-hf-id="hf-jgna" class="top hi">210</span><span data-hf-id="hf-ab7c" class="bot hi">14</span></span>
+          <span data-hf-id="hf-gh1v" class="rv" data-t="65.20">=</span> <span data-hf-id="hf-6s7w" class="ans rv" data-t="65.52">15 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 - unit conversion -->
+  <div data-hf-id="hf-19h8" id="card-step2" class="clip" data-start="67.20" data-duration="10.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-ftdi" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-m5hz" class="rv" data-t="66.98">Convert to km/h</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-e8b9" class="hi rv" data-t="72.68">15</span> <span data-hf-id="hf-2jrc" class="rv" data-t="73.06">×</span> <span data-hf-id="hf-l9n7" class="hi rv" data-t="73.44">3.6</span> <span data-hf-id="hf-7odp" class="rv" data-t="74.02">=</span> <span data-hf-id="hf-yl7g" class="ans rv" data-t="74.48">54 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 - solve (no morph - flows straight into options) -->
+  <div data-hf-id="hf-27my" id="card-step3" class="clip" data-start="76.60" data-duration="12.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-4yca" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-wxdw" class="rv" data-t="78.84">T</span> <span data-hf-id="hf-pktq" class="rv" data-t="80.18">−</span> <span data-hf-id="hf-pmoz" class="hi rv" data-t="80.54">6</span> <span data-hf-id="hf-yjfv" class="rv" data-t="82.92">=</span> <span data-hf-id="hf-x6cg" class="hi rv" data-t="83.44">54</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-4ezc" class="rv" data-t="84.36">T</span> <span data-hf-id="hf-b9oo" class="rv" data-t="86.22">=</span> <span data-hf-id="hf-95bz" class="ans rv" data-t="86.72">60 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-eeby" id="stack-given" class="clip" data-start="45.5" data-duration="51.5" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-b1k9" class="math">
+          Length = <span data-hf-id="hf-1gro" class="hi">210 m</span>, Cyclist = <span data-hf-id="hf-icu5" class="hi">6 km/h</span>, Time = <span data-hf-id="hf-bg9s" class="hi">14 s</span><br data-hf-id="hf-ombl">
+          Relative Speed = <span data-hf-id="hf-igwt" class="ans">T − 6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ila8" id="stack-step1" class="clip" data-start="66.98" data-duration="28.52" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-yrep" class="math">
+          Relative Speed =
+          <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-k7be" class="top hi">210</span><span data-hf-id="hf-gmj4" class="bot hi">14</span></span>
+          = <span data-hf-id="hf-m6gw" class="ans">15 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-wggb" id="stack-step2" class="clip" data-start="76.4" data-duration="20.6" data-track-index="13" style="position:absolute;left:100px;top:380px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-nd2b" class="math">
+          15 × 3.6 = <span data-hf-id="hf-qtx1" class="ans">54 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-egn8" id="stack-step3" class="clip" data-start="88.5" data-duration="8.5" data-track-index="14" style="position:absolute;left:100px;top:470px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-n6ps" class="math">
+          T − 6 = 54 → <span data-hf-id="hf-mqtf" class="ans">T = 60 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines -->
+  <div data-hf-id="hf-dlrf" id="line-g-1" class="clip stack-line" data-start="66.98" data-duration="30.02" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-bhw3" id="line-1-2" class="clip stack-line" data-start="76.4" data-duration="20.6" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-5p1c" id="line-2-3" class="clip stack-line" data-start="88.5" data-duration="8.5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-na95" id="options-reveal" class="clip" data-start="88.5" data-duration="8.7" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-c4xg" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>52.8 km/h</div>
+        <div data-hf-id="hf-3c2r" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>60 km/h</div>
+        <div data-hf-id="hf-5v76" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>67.2 km/h</div>
+        <div data-hf-id="hf-olas" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>74.4 km/h</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.36; // end of "...one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Train (behind) + cyclist (ahead) build in as the question is read.
+  // Chips/labels are children of each group, so they travel with their icon.
+  tl.fromTo("#illus-train",
+    { x: -30, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" },
+    4.92);
+  tl.fromTo("#illus-cyclist",
+    { x: -20, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" },
+    5.4);
+  tl.fromTo("#train-label-chip", { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 5.1);
+  tl.fromTo("#cyclist-label-chip", { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 5.6);
+
+  // Length + speed value chips fade in exactly when their value is narrated
+  // (Given card lines reveal at the same moments, so illustration and card
+  // stay in lockstep through the whole Phase 1 stretch).
+  tl.fromTo("#train-length-chip", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 19.14);
+  tl.fromTo("#cyclist-speed-chip", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 22.36);
+  tl.fromTo("#train-speed-chip", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 27.64);
+
+  // Both move right (same direction), continuously creeping for the full
+  // Phase 1 stretch up to the pin - train visibly gains ground on the
+  // cyclist throughout, selling "catching up" all the way through the
+  // relative-speed explanation, not just during the opening question read.
+  tl.to("#train-group", { x: 900, duration: 15.5, ease: "none" }, 30);
+  tl.to("#cyclist-group", { x: 280, duration: 15.5, ease: "none" }, 30);
+  apt.emphasize(tl, "#train-group", 43.5);
+
+  // GIVEN card enters in Phase 1 (own timestamp, not tied to the pin) and
+  // stays through the concept explanation, revealing its lines in sync
+  // with the voiceover the whole way to the pin.
+  const GIVEN_TIME = 17.10;
+  apt.cardEnter(tl, "#card-given", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // PHASE 2 - Pin at 45.5s, Given card morphs to stack at the same moment
+  // (both the layout reorganizing and the concept card collapsing read as
+  // one hand-off into the numeric step cycle).
+  const PIN_TIME = 45.5;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  apt.morphToStack(tl, "#card-given", "#stack-given .stack-card", PIN_TIME);
+
+  apt.ambientLoop(tl, "#illus-pinned-train", PIN_TIME + 1, 87.7);
+
+  // STEP 1
+  apt.cardEnter(tl, "#card-step1 .solution-card", 45.70);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 - Step 1 -> stack
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 66.98);
+  apt.stackLineGrow(tl, "#line-g-1", 66.98);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 67.20);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 - Step 2 -> stack
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 76.4);
+  apt.stackLineGrow(tl, "#line-1-2", 76.4);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 76.60);
+  apt.textReveal(tl, "#card-step3 .math");
+  apt.emphasize(tl, "#card-step3 .ans", 86.72);
+
+  // ── Recenter - Step 3 -> stack (last step, same 0.8s morph as every
+  // other step), illustration drops out, question recenters against options.
+  const RECENTER_TIME = 88.5;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal
+  apt.fadeIn(tl, "#options-reveal", 88.7);
+  apt.optionsStagger(tl, ".opt-btn", 89.3);
+  apt.correctPulse(tl, ".opt-btn.correct", 91.14);
+
+  // ── END FADE - held until AFTER "...option B." finishes (95.44 + tail),
+  // not before it - previously faded at 93.0 which cut off the narration.
+  const END_FADE_TIME = 95.9;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},97.2)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given that the rayshio of the boat's speed in still water to the stream speed is 5 is to 1.
+
+Also, the boat takes 4 hours to travel downstream.
+
+The question is asking us to find how much time it will take to come back upstream over the same distance.
+
+hence from rayshio
+
+Let the boat's speed in still water be 5x.
+
+And let the stream speed be x.
+
+Now we know the formulas.
+
+when boat moves downstream the current help it to move faster so 
+
+Downstream speed is boat speed plus stream speed.
+
+and when boat moves upstream the current opposes it, so
+
+Upstream speed is boat speed my-nus stream speed.
+
+So, the downstream speed becomes 5x + x, which is 6x.
+
+And the upstream speed becomes 5x - x, which is 4x.
+
+Done. Now let us use the downstream journey to find the distance.
+
+Distance is equal to Speed multiplied by Time.
+
+So, distance covered  in downstream  becomes 6x multiplied by 4, which is 24x.
+
+Now that we know the distance, finding the upstream time is very easy.
+
+since the distance covered in both cases are same so , in upstream distance became 24x
+
+and ,Time is equal to Distance divided by Speed.
+
+So, upstream time becomes 24x divided by 4x.
+
+The x gets cancelled, and we get 6 hours.
+<break time="0.6s" />
+
+Hence, the boat will take "6 hours" to travel upstream.
+
+So the final answer is Option C.

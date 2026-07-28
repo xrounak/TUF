@@ -1,0 +1,75 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, we have a data sufficiency question.
+
+We need to find whether the car's "average speed" is above 60 kilo-mee-ter per hour.
+
+Now before checking the statements, let us understand one simple concept.
+
+We know,
+
+Average Speed is equal to Total Distance divided by Total Time.
+
+So to find the average speed, we must know "both" the distance and the time.
+
+If even one of them is missing, we cannot answer the question.
+
+Got it? Perfect.
+
+Now let us check Statement I.
+
+It says that the car covers 180 kilo-mee-ter.
+
+Here, we know only the distance.
+
+But we do not know the time taken.
+
+So we cannot find the average speed.
+
+Hence, Statement I alone is "not sufficient."
+
+Now let us check Statement II.
+
+It says that the journey takes less than 3 hours.
+
+Here, we know only the time.
+
+But the distance is not given.
+
+So again, we cannot find the average speed.
+
+Hence, Statement II alone is also "not sufficient."
+
+Now let us use both statements together.
+
+From Statement I,
+
+Distance is 180 kilo-mee-ter.
+
+From Statement II,
+
+Time is less than 3 hours.
+
+Now let us use the formula.
+
+Average Speed is equal to Distance divided by Time.
+
+That is,
+
+Average Speed is equal to 180 divided by a value that is less than 3.
+
+Now be very sure about one thing.
+
+If we divide the same number by a "smaller" value, the answer becomes "bigger."
+
+If the time were exactly 3 hours, the speed would be 60 kilo-mee-ter per hour.
+
+But here, the time is "less than" 3 hours.
+
+So the average speed must be "greater than" 60 kilo-mee-ter per hour.
+
+Now we can answer the question with confidence.
+
+Hence, both statements together are sufficient, but neither statement alone is sufficient.
+
+So the correct answer is "Option C."

@@ -1,0 +1,62 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given two trains.
+
+The length of the first train is 160 mee-ter, and the length of the second train is 140 mee-ter.
+
+Their speeds are 54 kilo-mee-ter per hour and 36 kilo-mee-ter per hour.
+
+Also, the question clearly says both trains are moving in "opposite directions".
+
+The question is asking us to find in how many seconds they will completely cross each other.
+<break time="0.5s" />
+
+Now the important point here is "completely cross each other".
+
+What does that mean?
+
+It means both trains have to pass each other fully.
+
+So together they need to cover the sum of their lengths.
+
+Not just one train's length.
+
+The total distance will be 160 plus 140, which is 300 mee-ter.
+
+Got it? Perfect.
+
+Now one more thing.
+
+Since both trains are moving in opposite directions, their speeds add up.
+
+This is the basic concept.
+
+When two objects move towards each other, the distance between them decreases using the "relative speed", and for opposite directions we simply add the speeds.
+
+So the relative speed becomes 54 plus 36, which is 90 kilo-mee-ter per hour.
+
+Now we cannot use kilo-mee-ter per hour because our distance is in mee-ter.
+
+So let us convert it into mee-ter per second.
+
+90 multiplied by 5 upon 18 gives us 25 mee-ter per second.
+<break time="0.5s" />
+
+Now everything is ready.
+
+We know the total distance is 300 mee-ter, and the relative speed is 25 mee-ter per second.
+
+So using the formula,
+
+Time equals Distance divided by Speed.
+
+Putting the values,
+
+Time equals 300 divided by 25.
+
+After solving this, we get 12 seconds.
+<break time="0.6s" />
+
+Hence, the trains will completely cross each other in "12 seconds".
+
+So the correct option is "Option B".

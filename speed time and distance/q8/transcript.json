@@ -1,0 +1,4626 @@
+{
+  "duration": 122.22,
+  "phrases": [
+    {
+      "start": 0.08,
+      "end": 0.3,
+      "text": "So"
+    },
+    {
+      "start": 0.98,
+      "end": 1.68,
+      "text": "welcome back again."
+    },
+    {
+      "start": 2.16,
+      "end": 3.28,
+      "text": "Time for one more problem."
+    },
+    {
+      "start": 3.82,
+      "end": 4.56,
+      "text": "Now in this problem,"
+    },
+    {
+      "start": 5.0,
+      "end": 7.54,
+      "text": "we are given that the downstream speed of a boat"
+    },
+    {
+      "start": 8.04,
+      "end": 9.94,
+      "text": "is twenty-four kilometers per hour."
+    },
+    {
+      "start": 10.54,
+      "end": 14.16,
+      "text": "The upstream speed of the same boat is sixteen kilometers per hour."
+    },
+    {
+      "start": 14.76,
+      "end": 17.92,
+      "text": "The question is asking us to find the speed of the current. Now, first,"
+    },
+    {
+      "start": 18.3,
+      "end": 21.41,
+      "text": "let us assume the speed of the boat in still water"
+    },
+    {
+      "start": 21.94,
+      "end": 23.37,
+      "text": "is b kilometers per hour"
+    },
+    {
+      "start": 23.76,
+      "end": 26.64,
+      "text": "and the speed of the current is c kilometers per hour."
+    },
+    {
+      "start": 27.02,
+      "end": 30.2,
+      "text": "Now, let us understand what downstream and upstream mean."
+    },
+    {
+      "start": 30.52,
+      "end": 40.84,
+      "text": "Imagine that the river is flowing in this direction. The boat itself can move at b kilometers per hour in still water. The river is also flowing at c kilometers per hour."
+    },
+    {
+      "start": 41.4,
+      "end": 44.6,
+      "text": "Now, when the boat moves in the same direction as the river,"
+    },
+    {
+      "start": 45.2,
+      "end": 47.37,
+      "text": "both the boat and the current help each other,"
+    },
+    {
+      "start": 47.74,
+      "end": 51.44,
+      "text": "so their speeds get added. That is why downstream speed"
+    },
+    {
+      "start": 51.78,
+      "end": 54.68,
+      "text": "is equal to speed of the boat in still water, plus"
+    },
+    {
+      "start": 55.14,
+      "end": 56.01,
+      "text": "speed of the current,"
+    },
+    {
+      "start": 56.42,
+      "end": 57.01,
+      "text": "or simply"
+    },
+    {
+      "start": 57.54,
+      "end": 58.14,
+      "text": "b plus"
+    },
+    {
+      "start": 58.62,
+      "end": 58.76,
+      "text": "c."
+    },
+    {
+      "start": 59.1,
+      "end": 60.76,
+      "text": "Now, let us look at the opposite case."
+    },
+    {
+      "start": 61.3,
+      "end": 62.18,
+      "text": "When the boat moves"
+    },
+    {
+      "start": 62.54,
+      "end": 64.599,
+      "text": "against the flow of the river,"
+    },
+    {
+      "start": 65.2,
+      "end": 65.82,
+      "text": "the current"
+    },
+    {
+      "start": 66.2,
+      "end": 67.87,
+      "text": "tries to slow the boat down,"
+    },
+    {
+      "start": 68.52,
+      "end": 71.68,
+      "text": "so the speed of the current gets subtracted from the speed of the boat."
+    },
+    {
+      "start": 72.18,
+      "end": 72.76,
+      "text": "That is why"
+    },
+    {
+      "start": 73.28,
+      "end": 76.6,
+      "text": "upstream speed is equal to speed of the boat in still water,"
+    },
+    {
+      "start": 77.18,
+      "end": 78.6,
+      "text": "minus speed of the current,"
+    },
+    {
+      "start": 79.14,
+      "end": 79.62,
+      "text": "or simply"
+    },
+    {
+      "start": 80.3,
+      "end": 81.0,
+      "text": "b minus"
+    },
+    {
+      "start": 81.4,
+      "end": 81.66,
+      "text": "c."
+    },
+    {
+      "start": 82.22,
+      "end": 83.86,
+      "text": "Now, let us use the given values."
+    },
+    {
+      "start": 84.44,
+      "end": 86.1,
+      "text": "The downstream speed is twenty-four,"
+    },
+    {
+      "start": 86.5,
+      "end": 90.62,
+      "text": "so b plus c is equal to twenty-four. The upstream speed is sixteen,"
+    },
+    {
+      "start": 91.18,
+      "end": 91.98,
+      "text": "so b minus"
+    },
+    {
+      "start": 92.44,
+      "end": 94.22,
+      "text": "c is equal to sixteen."
+    },
+    {
+      "start": 94.72,
+      "end": 100.57,
+      "text": "Now we need to find the speed of the current, which is c. So let us subtract the second equation from the first."
+    },
+    {
+      "start": 100.94,
+      "end": 101.6,
+      "text": "On the left side,"
+    },
+    {
+      "start": 102.12,
+      "end": 103.94,
+      "text": "b plus c, minus b, minus c."
+    },
+    {
+      "start": 104.42,
+      "end": 107.04,
+      "text": "The b terms cancel each other, so we are left with two c."
+    },
+    {
+      "start": 107.54,
+      "end": 108.18,
+      "text": "On the right side,"
+    },
+    {
+      "start": 108.58,
+      "end": 110.78,
+      "text": "twenty-four minus sixteen, which is eight."
+    },
+    {
+      "start": 111.16,
+      "end": 112.62,
+      "text": "So two c is equal to eight."
+    },
+    {
+      "start": 113.02,
+      "end": 115.82,
+      "text": "Dividing both sides by two, we get c is equal to four."
+    },
+    {
+      "start": 116.32,
+      "end": 119.24,
+      "text": "So the speed of the current is four kilometers per hour."
+    },
+    {
+      "start": 119.78,
+      "end": 120.1,
+      "text": "Hence,"
+    },
+    {
+      "start": 120.5,
+      "end": 122.22,
+      "text": "the correct answer is option D."
+    }
+  ],
+  "words": [
+    {
+      "text": "So",
+      "start": 0.08,
+      "end": 0.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 0.3,
+      "end": 0.98,
+      "type": "spacing"
+    },
+    {
+      "text": "welcome",
+      "start": 0.98,
+      "end": 1.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 1.24,
+      "end": 1.28,
+      "type": "spacing"
+    },
+    {
+      "text": "back",
+      "start": 1.28,
+      "end": 1.41,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 1.41,
+      "end": 1.46,
+      "type": "spacing"
+    },
+    {
+      "text": "again.",
+      "start": 1.46,
+      "end": 1.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 1.68,
+      "end": 2.16,
+      "type": "spacing"
+    },
+    {
+      "text": "Time",
+      "start": 2.16,
+      "end": 2.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.36,
+      "end": 2.42,
+      "type": "spacing"
+    },
+    {
+      "text": "for",
+      "start": 2.42,
+      "end": 2.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.54,
+      "end": 2.58,
+      "type": "spacing"
+    },
+    {
+      "text": "one",
+      "start": 2.58,
+      "end": 2.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.7,
+      "end": 2.76,
+      "type": "spacing"
+    },
+    {
+      "text": "more",
+      "start": 2.76,
+      "end": 2.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.92,
+      "end": 2.94,
+      "type": "spacing"
+    },
+    {
+      "text": "problem.",
+      "start": 2.94,
+      "end": 3.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.28,
+      "end": 3.82,
+      "type": "spacing"
+    },
+    {
+      "text": "Now",
+      "start": 3.82,
+      "end": 3.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.88,
+      "end": 3.92,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 3.92,
+      "end": 3.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.98,
+      "end": 4.04,
+      "type": "spacing"
+    },
+    {
+      "text": "this",
+      "start": 4.04,
+      "end": 4.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.2,
+      "end": 4.24,
+      "type": "spacing"
+    },
+    {
+      "text": "problem,",
+      "start": 4.24,
+      "end": 4.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.56,
+      "end": 5.0,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 5.0,
+      "end": 5.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.06,
+      "end": 5.08,
+      "type": "spacing"
+    },
+    {
+      "text": "are",
+      "start": 5.08,
+      "end": 5.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.18,
+      "end": 5.239,
+      "type": "spacing"
+    },
+    {
+      "text": "given",
+      "start": 5.24,
+      "end": 5.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.46,
+      "end": 5.5,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 5.5,
+      "end": 5.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.62,
+      "end": 5.66,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 5.66,
+      "end": 5.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.86,
+      "end": 5.9,
+      "type": "spacing"
+    },
+    {
+      "text": "downstream",
+      "start": 5.9,
+      "end": 6.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 6.54,
+      "end": 6.64,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 6.64,
+      "end": 6.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 6.92,
+      "end": 6.979,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 6.98,
+      "end": 7.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.04,
+      "end": 7.08,
+      "type": "spacing"
+    },
+    {
+      "text": "a",
+      "start": 7.08,
+      "end": 7.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.1,
+      "end": 7.2,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 7.2,
+      "end": 7.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.54,
+      "end": 8.039,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 8.04,
+      "end": 8.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 8.2,
+      "end": 8.239,
+      "type": "spacing"
+    },
+    {
+      "text": "twenty-four",
+      "start": 8.24,
+      "end": 8.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 8.8,
+      "end": 8.88,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 8.88,
+      "end": 9.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.4,
+      "end": 9.48,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 9.48,
+      "end": 9.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.6,
+      "end": 9.68,
+      "type": "spacing"
+    },
+    {
+      "text": "hour.",
+      "start": 9.68,
+      "end": 9.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.94,
+      "end": 10.26,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 10.54,
+      "end": 10.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 10.58,
+      "end": 10.62,
+      "type": "spacing"
+    },
+    {
+      "text": "upstream",
+      "start": 10.62,
+      "end": 11.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.02,
+      "end": 11.08,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 11.08,
+      "end": 11.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.28,
+      "end": 11.3,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 11.3,
+      "end": 11.38,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.38,
+      "end": 11.4,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 11.4,
+      "end": 11.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.46,
+      "end": 11.54,
+      "type": "spacing"
+    },
+    {
+      "text": "same",
+      "start": 11.54,
+      "end": 11.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.7,
+      "end": 11.76,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 11.76,
+      "end": 11.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.98,
+      "end": 12.02,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 12.02,
+      "end": 12.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 12.52,
+      "end": 12.6,
+      "type": "spacing"
+    },
+    {
+      "text": "sixteen",
+      "start": 12.6,
+      "end": 13.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.14,
+      "end": 13.22,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 13.22,
+      "end": 13.72,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.72,
+      "end": 13.78,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 13.78,
+      "end": 13.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.88,
+      "end": 13.94,
+      "type": "spacing"
+    },
+    {
+      "text": "hour.",
+      "start": 13.94,
+      "end": 14.16,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.16,
+      "end": 14.76,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 14.76,
+      "end": 14.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.84,
+      "end": 14.879,
+      "type": "spacing"
+    },
+    {
+      "text": "question",
+      "start": 14.88,
+      "end": 15.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.22,
+      "end": 15.26,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 15.26,
+      "end": 15.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.34,
+      "end": 15.42,
+      "type": "spacing"
+    },
+    {
+      "text": "asking",
+      "start": 15.42,
+      "end": 15.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.7,
+      "end": 15.74,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 15.74,
+      "end": 15.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.84,
+      "end": 15.879,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 15.88,
+      "end": 15.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.94,
+      "end": 15.979,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 15.98,
+      "end": 16.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.18,
+      "end": 16.2,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 16.2,
+      "end": 16.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.32,
+      "end": 16.42,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 16.42,
+      "end": 16.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.66,
+      "end": 16.7,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 16.7,
+      "end": 16.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.8,
+      "end": 16.84,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 16.84,
+      "end": 16.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.88,
+      "end": 16.959,
+      "type": "spacing"
+    },
+    {
+      "text": "current.",
+      "start": 16.96,
+      "end": 17.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 17.28,
+      "end": 17.48,
+      "type": "spacing"
+    },
+    {
+      "text": "Now,",
+      "start": 17.48,
+      "end": 17.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 17.56,
+      "end": 17.62,
+      "type": "spacing"
+    },
+    {
+      "text": "first,",
+      "start": 17.62,
+      "end": 17.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 17.92,
+      "end": 18.3,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 18.3,
+      "end": 18.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 18.4,
+      "end": 18.44,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 18.44,
+      "end": 18.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 18.52,
+      "end": 18.58,
+      "type": "spacing"
+    },
+    {
+      "text": "assume",
+      "start": 18.58,
+      "end": 19.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.3,
+      "end": 19.32,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 19.32,
+      "end": 19.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.44,
+      "end": 19.52,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 19.52,
+      "end": 19.72,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.72,
+      "end": 19.759,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 19.76,
+      "end": 19.82,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.82,
+      "end": 19.88,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 19.88,
+      "end": 19.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.94,
+      "end": 19.98,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 19.98,
+      "end": 20.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.56,
+      "end": 20.62,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 20.62,
+      "end": 20.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.76,
+      "end": 20.77,
+      "type": "spacing"
+    },
+    {
+      "text": "still",
+      "start": 20.77,
+      "end": 21.03,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.03,
+      "end": 21.12,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 21.12,
+      "end": 21.41,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.41,
+      "end": 21.94,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 21.94,
+      "end": 22.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.08,
+      "end": 22.14,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 22.14,
+      "end": 22.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.32,
+      "end": 22.36,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 22.36,
+      "end": 22.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.9,
+      "end": 22.92,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 22.92,
+      "end": 23.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.04,
+      "end": 23.119,
+      "type": "spacing"
+    },
+    {
+      "text": "hour",
+      "start": 23.12,
+      "end": 23.37,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.37,
+      "end": 23.759,
+      "type": "spacing"
+    },
+    {
+      "text": "and",
+      "start": 23.76,
+      "end": 23.83,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.83,
+      "end": 23.86,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 23.86,
+      "end": 23.96,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.96,
+      "end": 24.06,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 24.06,
+      "end": 24.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.26,
+      "end": 24.3,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 24.3,
+      "end": 24.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.4,
+      "end": 24.44,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 24.44,
+      "end": 24.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.52,
+      "end": 24.56,
+      "type": "spacing"
+    },
+    {
+      "text": "current",
+      "start": 24.56,
+      "end": 24.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.86,
+      "end": 24.919,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 24.92,
+      "end": 25.41,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 25.41,
+      "end": 25.46,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 25.46,
+      "end": 25.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 25.68,
+      "end": 25.72,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 25.72,
+      "end": 26.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 26.24,
+      "end": 26.26,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 26.26,
+      "end": 26.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 26.36,
+      "end": 26.419,
+      "type": "spacing"
+    },
+    {
+      "text": "hour.",
+      "start": 26.42,
+      "end": 26.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 26.64,
+      "end": 27.02,
+      "type": "spacing"
+    },
+    {
+      "text": "Now,",
+      "start": 27.02,
+      "end": 27.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.06,
+      "end": 27.1,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 27.1,
+      "end": 27.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.22,
+      "end": 27.259,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 27.26,
+      "end": 27.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.36,
+      "end": 27.419,
+      "type": "spacing"
+    },
+    {
+      "text": "understand",
+      "start": 27.42,
+      "end": 27.82,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.82,
+      "end": 27.86,
+      "type": "spacing"
+    },
+    {
+      "text": "what",
+      "start": 27.86,
+      "end": 28.17,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.17,
+      "end": 28.18,
+      "type": "spacing"
+    },
+    {
+      "text": "downstream",
+      "start": 28.18,
+      "end": 28.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.84,
+      "end": 28.88,
+      "type": "spacing"
+    },
+    {
+      "text": "and",
+      "start": 28.88,
+      "end": 28.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.98,
+      "end": 29.02,
+      "type": "spacing"
+    },
+    {
+      "text": "upstream",
+      "start": 29.02,
+      "end": 29.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 29.54,
+      "end": 29.599,
+      "type": "spacing"
+    },
+    {
+      "text": "mean.",
+      "start": 29.6,
+      "end": 30.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 30.2,
+      "end": 30.52,
+      "type": "spacing"
+    },
+    {
+      "text": "Imagine",
+      "start": 30.52,
+      "end": 31.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.0,
+      "end": 31.01,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 31.01,
+      "end": 31.16,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.16,
+      "end": 31.17,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 31.17,
+      "end": 31.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.26,
+      "end": 31.3,
+      "type": "spacing"
+    },
+    {
+      "text": "river",
+      "start": 31.3,
+      "end": 31.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.56,
+      "end": 31.6,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 31.6,
+      "end": 31.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.76,
+      "end": 31.8,
+      "type": "spacing"
+    },
+    {
+      "text": "flowing",
+      "start": 31.8,
+      "end": 32.16,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.16,
+      "end": 32.2,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 32.2,
+      "end": 32.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.299,
+      "end": 32.32,
+      "type": "spacing"
+    },
+    {
+      "text": "this",
+      "start": 32.32,
+      "end": 32.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.52,
+      "end": 32.56,
+      "type": "spacing"
+    },
+    {
+      "text": "direction.",
+      "start": 32.56,
+      "end": 33.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 33.14,
+      "end": 33.2,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 33.2,
+      "end": 33.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 33.26,
+      "end": 33.32,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 33.32,
+      "end": 33.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 33.58,
+      "end": 33.64,
+      "type": "spacing"
+    },
+    {
+      "text": "itself",
+      "start": 33.64,
+      "end": 34.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 34.1,
+      "end": 34.14,
+      "type": "spacing"
+    },
+    {
+      "text": "can",
+      "start": 34.14,
+      "end": 34.29,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 34.29,
+      "end": 34.34,
+      "type": "spacing"
+    },
+    {
+      "text": "move",
+      "start": 34.34,
+      "end": 34.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 34.56,
+      "end": 34.64,
+      "type": "spacing"
+    },
+    {
+      "text": "at",
+      "start": 34.64,
+      "end": 35.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.22,
+      "end": 35.24,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 35.24,
+      "end": 35.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.46,
+      "end": 35.5,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 35.5,
+      "end": 36.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.02,
+      "end": 36.04,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 36.04,
+      "end": 36.16,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.16,
+      "end": 36.24,
+      "type": "spacing"
+    },
+    {
+      "text": "hour",
+      "start": 36.24,
+      "end": 36.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.8,
+      "end": 36.86,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 36.86,
+      "end": 37.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 37.04,
+      "end": 37.199,
+      "type": "spacing"
+    },
+    {
+      "text": "still",
+      "start": 37.2,
+      "end": 37.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 37.54,
+      "end": 37.58,
+      "type": "spacing"
+    },
+    {
+      "text": "water.",
+      "start": 37.58,
+      "end": 38.37,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.37,
+      "end": 38.38,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 38.38,
+      "end": 38.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.42,
+      "end": 38.46,
+      "type": "spacing"
+    },
+    {
+      "text": "river",
+      "start": 38.46,
+      "end": 38.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.7,
+      "end": 38.76,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 38.76,
+      "end": 38.85,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.85,
+      "end": 38.94,
+      "type": "spacing"
+    },
+    {
+      "text": "also",
+      "start": 38.94,
+      "end": 39.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 39.26,
+      "end": 39.28,
+      "type": "spacing"
+    },
+    {
+      "text": "flowing",
+      "start": 39.28,
+      "end": 39.55,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 39.55,
+      "end": 39.58,
+      "type": "spacing"
+    },
+    {
+      "text": "at",
+      "start": 39.58,
+      "end": 39.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 39.7,
+      "end": 39.74,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 39.74,
+      "end": 39.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 39.88,
+      "end": 39.98,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 39.98,
+      "end": 40.49,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.49,
+      "end": 40.5,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 40.5,
+      "end": 40.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.6,
+      "end": 40.66,
+      "type": "spacing"
+    },
+    {
+      "text": "hour.",
+      "start": 40.66,
+      "end": 40.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.84,
+      "end": 41.4,
+      "type": "spacing"
+    },
+    {
+      "text": "Now,",
+      "start": 41.4,
+      "end": 41.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 41.54,
+      "end": 41.58,
+      "type": "spacing"
+    },
+    {
+      "text": "when",
+      "start": 41.58,
+      "end": 41.72,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 41.72,
+      "end": 41.76,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 41.76,
+      "end": 41.87,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 41.87,
+      "end": 41.88,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 41.88,
+      "end": 42.12,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.12,
+      "end": 42.18,
+      "type": "spacing"
+    },
+    {
+      "text": "moves",
+      "start": 42.18,
+      "end": 42.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.42,
+      "end": 42.46,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 42.46,
+      "end": 42.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.54,
+      "end": 42.6,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 42.6,
+      "end": 42.78,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.78,
+      "end": 42.86,
+      "type": "spacing"
+    },
+    {
+      "text": "same",
+      "start": 42.86,
+      "end": 43.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 43.2,
+      "end": 43.24,
+      "type": "spacing"
+    },
+    {
+      "text": "direction",
+      "start": 43.24,
+      "end": 43.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 43.94,
+      "end": 44.059,
+      "type": "spacing"
+    },
+    {
+      "text": "as",
+      "start": 44.06,
+      "end": 44.23,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.23,
+      "end": 44.26,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 44.26,
+      "end": 44.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.32,
+      "end": 44.36,
+      "type": "spacing"
+    },
+    {
+      "text": "river,",
+      "start": 44.36,
+      "end": 44.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.6,
+      "end": 45.2,
+      "type": "spacing"
+    },
+    {
+      "text": "both",
+      "start": 45.2,
+      "end": 45.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.4,
+      "end": 45.44,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 45.44,
+      "end": 45.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.54,
+      "end": 45.56,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 45.56,
+      "end": 45.879,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.879,
+      "end": 45.92,
+      "type": "spacing"
+    },
+    {
+      "text": "and",
+      "start": 45.92,
+      "end": 46.01,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.01,
+      "end": 46.04,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 46.04,
+      "end": 46.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.14,
+      "end": 46.18,
+      "type": "spacing"
+    },
+    {
+      "text": "current",
+      "start": 46.18,
+      "end": 46.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.56,
+      "end": 46.62,
+      "type": "spacing"
+    },
+    {
+      "text": "help",
+      "start": 46.62,
+      "end": 46.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.92,
+      "end": 46.96,
+      "type": "spacing"
+    },
+    {
+      "text": "each",
+      "start": 46.96,
+      "end": 47.11,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.11,
+      "end": 47.18,
+      "type": "spacing"
+    },
+    {
+      "text": "other,",
+      "start": 47.18,
+      "end": 47.37,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.37,
+      "end": 47.74,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 47.74,
+      "end": 47.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.84,
+      "end": 47.86,
+      "type": "spacing"
+    },
+    {
+      "text": "their",
+      "start": 47.86,
+      "end": 48.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.04,
+      "end": 48.12,
+      "type": "spacing"
+    },
+    {
+      "text": "speeds",
+      "start": 48.12,
+      "end": 48.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.4,
+      "end": 48.42,
+      "type": "spacing"
+    },
+    {
+      "text": "get",
+      "start": 48.42,
+      "end": 48.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.58,
+      "end": 48.62,
+      "type": "spacing"
+    },
+    {
+      "text": "added.",
+      "start": 48.62,
+      "end": 49.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.32,
+      "end": 49.36,
+      "type": "spacing"
+    },
+    {
+      "text": "That",
+      "start": 49.36,
+      "end": 49.48,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.48,
+      "end": 49.54,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 49.54,
+      "end": 49.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.66,
+      "end": 49.72,
+      "type": "spacing"
+    },
+    {
+      "text": "why",
+      "start": 49.72,
+      "end": 50.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 50.46,
+      "end": 50.48,
+      "type": "spacing"
+    },
+    {
+      "text": "downstream",
+      "start": 50.48,
+      "end": 51.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 51.02,
+      "end": 51.1,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 51.1,
+      "end": 51.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 51.44,
+      "end": 51.78,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 51.78,
+      "end": 51.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 51.98,
+      "end": 52.06,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 52.06,
+      "end": 52.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.32,
+      "end": 52.38,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 52.38,
+      "end": 52.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.42,
+      "end": 52.5,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 52.5,
+      "end": 52.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.76,
+      "end": 52.82,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 52.82,
+      "end": 52.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.92,
+      "end": 52.96,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 52.96,
+      "end": 53.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.02,
+      "end": 53.1,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 53.1,
+      "end": 53.38,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.38,
+      "end": 53.52,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 53.52,
+      "end": 53.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.64,
+      "end": 53.72,
+      "type": "spacing"
+    },
+    {
+      "text": "still",
+      "start": 53.72,
+      "end": 53.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.9,
+      "end": 53.98,
+      "type": "spacing"
+    },
+    {
+      "text": "water,",
+      "start": 53.98,
+      "end": 54.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 54.24,
+      "end": 54.4,
+      "type": "spacing"
+    },
+    {
+      "text": "plus",
+      "start": 54.4,
+      "end": 54.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 54.68,
+      "end": 55.14,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 55.14,
+      "end": 55.38,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.38,
+      "end": 55.42,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 55.42,
+      "end": 55.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.5,
+      "end": 55.54,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 55.54,
+      "end": 55.589,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.589,
+      "end": 55.699,
+      "type": "spacing"
+    },
+    {
+      "text": "current,",
+      "start": 55.7,
+      "end": 56.01,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 56.01,
+      "end": 56.42,
+      "type": "spacing"
+    },
+    {
+      "text": "or",
+      "start": 56.42,
+      "end": 56.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 56.56,
+      "end": 56.62,
+      "type": "spacing"
+    },
+    {
+      "text": "simply",
+      "start": 56.62,
+      "end": 57.01,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 57.01,
+      "end": 57.54,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 57.54,
+      "end": 57.78,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 57.78,
+      "end": 57.82,
+      "type": "spacing"
+    },
+    {
+      "text": "plus",
+      "start": 57.82,
+      "end": 58.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.14,
+      "end": 58.62,
+      "type": "spacing"
+    },
+    {
+      "text": "c.",
+      "start": 58.62,
+      "end": 58.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.76,
+      "end": 59.1,
+      "type": "spacing"
+    },
+    {
+      "text": "Now,",
+      "start": 59.1,
+      "end": 59.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.2,
+      "end": 59.24,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 59.24,
+      "end": 59.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.34,
+      "end": 59.38,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 59.38,
+      "end": 59.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.5,
+      "end": 59.54,
+      "type": "spacing"
+    },
+    {
+      "text": "look",
+      "start": 59.54,
+      "end": 59.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.64,
+      "end": 59.66,
+      "type": "spacing"
+    },
+    {
+      "text": "at",
+      "start": 59.66,
+      "end": 59.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.76,
+      "end": 59.78,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 59.78,
+      "end": 59.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.86,
+      "end": 59.92,
+      "type": "spacing"
+    },
+    {
+      "text": "opposite",
+      "start": 59.92,
+      "end": 60.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 60.44,
+      "end": 60.519,
+      "type": "spacing"
+    },
+    {
+      "text": "case.",
+      "start": 60.52,
+      "end": 60.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 60.76,
+      "end": 61.3,
+      "type": "spacing"
+    },
+    {
+      "text": "When",
+      "start": 61.3,
+      "end": 61.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.4,
+      "end": 61.41,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 61.41,
+      "end": 61.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.52,
+      "end": 61.54,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 61.54,
+      "end": 61.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.76,
+      "end": 61.86,
+      "type": "spacing"
+    },
+    {
+      "text": "moves",
+      "start": 61.86,
+      "end": 62.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 62.18,
+      "end": 62.54,
+      "type": "spacing"
+    },
+    {
+      "text": "against",
+      "start": 62.54,
+      "end": 63.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 63.56,
+      "end": 63.58,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 63.58,
+      "end": 63.74,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 63.74,
+      "end": 63.78,
+      "type": "spacing"
+    },
+    {
+      "text": "flow",
+      "start": 63.78,
+      "end": 64.019,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.019,
+      "end": 64.08,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 64.08,
+      "end": 64.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.2,
+      "end": 64.239,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 64.239,
+      "end": 64.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.3,
+      "end": 64.319,
+      "type": "spacing"
+    },
+    {
+      "text": "river,",
+      "start": 64.32,
+      "end": 64.599,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.599,
+      "end": 65.2,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 65.2,
+      "end": 65.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.34,
+      "end": 65.379,
+      "type": "spacing"
+    },
+    {
+      "text": "current",
+      "start": 65.379,
+      "end": 65.82,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.82,
+      "end": 66.2,
+      "type": "spacing"
+    },
+    {
+      "text": "tries",
+      "start": 66.2,
+      "end": 66.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 66.6,
+      "end": 66.64,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 66.64,
+      "end": 66.69,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 66.69,
+      "end": 66.82,
+      "type": "spacing"
+    },
+    {
+      "text": "slow",
+      "start": 66.82,
+      "end": 67.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.08,
+      "end": 67.12,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 67.12,
+      "end": 67.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.22,
+      "end": 67.24,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 67.24,
+      "end": 67.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.46,
+      "end": 67.64,
+      "type": "spacing"
+    },
+    {
+      "text": "down,",
+      "start": 67.64,
+      "end": 67.87,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.87,
+      "end": 68.52,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 68.52,
+      "end": 68.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 68.62,
+      "end": 68.66,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 68.66,
+      "end": 68.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 68.76,
+      "end": 68.8,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 68.8,
+      "end": 69.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.08,
+      "end": 69.12,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 69.12,
+      "end": 69.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.2,
+      "end": 69.24,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 69.24,
+      "end": 69.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.34,
+      "end": 69.38,
+      "type": "spacing"
+    },
+    {
+      "text": "current",
+      "start": 69.38,
+      "end": 69.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.7,
+      "end": 69.74,
+      "type": "spacing"
+    },
+    {
+      "text": "gets",
+      "start": 69.74,
+      "end": 69.91,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.91,
+      "end": 69.94,
+      "type": "spacing"
+    },
+    {
+      "text": "subtracted",
+      "start": 69.94,
+      "end": 70.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.58,
+      "end": 70.6,
+      "type": "spacing"
+    },
+    {
+      "text": "from",
+      "start": 70.6,
+      "end": 70.78,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.78,
+      "end": 70.82,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 70.82,
+      "end": 70.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.9,
+      "end": 70.94,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 70.94,
+      "end": 71.12,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.12,
+      "end": 71.18,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 71.24,
+      "end": 71.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.28,
+      "end": 71.34,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 71.34,
+      "end": 71.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.4,
+      "end": 71.44,
+      "type": "spacing"
+    },
+    {
+      "text": "boat.",
+      "start": 71.44,
+      "end": 71.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.68,
+      "end": 72.18,
+      "type": "spacing"
+    },
+    {
+      "text": "That",
+      "start": 72.18,
+      "end": 72.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.3,
+      "end": 72.34,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 72.34,
+      "end": 72.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.46,
+      "end": 72.5,
+      "type": "spacing"
+    },
+    {
+      "text": "why",
+      "start": 72.5,
+      "end": 72.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.76,
+      "end": 73.28,
+      "type": "spacing"
+    },
+    {
+      "text": "upstream",
+      "start": 73.28,
+      "end": 73.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.76,
+      "end": 73.84,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 73.84,
+      "end": 74.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.14,
+      "end": 74.18,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 74.18,
+      "end": 74.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.32,
+      "end": 74.36,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 74.36,
+      "end": 74.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.66,
+      "end": 74.7,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 74.7,
+      "end": 74.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.8,
+      "end": 74.84,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 74.84,
+      "end": 75.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.08,
+      "end": 75.12,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 75.12,
+      "end": 75.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.22,
+      "end": 75.26,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 75.26,
+      "end": 75.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.34,
+      "end": 75.38,
+      "type": "spacing"
+    },
+    {
+      "text": "boat",
+      "start": 75.38,
+      "end": 75.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.7,
+      "end": 75.84,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 75.84,
+      "end": 75.96,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.96,
+      "end": 76.06,
+      "type": "spacing"
+    },
+    {
+      "text": "still",
+      "start": 76.06,
+      "end": 76.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 76.24,
+      "end": 76.3,
+      "type": "spacing"
+    },
+    {
+      "text": "water,",
+      "start": 76.3,
+      "end": 76.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 76.6,
+      "end": 77.18,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 77.18,
+      "end": 77.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 77.64,
+      "end": 77.8,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 77.8,
+      "end": 78.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.04,
+      "end": 78.08,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 78.08,
+      "end": 78.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.14,
+      "end": 78.2,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 78.2,
+      "end": 78.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.24,
+      "end": 78.32,
+      "type": "spacing"
+    },
+    {
+      "text": "current,",
+      "start": 78.32,
+      "end": 78.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.6,
+      "end": 79.14,
+      "type": "spacing"
+    },
+    {
+      "text": "or",
+      "start": 79.14,
+      "end": 79.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 79.22,
+      "end": 79.28,
+      "type": "spacing"
+    },
+    {
+      "text": "simply",
+      "start": 79.28,
+      "end": 79.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 79.62,
+      "end": 80.3,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 80.3,
+      "end": 80.48,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 80.48,
+      "end": 80.58,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 80.58,
+      "end": 81.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.0,
+      "end": 81.4,
+      "type": "spacing"
+    },
+    {
+      "text": "c.",
+      "start": 81.4,
+      "end": 81.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.66,
+      "end": 82.22,
+      "type": "spacing"
+    },
+    {
+      "text": "Now,",
+      "start": 82.22,
+      "end": 82.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 82.3,
+      "end": 82.38,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 82.38,
+      "end": 82.48,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 82.48,
+      "end": 82.54,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 82.54,
+      "end": 82.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 82.66,
+      "end": 82.67,
+      "type": "spacing"
+    },
+    {
+      "text": "use",
+      "start": 82.67,
+      "end": 82.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 82.9,
+      "end": 82.94,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 82.94,
+      "end": 83.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 83.02,
+      "end": 83.08,
+      "type": "spacing"
+    },
+    {
+      "text": "given",
+      "start": 83.08,
+      "end": 83.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 83.34,
+      "end": 83.38,
+      "type": "spacing"
+    },
+    {
+      "text": "values.",
+      "start": 83.38,
+      "end": 83.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 83.86,
+      "end": 84.44,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 84.44,
+      "end": 84.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 84.52,
+      "end": 84.56,
+      "type": "spacing"
+    },
+    {
+      "text": "downstream",
+      "start": 84.56,
+      "end": 85.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 85.04,
+      "end": 85.18,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 85.18,
+      "end": 85.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 85.4,
+      "end": 85.46,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 85.46,
+      "end": 85.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 85.64,
+      "end": 85.68,
+      "type": "spacing"
+    },
+    {
+      "text": "twenty-four,",
+      "start": 85.68,
+      "end": 86.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.1,
+      "end": 86.5,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 86.5,
+      "end": 86.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.66,
+      "end": 86.86,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 86.86,
+      "end": 87.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.02,
+      "end": 87.119,
+      "type": "spacing"
+    },
+    {
+      "text": "plus",
+      "start": 87.12,
+      "end": 87.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.3,
+      "end": 87.38,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 87.38,
+      "end": 87.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.52,
+      "end": 87.66,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 87.66,
+      "end": 87.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.8,
+      "end": 87.84,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 87.84,
+      "end": 88.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 88.06,
+      "end": 88.1,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 88.1,
+      "end": 88.2,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 88.2,
+      "end": 88.24,
+      "type": "spacing"
+    },
+    {
+      "text": "twenty-four.",
+      "start": 88.24,
+      "end": 89.16,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.16,
+      "end": 89.22,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 89.22,
+      "end": 89.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.28,
+      "end": 89.34,
+      "type": "spacing"
+    },
+    {
+      "text": "upstream",
+      "start": 89.34,
+      "end": 89.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.7,
+      "end": 89.76,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 89.76,
+      "end": 89.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.98,
+      "end": 90.02,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 90.02,
+      "end": 90.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 90.14,
+      "end": 90.2,
+      "type": "spacing"
+    },
+    {
+      "text": "sixteen,",
+      "start": 90.2,
+      "end": 90.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 90.62,
+      "end": 91.18,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 91.18,
+      "end": 91.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 91.26,
+      "end": 91.36,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 91.36,
+      "end": 91.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 91.5,
+      "end": 91.58,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 91.58,
+      "end": 91.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 91.98,
+      "end": 92.36,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 92.44,
+      "end": 93.14,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 93.14,
+      "end": 93.22,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 93.22,
+      "end": 93.38,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 93.38,
+      "end": 93.44,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 93.44,
+      "end": 93.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 93.64,
+      "end": 93.7,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 93.7,
+      "end": 93.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 93.8,
+      "end": 93.82,
+      "type": "spacing"
+    },
+    {
+      "text": "sixteen.",
+      "start": 93.82,
+      "end": 94.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 94.22,
+      "end": 94.72,
+      "type": "spacing"
+    },
+    {
+      "text": "Now",
+      "start": 94.72,
+      "end": 94.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 94.84,
+      "end": 94.86,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 94.86,
+      "end": 94.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 94.94,
+      "end": 94.98,
+      "type": "spacing"
+    },
+    {
+      "text": "need",
+      "start": 94.98,
+      "end": 95.13,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.13,
+      "end": 95.14,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 95.14,
+      "end": 95.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.22,
+      "end": 95.26,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 95.26,
+      "end": 95.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.42,
+      "end": 95.46,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 95.46,
+      "end": 95.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.56,
+      "end": 95.62,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 95.62,
+      "end": 95.82,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.82,
+      "end": 95.86,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 95.86,
+      "end": 95.96,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 95.96,
+      "end": 95.98,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 95.98,
+      "end": 96.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 96.1,
+      "end": 96.14,
+      "type": "spacing"
+    },
+    {
+      "text": "current,",
+      "start": 96.14,
+      "end": 96.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 96.88,
+      "end": 96.92,
+      "type": "spacing"
+    },
+    {
+      "text": "which",
+      "start": 96.92,
+      "end": 97.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 97.06,
+      "end": 97.12,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 97.12,
+      "end": 97.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 97.24,
+      "end": 97.3,
+      "type": "spacing"
+    },
+    {
+      "text": "c.",
+      "start": 97.3,
+      "end": 97.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 97.92,
+      "end": 97.96,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 97.96,
+      "end": 98.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 98.0,
+      "end": 98.08,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 98.08,
+      "end": 98.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 98.22,
+      "end": 98.26,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 98.26,
+      "end": 98.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 98.34,
+      "end": 98.38,
+      "type": "spacing"
+    },
+    {
+      "text": "subtract",
+      "start": 98.38,
+      "end": 98.88,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 98.88,
+      "end": 98.94,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 98.94,
+      "end": 99.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 99.04,
+      "end": 99.08,
+      "type": "spacing"
+    },
+    {
+      "text": "second",
+      "start": 99.08,
+      "end": 99.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 99.36,
+      "end": 99.4,
+      "type": "spacing"
+    },
+    {
+      "text": "equation",
+      "start": 99.4,
+      "end": 99.85,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 99.85,
+      "end": 99.88,
+      "type": "spacing"
+    },
+    {
+      "text": "from",
+      "start": 99.88,
+      "end": 100.05,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 100.05,
+      "end": 100.08,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 100.08,
+      "end": 100.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 100.18,
+      "end": 100.2,
+      "type": "spacing"
+    },
+    {
+      "text": "first.",
+      "start": 100.2,
+      "end": 100.57,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 100.57,
+      "end": 100.94,
+      "type": "spacing"
+    },
+    {
+      "text": "On",
+      "start": 100.94,
+      "end": 101.03,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 101.03,
+      "end": 101.06,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 101.06,
+      "end": 101.09,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 101.09,
+      "end": 101.14,
+      "type": "spacing"
+    },
+    {
+      "text": "left",
+      "start": 101.14,
+      "end": 101.32,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 101.32,
+      "end": 101.36,
+      "type": "spacing"
+    },
+    {
+      "text": "side,",
+      "start": 101.36,
+      "end": 101.6,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 101.6,
+      "end": 102.12,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 102.12,
+      "end": 102.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 102.26,
+      "end": 102.34,
+      "type": "spacing"
+    },
+    {
+      "text": "plus",
+      "start": 102.38,
+      "end": 102.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 102.54,
+      "end": 102.6,
+      "type": "spacing"
+    },
+    {
+      "text": "c,",
+      "start": 102.6,
+      "end": 102.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 102.7,
+      "end": 102.78,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 102.78,
+      "end": 103.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 103.08,
+      "end": 103.16,
+      "type": "spacing"
+    },
+    {
+      "text": "b,",
+      "start": 103.16,
+      "end": 103.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 103.28,
+      "end": 103.38,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 103.38,
+      "end": 103.66,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 103.66,
+      "end": 103.78,
+      "type": "spacing"
+    },
+    {
+      "text": "c.",
+      "start": 103.78,
+      "end": 103.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 103.94,
+      "end": 104.42,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 104.42,
+      "end": 104.48,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 104.48,
+      "end": 104.54,
+      "type": "spacing"
+    },
+    {
+      "text": "b",
+      "start": 104.54,
+      "end": 104.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 104.7,
+      "end": 104.78,
+      "type": "spacing"
+    },
+    {
+      "text": "terms",
+      "start": 104.78,
+      "end": 105.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 105.04,
+      "end": 105.1,
+      "type": "spacing"
+    },
+    {
+      "text": "cancel",
+      "start": 105.1,
+      "end": 105.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 105.46,
+      "end": 105.5,
+      "type": "spacing"
+    },
+    {
+      "text": "each",
+      "start": 105.5,
+      "end": 105.64,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 105.64,
+      "end": 105.68,
+      "type": "spacing"
+    },
+    {
+      "text": "other,",
+      "start": 105.68,
+      "end": 105.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 105.86,
+      "end": 105.98,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 105.98,
+      "end": 106.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.08,
+      "end": 106.1,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 106.1,
+      "end": 106.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.18,
+      "end": 106.2,
+      "type": "spacing"
+    },
+    {
+      "text": "are",
+      "start": 106.2,
+      "end": 106.3,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.3,
+      "end": 106.32,
+      "type": "spacing"
+    },
+    {
+      "text": "left",
+      "start": 106.32,
+      "end": 106.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.54,
+      "end": 106.58,
+      "type": "spacing"
+    },
+    {
+      "text": "with",
+      "start": 106.58,
+      "end": 106.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.76,
+      "end": 106.8,
+      "type": "spacing"
+    },
+    {
+      "text": "two",
+      "start": 106.8,
+      "end": 106.94,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 106.94,
+      "end": 107.0,
+      "type": "spacing"
+    },
+    {
+      "text": "c.",
+      "start": 107.0,
+      "end": 107.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 107.04,
+      "end": 107.54,
+      "type": "spacing"
+    },
+    {
+      "text": "On",
+      "start": 107.54,
+      "end": 107.61,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 107.61,
+      "end": 107.66,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 107.66,
+      "end": 107.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 107.7,
+      "end": 107.74,
+      "type": "spacing"
+    },
+    {
+      "text": "right",
+      "start": 107.74,
+      "end": 107.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 107.9,
+      "end": 107.96,
+      "type": "spacing"
+    },
+    {
+      "text": "side,",
+      "start": 107.96,
+      "end": 108.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 108.18,
+      "end": 108.58,
+      "type": "spacing"
+    },
+    {
+      "text": "twenty-four",
+      "start": 108.58,
+      "end": 109.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 109.02,
+      "end": 109.119,
+      "type": "spacing"
+    },
+    {
+      "text": "minus",
+      "start": 109.12,
+      "end": 109.48,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 109.48,
+      "end": 109.72,
+      "type": "spacing"
+    },
+    {
+      "text": "sixteen,",
+      "start": 109.72,
+      "end": 110.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 110.06,
+      "end": 110.14,
+      "type": "spacing"
+    },
+    {
+      "text": "which",
+      "start": 110.14,
+      "end": 110.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 110.26,
+      "end": 110.3,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 110.3,
+      "end": 110.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 110.42,
+      "end": 110.5,
+      "type": "spacing"
+    },
+    {
+      "text": "eight.",
+      "start": 110.5,
+      "end": 110.78,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 110.78,
+      "end": 111.16,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 111.16,
+      "end": 111.28,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 111.28,
+      "end": 111.32,
+      "type": "spacing"
+    },
+    {
+      "text": "two",
+      "start": 111.32,
+      "end": 111.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 111.46,
+      "end": 111.5,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 111.5,
+      "end": 111.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 111.62,
+      "end": 111.66,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 111.66,
+      "end": 111.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 111.76,
+      "end": 111.82,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 111.82,
+      "end": 112.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 112.0,
+      "end": 112.06,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 112.06,
+      "end": 112.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 112.1,
+      "end": 112.22,
+      "type": "spacing"
+    },
+    {
+      "text": "eight.",
+      "start": 112.22,
+      "end": 112.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 112.62,
+      "end": 113.02,
+      "type": "spacing"
+    },
+    {
+      "text": "Dividing",
+      "start": 113.02,
+      "end": 113.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 113.52,
+      "end": 113.56,
+      "type": "spacing"
+    },
+    {
+      "text": "both",
+      "start": 113.56,
+      "end": 113.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 113.76,
+      "end": 113.8,
+      "type": "spacing"
+    },
+    {
+      "text": "sides",
+      "start": 113.8,
+      "end": 114.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 114.02,
+      "end": 114.08,
+      "type": "spacing"
+    },
+    {
+      "text": "by",
+      "start": 114.08,
+      "end": 114.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 114.26,
+      "end": 114.32,
+      "type": "spacing"
+    },
+    {
+      "text": "two,",
+      "start": 114.32,
+      "end": 114.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 114.44,
+      "end": 114.54,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 114.54,
+      "end": 114.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 114.62,
+      "end": 114.68,
+      "type": "spacing"
+    },
+    {
+      "text": "get",
+      "start": 114.68,
+      "end": 114.86,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 114.86,
+      "end": 114.92,
+      "type": "spacing"
+    },
+    {
+      "text": "c",
+      "start": 114.92,
+      "end": 115.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 115.04,
+      "end": 115.08,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 115.08,
+      "end": 115.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 115.18,
+      "end": 115.24,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 115.24,
+      "end": 115.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 115.44,
+      "end": 115.48,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 115.48,
+      "end": 115.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 115.58,
+      "end": 115.62,
+      "type": "spacing"
+    },
+    {
+      "text": "four.",
+      "start": 115.62,
+      "end": 115.82,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 115.82,
+      "end": 116.32,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 116.32,
+      "end": 116.4,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 116.4,
+      "end": 116.46,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 116.46,
+      "end": 116.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 116.54,
+      "end": 116.56,
+      "type": "spacing"
+    },
+    {
+      "text": "speed",
+      "start": 116.56,
+      "end": 116.78,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 116.78,
+      "end": 116.84,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 116.84,
+      "end": 116.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 116.9,
+      "end": 116.96,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 116.96,
+      "end": 117.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 117.04,
+      "end": 117.08,
+      "type": "spacing"
+    },
+    {
+      "text": "current",
+      "start": 117.08,
+      "end": 117.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 117.36,
+      "end": 117.44,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 117.44,
+      "end": 118.06,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 118.06,
+      "end": 118.14,
+      "type": "spacing"
+    },
+    {
+      "text": "four",
+      "start": 118.14,
+      "end": 118.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 118.26,
+      "end": 118.34,
+      "type": "spacing"
+    },
+    {
+      "text": "kilometers",
+      "start": 118.34,
+      "end": 118.8,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 118.8,
+      "end": 118.86,
+      "type": "spacing"
+    },
+    {
+      "text": "per",
+      "start": 118.86,
+      "end": 118.96,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 118.96,
+      "end": 119.04,
+      "type": "spacing"
+    },
+    {
+      "text": "hour.",
+      "start": 119.04,
+      "end": 119.24,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 119.24,
+      "end": 119.78,
+      "type": "spacing"
+    },
+    {
+      "text": "Hence,",
+      "start": 119.78,
+      "end": 120.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 120.1,
+      "end": 120.5,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 120.5,
+      "end": 120.56,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 120.56,
+      "end": 120.62,
+      "type": "spacing"
+    },
+    {
+      "text": "correct",
+      "start": 120.62,
+      "end": 120.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 120.92,
+      "end": 120.96,
+      "type": "spacing"
+    },
+    {
+      "text": "answer",
+      "start": 120.96,
+      "end": 121.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 121.26,
+      "end": 121.32,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 121.32,
+      "end": 121.46,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 121.46,
+      "end": 121.7,
+      "type": "spacing"
+    },
+    {
+      "text": "option",
+      "start": 121.7,
+      "end": 122.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 122.02,
+      "end": 122.1,
+      "type": "spacing"
+    },
+    {
+      "text": "D.",
+      "start": 122.1,
+      "end": 122.22,
+      "type": "word"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+[00:00.10 -> 00:02.22]  So welcome back again. Time for one more problem.
+[00:02.72 -> 00:03.48]  Now, in this problem,
+[00:03.96 -> 00:04.96]  we are given that
+[00:05.38 -> 00:06.60]  the circular track
+[00:07.12 -> 00:09.30]  is six hundred meter long.
+[00:09.86 -> 00:13.18]  The speed of the first walker is seven meter per second.
+[00:13.68 -> 00:16.90]  The speed of the second walker is five meters per second.
+[00:17.42 -> 00:18.84]  Both start from the same point,
+[00:19.28 -> 00:21.58]  but they move in opposite directions.
+[00:22.06 -> 00:23.56]  The question is asking us to find
+[00:23.98 -> 00:26.50]  after how many seconds they will meet for the first time.
+[00:26.96 -> 00:27.86]  Now, before solving,
+[00:28.26 -> 00:30.06]  let us understand the idea first.
+[00:30.64 -> 00:32.58]  Since they are moving in opposite directions,
+[00:33.10 -> 00:34.82]  they are moving towards each other.
+[00:35.38 -> 00:36.12]  Every second,
+[00:36.52 -> 00:39.20]  the first walker covers seven meter.
+[00:39.78 -> 00:42.42]  The second walker covers five meter.
+[00:42.98 -> 00:49.20]  So together, they reduce the distance between them by twelve meters every second, or simply every second.
+[00:49.70 -> 00:52.26]  Together, they cover twelve meters of the track.
+[00:52.78 -> 00:54.42]  Now, they started from the same point.
+[00:54.90 -> 00:59.18]  To meet again, together, they must complete one full round of the circular track.
+[00:59.62 -> 01:02.08]  One full round is six hundred meter.
+[01:02.58 -> 01:02.98]  Got it?
+[01:03.50 -> 01:03.94]  Perfect.
+[01:04.50 -> 01:05.94]  Now let us solve it.
+[01:06.54 -> 01:14.68]  Since together they cover twelve meters every second, time is equal to total distance divided by relative speed.
+[01:15.00 -> 01:19.82]  Here, the relative speed is equal to seven plus five, which is twelve meters per second.
+[01:20.30 -> 01:21.32]  Putting the values,
+[01:21.76 -> 01:23.22]  time is equal to six hundred
+[01:23.68 -> 01:28.04]  divided by twelve. After simplifying this, we get fifty seconds.
+[01:28.46 -> 01:34.32]  So the two walkers will meet for the first time after fifty seconds. Hence, the correct answer
+[01:34.90 -> 01:35.64]  is option A.

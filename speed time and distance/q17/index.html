@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration CSS — two delivery vans starting from a
+     shared depot and drifting apart. Not a shared component (design.md §7),
+     lives only here. */
+  .illus-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .illus-pinned-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-q17rt" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-q17bg" class="dotted-grid"></div>
+  <div data-hf-id="hf-q17bs" class="bottom-strip"></div>
+  <div data-hf-id="hf-q17tp" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-q17lg" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-q17vo" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="87.3" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–25.5s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q17p1" id="phase1" class="clip" data-start="0" data-duration="25.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-q17qc" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-q17qt" class="q-text">
+        Two delivery vans leave the same depot in opposite directions. One travels at a speed
+        of <span data-hf-id="hf-q17n1" class="num">38 km/hr</span> and the other at
+        <span data-hf-id="hf-q17n2" class="num">47 km/hr</span>. After how many hours will
+        they be <span data-hf-id="hf-q17n3" class="num">255 km</span> apart?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-q17sn" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-q17dg" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: two vans stacked at a shared depot, then drifting apart -->
+    <div data-hf-id="hf-q17il" id="illustration" style="position:absolute;left:50%;top:340px;transform:translateX(-50%);
+                width:1000px;height:220px;">
+
+      <div data-hf-id="hf-q17rd" id="road-line" style="position:absolute;left:0;top:110px;width:100%;height:4px;background:var(--primary);transform:scaleX(0);"></div>
+
+      <div data-hf-id="hf-q17dp" id="depot-point" style="position:absolute;left:50%;top:100px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:var(--primary);opacity:0;"></div>
+
+      <div data-hf-id="hf-q17va" id="van-a-wrap" style="position:absolute;left:50%;top:40px;width:150px;margin-left:-75px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;">
+        <img data-hf-id="hf-q17vi" id="van-a" src="illustration/van-svgrepo-com.svg" style="width:150px;height:auto;transform:scaleX(-1);">
+        <div data-hf-id="hf-q17sa" id="speed-a" class="illus-label" style="opacity:0;">38 km/hr</div>
+      </div>
+
+      <div data-hf-id="hf-q17vb" id="van-b-wrap" style="position:absolute;left:50%;top:40px;width:150px;margin-left:-75px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;">
+        <img data-hf-id="hf-q17vj" id="van-b" src="illustration/van-svgrepo-com.svg" style="width:150px;height:auto;">
+        <div data-hf-id="hf-q17sb" id="speed-b" class="illus-label" style="opacity:0;">47 km/hr</div>
+      </div>
+
+      <span data-hf-id="hf-q17al" id="arrow-left" style="position:absolute;left:50%;top:0px;margin-left:-190px;color:var(--primary);font-size:28px;opacity:0;">&#8592;</span>
+      <span data-hf-id="hf-q17ar" id="arrow-right" style="position:absolute;left:50%;top:0px;margin-left:160px;color:var(--primary);font-size:28px;opacity:0;">&#8594;</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (24.4s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q17qp" id="q-pinned" class="clip" data-start="24.4" data-duration="64.6" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q17qw" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-q17qx" class="q-text">
+        Two vans from the same depot, opposite directions, at
+        <span data-hf-id="hf-q17n4" class="num">38</span> &amp; <span data-hf-id="hf-q17n5" class="num">47 km/hr</span>. Find the time to be <span data-hf-id="hf-q17n6" class="num">255 km</span> apart.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration: two small van icons either side of a recap label -->
+  <div data-hf-id="hf-q17ip" id="illus-pinned" class="clip" data-start="24.4" data-duration="55.5" data-track-index="3" style="position:absolute;left:660px;top:190px;width:600px;height:140px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:space-between;">
+    <img data-hf-id="hf-q17pa" id="illus-pinned-van-a" src="illustration/van-svgrepo-com.svg" style="width:70px;height:auto;transform:scaleX(-1);">
+    <div data-hf-id="hf-q17pl" class="illus-pinned-label">Same depot · opposite · 38 &amp; 47 km/hr</div>
+    <img data-hf-id="hf-q17pb" id="illus-pinned-van-b" src="illustration/van-svgrepo-com.svg" style="width:70px;height:auto;">
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — recap only (line-level), no concept — the concept lives in Step 1 -->
+  <div data-hf-id="hf-q17cg" id="card-given" class="clip" data-start="9.5" data-duration="23.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q17gc" class="solution-card" style="position:absolute;left:640px;top:640px;text-align:center;">
+      <div data-hf-id="hf-q17gd" class="card-content">
+        <span data-hf-id="hf-q17gp" class="chip">Given</span>
+        <div data-hf-id="hf-q17gm" class="math">
+          <span data-hf-id="hf-q17g1" class="rv" data-t="9.5">Two vans start from the <span data-hf-id="hf-q17h1" class="hi">same depot</span></span><br data-hf-id="hf-q17b1">
+          <span data-hf-id="hf-q17g2" class="rv" data-t="13.64">Speed of Van 1 = <span data-hf-id="hf-q17h2" class="hi">38 km/hr</span></span><br data-hf-id="hf-q17b2">
+          <span data-hf-id="hf-q17g3" class="rv" data-t="18.94">Speed of Van 2 = <span data-hf-id="hf-q17h3" class="hi">47 km/hr</span></span><br data-hf-id="hf-q17b3">
+          <span data-hf-id="hf-q17g4" class="rv" data-t="22.0">Moving in <span data-hf-id="hf-q17h4" class="hi">opposite directions</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Concept + Relative Speed -->
+  <div data-hf-id="hf-q17c1" id="card-step1" class="clip" data-start="33.2" data-duration="32.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q171c" class="solution-card" style="position:absolute;left:500px;top:460px;text-align:center;width: 900px;;">
+      <div data-hf-id="hf-q171d" class="card-content">
+        <span data-hf-id="hf-q171p" class="chip">Step 1</span>
+        <div data-hf-id="hf-q171m" class="math">
+          <span data-hf-id="hf-q1711" class="rv" data-t="33.2">Opposite directions &#8594; distance keeps increasing</span><br data-hf-id="hf-q171b1">
+          <span data-hf-id="hf-q1712" class="rv" data-t="39.279">Van 1 = <span data-hf-id="hf-q171h1" class="hi">38 km</span> every hour</span><br data-hf-id="hf-q171b2">
+          <span data-hf-id="hf-q1717" class="rv" data-t="44.439">Van 2 = <span data-hf-id="hf-q171h2" class="hi">47 km</span> every hour</span><br data-hf-id="hf-q171b5">
+          <span data-hf-id="hf-q1713" class="rv" data-t="55.299">Relative Speed = Sum of Speeds</span><br data-hf-id="hf-q171b3">
+          <span data-hf-id="hf-q1714" class="rv" data-t="59.719">=</span> <span data-hf-id="hf-q171h3" class="hi rv" data-t="60.099">38</span>
+          <span data-hf-id="hf-q1715" class="rv" data-t="60.659">+</span> <span data-hf-id="hf-q171h4" class="hi rv" data-t="60.919">47</span><br data-hf-id="hf-q171b4">
+          <span data-hf-id="hf-q1716" class="rv" data-t="61.979">=</span> <span data-hf-id="hf-q171an" class="ans rv" data-t="62.659">85 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Time -->
+  <div data-hf-id="hf-q17c2" id="card-step2" class="clip" data-start="66.44" data-duration="13.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q172c" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-q172d" class="card-content">
+        <span data-hf-id="hf-q172p" class="chip">Step 2</span>
+        <div data-hf-id="hf-q172m" class="math">
+          <span data-hf-id="hf-q1721" class="rv" data-t="69.339">Time</span> <span data-hf-id="hf-q1722" class="rv" data-t="69.839">=</span>
+          <span data-hf-id="hf-q1723" class="frac rv" data-t="70.379"><span data-hf-id="hf-q172t1" class="top hi">Distance</span><span data-hf-id="hf-q172b1" class="bot hi">Relative Speed</span></span><br data-hf-id="hf-q172br1">
+          <span data-hf-id="hf-q1724" class="rv" data-t="73.439">=</span>
+          <span data-hf-id="hf-q1725" class="frac rv" data-t="73.72"><span data-hf-id="hf-q172t2" class="top hi">255</span><span data-hf-id="hf-q172b2" class="bot hi">85</span></span><br data-hf-id="hf-q172br2">
+          <span data-hf-id="hf-q1726" class="rv" data-t="76.419">=</span> <span data-hf-id="hf-q172an" class="ans rv" data-t="78.36">3 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q17sg" id="stack-given" class="clip" data-start="32.4" data-duration="55.5" data-track-index="11" style="position:absolute;left:100px;top:180px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q17sc1" class="stack-card">
+      <div data-hf-id="hf-q17sd1" class="card-content">
+        <span data-hf-id="hf-q17sci" class="step-circle">G</span>
+        <div data-hf-id="hf-q17sm1" class="math">
+          Same depot, <span data-hf-id="hf-q17shi1" class="hi">opposite directions</span><br data-hf-id="hf-q17sbr1">
+          Speed 1 = <span data-hf-id="hf-q17shi2" class="hi">38</span>, Speed 2 = <span data-hf-id="hf-q17shi3" class="hi">47 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q17s1" id="stack-step1" class="clip" data-start="64.72" data-duration="23.2" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q17sc2" class="stack-card">
+      <div data-hf-id="hf-q17sd2" class="card-content">
+        <span data-hf-id="hf-q17sci2" class="step-circle">1</span>
+        <div data-hf-id="hf-q17sm2" class="math">
+          Relative Speed = Sum of Speeds<br data-hf-id="hf-q17sbr2">
+          = <span data-hf-id="hf-q17shi4" class="hi">38 + 47</span><br data-hf-id="hf-q17sbr3">
+          = <span data-hf-id="hf-q17san1" class="ans">85 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q17s2" id="stack-step2" class="clip" data-start="79.4" data-duration="8.5" data-track-index="13" style="position:absolute;left:100px;top:450px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q17sc3" class="stack-card">
+      <div data-hf-id="hf-q17sd3" class="card-content">
+        <span data-hf-id="hf-q17sci3" class="step-circle">2</span>
+        <div data-hf-id="hf-q17sm3" class="math">
+          Time =  <span data-hf-id="hf-q17san2" class="ans">3 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q17lg1" id="line-g-1" class="clip stack-line" data-start="64.72" data-duration="23.2" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-q17lg2" id="line-1-2" class="clip stack-line" data-start="79.4" data-duration="8.5" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q17or" id="options-reveal" class="clip" data-start="80.4" data-duration="8.6" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-q17oc" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-q17og" class="options-grid">
+        <div data-hf-id="hf-q17oa" class="opt-btn correct"><span data-hf-id="hf-q17ola" class="letter">A</span>3 hours</div>
+        <div data-hf-id="hf-q17ob" class="opt-btn"><span data-hf-id="hf-q17olb" class="letter">B</span>2 hours</div>
+        <div data-hf-id="hf-q17oc2" class="opt-btn"><span data-hf-id="hf-q17olc" class="letter">C</span>4 hours</div>
+        <div data-hf-id="hf-q17od" class="opt-btn"><span data-hf-id="hf-q17old" class="letter">D</span>5 hours</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance.
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6; // end of "Time for one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration build (per-question custom, plain GSAP tweens — road,
+  // depot marker, vans, labels, arrows are not shared components).
+  apt.roadSweep(tl, "#road-line", 4.6);
+  apt.fadeIn(tl, "#depot-point", 5.0);
+
+  // Small resting offset (-80/+80) so the two vans read as two distinct
+  // objects at the depot instead of fully coinciding — still close enough
+  // to sell "same depot," just not pixel-overlapping.
+  tl.fromTo("#van-a-wrap", { x: 0, y: 20, scale: 0.85, opacity: 0 },
+    { x: -80, y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 6.84);
+  tl.fromTo("#van-b-wrap", { x: 0, y: 20, scale: 0.85, opacity: 0 },
+    { x: 80, y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 7.4);
+
+  apt.emphasize(tl, "#depot-point", 8.08);
+
+  tl.fromTo("#speed-a", { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 13.64);
+  tl.fromTo("#speed-b", { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 18.94);
+
+  tl.fromTo("#arrow-left", { x: 10, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 22.0);
+  tl.fromTo("#arrow-right", { x: -10, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 22.0);
+
+  // Vans drift apart from the shared depot — differential distance mirrors
+  // the real 38:47 speed ratio (260:322).
+  tl.to("#van-a-wrap", { x: -260, duration: 2.4, ease: "none" }, 22.0);
+  tl.to("#van-b-wrap", { x: 322, duration: 2.4, ease: "none" }, 22.0);
+
+  // ── Given card opens early, in Phase 1, syncing its recap lines to the
+  // same moment each value is actually spoken over the illustration.
+  const GIVEN_TIME = 9.5;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── PIN — question + illustration glide to their pinned slots.
+  const PIN_TIME = 24.4;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Given card lifts from its low Phase-1 position now that the
+  // illustration above it has vacated — plain recenter tween, NOT part of
+  // the pinFlow glide (the card itself never moves position/slot, only y).
+  tl.to("#card-given .solution-card", { y: -200, duration: 0.6, ease: "power2.inOut" }, PIN_TIME);
+
+  // Ambient bob on the pinned van icons through Step 1's long single-card
+  // hold, so the pinned recap doesn't read as dead.
+  apt.ambientLoop(tl, "#illus-pinned-van-a", PIN_TIME + 1, 79.4);
+  apt.ambientLoop(tl, "#illus-pinned-van-b", PIN_TIME + 1.2, 79.4);
+
+  // ── STEP 1 — Given morphs to stack; Step 1 (concept + relative speed) opens.
+  const GIVEN_TO_STACK = 32.4;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_TO_STACK);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 33.2);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2 — Step 1 joins the stack (grow G→1 line); Step 2 opens.
+  const STEP1_TO_STACK = 64.72;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_TO_STACK);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_TO_STACK);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 66.44);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  const STEP2_TO_STACK = 79.4;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_TO_STACK);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_TO_STACK);
+  apt.fadeOut(tl, "#illus-pinned", STEP2_TO_STACK);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, STEP2_TO_STACK);
+
+  // ── PHASE 3 — Options reveal.
+  apt.fadeIn(tl, "#options-reveal", 80.4);
+  apt.optionsStagger(tl, ".opt-btn", 81.0);
+  apt.correctPulse(tl, ".opt-btn.correct", 86.7);
+
+  // Options grid clears a beat before the rest of the frame fades — keeps
+  // the final hold from reading as "everything including the answer
+  // vanishes at once." Fires right after correctPulse (86.7s, ~0.8s
+  // yoyo) has finished, so the pulse isn't cut off mid-animation.
+  apt.fadeOut(tl, "#options-reveal", 87.5);
+
+  // ── END FADE — everything else fades out together, once, after the
+  // answer has landed and the voiceover (ends 87.22s) has finished.
+  const END_FADE_TIME = 87.8;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 89.0);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

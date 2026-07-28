@@ -1,0 +1,32 @@
+[00:00.10 -> 00:00.28]  So
+[00:00.64 -> 00:01.38]  welcome back again.
+[00:02.06 -> 00:03.08]  It's time to solve
+[00:03.58 -> 00:04.48]  one more problem.
+[00:05.00 -> 00:07.24]  Now in this problem, we are given a train of length
+[00:07.62 -> 00:08.86]  one hundred forty meter,
+[00:09.44 -> 00:10.32]  a bridge of length
+[00:10.74 -> 00:11.98]  two hundred twenty meter,
+[00:12.60 -> 00:13.74]  and the speed of the train
+[00:14.28 -> 00:15.78]  is eighteen meter per second.
+[00:16.30 -> 00:18.04]  The question is asking us to find
+[00:18.52 -> 00:21.66]  how much time the train takes to completely cross the bridge.
+[00:21.98 -> 00:23.34]  Now, the important point here is
+[00:23.82 -> 00:25.18]  completely cross the bridge.
+[00:26.02 -> 00:27.10]  What does this actually mean?
+[00:27.54 -> 00:31.68]  It means the last compartment of the train should also come out of the bridge,
+[00:32.06 -> 00:35.60]  so the train has to cover its own length as well as the length of the bridge.
+[00:35.94 -> 00:37.48]  This is a simple rule to remember.
+[00:37.78 -> 00:43.14]  Whenever a train crosses a bridge, total distance equals length of train plus length of bridge.
+[00:43.50 -> 00:43.92]  Got it?
+[00:44.32 -> 00:44.70]  Perfect.
+[00:45.12 -> 00:46.60]  Now let us put the given values.
+[00:47.06 -> 00:49.28]  Length of train equals one hundred forty meter.
+[00:49.88 -> 00:52.66]  Length of bridge equals two hundred twenty meter.
+[00:53.22 -> 01:02.12]  So the total distance becomes one hundred forty plus two hundred twenty, which is three hundred sixty meter. Now this part is done. We already know the total distance.
+[01:02.50 -> 01:04.08]  The remaining work is very easy.
+[01:04.50 -> 01:08.88]  We know time equals distance divided by speed. Putting the values,
+[01:09.26 -> 01:11.54]  time equals three hundred sixty
+[01:12.06 -> 01:13.06]  divided by eighteen.
+[01:13.52 -> 01:15.38]  After solving this, we get twenty seconds.
+[01:16.16 -> 01:19.82]  Hence, the train takes twenty seconds to completely cross the bridge.
+[01:20.32 -> 01:22.12]  So the final answer will be option A.

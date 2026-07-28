@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-gh96" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="61.3" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–17.9s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mhdq" id="phase1" class="clip" data-start="0" data-duration="17.9" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-9asj" class="q-text">
+        Two trains have speeds in the ratio <span data-hf-id="hf-8fpt" class="num">7 : 9</span>. The faster train covers <span data-hf-id="hf-h7se" class="num">180 km</span> in <span data-hf-id="hf-g0vo" class="num">2 hours</span>. Find the slower train's speed.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area: slower train (grey, unknown) — 7:9 ratio chip — faster train (blue, known) -->
+    <div data-hf-id="hf-wr0r" id="illustration" class="illustration" style="position:absolute;left:50%;top:460px;transform:translateX(-50%);
+                width:1400px;height:300px;display:flex;align-items:center;justify-content:space-between;">
+      <div data-hf-id="hf-ou69" id="train-slower-wrap" style="display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;">
+        <img data-hf-id="hf-ejwq" id="train-slower-img" src="illustration/train-slower.svg" style="width:220px;height:220px;">
+        <div data-hf-id="hf-mtp0" style="font-family:var(--font);font-size:24px;color:var(--topic);">Slower train <span data-hf-id="hf-a247" style="color:var(--primary);font-weight:500;">?</span></div>
+      </div>
+      <div data-hf-id="hf-ztzp" id="ratio-chip" style="opacity:0;background:var(--primary);color:#FFFFFF;padding:14px 30px;border-radius:999px;font-family:var(--font);font-size:30px;font-weight:500;">7 : 9</div>
+      <div data-hf-id="hf-xvh6" id="train-faster-wrap" style="display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;">
+        <img data-hf-id="hf-qufm" id="train-faster-img" src="illustration/train-faster.svg" style="width:220px;height:220px;">
+        <div data-hf-id="hf-4wnp" id="faster-label" style="font-family:var(--font);font-size:24px;color:var(--primary);opacity:0;">180 km · 2 hr</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (16.6s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-lnpz" id="q-pinned" class="clip" data-start="16.6" data-duration="46.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-h710" class="q-text">
+        Speeds in ratio <span data-hf-id="hf-uv45" class="num">7 : 9</span>. Faster train covers <span data-hf-id="hf-5igi" class="num">180 km</span> in <span data-hf-id="hf-scxr" class="num">2 hr</span>. Find the slower train's speed.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, centered — icon pair + ratio recap) -->
+  <div data-hf-id="hf-tnkc" id="illus-pinned" class="clip" data-start="16.6" data-duration="43.5" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:70px;">
+    <img data-hf-id="hf-xjww" id="illus-pinned-slower" src="illustration/train-slower.svg" style="width:84px;height:84px;">
+    <div data-hf-id="hf-zovt" style="font-family:var(--font);font-size:22px;color:var(--topic);">Ratio <span data-hf-id="hf-cjnm" style="color:var(--primary);font-weight:500;">7 : 9</span></div>
+    <img data-hf-id="hf-5xks" id="illus-pinned-faster" src="illustration/train-faster.svg" style="width:84px;height:84px;">
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — data-start slightly before GIVEN_TIME (17.6), duration extends past
+       its own morphToStack completion (27.0+0.8=27.8) + buffer. -->
+  <div data-hf-id="hf-oot9" id="card-given" class="clip" data-start="17.3" data-duration="10.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-t20w" class="rv" data-t="17.60">Ratio</span> <span data-hf-id="hf-c5uj" class="rv" data-t="18.00">of</span> <span data-hf-id="hf-6bxj" class="rv" data-t="18.09">speeds</span> <span data-hf-id="hf-kzwf" class="rv" data-t="18.15">=</span> <span data-hf-id="hf-gcyi" class="hi rv" data-t="18.18">7 : 9</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-gg8h" class="rv" data-t="19.90">Speed</span> <span data-hf-id="hf-kbzm" class="rv" data-t="20.24">of</span> <span data-hf-id="hf-kwlz" class="rv" data-t="20.40">slower</span> <span data-hf-id="hf-mr1o" class="rv" data-t="20.72">train</span> <span data-hf-id="hf-bx1j" class="rv" data-t="20.96">=</span> <span data-hf-id="hf-8yso" class="hi rv" data-t="21.20">7x</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-4q8o" class="rv" data-t="24.00">Speed</span> <span data-hf-id="hf-pjbd" class="rv" data-t="24.34">of</span> <span data-hf-id="hf-0juo" class="rv" data-t="24.48">faster</span> <span data-hf-id="hf-my4d" class="rv" data-t="24.84">train</span> <span data-hf-id="hf-vjwp" class="rv" data-t="25.08">=</span> <span data-hf-id="hf-1qa4" class="hi rv" data-t="25.26">9x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Apply the formula, get faster train's actual speed -->
+  <div data-hf-id="hf-zqzg" id="card-step1" class="clip" data-start="27.7" data-duration="12.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-hscs" class="rv" data-t="28.80">Speed</span> <span data-hf-id="hf-sbke" class="rv" data-t="29.30">=</span> <span data-hf-id="hf-ldbv" class="frac rv" data-t="29.60"><span data-hf-id="hf-6iu9" class="top">Distance</span><span data-hf-id="hf-efx9" class="bot">Time</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-oigd" class="rv" data-t="33.10">Speed</span> <span data-hf-id="hf-seks" class="rv" data-t="33.40">of</span> <span data-hf-id="hf-6938" class="rv" data-t="33.66">faster</span> <span data-hf-id="hf-xaru" class="rv" data-t="34.04">train</span> <span data-hf-id="hf-pav9" class="rv" data-t="34.42">=</span> <span data-hf-id="hf-qnjs" class="frac rv" data-t="34.82"><span data-hf-id="hf-clsi" class="top hi">180</span><span data-hf-id="hf-jgr9" class="bot hi">2</span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-mrpi" class="rv" data-t="37.06">=</span> <span data-hf-id="hf-0v8r" class="ans rv" data-t="37.66">90 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Equate 9x with 90, solve for x -->
+  <div data-hf-id="hf-p6ff" id="card-step2" class="clip" data-start="39.9" data-duration="10.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-mny8" class="rv" data-t="39.50">Faster train speed = 9x</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-5wyo" class="rv" data-t="45.96">9x</span> <span data-hf-id="hf-2z7q" class="rv" data-t="46.68">=</span> <span data-hf-id="hf-jmgr" class="hi rv" data-t="47.14">90</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-i4xi" class="rv" data-t="48.16">x</span> <span data-hf-id="hf-jkic" class="rv" data-t="48.42">=</span> <span data-hf-id="hf-6lcl" class="ans rv" data-t="48.90">10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Substitute x into 7x, final answer -->
+  <div data-hf-id="hf-wy2p" id="card-step3" class="clip" data-start="50.0" data-duration="10" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-u47t" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-scwr" class="rv" data-t="49.62">Speed</span> <span data-hf-id="hf-eab3" class="rv" data-t="49.86">of</span> <span data-hf-id="hf-cwbp" class="rv" data-t="50.12">slower</span> <span data-hf-id="hf-rw70" class="rv" data-t="50.44">train</span> <span data-hf-id="hf-ddh2" class="rv" data-t="50.78">=</span> <span data-hf-id="hf-k2mx" class="hi rv" data-t="51.22">7x</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-bl5p" class="rv" data-t="52.60">=</span> <span data-hf-id="hf-3ak4" class="rv" data-t="52.98">7</span> <span data-hf-id="hf-5bg6" class="rv" data-t="53.28">×</span> <span data-hf-id="hf-3qpg" class="hi rv" data-t="53.56">10</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-j7ud" class="rv" data-t="54.26">=</span> <span data-hf-id="hf-kszy" class="ans rv" data-t="56.60">70 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bfwx" id="stack-given" class="clip" data-start="27.5" data-duration="35.5" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-expw" class="math">
+          Ratio of speeds = <span data-hf-id="hf-7fhc" class="hi">7 : 9</span><br data-hf-id="hf-p0mm">
+          Speed of slower = <span data-hf-id="hf-agsj" class="hi">7x</span><br data-hf-id="hf-ombl">
+          Speed of faster = <span data-hf-id="hf-3fpp" class="hi">9x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-6600" id="stack-step1" class="clip" data-start="39.7" data-duration="23.5" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-fpj5" class="math">
+          Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-bi7p" class="top">Distance</span><span data-hf-id="hf-nsxd" class="bot">Time</span></span><br data-hf-id="hf-qsyj">
+          Faster train: <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-5ml2" class="top hi">180</span><span data-hf-id="hf-7gll" class="bot hi">2</span></span><br data-hf-id="hf-r79k">
+          = <span data-hf-id="hf-pfl9" class="ans">90 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r5da" id="stack-step2" class="clip" data-start="49.7" data-duration="13.5" data-track-index="13" style="position:absolute;left:100px;top:470px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-z622" class="math">
+          Faster train speed = 9x<br data-hf-id="hf-q0ch">
+          9x = 90<br data-hf-id="hf-qeni">
+          x = <span data-hf-id="hf-3df2" class="ans">10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-eeb6" id="stack-step3" class="clip" data-start="59.2" data-duration="4" data-track-index="14" style="position:absolute;left:100px;top:630px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-aw2f" class="math">
+          Speed of slower train = 7x<br data-hf-id="hf-p7qf">
+          = 7 × 10<br data-hf-id="hf-pm1g">
+          = <span data-hf-id="hf-sxtf" class="ans">70 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines — geometry set at runtime by apt.setStackLine() -->
+  <div data-hf-id="hf-6rod" id="line-g-1" class="clip stack-line" data-start="38.9" data-duration="24" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-dl03" id="line-1-2" class="clip stack-line" data-start="49.0" data-duration="14" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-0yjk" id="line-2-3" class="clip stack-line" data-start="58.6" data-duration="4.5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-5tyt" id="options-reveal" class="clip" data-start="59.2" data-duration="4" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-667y" class="opt-btn correct"><span data-hf-id="hf-sfug" class="letter">A</span>70 km/hr</div>
+        <div data-hf-id="hf-bkw5" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>64 km/hr</div>
+        <div data-hf-id="hf-5e0p" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>68 km/hr</div>
+        <div data-hf-id="hf-cs9y" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>72 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  /* Timings derived from transcript.json (voiceover.wav, 61.3s total). */
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal, lowered start, rises as the opening line ends
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6; // "...time for one more problem." ends 3.18s
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build — both trains, ratio chip, distance/time label, slower-train pulse
+  tl.fromTo("#train-slower-wrap", { y: 30, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 4.3);
+  tl.fromTo("#train-faster-wrap", { y: 30, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 4.3);
+  tl.fromTo("#ratio-chip", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2)" }, 7.48); // "seven is to nine"
+  apt.fadeIn(tl, "#faster-label", 9.4); // "faster train covers..."
+  apt.emphasize(tl, "#train-slower-img", 15.4); // "the speed of the slower train"
+
+  // PHASE 2 — Pin, then Given
+  const PIN_TIME = 16.8;   // right after "...find the speed of the slower train." ends (16.80) —
+                            // must stay AFTER the 15.4s slower-train pulse above, not before it
+  const GIVEN_TIME = 17.6; // lands right as pinFlow completes (16.8+0.8), when "Ratio" itself is spoken (17.60)
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — Given joins the stack, formula + faster-train speed computed
+  const GIVEN_MORPH = 27.0;
+  const STEP1_TIME = 28.0;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_MORPH);
+  apt.cardEnter(tl, "#card-step1 .solution-card", STEP1_TIME);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 joins the stack (G→1 line grows), equate 9x with 90
+  const STEP1_MORPH = 39.2;
+  const STEP2_TIME = 40.2;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_MORPH);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_MORPH);
+  apt.cardEnter(tl, "#card-step2 .solution-card", STEP2_TIME);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — Step 2 joins the stack (1→2 line grows), solve for slower speed
+  const STEP2_MORPH = 49.3;
+  const STEP3_TIME = 50.3;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_MORPH);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_MORPH);
+  apt.cardEnter(tl, "#card-step3 .solution-card", STEP3_TIME);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — clear the stack column before options reveal
+  const STEP3_MORPH = 58.9;
+  const RECENTER_TIME = 58.9;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 3 joins the stack (2→3 line grows)
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", STEP3_MORPH);
+  apt.stackLineGrow(tl, "#line-2-3", STEP3_MORPH);
+  apt.fadeIn(tl, "#options-reveal", 59.5);
+  apt.optionsStagger(tl, ".opt-btn", 60.0);
+  apt.correctPulse(tl, ".opt-btn.correct", 60.8); // "...option A."
+
+  // ── END FADE
+  const END_FADE_TIME = 61.6;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 64);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

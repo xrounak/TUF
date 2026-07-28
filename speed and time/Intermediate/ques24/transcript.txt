@@ -1,0 +1,43 @@
+[00:00.12 -> 00:03.14]  So welcome back again. Time for one more problem.
+[00:03.72 -> 00:06.94]  Now, in this problem, a jogger runs at nine kilometer per hour
+[00:07.42 -> 00:09.33]  instead of six kilometer per hour,
+[00:09.88 -> 00:13.35]  and because of the higher speed, she covers 18 kilometer more.
+[00:14.08 -> 00:18.75]  The question is asking us to find the actual distance covered by the jogger.
+[00:19.32 -> 00:20.74]  Now, one thing is very important,
+[00:21.18 -> 00:25.26]  the time for which the jogger runs remains the same in both cases,
+[00:25.86 -> 00:27.10]  only the speed changes.
+[00:27.52 -> 00:27.66]  So
+[00:28.16 -> 00:29.82]  let us take the running time as
+[00:30.14 -> 00:30.80]  t hours.
+[00:31.30 -> 00:34.48]  Also, let the actual distance covered be x kilometer.
+[00:34.92 -> 00:36.52]  Now, let us write the given values.
+[00:36.94 -> 00:40.56]  The speed in the first case is six kilometer per hour.
+[00:41.08 -> 00:42.68]  The speed in the second case is
+[00:43.14 -> 00:44.58]  nine kilometer per hour.
+[00:45.06 -> 00:48.02]  The extra distance covered is 18 kilometer.
+[00:48.62 -> 00:49.72]  The formula we need is
+[00:50.10 -> 00:52.52]  distance equal to speed into time.
+[00:53.04 -> 00:54.39]  Now, let us apply this formula.
+[00:54.94 -> 00:56.95]  At six kilometer per hour,
+[00:57.76 -> 00:59.02]  x equal to 6t.
+[00:59.72 -> 01:04.94]  Now, look at the second case. The jogger covers 18 kilometer more than the actual distance,
+[01:05.34 -> 01:07.20]  so x plus 18 equals 9t.
+[01:07.92 -> 01:10.26]  Now, we already know that x is equal to 6t,
+[01:10.84 -> 01:15.02]  so let us put 6t in place of x. We get 6t plus 18 equals 9t.
+[01:15.70 -> 01:18.66]  So after solving this, we got t equal to six hours.
+[01:19.22 -> 01:20.26]  Now that we know the time,
+[01:21.04 -> 01:22.54]  finding the actual distance
+[01:23.08 -> 01:23.98]  is very easy.
+[01:24.40 -> 01:24.81]  Remember,
+[01:25.26 -> 01:26.96]  we already have the equation
+[01:27.28 -> 01:27.94]  x equal to
+[01:28.28 -> 01:31.84]  6t, and we have just found that t is equal to six.
+[01:32.38 -> 01:34.00]  So let us substitute this value,
+[01:34.74 -> 01:35.92]  x equal to six
+[01:36.44 -> 01:37.14]  into six,
+[01:37.80 -> 01:40.78]  x equal to 36 kilometer.
+[01:41.68 -> 01:45.56]  So the actual distance covered by the jogger is 36
+[01:46.12 -> 01:46.74]  kilometer.
+[01:47.58 -> 01:47.96]  Hence,
+[01:48.52 -> 01:49.70]  the correct answer is
+[01:50.20 -> 01:50.86]  option D.

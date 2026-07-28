@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration CSS (house / road / office / car) — not a
+     shared component, per design.md's "Illustration" section (per-question
+     custom CSS). Unlike a parked-icon build, the car literally drives the
+     road: house→office while the "goes" line plays, office→house while the
+     "returns" line plays — the x-tweens live in the script block below. */
+  .trip-scene {
+    position: relative;
+    width: 1300px;
+    height: 260px;
+  }
+  .trip-scene .road {
+    position: absolute;
+    left: 150px;
+    right: 150px;
+    bottom: 70px;
+    height: 6px;
+    background: #000000;
+    border-radius: 3px;
+    transform-origin: left center;
+  }
+  .trip-scene .house-icon,
+  .trip-scene .office-icon {
+    position: absolute;
+    bottom: 20px;
+    width: 170px;
+    height: 170px;
+    opacity: 0;
+  }
+  .trip-scene .house-icon { left: 0; }
+  .trip-scene .office-icon { right: 0; }
+  .trip-scene .car-icon {
+    position: absolute;
+    left: 180px;
+    bottom: 62px;
+    width: 110px;
+    height: 110px;
+    opacity: 0;
+  }
+  .trip-scene .speed-label {
+    position: absolute;
+    left: 180px;
+    bottom: 180px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--primary);
+    white-space: nowrap;
+    opacity: 0;
+  }
+  .trip-scene .avg-ghost {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--topic);
+    white-space: nowrap;
+    opacity: 0;
+  }
+  .pinned-trip-scene {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .pinned-trip-scene img { width: 80px; height: 80px; }
+  .pinned-trip-scene .pin-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-sqto" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="108.539" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–19.5s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vhkn" id="phase1" class="clip" data-start="0" data-duration="19.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-9x87" class="q-text">
+        A person goes from home to office at <span data-hf-id="hf-0h11" class="num">54 km/hr</span> and returns by the same route at <span data-hf-id="hf-8771" class="num">36 km/hr</span>. Find the <span data-hf-id="hf-fk6x" class="num">average speed</span> of the round trip.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area -->
+    <div data-hf-id="hf-lkdy" id="illustration" class="illustration" style="position:absolute;left:50%;top:470px;transform:translateX(-50%);
+                width:1300px;height:260px;display:flex;align-items:center;justify-content:center;">
+      <div data-hf-id="hf-q6ni" class="trip-scene">
+        <div data-hf-id="hf-dmxu" id="road" class="road"></div>
+        <img data-hf-id="hf-7w3t" id="house-icon" class="house-icon" src="illustration/house-svgrepo-com.svg" alt="house">
+        <img data-hf-id="hf-ytnu" id="office-icon" class="office-icon" src="illustration/office-building-svgrepo-com.svg" alt="office">
+        <img data-hf-id="hf-3bj8" id="car-icon" class="car-icon" src="illustration/car.svg" alt="car">
+        <div data-hf-id="hf-28r2" id="speed-label-1" class="speed-label">54 km/hr</div>
+        <div data-hf-id="hf-hlfl" id="speed-label-2" class="speed-label">36 km/hr</div>
+        <div data-hf-id="hf-kcjs" id="avg-ghost" class="avg-ghost">Average Speed = ?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (18.4s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-gkpd" id="q-pinned" class="clip" data-start="18.4" data-duration="92.3" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-0eof" class="q-text">
+        Home ↔ office at <span data-hf-id="hf-qmax" class="num">54 km/hr</span> / <span data-hf-id="hf-b8dd" class="num">36 km/hr</span> — find <span data-hf-id="hf-81jh" class="num">average speed</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller, single recap row) -->
+  <div data-hf-id="hf-57eb" id="illus-pinned" class="clip" data-start="18.4" data-duration="82.9" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <div data-hf-id="hf-i2nt" class="pinned-trip-scene">
+      <img data-hf-id="hf-nyzc" id="illus-pinned-icon" src="illustration/house-svgrepo-com.svg" alt="house">
+      <img data-hf-id="hf-hi2r" src="illustration/car.svg" alt="car">
+      <img data-hf-id="hf-6019" src="illustration/office-building-svgrepo-com.svg" alt="office">
+      <div data-hf-id="hf-l8a5" class="pin-label">Distance (each way) = x km</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-tpmw" id="card-given" class="clip" data-start="18.9" data-duration="9.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-vtre" class="rv" data-t="18.90">Speed (Going) = <span data-hf-id="hf-tk36" class="hi">54 km/hr</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-zdy9" class="rv" data-t="19.50">Speed (Return) = <span data-hf-id="hf-7zhi" class="hi">36 km/hr</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-sgpw" class="rv" data-t="19.619">Distance</span> <span data-hf-id="hf-u7dn" class="rv" data-t="21.239">=</span> <span data-hf-id="hf-joql" class="hi rv" data-t="21.819">x km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-1p6v" id="card-step1" class="clip" data-start="27.9" data-duration="19.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-orbr" class="solution-card" style="position:absolute;left:600px;top:430px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-njb8" class="math">
+          <span data-hf-id="hf-hr4u" class="rv" data-t="27.90">Time = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-6iu9" class="top">Distance</span><span data-hf-id="hf-9pef" class="bot">Speed</span></span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-o6kc" class="rv" data-t="30.519">Time (Going) =</span> <span data-hf-id="hf-ttsl" class="frac ans rv" data-t="35.84"><span data-hf-id="hf-ig85" class="top hi">x</span><span data-hf-id="hf-ixbg" class="bot hi">54</span></span> <span data-hf-id="hf-kfvf" class="rv" data-t="36.659">hr</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-kz1d" class="rv" data-t="37.559">Time (Return) =</span> <span data-hf-id="hf-mwaw" class="frac ans rv" data-t="42.719"><span data-hf-id="hf-8ws9" class="top hi">x</span><span data-hf-id="hf-39b0" class="bot hi">36</span></span> <span data-hf-id="hf-aavz" class="rv" data-t="44.159">hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-q6ox" id="card-step2" class="clip" data-start="46.8" data-duration="26.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:460px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-e9jk" class="math">
+          Total Distance = x + x = <span data-hf-id="hf-3qdh" class="ans rv" data-t="57.86">2x km</span><br data-hf-id="hf-qluq">
+          Total Time = <span data-hf-id="hf-cfxo" class="frac hi"><span data-hf-id="hf-pad3" class="top">x</span><span data-hf-id="hf-q4e9" class="bot">54</span></span> + <span data-hf-id="hf-cu8p" class="frac hi"><span data-hf-id="hf-poo4" class="top">x</span><span data-hf-id="hf-j3s5" class="bot">36</span></span> = <span data-hf-id="hf-g5g9" class="ans rv" data-t="68.86"><span data-hf-id="hf-zchx" class="frac ans"><span data-hf-id="hf-cdwy" class="top">5x</span><span data-hf-id="hf-j0oq" class="bot">108</span></span> hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-xlc4" id="card-step3" class="clip" data-start="73.0" data-duration="28.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-mnss" class="solution-card" style="position:absolute;left:560px;top:400px;text-align:center;width:800px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-6xbx" class="math">
+          <span data-hf-id="hf-875e" class="rv" data-t="74.019">Average Speed = <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-hn5z" class="top">Total Distance</span><span data-hf-id="hf-r4p7" class="bot">Total Time</span></span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-3tgg" class="rv" data-t="78.939">=</span> <span data-hf-id="hf-ax4p" class="hi rv" data-t="80.339">2x</span> <span data-hf-id="hf-4o7z" class="rv" data-t="81.419">÷</span> <span data-hf-id="hf-a404" class="frac hi rv" data-t="82.08"><span data-hf-id="hf-fdcv" class="top">5x</span><span data-hf-id="hf-supz" class="bot">108</span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-fmcq" class="rv" data-t="88.279">=</span> <span data-hf-id="hf-ykdz" class="hi rv" data-t="89.259">2x</span> <span data-hf-id="hf-0yej" class="rv" data-t="90.04">×</span> <span data-hf-id="hf-a7qd" class="frac hi rv" data-t="91.579"><span data-hf-id="hf-anch" class="top">108</span><span data-hf-id="hf-bf1l" class="bot">5x</span></span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-c1st" class="rv" data-t="93.959">x cancels</span> <span data-hf-id="hf-e93t" class="rv" data-t="95.419">→</span> <span data-hf-id="hf-ekb0" class="frac hi rv" data-t="97.68"><span data-hf-id="hf-l7jb" class="top">216</span><span data-hf-id="hf-myjv" class="bot">5</span></span> <span data-hf-id="hf-ax3m" class="rv" data-t="98.939">=</span> <span data-hf-id="hf-0rf3" class="ans rv" data-t="99.239">43.2 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-tuy4" id="stack-given" class="clip" data-start="27.4" data-duration="83.3" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-0rxk" class="math">
+          Speed (Going) = <span data-hf-id="hf-e27q" class="hi">54 km/hr</span><br data-hf-id="hf-p0mm">
+          Speed (Return) = <span data-hf-id="hf-gmi2" class="hi">36 km/hr</span><br data-hf-id="hf-ombl">
+          Distance = <span data-hf-id="hf-lyzs" class="hi">x km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2kmb" id="stack-step1" class="clip" data-start="45.8" data-duration="64.9" data-track-index="12" style="position:absolute;left:100px;top:310px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-0zew" class="math">
+          Time (Going) = <span data-hf-id="hf-3hse" class="frac hi"><span data-hf-id="hf-ci12" class="top">x</span><span data-hf-id="hf-d5sd" class="bot">54</span></span> hr<br data-hf-id="hf-qsyj">
+          Time (Return) = <span data-hf-id="hf-bnbm" class="frac hi"><span data-hf-id="hf-ow22" class="top">x</span><span data-hf-id="hf-z301" class="bot">36</span></span> hr
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-87bk" id="stack-step2" class="clip" data-start="72.0" data-duration="38.7" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-t5le" class="math">
+          Total Distance = <span data-hf-id="hf-l5q2" class="hi">2x km</span><br data-hf-id="hf-r79k">
+          Total Time = <span data-hf-id="hf-c1mn" class="frac hi"><span data-hf-id="hf-cs7z" class="top">5x</span><span data-hf-id="hf-jezr" class="bot">108</span></span> hr
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3h1x" id="stack-step3" class="clip" data-start="100.6" data-duration="10.1" data-track-index="14" style="position:absolute;left:100px;top:610px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-3d2d" class="math">
+          Average Speed = <span data-hf-id="hf-8yv9" class="ans">43.2 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines between stack circles -->
+  <div data-hf-id="hf-ymj7" id="line-g-1" class="clip stack-line" data-start="45.8" data-duration="64.9" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-qyog" id="line-1-2" class="clip stack-line" data-start="72.0" data-duration="38.7" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-z3un" id="line-2-3" class="clip stack-line" data-start="100.6" data-duration="10.1" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-xy65" id="options-reveal" class="clip" data-start="101.4" data-duration="9.3" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-q9ys" class="opt-btn correct"><span data-hf-id="hf-sfug" class="letter">A</span>43.2 km/hr</div>
+        <div data-hf-id="hf-zodv" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>40 km/hr</div>
+        <div data-hf-id="hf-oj8l" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>42 km/hr</div>
+        <div data-hf-id="hf-titc" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>45 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question reveal (starts lowered, rises at end of intro line)
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.15; // end of "Time for one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration: house/road/office build in, then the car LITERALLY
+  // drives the trip — house→office while "goes... at 54 km/hr" plays,
+  // office→house while "returns... at 36 km/hr" plays. Bespoke tweens (no
+  // shared apt.* point-to-point-travel helper exists), same technique q6
+  // uses for its drive-loop / q13 for its arrow-close-in — per-question
+  // motion layered on top of the shared helper set.
+  const ROAD_TRAVEL = 860; // px the car covers from house-end to office-end
+
+  tl.fromTo("#house-icon",
+    { opacity: 0, scale: 0.85 },
+    { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.4)" },
+    4.65);
+  apt.roadSweep(tl, "#road", 4.85, 0.9);
+  tl.fromTo("#office-icon",
+    { opacity: 0, scale: 0.85 },
+    { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.4)" },
+    5.15);
+  tl.fromTo("#car-icon",
+    { opacity: 0, scale: 0.85 },
+    { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" },
+    5.35);
+  tl.fromTo("#speed-label-1",
+    { opacity: 0, y: 10 },
+    { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+    5.35);
+
+  // Leg 1 — drive house → office (synced to "...at fifty-four kilometers
+  // per hour." ending 9.779s). Label rides along with the car. Two SEPARATE
+  // label elements (not one element with mutated textContent) so the swap
+  // stays a pure property tween — a plain callback mutating textContent
+  // would only fire on sequential playback and read wrong under a
+  // seek/scrub-based render (see morphToStack's comment in animations.js
+  // on why callbacks are unsafe here).
+  tl.to("#car-icon", { x: ROAD_TRAVEL, duration: 4.0, ease: "power1.inOut" }, 5.5);
+  tl.to("#speed-label-1", { x: ROAD_TRAVEL, duration: 4.0, ease: "power1.inOut" }, 5.5);
+
+  // Swap label + flip car to face home for the return leg.
+  apt.fadeOut(tl, "#speed-label-1", 9.9, 0.3);
+  tl.set("#car-icon", { scaleX: -1 }, 10.4);
+  tl.fromTo("#speed-label-2",
+    { opacity: 0, x: ROAD_TRAVEL, y: 10 },
+    { opacity: 1, x: ROAD_TRAVEL, y: 0, duration: 0.4, ease: "power2.out" },
+    10.4);
+
+  // Leg 2 — drive office → house (synced to "...at thirty-six kilometers
+  // per hour." ending 14.099s).
+  tl.to("#car-icon", { x: 0, duration: 3.3, ease: "power1.inOut" }, 10.5);
+  tl.to("#speed-label-2", { x: 0, duration: 3.3, ease: "power1.inOut" }, 10.5);
+  apt.fadeOut(tl, "#speed-label-2", 13.6, 0.3);
+
+  // Car settles home, flips back to its resting orientation.
+  tl.set("#car-icon", { scaleX: 1 }, 14.8);
+
+  // Framing beat: house + office get one synchronized pulse, ghost
+  // "Average Speed = ?" fades in — the ONLY emphasis in this stretch.
+  tl.fromTo("#house-icon, #office-icon",
+    { scale: 1 },
+    { scale: 1.06, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 },
+    14.9);
+  apt.fadeIn(tl, "#avg-ghost", 15.3);
+
+  // ── PHASE 2 — Pin, then Given (two SEPARATE timestamps)
+  const PIN_TIME = 18.4;
+  const GIVEN_TIME = 18.9; // real transcript timestamp — separate from PIN_TIME
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Given → stack
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 27.4);
+
+  // Step 1
+  apt.cardEnter(tl, "#card-step1 .solution-card", 27.9);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Step 1 → stack; grow the G→1 connector line at the same instant.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 45.8);
+  apt.stackLineGrow(tl, "#line-g-1", 45.8);
+
+  // Step 2
+  apt.cardEnter(tl, "#card-step2 .solution-card", 46.8);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Step 2 → stack; grow the 1→2 connector line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 72.0);
+  apt.stackLineGrow(tl, "#line-1-2", 72.0);
+
+  // Step 3
+  apt.cardEnter(tl, "#card-step3 .solution-card", 73.0);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter before options reveal
+  const RECENTER_TIME = 100.6;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // Step 3 → stack; grow the 2→3 connector line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal
+  apt.fadeIn(tl, "#options-reveal", 101.4);
+  apt.optionsStagger(tl, ".opt-btn", 102.0);
+  apt.correctPulse(tl, ".opt-btn.correct", 108.0);
+
+  // ── END FADE
+  const END_FADE_TIME = 109.5;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 111);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

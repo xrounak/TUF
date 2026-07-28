@@ -1,0 +1,57 @@
+[00:00.08 -> 00:00.28]  So
+[00:00.76 -> 00:01.58]  welcome back again.
+[00:02.28 -> 00:04.10]  It's time to solve one more problem.
+[00:04.72 -> 00:08.34]  Now, in this problem, the boat's downstream speed is twenty-five percentage more
+[00:08.94 -> 00:10.19]  than its upstream speed.
+[00:10.84 -> 00:14.24]  Also, the boat's still-water speed is eighteen kilometers per hour.
+[00:14.82 -> 00:15.53]  The question is
+[00:16.12 -> 00:18.06]  asking us to find the speed of the stream.
+[00:18.64 -> 00:20.30]  Let us first take our variables.
+[00:20.78 -> 00:22.24]  Let the downstream speed be D,
+[00:22.92 -> 00:24.24]  let the upstream speed be U,
+[00:24.78 -> 00:26.10]  let the stream speed be C,
+[00:26.68 -> 00:27.24]  and the boat's
+[00:27.54 -> 00:28.72]  still-water speed be B.
+[00:29.32 -> 00:36.31]  Now let us quickly understand what downstream and upstream actually mean. When the boat moves with the flow of the stream,
+[00:36.78 -> 00:38.51]  the stream helps the boat move faster,
+[00:39.08 -> 00:40.68]  so the effective speed becomes
+[00:41.12 -> 00:42.78]  downstream speed equals boat speed,
+[00:43.28 -> 00:45.62]  plus stream speed equals B plus C.
+[00:45.96 -> 00:46.62]  On the other hand,
+[00:47.12 -> 00:48.86]  when the boat moves against
+[00:49.36 -> 00:51.70]  the flow of the stream, the stream slows the boat down.
+[00:52.24 -> 00:53.72]  So the effective speed becomes
+[00:54.40 -> 00:56.80]  upstream speed equals boat speed, minus
+[00:57.24 -> 00:59.08]  stream speed equals B minus C.
+[00:59.80 -> 01:01.92]  Now let us use the condition given in the question.
+[01:02.42 -> 01:05.70]  Since downstream speed is twenty-five percentage more than upstream,
+[01:06.18 -> 01:06.70]  we can write
+[01:07.10 -> 01:08.66]  downstream speed equals
+[01:09.32 -> 01:09.82]  U plus
+[01:10.50 -> 01:11.66]  twenty-five percent of U,
+[01:12.26 -> 01:14.42]  and twenty-five percentage is one-fourth.
+[01:14.84 -> 01:16.70]  So downstream speed equals U plus
+[01:17.44 -> 01:18.38]  U by four equals
+[01:19.02 -> 01:19.78]  five U by four.
+[01:20.22 -> 01:20.42]  Done.
+[01:21.12 -> 01:24.44]  Now we have found the downstream speed in terms of the upstream speed,
+[01:24.98 -> 01:28.14]  but we already know that downstream speed is also equal to B plus C.
+[01:28.76 -> 01:31.72]  So B plus C equals five by four
+[01:32.42 -> 01:33.50]  times U.
+[01:34.08 -> 01:38.56]  Now replace U with its actual value. Since upstream speed is B minus C,
+[01:39.20 -> 01:39.56]  we get
+[01:40.18 -> 01:40.92]  B plus C
+[01:41.48 -> 01:41.98]  equals
+[01:42.64 -> 01:43.66]  five by four times
+[01:44.42 -> 01:45.20]  B minus C.
+[01:45.76 -> 01:49.32]  Now the boat's still-water speed is given as eighteen kilometers per hour,
+[01:49.90 -> 01:50.92]  so eighteen plus C
+[01:51.52 -> 01:53.62]  equals five by four times
+[01:54.40 -> 01:55.26]  eighteen minus C.
+[01:56.08 -> 01:57.48]  After simplifying this equation,
+[01:57.98 -> 01:58.50]  we get
+[01:59.42 -> 02:01.64]  C equals two kilometers per hour.
+[02:02.50 -> 02:02.86]  Hence,
+[02:03.34 -> 02:04.48]  the speed of the stream is
+[02:05.02 -> 02:06.06]  two kilometers per hour.
+[02:06.48 -> 02:08.08]  So the correct answer is option C.

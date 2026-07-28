@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  #illustration {
+    position: absolute;
+    left: 50%;
+    top: 430px;
+    transform: translateX(-50%);
+    width: 1400px;
+    height: 320px;
+  }
+
+  #rail {
+    position: absolute; left: 0; top: 150px; width: 1400px; height: 16px;
+    background: repeating-linear-gradient(90deg, #b7bcc9 0 10px, transparent 10px 34px);
+    border-top: 4px solid #8b93a6; border-bottom: 4px solid #8b93a6; border-radius: 2px;
+    opacity: 0; transform: scaleX(0); transform-origin: left center;
+  }
+
+  #train-a-unit {
+    position: absolute; left: 20px; top: 10px; width: 190px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #train-a-unit img { width: 100%; height: 100%; display: block; }
+  #train-length-badge {
+    position: absolute; left: 50%; top: -0px; width: 170px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+
+  #man-unit {
+    position: absolute; right: 40px; top: 20px; width: 150px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #man-unit img { width: 100%; height: 100%; display: block; transform: scaleX(-1); }
+  #man-speed-badge {
+    position: absolute; left: 50%; top: -0px; width: 150px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+
+  #opp-arrows {
+    position: absolute; left: 390px; top: 62px; transform: translateX(-50%);
+    width: 660px; display: flex; align-items: center; justify-content: space-between;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  .chevron-right { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 18px solid var(--primary); }
+  .chevron-left  { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-right: 18px solid var(--primary); }
+
+  .tag-pill {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    white-space: nowrap; padding: 8px 22px; border-radius: var(--radius-pill);
+    background: var(--primary-light); color: var(--primary);
+    font-family: var(--font); font-weight: 400; font-size: 22px; opacity: 0;
+  }
+  #target-tag { top: -68px; }
+  #time-tag {
+    top: 172px; width: 90px; text-align: center;
+    background: var(--primary); color: #FFFFFF; font-size: 20px;
+  }
+
+  #concept-pill {
+    position: absolute; left: 50%; top: 220px; transform: translateX(-50%);
+    width: 640px; height: 76px; opacity: 0;
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+  }
+  .concept-arrows { display: flex; align-items: center; gap: 8px; }
+  .concept-label {
+    font-family: var(--font); font-weight: 400; font-size: 24px; color: var(--text);
+  }
+  .concept-tag {
+    padding: 8px 20px; border-radius: var(--radius-pill);
+    background: var(--primary); color: #FFFFFF;
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap;
+  }
+
+  #formula-build {
+    position: absolute; left: 50%; top: 268px; transform: translateX(-50%);
+    width: 700px; text-align: center;
+    font-family: var(--font); font-weight: 400; font-size: 26px; color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  #formula-build .rv { opacity: 0; }
+  #formula-build .hi { color: var(--primary); }
+
+  #dist-note {
+    position: absolute; left: 50%; top: 350px; transform: translateX(-50%);
+    white-space: nowrap; padding: 8px 22px; border-radius: var(--radius-pill);
+    background: var(--primary-light); color: var(--primary);
+    font-family: var(--font); font-weight: 400; font-size: 22px; opacity: 0;
+  }
+
+  .pinned-illus-content {
+    display: flex; align-items: center; justify-content: center; gap: 40px;
+    width: 100%; height: 100%;
+  }
+  .pinned-figure-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .pinned-figure-wrap img { width: 78px; height: 78px; display: block; }
+  #illus-pinned-icon-man { transform: scaleX(-1); }
+  .pinned-illus-label { font-family: var(--font); font-weight: 400; font-size: 23px; color: var(--text); }
+  .pinned-illus-label .num { color: var(--primary); }
+  .pinned-plus { font-family: var(--font); font-weight: 400; font-size: 40px; color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-1c6z" class="topic-name">Trains, Streams and Boats</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <audio data-hf-id="hf-emaz" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="115.59" data-track-index="0"></audio>
+
+  <div data-hf-id="hf-evjb" id="phase1" class="clip" data-start="0" data-duration="46.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-mh1m" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1600px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-2suk" class="q-text">
+        A <span data-hf-id="hf-dbl0" class="num">240 m</span> train passes a man walking in the <span data-hf-id="hf-jzkn" class="num">opposite direction</span> at <span data-hf-id="hf-q4oe" class="num">6 km/h</span> in <span data-hf-id="hf-zil1" class="num">12 seconds</span>. Find the train's speed.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <div data-hf-id="hf-y427" id="illustration">
+      <div data-hf-id="hf-gvf1" id="rail"></div>
+
+      <div data-hf-id="hf-o0he" id="train-a-unit">
+        <img data-hf-id="hf-q34n" src="illustration/train.svg" alt="">
+      </div>
+      <div data-hf-id="hf-88s6" id="train-length-badge" style="left: 100px;">Length = 240 m</div>
+
+      <div data-hf-id="hf-51x2" id="man-unit">
+        <img data-hf-id="hf-j7t5" src="illustration/man.svg" alt="">
+      </div>
+      <div data-hf-id="hf-31qc" id="man-speed-badge">6 km/hr</div>
+
+      <div data-hf-id="hf-6amn" id="opp-arrows">
+        <span data-hf-id="hf-va0f" class="chevron-right" id="rr"></span>
+        <span data-hf-id="hf-2328" class="chevron-left" id="ll"></span>
+      </div>
+
+      <div data-hf-id="hf-szr4" id="time-tag" class="tag-pill">12 s</div>
+
+      <div data-hf-id="hf-4az9" id="target-tag" class="tag-pill">Find: Train Speed?</div>
+
+      <div data-hf-id="hf-jml9" id="concept-pill">
+        <div data-hf-id="hf-xe0b" class="concept-arrows">
+          <span data-hf-id="hf-vyxb" class="chevron-right"></span>
+          <span data-hf-id="hf-wohk" class="chevron-left"></span>
+        </div>
+        <div data-hf-id="hf-5sn9" class="concept-label">Opposite Direction</div>
+        <div data-hf-id="hf-3afx" class="concept-tag">+ Add Speeds</div>
+      </div>
+
+      <div data-hf-id="hf-5tx6" id="formula-build" style="top: 400px;">
+        <span data-hf-id="hf-uhs8" class="rv" data-t="41.88">Relative</span> <span data-hf-id="hf-j730" class="rv" data-t="42.40">Speed</span>
+        <span data-hf-id="hf-n73d" class="rv" data-t="42.94">=</span> <span data-hf-id="hf-f7hw" class="hi rv" data-t="43.84">Sum</span>
+        <span data-hf-id="hf-u2bh" class="rv" data-t="44.32">of</span> <span data-hf-id="hf-jx1t" class="rv" data-t="44.48">their</span> <span data-hf-id="hf-vqhy" class="hi rv" data-t="44.68">Speeds</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-g111" id="q-pinned" class="clip" data-start="45.54" data-duration="72.6" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-a0yu" class="q-text">
+        240 m train passes a man (<span data-hf-id="hf-x3xu" class="num">6 km/h</span>, opposite direction) in <span data-hf-id="hf-1zcx" class="num">12 s</span>. Train speed?
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3fyp" id="illus-pinned" class="clip" data-start="45.54" data-duration="63.5" data-track-index="3" style="position:absolute;left:660px;top:190px;width:700px;height:150px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-y0qg" class="pinned-illus-content">
+      <div data-hf-id="hf-7te0" class="pinned-figure-wrap">
+        <img data-hf-id="hf-sspq" id="illus-pinned-icon-train" src="illustration/train.svg" alt="">
+        <div data-hf-id="hf-mswy" class="pinned-illus-label">Train = <span data-hf-id="hf-ugmo" class="num">?</span></div>
+      </div>
+      <div data-hf-id="hf-paoc" class="pinned-plus">+</div>
+      <div data-hf-id="hf-zw8w" class="pinned-figure-wrap">
+        <img data-hf-id="hf-frkm" id="illus-pinned-icon-man" src="illustration/man.svg" alt="">
+        <div data-hf-id="hf-4c8r" class="pinned-illus-label">Man = <span data-hf-id="hf-mtwb" class="num">6</span> km/hr</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-zsr5" id="dist-note" class="clip" data-start="57.42" data-duration="46" data-track-index="6">Distance Covered = Train Length</div>
+
+  <div data-hf-id="hf-0t8p" id="card-given" class="clip" data-start="50.76" data-duration="9.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-mwwg" class="solution-card" style="position:absolute;left:50%;top:440px;transform:translateX(-50%);text-align:center;width:640px;opacity:0;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-ip3c" class="rv" data-t="50.76">Train Length = <span data-hf-id="hf-o6rh" class="hi">240 m</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-v614" class="rv" data-t="52.38">Time Taken = <span data-hf-id="hf-v3ky" class="hi">12 s</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-a5rv" class="rv" data-t="55.60">Man's Speed = <span data-hf-id="hf-u9i5" class="hi">6 km/hr</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q1oq" id="card-step1" class="clip" data-start="61.20" data-duration="9.1" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-p25z" class="rv" data-t="61.34">Relative Speed =</span>
+          <span data-hf-id="hf-43pt" class="frac rv" data-t="63.14"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-36mc" class="bot hi">Time</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-nla2" class="rv" data-t="64.82">=</span>
+          <span data-hf-id="hf-8eab" class="frac rv" data-t="65.18"><span data-hf-id="hf-jb2j" class="top hi">240</span><span data-hf-id="hf-7xd6" class="bot hi">12</span></span>
+          <span data-hf-id="hf-1taf" class="rv" data-t="66.90">=</span> <span data-hf-id="hf-thx1" class="ans rv" data-t="67.24">20 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ego5" id="card-step2" class="clip" data-start="71.72" data-duration="11.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-tyli" class="solution-card" style="position:absolute;left:610px;top:450px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-utc2" class="rv" data-t="71.72">Convert Man's Speed to m/s</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-2sqq" class="rv" data-t="77.12">6</span> <span data-hf-id="hf-xnr8" class="rv" data-t="77.55">×</span>
+          <span data-hf-id="hf-8drr" class="frac rv" data-t="78.30"><span data-hf-id="hf-6owu" class="top hi">5</span><span data-hf-id="hf-bwfg" class="bot hi">18</span></span>
+          <span data-hf-id="hf-21jc" class="rv" data-t="80.24">=</span>
+          <span data-hf-id="hf-ho5v" class="frac ans rv" data-t="80.60"><span data-hf-id="hf-wrnh" class="top">5</span><span data-hf-id="hf-kkpp" class="bot">3</span></span>
+          <span data-hf-id="hf-3axs" class="rv" data-t="81.32">m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-hzv6" id="card-step3" class="clip" data-start="83.24" data-duration="14.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-rh1s" class="solution-card" style="position:absolute;left:560px;top:440px;text-align:center;width:800px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-20uz" class="rv" data-t="84.04">Relative</span> <span data-hf-id="hf-l65t" class="rv" data-t="84.56">Speed</span> <span data-hf-id="hf-3efq" class="rv" data-t="84.80">=</span>
+          <span data-hf-id="hf-je5d" class="rv" data-t="85.16">Train</span> <span data-hf-id="hf-nthh" class="rv" data-t="85.46">Speed</span> <span data-hf-id="hf-gj95" class="rv" data-t="85.80">+</span>
+          <span data-hf-id="hf-j2mb" class="rv" data-t="86.28">Man's</span> <span data-hf-id="hf-upxz" class="rv" data-t="86.52">Speed</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-od7p" class="rv" data-t="87.52">20</span> <span data-hf-id="hf-g8te" class="rv" data-t="88.22">=</span>
+          <span data-hf-id="hf-p7iq" class="rv" data-t="88.54">Train</span> <span data-hf-id="hf-98x0" class="rv" data-t="88.82">Speed</span> <span data-hf-id="hf-e00a" class="rv" data-t="89.12">+</span>
+          <span data-hf-id="hf-oz0j" class="frac rv" data-t="89.38"><span data-hf-id="hf-r7nm" class="top hi">5</span><span data-hf-id="hf-jv2a" class="bot hi">3</span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-j0s6" class="rv" data-t="93.50">Train</span> <span data-hf-id="hf-etfx" class="rv" data-t="93.78">Speed</span> <span data-hf-id="hf-4hor" class="rv" data-t="94.24">=</span>
+          <span data-hf-id="hf-jquv" class="frac ans rv" data-t="94.58"><span data-hf-id="hf-oqu0" class="top">55</span><span data-hf-id="hf-ln1t" class="bot">3</span></span>
+          <span data-hf-id="hf-bor4" class="rv" data-t="95.82">m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-g7at" id="card-step4" class="clip" data-start="98.69" data-duration="11.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-ktf1" class="solution-card" style="position:absolute;left:600px;top:450px;text-align:center;width:720px;">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-4pch" class="chip">Step 4</span>
+        <div data-hf-id="hf-lgo5" class="math">
+          <span data-hf-id="hf-zevm" class="rv" data-t="98.69">Convert to km/hr</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-xtz8" class="frac rv" data-t="102.82"><span data-hf-id="hf-e0c1" class="top hi">55</span><span data-hf-id="hf-rh46" class="bot hi">3</span></span>
+          <span data-hf-id="hf-qwp3" class="rv" data-t="103.70">×</span>
+          <span data-hf-id="hf-ho38" class="frac rv" data-t="104.26"><span data-hf-id="hf-gx3q" class="top hi">18</span><span data-hf-id="hf-m8wg" class="bot hi">5</span></span>
+          <span data-hf-id="hf-0645" class="rv" data-t="105.98">=</span> <span data-hf-id="hf-1w74" class="ans rv" data-t="106.36">66 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-0v90" id="stack-given" class="clip" data-start="58.60" data-duration="59.5" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-fmww" class="math">
+          Train Length = <span data-hf-id="hf-8tht" class="hi">240 m</span><br data-hf-id="hf-r05r">
+          Time Taken = <span data-hf-id="hf-7mx2" class="hi">12 s</span><br data-hf-id="hf-p0mm">
+          Man's Speed = <span data-hf-id="hf-nws1" class="hi">6 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-sciz" id="stack-step1" class="clip" data-start="69.16" data-duration="48.9" data-track-index="12" style="position:absolute;left:100px;top:340px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-as65" class="math">
+          Relative Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-yeqz" class="top hi">240</span><span data-hf-id="hf-b59q" class="bot hi">12</span></span> = <span data-hf-id="hf-w12w" class="ans">20 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-4e3h" id="stack-step2" class="clip" data-start="81.74" data-duration="36.4" data-track-index="13" style="position:absolute;left:100px;top:450px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-k73w" class="math">
+          Man's Speed = <span data-hf-id="hf-bk4x" class="ans">5/3 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-e2lb" id="stack-step3" class="clip" data-start="96.82" data-duration="21.3" data-track-index="14" style="position:absolute;left:100px;top:560px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-xe81" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-p7n8" class="math">
+          Train Speed = <span data-hf-id="hf-zb5i" class="ans">55/3 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-26rt" id="stack-step4" class="clip" data-start="108.70" data-duration="9.4" data-track-index="15" style="position:absolute;left:100px;top:670px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2fcs" class="stack-card">
+      <div data-hf-id="hf-xsj2" class="card-content">
+        <span data-hf-id="hf-y1wg" class="step-circle">4</span>
+        <div data-hf-id="hf-8he4" class="math">
+          Train Speed = <span data-hf-id="hf-6bsg" class="ans">66 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-9ezw" id="line-g-1" class="clip stack-line" data-start="69.16" data-duration="48.9" data-track-index="20" style="opacity:0;"></div>
+  <div data-hf-id="hf-t1ey" id="line-1-2" class="clip stack-line" data-start="81.74" data-duration="36.4" data-track-index="21" style="opacity:0;"></div>
+  <div data-hf-id="hf-2ku3" id="line-2-3" class="clip stack-line" data-start="96.82" data-duration="21.3" data-track-index="22" style="opacity:0;"></div>
+  <div data-hf-id="hf-rr5w" id="line-3-4" class="clip stack-line" data-start="108.70" data-duration="9.4" data-track-index="23" style="opacity:0;"></div>
+
+  <div data-hf-id="hf-h6a3" id="options-reveal" class="clip" data-start="109.80" data-duration="8.3" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-pkky" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>58.08 km/hr</div>
+        <div data-hf-id="hf-0kto" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>73.92 km/hr</div>
+        <div data-hf-id="hf-lonk" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>81.84 km/hr</div>
+        <div data-hf-id="hf-z6jl" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>66 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  (function layoutStack() {
+    const ids = ["stack-given", "stack-step1", "stack-step2", "stack-step3", "stack-step4"];
+    const root = document.querySelector("#root");
+    const rootBox = root.getBoundingClientRect();
+    const pxScale = 1920 / rootBox.width;
+    const gap = 32;
+    let top = 140;
+    ids.forEach(function (id) {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      wrapper.style.top = top + "px";
+      const card = wrapper.querySelector(".stack-card");
+      const h = card ? card.getBoundingClientRect().height * pxScale : 100;
+      top += h + gap;
+    });
+  })();
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+  apt.setStackLine("#line-3-4", "#stack-step3 .step-circle", "#stack-step4 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 5.28;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)", y: HERO_OFFSET_Y },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  apt.roadSweep(tl, "#rail", 5.86);
+  apt.cardEnter(tl, "#train-a-unit", 6.40);
+  apt.cardEnter(tl, "#train-length-badge", 9.32);
+  apt.cardEnter(tl, "#man-unit", 11.38);
+  apt.cardEnter(tl, "#man-speed-badge", 13.60);
+  apt.cardEnter(tl, "#opp-arrows", 15.88);
+
+  tl.to("#train-a-unit", { x: 640, duration: 3.16, ease: "power2.inOut" }, 17.54);
+  tl.to("#man-unit", { x: -640, duration: 3.16, ease: "power2.inOut" }, 17.54);
+  
+  tl.to("#rr", { x: 640, duration: 3.16, ease: "power2.inOut" }, 17.54);
+  tl.to("#ll", { x: -640, duration: 3.16, ease: "power2.inOut" }, 17.54);
+
+  apt.cardEnter(tl, "#time-tag", 18.42);
+  apt.fadeOut(tl, "#time-tag", 20.70, 0.35);
+
+  apt.cardEnter(tl, "#target-tag", 22.72);
+
+  apt.cardEnter(tl, "#concept-pill", 29.54);
+  apt.ambientLoop(tl, "#concept-pill .concept-arrows", 30.0, 45.54, { period: 1.2, amp: 5 });
+  apt.emphasize(tl, "#concept-pill .concept-tag", 36.34);
+  apt.cardEnter(tl, "#formula-build", 41.60);
+  apt.textReveal(tl, "#formula-build");
+
+  const PIN_TIME = 45.54;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  const RECENTER_TIME = 108.70;
+  apt.ambientLoop(tl, "#illus-pinned-icon-train", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+  apt.ambientLoop(tl, "#illus-pinned-icon-man", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+
+  const GIVEN_TIME = 50.76;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  apt.cardEnter(tl, "#dist-note", 57.42);
+  apt.fadeOut(tl, "#dist-note", 102.90, 0.4);
+
+  const GIVEN_MORPH_TIME = 58.60;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 61.20);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  const STEP1_MORPH_TIME = 69.16;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 71.72);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  const STEP2_MORPH_TIME = 81.74;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 83.24);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  const STEP3_MORPH_TIME = 96.82;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", STEP3_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", STEP3_MORPH_TIME);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 98.69);
+  apt.textReveal(tl, "#card-step4 .math");
+
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-3-4", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 109.80);
+  apt.optionsStagger(tl, ".opt-btn", 110.30);
+  apt.correctPulse(tl, ".opt-btn.correct", 114.80);
+
+  const END_FADE_TIME = 116.60;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 119);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

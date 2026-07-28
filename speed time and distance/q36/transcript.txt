@@ -1,0 +1,56 @@
+[00:00.14 -> 00:00.30]  So
+[00:00.94 -> 00:01.84]  welcome back again.
+[00:02.40 -> 00:04.24]  Time for one more problem.
+[00:04.84 -> 00:05.62]  Now in this problem,
+[00:06.20 -> 00:08.92]  we have a data sufficiency question.
+[00:09.52 -> 00:14.41]  We need to find whether the car's average speed is above sixty kilometer per hour.
+[00:15.08 -> 00:16.48]  Now, before checking the statements,
+[00:16.90 -> 00:19.87]  let us understand one simple concept. We know
+[00:20.28 -> 00:25.48]  average speed is equal to total distance divided by total time.
+[00:25.88 -> 00:27.27]  So to find the average speed,
+[00:27.72 -> 00:29.30]  we must know both
+[00:29.70 -> 00:30.36]  the distance
+[00:30.92 -> 00:31.50]  and the time.
+[00:32.16 -> 00:33.34]  If even one of them is missing,
+[00:33.82 -> 00:35.14]  we cannot answer the question.
+[00:35.74 -> 00:36.14]  Got it?
+[00:36.84 -> 00:37.18]  Perfect.
+[00:37.74 -> 00:38.38]  Now let us check
+[00:39.08 -> 00:39.80]  statement one.
+[00:40.50 -> 00:44.08]  It says that the car covers one hundred eighty kilometer.
+[00:44.74 -> 00:44.90]  Here,
+[00:45.58 -> 00:46.83]  we know only the distance,
+[00:47.40 -> 00:48.74]  but we do not know the time taken,
+[00:49.26 -> 00:50.78]  so we cannot find the average speed.
+[00:51.34 -> 00:51.70]  Hence,
+[00:52.38 -> 00:55.66]  statement one alone is not sufficient.
+[00:56.18 -> 00:57.48]  Now let us check statement two.
+[00:58.18 -> 00:58.72]  It says
+[00:59.20 -> 01:01.14]  that the journey takes less than three hours.
+[01:01.68 -> 01:03.36]  Here, we know only the time,
+[01:03.98 -> 01:05.78]  but the distance is not given, so again,
+[01:06.40 -> 01:08.12]  we cannot find the average speed.
+[01:08.62 -> 01:08.96]  Hence,
+[01:09.60 -> 01:12.29]  statement two alone is also not sufficient.
+[01:12.78 -> 01:15.71]  Now let us use both statements together. From statement one,
+[01:16.26 -> 01:18.50]  distance is one hundred eighty kilometer.
+[01:19.16 -> 01:19.94]  From statement two,
+[01:20.46 -> 01:21.98]  time is less than three hours.
+[01:22.54 -> 01:24.36]  Now let us use the formula.
+[01:25.04 -> 01:26.40]  Average speed is equal to
+[01:27.12 -> 01:28.78]  distance divided by time.
+[01:29.28 -> 01:29.66]  That is,
+[01:30.22 -> 01:32.38]  average speed is equal to one hundred eighty
+[01:33.04 -> 01:35.36]  divided by a value that is less than three.
+[01:35.86 -> 01:37.20]  Now be very sure about one thing.
+[01:37.88 -> 01:41.13]  If we divide the same number by a smaller value,
+[01:41.56 -> 01:45.76]  the answer becomes bigger. If the time were exactly three hours,
+[01:46.16 -> 01:48.34]  the speed would be sixty kilometer per hour.
+[01:48.95 -> 01:49.35]  But here,
+[01:49.88 -> 01:51.84]  the time is less than three hours,
+[01:52.38 -> 01:56.86]  so the average speed must be greater than sixty kilometer per hour.
+[01:57.56 -> 01:59.62]  Now we can answer the question with confidence.
+[02:00.06 -> 02:00.36]  Hence,
+[02:00.86 -> 02:02.56]  both statements together are sufficient,
+[02:03.10 -> 02:05.46]  but neither statement alone is sufficient.
+[02:05.94 -> 02:08.16]  So the correct answer is option C.

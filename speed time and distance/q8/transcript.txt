@@ -1,0 +1,49 @@
+[00:00.08 -> 00:00.30]  So
+[00:00.98 -> 00:01.68]  welcome back again.
+[00:02.16 -> 00:03.28]  Time for one more problem.
+[00:03.82 -> 00:04.56]  Now in this problem,
+[00:05.00 -> 00:07.54]  we are given that the downstream speed of a boat
+[00:08.04 -> 00:09.94]  is twenty-four kilometers per hour.
+[00:10.54 -> 00:14.16]  The upstream speed of the same boat is sixteen kilometers per hour.
+[00:14.76 -> 00:17.92]  The question is asking us to find the speed of the current. Now, first,
+[00:18.30 -> 00:21.41]  let us assume the speed of the boat in still water
+[00:21.94 -> 00:23.37]  is b kilometers per hour
+[00:23.76 -> 00:26.64]  and the speed of the current is c kilometers per hour.
+[00:27.02 -> 00:30.20]  Now, let us understand what downstream and upstream mean.
+[00:30.52 -> 00:40.84]  Imagine that the river is flowing in this direction. The boat itself can move at b kilometers per hour in still water. The river is also flowing at c kilometers per hour.
+[00:41.40 -> 00:44.60]  Now, when the boat moves in the same direction as the river,
+[00:45.20 -> 00:47.37]  both the boat and the current help each other,
+[00:47.74 -> 00:51.44]  so their speeds get added. That is why downstream speed
+[00:51.78 -> 00:54.68]  is equal to speed of the boat in still water, plus
+[00:55.14 -> 00:56.01]  speed of the current,
+[00:56.42 -> 00:57.01]  or simply
+[00:57.54 -> 00:58.14]  b plus
+[00:58.62 -> 00:58.76]  c.
+[00:59.10 -> 01:00.76]  Now, let us look at the opposite case.
+[01:01.30 -> 01:02.18]  When the boat moves
+[01:02.54 -> 01:04.60]  against the flow of the river,
+[01:05.20 -> 01:05.82]  the current
+[01:06.20 -> 01:07.87]  tries to slow the boat down,
+[01:08.52 -> 01:11.68]  so the speed of the current gets subtracted from the speed of the boat.
+[01:12.18 -> 01:12.76]  That is why
+[01:13.28 -> 01:16.60]  upstream speed is equal to speed of the boat in still water,
+[01:17.18 -> 01:18.60]  minus speed of the current,
+[01:19.14 -> 01:19.62]  or simply
+[01:20.30 -> 01:21.00]  b minus
+[01:21.40 -> 01:21.66]  c.
+[01:22.22 -> 01:23.86]  Now, let us use the given values.
+[01:24.44 -> 01:26.10]  The downstream speed is twenty-four,
+[01:26.50 -> 01:30.62]  so b plus c is equal to twenty-four. The upstream speed is sixteen,
+[01:31.18 -> 01:31.98]  so b minus
+[01:32.44 -> 01:34.22]  c is equal to sixteen.
+[01:34.72 -> 01:40.57]  Now we need to find the speed of the current, which is c. So let us subtract the second equation from the first.
+[01:40.94 -> 01:41.60]  On the left side,
+[01:42.12 -> 01:43.94]  b plus c, minus b, minus c.
+[01:44.42 -> 01:47.04]  The b terms cancel each other, so we are left with two c.
+[01:47.54 -> 01:48.18]  On the right side,
+[01:48.58 -> 01:50.78]  twenty-four minus sixteen, which is eight.
+[01:51.16 -> 01:52.62]  So two c is equal to eight.
+[01:53.02 -> 01:55.82]  Dividing both sides by two, we get c is equal to four.
+[01:56.32 -> 01:59.24]  So the speed of the current is four kilometers per hour.
+[01:59.78 -> 02:00.10]  Hence,
+[02:00.50 -> 02:02.22]  the correct answer is option D.

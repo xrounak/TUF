@@ -1,0 +1,39 @@
+[00:00.10 -> 00:11.92]  So welcome back again. It's time to solve one more problem. Now, let us first read the question. A boat covers 40 kilometer downstream in two hours and 40 kilometer upstream in two hours 40 minutes.
+[00:12.36 -> 00:13.90]  We need to find the speed of the stream.
+[00:14.42 -> 00:17.90]  Given distance covered in both way equals 40 kilometer.
+[00:18.42 -> 00:21.00]  Time taken in downstream equals two hours.
+[00:21.48 -> 00:32.62]  Time taken in upstream equals two hours and 40 minutes, which is two hours plus 40 by 60 hours. So time taken in upstream equals two plus two by three, which is eight by three.
+[00:33.12 -> 00:36.86]  Let boat's speed in still water equals B kilometer per hour.
+[00:37.64 -> 00:39.96]  Stream speed equals C kilometer per hour.
+[00:40.60 -> 00:41.56]  Now, before solving,
+[00:42.06 -> 00:43.80]  let us understand one small concept.
+[00:44.26 -> 00:48.54]  When the boat moves downstream, it moves in the same direction as the water current,
+[00:49.00 -> 00:50.80]  so the stream pushes the boat forward.
+[00:51.34 -> 00:55.16]  That means both the boat's own speed and the stream's speed help the boat move.
+[00:55.64 -> 00:57.84]  So downstream speed equals B plus
+[00:58.18 -> 00:58.34]  C.
+[00:58.68 -> 00:59.52]  Now, think about upstream.
+[00:59.90 -> 01:01.66]  Here, the boat moves against the water current.
+[01:02.12 -> 01:04.56]  The boat tries to move forward, but the stream slows it down,
+[01:05.12 -> 01:06.95]  so the stream speed gets subtracted.
+[01:07.40 -> 01:07.72]  Hence,
+[01:08.32 -> 01:10.29]  upstream speed equals B minus
+[01:10.64 -> 01:10.82]  C.
+[01:11.32 -> 01:12.22]  Now, what is our approach?
+[01:12.78 -> 01:15.77]  The question does not directly give downstream and upstream speeds.
+[01:16.14 -> 01:17.53]  So first we will find them using
+[01:18.00 -> 01:20.86]  speed equals distance divided by time for
+[01:21.46 -> 01:25.18]  downstream speed equals 40 divided by two equals 20.
+[01:25.65 -> 01:28.36]  So downstream speed, which is B plus C equals 20.
+[01:28.98 -> 01:32.74]  Upstream speed equals 40 divided by eight-thirds equals 15.
+[01:33.28 -> 01:35.97]  So upstream speed, which is B minus C equals 15.
+[01:36.52 -> 01:38.75]  Now, subtract the second equation from the first.
+[01:39.24 -> 01:39.84]  B plus C
+[01:40.38 -> 01:40.74]  minus
+[01:41.40 -> 01:43.46]  B minus C equals 20 minus 15.
+[01:43.92 -> 01:46.88]  After simplifying, C equals 2.5 kilometer per hour.
+[01:47.76 -> 01:48.12]  Hence,
+[01:48.56 -> 01:49.74]  the speed of the stream is
+[01:50.38 -> 01:51.92]  2.5 kilometer per hour.
+[01:52.50 -> 01:53.78]  So the correct option is
+[01:54.28 -> 01:54.98]  option C.

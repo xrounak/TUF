@@ -1,0 +1,48 @@
+Question:
+Can the current speed of a river be found?
+Statement I: The boat's downstream speed is 26 km/hr.
+Statement II: The boat's upstream speed is 18 km/hr.
+
+Options:
+A. Statement II alone is sufficient.
+B. Even both statements together are not sufficient.
+C. Both statements together are sufficient, but neither alone is sufficient.
+D. Statement I alone is sufficient.
+
+Correct Option: C
+
+Solution:
+This is a data sufficiency question. We need to check whether the given information is enough to find the speed of the river current.
+
+Let the speed of the boat in still water be b km/hr, and the speed of the river current be c km/hr.
+
+Key formulas:
+Downstream Speed = Boat Speed in Still Water + Current Speed (the river helps the boat move faster)
+Upstream Speed = Boat Speed in Still Water - Current Speed (the river slows the boat down)
+
+Statement I alone:
+Downstream speed is 26 km/hr.
+Using the formula: b + c = 26
+This is one equation with two unknowns (b and c), so we cannot find c.
+Statement I alone is Not Sufficient.
+
+Statement II alone:
+Upstream speed is 18 km/hr.
+Using the formula: b - c = 18
+Again, this is one equation with two unknowns, so we cannot find c.
+Statement II alone is also Not Sufficient.
+
+Combined (Statement I and Statement II together):
+b + c = 26
+b - c = 18
+Adding both equations, the current speed c cancels out:
+2 x b = 44
+b = 22 km/hr
+
+Now that we know the boat's speed in still water, we can find the current speed:
+Current Speed = Downstream Speed - Boat Speed
+Current Speed = 26 - 22
+Current Speed = 4 km/hr
+
+The current speed is now fixed to a single value, so together both statements are enough to answer the question, but individually neither statement was enough.
+Hence, the correct answer is Option C, both statements together are sufficient, but neither statement alone is sufficient.

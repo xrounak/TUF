@@ -1,0 +1,88 @@
+
+So "welcome back again", time for one more problem.
+
+Now in this problem, we are given that if a man drives 5 kilo-mee-ter per hour faster, he saves 1 hour.
+
+And if he drives 5 kilo-mee-ter per hour slower, he loses 2 hours.
+
+The question is asking us to find the total distance travelled.
+
+Let the original speed be x kilo-mee-ter per hour.
+
+And let the original time be t hours.
+
+Since,
+
+Distance is equal to Speed into Time,
+
+the original distance is x into t.
+
+Now let us use the first condition.
+
+If the speed increases by 5, the time decreases by 1.
+
+So,
+
+New speed is equal to x pluss 5.
+
+New time is equal to t my-nus 1.
+
+So the new distance becomes (x pluss 5) into (t my-nus 1).
+
+But remember, the distance remains the same.
+
+So,
+
+xt is equal to (x pluss 5)(t my-nus 1).
+
+After expanding and simplifying, we get,
+
+x is equal to 5t my-nus 5.
+
+Now let us use the second condition.
+
+If the speed decreases by 5, the time increases by 2.
+
+So,
+
+New speed is x my-nus 5.
+
+New time is t pluss 2.
+
+Again, the distance remains the same.
+
+So,
+
+xt is equal to (x my-nus 5)(t pluss 2).
+
+After expanding and simplifying, we get,
+
+2x is equal to 5t pluss 10.
+
+Now we already know that,
+
+x is equal to 5t my-nus 5.
+
+Putting this value into the second equation and solving, we get,
+
+t is equal to 4 hours.
+
+Now from the first equation,
+
+x equals 5t my-nus 5 and t is 4 so x equals 5 times 4 my-nus 5
+
+which gives us x is equal to 15 kilo-mee-ter per hour.
+
+Finally,
+
+Distance is equal to Speed into Time.
+
+and speed equal to x which is 15 kilo-mee-ter per hour and time equal to 4 hours
+
+So,
+
+Distance is equal to 15 into 4,
+
+which is 60 kilo-mee-ter.
+
+Hence, the correct answer is "Option B."

@@ -1,0 +1,20 @@
+[00:00.10 -> 00:00.30]  So
+[00:00.72 -> 00:01.62]  welcome back again.
+[00:02.12 -> 00:03.22]  Time for one more problem.
+[00:03.78 -> 00:07.18]  Now, in this problem, we are given that the length of the circular track
+[00:07.74 -> 00:09.24]  is seven hundred twenty meter.
+[00:09.88 -> 00:12.54]  The speed of the first runner is six meters per second.
+[00:13.02 -> 00:15.60]  The speed of the second runner is four meters per second.
+[00:16.16 -> 00:18.86]  Both runners start together and run in the same direction.
+[00:19.32 -> 00:22.54]  The question is asking us to find after how many seconds they will meet again.
+[00:23.00 -> 00:23.96]  Now, before solving,
+[00:24.26 -> 00:25.52]  let us understand the idea first.
+[00:25.92 -> 00:31.08]  Every second, the faster runner covers six meter, the slower runner covers four meter,
+[00:31.52 -> 00:35.58]  so every second, the faster runner gets two meter farther ahead.
+[00:36.00 -> 00:40.80]  Or you can also think of it like this. The faster runner gains two meters every second on the slower runner.
+[00:41.16 -> 00:46.44]  Now, they started from the same point, so how can the faster runner meet the slower runner again?
+[00:46.94 -> 00:48.56]  He cannot meet him from the front.
+[00:48.96 -> 00:50.50]  He has to come from behind.
+[00:50.88 -> 00:58.66]  That will happen only when the faster runner gets one complete round ahead of the slower runner, and one complete round is seven hundred twenty meter.
+[00:58.96 -> 01:02.92]  So the faster runner has to gain a total lead of seven hundred twenty meter. Got it?
+[01:03.32 -> 01:23.68]  Perfect. Now let us solve it. The gain every second is two meters, so to gain one meter it takes zero point five seconds, and to gain seven hundred twenty it takes seven hundred twenty into zero point five. After simplifying this, we get three hundred sixty seconds. So the two runners will meet again after three hundred sixty seconds. Hence, the correct answer is option A.

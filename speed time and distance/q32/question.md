@@ -1,0 +1,32 @@
+Question:
+A vehicle travels 120 km at 60 km/hr, then 180 km at 90 km/hr. Find its average speed for the complete journey.
+
+Options:
+A. 70 km/hr
+B. 72 km/hr
+C. 78 km/hr
+D. 75 km/hr
+
+Correct Option: D
+
+Solution:
+Given: Part 1 = 120 km at 60 km/hr, Part 2 = 180 km at 90 km/hr.
+
+Average Speed = Total Distance / Total Time.
+
+Step 1: Find the time taken for each part.
+Time = Distance / Speed
+Part 1: Time = 120 / 60 = 2 hr
+Part 2: Time = 180 / 90 = 2 hr
+
+Step 2: Find total time and total distance.
+Total Time = 2 + 2 = 4 hr
+Total Distance = 120 + 180 = 300 km
+
+Step 3: Find average speed.
+Average Speed = Total Distance / Total Time
+Average Speed = 300 / 4
+Average Speed = 75 km/hr
+
+So the average speed for the complete journey is 75 km/hr.
+Hence, the correct answer is Option D, 75 km/hr.

@@ -1,0 +1,64 @@
+So "welcome back again", time for one more problem.
+
+Now in this problem, सैम travels the same distance in every case.
+If he travels at 20 ki·loh·mee·ter per ow-er, he reaches at 3 P.M.
+If he travels at 30 ki·loh·mee·ter per ow-er, he reaches at 1 P.M.
+
+We need to find the speed at which he will reach point B at exactly 2 P.M.
+
+Let us take the distance as x ki·loh·mee·ter.
+
+Now, let us understand the time difference between the first two cases.
+From 1 P.M. to 3 P.M., the difference is exactly 2 ow-ers.
+This means the slower journey takes 2 ow-ers more than the faster journey.
+
+We know the basic formula, time is equal to distance divided by speed.
+
+For the slower journey, the speed is 20.
+So the time taken will be x divided by 20.
+For the faster journey, the speed is 30.
+So the time taken will be x divided by 30.
+
+Now, more time my-nus less time is equal to the time difference.
+So we write the equation carefully.
+x divided by 20, my-nus x divided by 30, is equal to 2.
+Got it? Perfect.
+
+Now let us solve this equation quickly.
+The denominators are 20 and 30, and their L C M is simply 60.
+
+To get a common base of 60, the first part becomes 3 x, and the second part becomes 2 x.
+So the equation becomes 3 x my-nus 2 x, whole divided by 60, is equal to 2.
+
+We know that 3 x my-nus 2 x is just x.
+So we have x divided by 60 is equal to 2.
+
+Finally, we shift 60 to the right side.
+We get x is equal to 2 multiplied by 60.
+This gives us x equal to 120 ki·loh·mee·ter.
+
+So the distance from the starting point to point B is exactly 120 ki·loh·mee·ter.
+Now this part is done.
+
+Next, let us find his starting time using the first case.
+At 20 ki·loh·mee·ter per ow-er, the time taken to travel 120 ki·loh·mee·ter is 120 divided by 20.
+This gives us 6 ow-ers.
+
+If he travels for 6 ow-ers and reaches at 3 P.M., it means he started 6 ow-ers before 3 P.M.
+Counting 6 ow-ers backward from 3 P.M. gives us 9 A.M.
+
+So सैम starts his journey at 9 A.M. every day.
+Done.
+
+Now, he wants to reach at 2 P.M.
+How much time does he have?
+From 9 A.M. to 2 P.M. is exactly 5 ow-ers.
+
+We have the distance as 120 ki·loh·mee·ter, and the time as 5 ow-ers.
+So the required speed is simply distance divided by time, which is 120 divided by 5.
+
+This gives us 24 ki·loh·mee·ter per ow-er.
+
+Hence, सैम must travel at 24 ki·loh·mee·ter per ow-er to reach at 2 P.M.
+
+So the final answer will be "option C, 24 ki·loh·mee·ter per ow-er".

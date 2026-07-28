@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  .illus-label { font-size: 24px; color: var(--text); text-align: center; margin-top: 10px; }
+  .illus-label .val { color: var(--primary); }
+  .distance-label { font-size: 26px; color: var(--primary); font-weight: 500; align-self: flex-start; margin-top: 55px; }
+  .pinned-label { font-size: 22px; color: var(--text); text-align: center; margin-top: 6px; }
+  .pinned-runner-wrap { display: flex; flex-direction: column; align-items: center; }
+  .runner-wrap { display: flex; flex-direction: column; align-items: center; position: relative; }
+  #road-line { position:absolute; left:0; bottom:-30px; width:100%; height:4px; background:#e5e5e5; transform-origin:left center; }
+  #distance-arrow { position:absolute; left:50%; top:250px; width:900px; height:0; border-top:3px solid var(--primary); transform:translateX(-50%) scaleX(0); opacity:0; }
+  #distance-arrow .arrow-head { position:absolute; top:-9px; color:var(--primary); font-size:20px; line-height:1; }
+  #distance-arrow .arrow-head.left { left:-2px; }
+  #distance-arrow .arrow-head.right { right:-2px; }
+  #distance-arrow .arrow-label { position:absolute; left:50%; top:-34px; transform:translateX(-50%); color:var(--primary); font-size:22px; }
+  .dir-arrow { font-size:34px; color:var(--primary); line-height:1; margin-bottom:4px; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-z7no" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="61.5" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–37s, runners keep
+       converging throughout; pin starts at 38s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-ivz2" id="phase1" class="clip" data-start="0" data-duration="39.3" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-skoe" class="q-text">
+        Two runners are <span data-hf-id="hf-3ayd" class="num">500 m</span> apart and run towards each other with speed values of
+        <span data-hf-id="hf-ceku" class="num">6 m/sec</span> and <span data-hf-id="hf-l3j4" class="num">4 m/sec</span>. After how many seconds will they meet?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — two objects across the width, space-between -->
+    <div data-hf-id="hf-9bqt" id="illustration" class="illustration" style="position:absolute;left:50%;top:280px;transform:translateX(-50%);
+                width:1400px;height:300px;display:flex;align-items:center;justify-content:space-between;">
+      <div data-hf-id="hf-f4ny" id="road-line"></div>
+
+      <div data-hf-id="hf-immk" id="distance-arrow">
+        <span data-hf-id="hf-q09y" class="arrow-head left">◄</span>
+        <span data-hf-id="hf-n7hf" class="arrow-label">500 m</span>
+        <span data-hf-id="hf-u71h" class="arrow-head right">►</span>
+      </div>
+
+      <div data-hf-id="hf-2212" class="runner-wrap" id="runner-a-wrap" style="opacity:0;">
+        <div data-hf-id="hf-e9v6" class="dir-arrow" id="dir-arrow-a" style="opacity:0;">➜</div>
+        <img data-hf-id="hf-m4j8" id="runner-a" src="illustration/runner.svg" style="width:140px;height:140px;">
+        <div data-hf-id="hf-8c6k" class="illus-label" id="speed-a-label" style="opacity:0;">Speed = <span data-hf-id="hf-gznx" class="val">6 m/s</span></div>
+      </div>
+
+      <div data-hf-id="hf-qsma" class="distance-label" id="distance-label" style="opacity:0;">500 m</div>
+
+      <div data-hf-id="hf-6mg1" class="runner-wrap" id="runner-b-wrap" style="opacity:0;">
+        <div data-hf-id="hf-n47d" class="dir-arrow" id="dir-arrow-b" style="opacity:0;transform:scaleX(-1);">➜</div>
+        <img data-hf-id="hf-lo8n" id="runner-b" src="illustration/runner.svg" style="width:140px;height:140px;transform:scaleX(-1);">
+        <div data-hf-id="hf-nnzj" class="illus-label" id="speed-b-label" style="opacity:0;">Speed = <span data-hf-id="hf-ljnf" class="val">4 m/s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (38s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-nwqj" id="q-pinned" class="clip" data-start="38" data-duration="25" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-xq3j" class="q-text">
+        Two runners, <span data-hf-id="hf-pnc9" class="num">500 m</span> apart, running towards each other at
+        <span data-hf-id="hf-8qh2" class="num">6 m/s</span> and <span data-hf-id="hf-w1pw" class="num">4 m/s</span> — meeting time?
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ldlj" id="illus-pinned" class="clip" data-start="38" data-duration="20" data-track-index="3" style="position:absolute;left:880px;top:190px;width:230px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:space-between;">
+    <div data-hf-id="hf-p8tm" class="pinned-runner-wrap">
+      <img data-hf-id="hf-ttl4" id="illus-pinned-icon-a" src="illustration/runner.svg" style="width:70px;height:70px;">
+      <div data-hf-id="hf-vtvy" class="pinned-label">6 m/s</div>
+    </div>
+    <div data-hf-id="hf-jkwt" class="pinned-label" style="font-size:22px;color:var(--primary);">500 m</div>
+    <div data-hf-id="hf-h5f2" class="pinned-runner-wrap">
+      <img data-hf-id="hf-fnyf" id="illus-pinned-icon-b" src="illustration/runner.svg" style="width:70px;height:70px;transform:scaleX(-1);">
+      <div data-hf-id="hf-rlz0" class="pinned-label">4 m/s</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given + 2 Steps, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — recap card, docked at the BOTTOM of the frame so it can start
+       building live at 4.5s (just before "Distance" is first narrated at
+       4.619s) instead of waiting for the Phase 2 pin. It sits there through
+       the illustration build, the pin, and the concept-teaching stretch,
+       then morphs into the stack like any other card. Each .rv's data-t is
+       the real transcript timestamp for that fact, so lines fill in live as
+       they're spoken. -->
+  <div data-hf-id="hf-7xzj" id="card-given" class="clip" data-start="4.5" data-duration="36" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:650px;text-align:center;width:720px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-y3en" class="rv" data-t="4.619">Distance = <span data-hf-id="hf-v3no" class="hi">500 m</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-ga4u" class="rv" data-t="7.98">Runner A speed = <span data-hf-id="hf-su9r" class="hi">6 m/s</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-p658" class="rv" data-t="10.859">Runner B speed = <span data-hf-id="hf-jcoh" class="hi">4 m/s</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-wpd0" class="rv" data-t="13.779">Direction = <span data-hf-id="hf-o1gv" class="hi">Towards each other</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Relative Speed -->
+  <div data-hf-id="hf-6yqg" id="card-step1" class="clip" data-start="40.0" data-duration="9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-62hw" class="solution-card" style="position:absolute;left:620px;top:470px;text-align:center;width:680px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-3jbo" class="rv" data-t="37.819">Moving towards each other, so we add the speeds</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-dnla" class="rv" data-t="41.059">Relative</span> <span data-hf-id="hf-na34" class="rv" data-t="41.5">Speed</span>
+          <span data-hf-id="hf-14it" class="rv" data-t="42.18">=</span> <span data-hf-id="hf-mn2h" class="hi rv" data-t="42.599">6</span>
+          <span data-hf-id="hf-wgqk" class="rv" data-t="43.139">+</span> <span data-hf-id="hf-8zy2" class="hi rv" data-t="43.54">4</span>
+          <span data-hf-id="hf-x6bo" class="rv" data-t="44.479">=</span> <span data-hf-id="hf-979h" class="ans rv" data-t="44.86">10 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Time formula + answer -->
+  <div data-hf-id="hf-7sys" id="card-step2" class="clip" data-start="46.9" data-duration="11.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-guue" class="solution-card" style="position:absolute;left:600px;top:460px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-b7e3" class="rv" data-t="47.899">Time = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-8ble" class="bot hi">Relative Speed</span></span></span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-65fe" class="rv" data-t="53.099">= <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-nl0u" class="top hi">500</span><span data-hf-id="hf-8pz8" class="bot hi">10</span></span></span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-63vq" class="rv" data-t="55.659">=</span> <span data-hf-id="hf-y6k2" class="ans rv" data-t="55.979">50 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-0vfx" id="stack-given" class="clip" data-start="39.0" data-duration="24" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-ci4h" class="math">
+          Distance = <span data-hf-id="hf-gfi4" class="hi">500 m</span><br data-hf-id="hf-regs">
+          Speeds = <span data-hf-id="hf-gny7" class="hi">6 m/s</span>, <span data-hf-id="hf-2med" class="hi">4 m/s</span><br data-hf-id="hf-r05r">
+          Direction = <span data-hf-id="hf-0mmn" class="hi">Towards each other</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-pafy" id="stack-step1" class="clip" data-start="46.9" data-duration="15" data-track-index="12" style="position:absolute;left:100px;top:330px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-awx2" class="math">
+          Relative Speed = 6 + 4 = <span data-hf-id="hf-30af" class="ans">10 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-h73y" id="stack-step2" class="clip" data-start="57.0" data-duration="5" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-3ik0" class="math">
+          Time = <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-ro6q" class="top hi">500</span><span data-hf-id="hf-0ce4" class="bot hi">10</span></span> = <span data-hf-id="hf-ixyv" class="ans">50 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-uiuw" id="line-g-1" class="clip stack-line" data-start="46.9" data-duration="15" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-efyc" id="line-1-2" class="clip stack-line" data-start="57.0" data-duration="5" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (57–62s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-cntm" id="options-reveal" class="clip" data-start="57.0" data-duration="5.2" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-uno6" class="opt-btn correct"><span data-hf-id="hf-sfug" class="letter">A</span>50 seconds</div>
+        <div data-hf-id="hf-kd91" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>40 seconds</div>
+        <div data-hf-id="hf-34fu" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>45 seconds</div>
+        <div data-hf-id="hf-hxyj" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>55 seconds</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const RISE_TIME = 2.64;
+  apt.heroEnterLowered(tl, "#q-full-card", 180, RISE_TIME);
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: 180 },
+    { scale: 1, rotation: 0, opacity: 1, y: 180, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build
+  apt.roadSweep(tl, "#road-line", 3.3, 0.7);
+  apt.fadeIn(tl, "#runner-a-wrap", 4.62, 0.55);
+  apt.fadeIn(tl, "#runner-b-wrap", 4.62, 0.55);
+  apt.fadeIn(tl, "#distance-label", 5.98, 0.4);
+  apt.fadeIn(tl, "#speed-a-label", 9.26, 0.4);
+  apt.fadeIn(tl, "#speed-b-label", 12.119, 0.4);
+
+  // Distance arrow — extends both directions from center at 5s, in step
+  // with "five hundred meter" being spoken (5.98s). Faded out at 20s, just
+  // before the runners start visibly closing the gap themselves, so the
+  // fixed-width "given distance" marker doesn't visually clash with the
+  // runners drifting past its endpoints.
+  tl.fromTo("#distance-arrow",
+    { scaleX: 0, opacity: 0 },
+    { scaleX: 1, opacity: 1, duration: 0.7, ease: "power2.out" },
+    5.0);
+  apt.fadeOut(tl, "#distance-arrow", 20.0, 0.6);
+
+  // Direction arrows fade in at 15s, in step with "towards each other"
+  // (14.78–15.66s). They're children of runner-a/b-wrap, so they keep
+  // riding along with every later convergence nudge below automatically.
+  apt.fadeIn(tl, "#dir-arrow-a", 15.0, 0.4);
+  apt.fadeIn(tl, "#dir-arrow-b", 15.0, 0.4);
+
+  // Runners keep animating closer together through the whole illustration
+  // stretch (not just one nudge), each stage synced to the transcript line
+  // that's actually talking about the two runners closing the gap. Plain
+  // position tweens — no dedicated helper covers a multi-stage converging
+  // pair, kept minimal per storyboard Part 4.
+  tl.to("#runner-a-wrap", { x: 15, duration: 0.6, ease: "power2.out" }, 14.78);   // "towards each other"
+  tl.to("#runner-b-wrap", { x: -15, duration: 0.6, ease: "power2.out" }, 14.78);
+  tl.to("#runner-a-wrap", { x: 50, duration: 1.0, ease: "power1.inOut" }, 22.0);  // "move towards each other,"
+  tl.to("#runner-b-wrap", { x: -50, duration: 1.0, ease: "power1.inOut" }, 22.0);
+  tl.to("#runner-a-wrap", { x: 90, duration: 2.6, ease: "power1.inOut" }, 24.76); // "distance...reducing from both sides"
+  tl.to("#runner-b-wrap", { x: -90, duration: 2.6, ease: "power1.inOut" }, 24.76);
+  tl.to("#runner-a-wrap", { x: 140, duration: 3.6, ease: "power1.inOut" }, 32.64); // "moving towards each other. Got it?"
+  tl.to("#runner-b-wrap", { x: -140, duration: 3.6, ease: "power1.inOut" }, 32.64);
+
+  // GIVEN — docked at the bottom, starts building live at 4.5s (right before
+  // "Distance" is first narrated at 4.619s) instead of waiting for the pin.
+  const GIVEN_TIME = 4.5;
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // PHASE 2 — Pin (question + illustration only; Given card already on
+  // screen). Phase 1 keeps animating the runners all the way to ~37s, so
+  // the pin is pushed out to 38s to let that convergence play out in full.
+  const PIN_TIME = 38;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Given → stack, Step 1 opens (Relative Speed). Both pushed out to start
+  // right after the pin completes (38.8s) so the Given card's morph target
+  // (left stack column) never has to compete on screen with the still
+  // full-size illustration — the numeric reveals inside Step 1 are still
+  // anchored to their real transcript timestamps (41.059s onward), so the
+  // slightly later card entrance doesn't desync the actual narration.
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 39.0);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 40.0);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Step 1 → stack, Step 2 opens (Time formula + answer)
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 45.9);
+  apt.stackLineGrow(tl, "#line-g-1", 45.9);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 46.9);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Recenter — clear stack column, align pinned question before options
+  const RECENTER_TIME = 57.0;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 2 joins the stack
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 57.8);
+  apt.optionsStagger(tl, ".opt-btn", 58.3);
+  apt.correctPulse(tl, ".opt-btn.correct", 59.64);
+
+  // END FADE
+  const END_FADE_TIME = 61.0;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},63)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

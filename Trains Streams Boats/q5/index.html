@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ── Per-question illustration (train on a rail, speed-board readout) ──
+     Custom to this question, not part of the shared design system. */
+  #rail {
+    position: absolute; left: 40px; top: 210px; width: 640px; height: 16px;
+    background: repeating-linear-gradient(90deg, #b7bcc9 0 10px, transparent 10px 34px);
+    border-top: 4px solid #8b93a6; border-bottom: 4px solid #8b93a6; border-radius: 2px;
+  }
+  #train-icon { position: absolute; left: 70px; top: 10px; width: 200px; height: 200px; opacity: 0; }
+  #train-icon img { width: 100%; height: 100%; display: block; }
+
+  #speed-board {
+    position: absolute; left: 760px; top: 20px; width: 600px; height: 260px;
+    background: #FFFFFF; border: 3px solid var(--primary); border-radius: 24px;
+    opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  }
+  .board-label {
+    font-family: var(--font); font-weight: 400; font-size: 22px; color: var(--topic); letter-spacing: 1px;
+  }
+  .board-value { font-family: var(--font); font-weight: 400; font-size: 44px; color: var(--primary); opacity: 0; }
+  .board-arrow { font-family: var(--font); font-weight: 400; font-size: 24px; color: var(--topic); }
+  .board-target { font-family: var(--font); font-weight: 400; font-size: 44px; color: var(--text); opacity: 0; }
+  .board-target .q { color: var(--primary); }
+
+  /* Pinned (small) illustration re-uses the same icon */
+  #train-pinned-icon { width: 110px; height: 110px; display: block; }
+  .pinned-recap {
+    font-family: var(--font); font-weight: 400; font-size: 22px; color: var(--topic);
+  }
+  .pinned-recap .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-q5r0" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-q5b1" class="dotted-grid"></div>
+  <div data-hf-id="hf-q5b2" class="bottom-strip"></div>
+  <div data-hf-id="hf-q5b3" class="topic-name">Trains, Boats and Streams</div>
+  <div data-hf-id="hf-q5b4" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-q5au" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="47.7" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–13.5s)
+       data-duration extends past PIN_TIME (12.6) + pinFlow's 0.8s glide
+       + buffer (13.4 → 13.5).
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q5p1" id="phase1" class="clip" data-start="0" data-duration="13.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-q5qc" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-q5qt" class="q-text">
+        A <span data-hf-id="hf-q5n1" class="num">train</span> moves at <span data-hf-id="hf-q5n2" class="num">25 m/s</span>. What is its speed in <span data-hf-id="hf-q5n3" class="num">km/h</span>?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-q5sn" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-q5sd" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — train on a rail, speed-board readout -->
+    <div data-hf-id="hf-q5il" id="illustration" class="illustration" style="position:absolute;left:50%;top:480px;transform:translateX(-50%);
+                width:1400px;height:300px;">
+      <div data-hf-id="hf-q5rl" id="rail"></div>
+      <div data-hf-id="hf-q5ti" id="train-icon"><img data-hf-id="hf-q5tm" src="illustration/train.svg" alt=""></div>
+      <div data-hf-id="hf-q5sb" id="speed-board">
+        <div data-hf-id="hf-q5bl" class="board-label">GIVEN SPEED</div>
+        <div data-hf-id="hf-q5bv" id="board-value" class="board-value">25 m/s</div>
+        <div data-hf-id="hf-q5ba" class="board-arrow">↓ convert to</div>
+        <div data-hf-id="hf-q5bt" id="board-target" class="board-target"><span data-hf-id="hf-q5bq" class="q">?</span> km/h</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (12.6s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q5qp" id="q-pinned" class="clip" data-start="12.6" data-duration="37.4" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q5qw" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-q5qx" class="q-text">
+        Speed of a <span data-hf-id="hf-q5n4" class="num">train</span> = <span data-hf-id="hf-q5n5" class="num">25 m/s</span>. Convert to <span data-hf-id="hf-q5n6" class="num">km/h</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller icon, object continuity) -->
+  <div data-hf-id="hf-q5ip" id="illus-pinned" class="clip" data-start="12.6" data-duration="37.4" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:24px;">
+    <img data-hf-id="hf-q5pi" id="train-pinned-icon" src="illustration/train.svg" alt="">
+    <div data-hf-id="hf-q5pr" class="pinned-recap">Speed = <span data-hf-id="hf-q5n7" class="num">25 m/s</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — no fresh narration re-states this value (already spoken in
+       Phase 1), so it reveals as a single line-level span the instant the
+       card lands, not a word-synced sequence.
+       data-duration extends past its own morphToStack completion (16.239+0.8=17.039, +0.3 buffer). -->
+  <div data-hf-id="hf-q5cg" id="card-given" class="clip" data-start="13.4" data-duration="3.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q5cga" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-q5cgc" class="card-content">
+        <span data-hf-id="hf-q5cgh" class="chip">Given</span>
+        <div data-hf-id="hf-q5cgm" class="math">
+          <span data-hf-id="hf-q5cgr" class="rv" data-t="13.4">Speed = <span data-hf-id="hf-q5cgu" class="hi">25 m/s</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Recall the conversion constant.
+       data-duration extends past its own morphToStack completion (20.619+0.8=21.419, +0.3 buffer). -->
+  <div data-hf-id="hf-q5c1" id="card-step1" class="clip" data-start="17.039" data-duration="4.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q5c1a" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-q5c1c" class="card-content">
+        <span data-hf-id="hf-q5c1h" class="chip">Step 1</span>
+        <div data-hf-id="hf-q5c1m" class="math">
+          <span data-hf-id="hf-q5c1w1" class="rv" data-t="17.039">1</span> <span data-hf-id="hf-q5c1w2" class="rv" data-t="17.219">m/s</span> <span data-hf-id="hf-q5c1w3" class="rv" data-t="18.059">=</span>
+          <span data-hf-id="hf-q5c1fr" class="frac rv" data-t="18.899"><span data-hf-id="hf-q5c1ft" class="top hi">18</span><span data-hf-id="hf-q5c1fb" class="bot hi">5</span></span>
+          <span data-hf-id="hf-q5c1w4" class="rv" data-t="19.84">km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Apply the formula.
+       data-duration extends past its own morphToStack completion (44.539+0.8=45.339, +0.3 buffer). -->
+  <div data-hf-id="hf-q5c2" id="card-step2" class="clip" data-start="21.419" data-duration="24.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q5c2a" class="solution-card" style="position:absolute;left:550px;top:400px;text-align:center;width:820px;">
+      <div data-hf-id="hf-q5c2c" class="card-content">
+        <span data-hf-id="hf-q5c2h" class="chip">Step 2</span>
+        <div data-hf-id="hf-q5c2m" class="math">
+          <span data-hf-id="hf-q5c2ctx" class="rv" data-t="21.42">This is a direct conversion, so we multiply by <span data-hf-id="hf-q5c2fr0t" class="frac"><span data-hf-id="hf-q5c2fr0tt" class="top hi">18</span><span data-hf-id="hf-q5c2fr0tb" class="bot hi">5</span></span>.</span><br data-hf-id="hf-q5c2br1">
+          <span data-hf-id="hf-q5c2w1" class="rv" data-t="28.359">Speed</span> <span data-hf-id="hf-q5c2w2" class="rv" data-t="30.279">=</span> <span data-hf-id="hf-q5c2w3" class="rv" data-t="30.899">25</span>
+          <span data-hf-id="hf-q5c2w4" class="rv" data-t="31.399">×</span>
+          <span data-hf-id="hf-q5c2fr1" class="frac rv" data-t="31.719"><span data-hf-id="hf-q5c2fr1t" class="top hi">18</span><span data-hf-id="hf-q5c2fr1b" class="bot hi">5</span></span><br data-hf-id="hf-q5c2br2">
+          <span data-hf-id="hf-q5c2w5" class="rv" data-t="35.279">=</span> <span data-hf-id="hf-q5c2w6" class="rv" data-t="35.979">5</span>
+          <span data-hf-id="hf-q5c2w7" class="rv" data-t="36.2">×</span> <span data-hf-id="hf-q5c2w8" class="rv" data-t="36.459">18</span><br data-hf-id="hf-q5c2br3">
+          <span data-hf-id="hf-q5c2w9" class="rv" data-t="38.559">=</span> <span data-hf-id="hf-q5c2ans" class="ans rv" data-t="38.86">90 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — G / 1 / 2 for this question
+       (2 solving steps). top values hand-estimated (Given and Step 1 are
+       both short, single-line cards) — re-measure in preview and adjust
+       if the real rendered gaps look uneven.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q5sg" id="stack-given" class="clip" data-start="15.9" data-duration="34.1" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q5sga" class="stack-card">
+      <div data-hf-id="hf-q5sgc" class="card-content">
+        <span data-hf-id="hf-q5sgs" class="step-circle">G</span>
+        <div data-hf-id="hf-q5sgm" class="math">
+          Speed = <span data-hf-id="hf-q5sgh" class="hi">25 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q5s1" id="stack-step1" class="clip" data-start="20.3" data-duration="29.7" data-track-index="12" style="position:absolute;left:100px;top:260px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q5s1a" class="stack-card">
+      <div data-hf-id="hf-q5s1c" class="card-content">
+        <span data-hf-id="hf-q5s1s" class="step-circle">1</span>
+        <div data-hf-id="hf-q5s1m" class="math">
+          1 m/s = <span data-hf-id="hf-q5s1fr" class="frac"><span data-hf-id="hf-q5s1ft" class="top hi">18</span><span data-hf-id="hf-q5s1fb" class="bot hi">5</span></span> km/h
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-q5s2" id="stack-step2" class="clip" data-start="44.2" data-duration="5.8" data-track-index="13" style="position:absolute;left:100px;top:380px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-q5s2a" class="stack-card">
+      <div data-hf-id="hf-q5s2c" class="card-content">
+        <span data-hf-id="hf-q5s2s" class="step-circle">2</span>
+        <div data-hf-id="hf-q5s2m" class="math">
+          25 × <span data-hf-id="hf-q5s2fr" class="frac"><span data-hf-id="hf-q5s2ft" class="top hi">18</span><span data-hf-id="hf-q5s2fb" class="bot hi">5</span></span> = <span data-hf-id="hf-q5s2ans" class="ans">90 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines — top/height computed at runtime by apt.setStackLine
+       from the actual rendered step-circle centers. -->
+  <div data-hf-id="hf-q5lg1" id="line-g-1" class="clip stack-line" data-start="20.619" data-duration="29.4" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-q5l12" id="line-1-2" class="clip stack-line" data-start="44.539" data-duration="5.5" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (~45.5s onward)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-q5or" id="options-reveal" class="clip" data-start="45.5" data-duration="4.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-q5oc" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-q5og" class="options-grid">
+        <div data-hf-id="hf-q5oa" class="opt-btn correct"><span data-hf-id="hf-q5oal" class="letter">A</span>90 km/h</div>
+        <div data-hf-id="hf-q5ob" class="opt-btn"><span data-hf-id="hf-q5obl" class="letter">B</span>79.2 km/h</div>
+        <div data-hf-id="hf-q5oc2" class="opt-btn"><span data-hf-id="hf-q5ocl" class="letter">C</span>100.8 km/h</div>
+        <div data-hf-id="hf-q5od" class="opt-btn"><span data-hf-id="hf-q5odl" class="letter">D</span>111.6 km/h</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal (starts lowered, rises exactly as the
+  // two opening narration lines end at 3.12s — "...one more problem.")
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.12;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build — rail sweeps in, the train enters, then drifts
+  // gently along the rail (decorative continuity only — this is a pure
+  // unit-conversion question, no distance/time to depict).
+  apt.roadSweep(tl, "#rail", 3.4);
+  apt.cardEnter(tl, "#train-icon", 3.8);
+  tl.to("#train-icon", { x: 50, duration: 8.8, ease: "none" }, 3.8);
+
+  // Speed-board readouts land exactly on the words that name them.
+  apt.fadeIn(tl, "#speed-board", 4.2);
+  apt.fadeIn(tl, "#board-value", 7.079);
+  apt.fadeIn(tl, "#board-target", 10.079);
+
+  // PHASE 2 — Pin, then Given (two SEPARATE timestamps).
+  const PIN_TIME = 12.6;
+  const GIVEN_TIME = 13.4;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Ambient bob on the pinned train — keeps the pinned area alive through
+  // the long Step1/Step2 stretch.
+  apt.ambientLoop(tl, "#train-pinned-icon", 14.2, 44.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — morph Given card into Given stack (0.8s).
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 16.239);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 17.039);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 joins the stack: grow the G→1 connector line.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 20.619);
+  apt.stackLineGrow(tl, "#line-g-1", 20.619);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 21.419);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  const RECENTER_TIME = 45.339;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 2 joins the stack: grow the 1→2 line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 44.539);
+  apt.stackLineGrow(tl, "#line-1-2", 44.539);
+  apt.fadeIn(tl, "#options-reveal", 45.5);
+  apt.optionsStagger(tl, ".opt-btn", 45.8);
+  apt.correctPulse(tl, ".opt-btn.correct", 47.219);
+
+  // ── END FADE — everything fades out together, once, after the correct
+  // pulse and narration have both settled (narration ends 47.7s).
+  const END_FADE_TIME = 48.3;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.0);
+
+  tl.set({},{},51)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

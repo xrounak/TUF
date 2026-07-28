@@ -1,0 +1,34 @@
+[00:00.10 -> 00:03.20]  So welcome back again. Time for one more problem.
+[00:03.72 -> 00:09.74]  Now, in this problem, the bus speed is given in two different ways. The speed without stoppage is ninety kilometer per hour.
+[00:10.30 -> 00:10.78]  This means
+[00:11.16 -> 00:13.12]  when the bus is actually moving, its speed is
+[00:13.58 -> 00:15.03]  ninety kilometers per hour,
+[00:15.62 -> 00:19.06]  and the speed with stoppage is seventy-five kilometers per hour.
+[00:19.70 -> 00:23.24]  This means after counting moving time plus stoppage time,
+[00:23.68 -> 00:29.98]  the average speed becomes seventy-five kilometer per hour. We need to find the stoppage time
+[00:30.48 -> 00:30.88]  per hour.
+[00:31.38 -> 00:34.67]  Now, let us think for one hour. If the bus does not stop at all,
+[00:35.24 -> 00:35.94]  then in one hour
+[00:36.46 -> 00:38.34]  it can cover ninety kilometer.
+[00:38.96 -> 00:40.50]  But because the bus stops in between,
+[00:41.06 -> 00:42.02]  in the same one hour,
+[00:42.56 -> 00:44.64]  it covers only seventy-five kilometer.
+[00:45.28 -> 00:46.42]  So because of stoppages,
+[00:46.86 -> 00:48.52]  the bus covers less distance.
+[00:48.90 -> 00:52.12]  The lost distance is equal to ninety minus seventy-five.
+[00:52.58 -> 00:54.76]  So the lost distance is fifteen kilometers.
+[00:55.24 -> 00:56.06]  Now, be careful here.
+[00:56.60 -> 00:59.72]  This fifteen kilometers is not actually traveled by the bus.
+[01:00.06 -> 01:04.55]  It is the distance the bus could have traveled if it had not stopped. Now, we know the formula,
+[01:04.92 -> 01:07.10]  time is equal to distance divided by speed.
+[01:07.42 -> 01:14.64]  So the time spent in stoppages is equal to the time needed to cover this lost distance at the actual moving speed.
+[01:15.18 -> 01:17.79]  In simple words, during the stoppage time,
+[01:18.26 -> 01:23.45]  the bus could have covered this fifteen kilometer distance at ninety kilometer per hour.
+[01:24.00 -> 01:34.44]  So here, lost distance is fifteen kilometer and actual moving speed is ninety kilometer per hour. Therefore, stoppage time is equal to fifteen by ninety hour.
+[01:35.02 -> 01:37.82]  After simplifying this, we get one by six hour.
+[01:38.34 -> 01:42.38]  Now, one by six hour means one by six into sixty minutes.
+[01:42.90 -> 01:44.36]  So stoppage time is ten minutes.
+[01:44.82 -> 01:45.14]  Hence,
+[01:45.46 -> 01:48.04]  the bus stops for ten minutes per hour.
+[01:48.64 -> 01:50.54]  So the final answer will be ten minutes,
+[01:50.94 -> 01:51.72]  which is option B.

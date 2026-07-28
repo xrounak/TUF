@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     PER-QUESTION ILLUSTRATION — Two trains approaching on a rail from
+     opposite edges, each carrying a length badge AND a speed badge. As
+     the "completely cross each other" concept is narrated (still inside
+     Phase 1, which now runs the full 0–40s), both trains actually drive
+     all the way past each other's starting position — a real crossing,
+     not a token drift — and once they've crossed, a bracket + label
+     states the distance in words: 160 + 140 = 300 m. Train B is the same
+     train.svg mirrored via CSS scaleX(-1) — no new asset. Colors reuse
+     existing tokens only: --primary, --primary-light, --text.
+     ═══════════════════════════════════════════════════════════════ */
+
+  #illustration {
+    position: absolute;
+    left: 50%;
+    top: 430px;
+    transform: translateX(-50%);
+    width: 1400px;
+    height: 320px;
+  }
+
+  #rail {
+    position: absolute; left: 0; top: 150px; width: 1400px; height: 16px;
+    background: repeating-linear-gradient(90deg, #b7bcc9 0 10px, transparent 10px 34px);
+    border-top: 4px solid #8b93a6; border-bottom: 4px solid #8b93a6; border-radius: 2px;
+    opacity: 0; transform: scaleX(0); transform-origin: left center;
+  }
+
+  #train-a-unit {
+    position: absolute; left: 20px; top: 10px; width: 190px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #train-a-unit img { width: 100%; height: 100%; display: block; }
+  #length-badge-a, #length-badge-b {
+    position: absolute; left: 50%; top: -52px; width: 130px; height: 38px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 19px; white-space: nowrap; opacity: 0;
+  }
+  #speed-badge-a, #speed-badge-b {
+    position: absolute; left: 50%; top: 0px; width: 150px; height: 40px; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #FFFFFF; border-radius: var(--radius-pill);
+    font-family: var(--font); font-weight: 400; font-size: 20px; white-space: nowrap; opacity: 0;
+  }
+
+  #train-b-outer {
+    position: absolute; right: 20px; top: 10px; width: 190px; height: 170px;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  #train-b-img-wrap { width: 100%; height: 100%; transform: scaleX(-1); }
+  #train-b-img-wrap img { width: 100%; height: 100%; display: block; }
+
+  #opp-arrows {
+    position: absolute; left: 600px; top: 62px; transform: translateX(-50%);
+    width: 260px; display: flex; align-items: center; justify-content: space-between;
+    opacity: 0; transform: translateY(40px) scale(0.92);
+  }
+  .chevron-right { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 18px solid var(--primary); }
+  .chevron-left  { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-right: 18px solid var(--primary); }
+
+  .tag-pill {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    white-space: nowrap; padding: 8px 22px; border-radius: var(--radius-pill);
+    background: var(--primary-light); color: var(--primary);
+    font-family: var(--font); font-weight: 400; font-size: 22px; opacity: 0;
+  }
+  #target-tag { top: -100px; }
+
+  /* Trains actually cross — Train A drives all the way past Train B's
+     start position and vice versa (a real pass, not a token drift). Train
+     A rendered above Train B during the overlap so the crossing reads
+     clearly. Once they've crossed, a bracket + label spanning the
+     meeting zone states the distance in words: 160 + 140 = 300 m. */
+  #train-a-unit { z-index: 2; }
+  #train-b-outer { z-index: 1; }
+
+  #cross-bracket-wrap {
+    position: absolute; left: 340px; top: 92px; width: 720px; height: 30px;
+    opacity: 0; z-index: 3;
+  }
+  #cross-label {
+    position: absolute; left: 50%; top: -50px; transform: translateX(-50%);
+    white-space: nowrap; padding: 8px 22px; border-radius: var(--radius-pill);
+    background: var(--primary); color: #FFFFFF;
+    font-family: var(--font); font-weight: 400; font-size: 21px;
+  }
+  #cross-line {
+    position: absolute; left: 0; top: 14px; width: 100%; height: 4px;
+    background: var(--primary); border-radius: 2px;
+    transform: scaleX(0); transform-origin: center center;
+  }
+  #cross-tick-left, #cross-tick-right {
+    position: absolute; top: 4px; width: 4px; height: 24px; background: var(--primary);
+    opacity: 0;
+  }
+  #cross-tick-left { left: 0; }
+  #cross-tick-right { right: 0; }
+
+  /* Pinned (Phase 2+) recap — two mini trains, space-between, per
+     design.md's own "two trains approaching each other" example. */
+  .pinned-illus-content {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; height: 100%; padding: 0 20px;
+  }
+  .pinned-train-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .pinned-train-wrap img { width: 78px; height: 78px; display: block; }
+  #pinned-train-b-img { transform: scaleX(-1); }
+  .pinned-illus-label { font-family: var(--font); font-weight: 400; font-size: 23px; color: var(--text); white-space: nowrap; }
+  .pinned-illus-label .num { color: var(--primary); }
+  .pinned-plus { font-family: var(--font); font-weight: 400; font-size: 40px; color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-kpxf" class="topic-name">Trains, Boats and Streams</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-e9gd" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="104.6" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Two-Train Illustration (0–40s)
+       Now includes the "completely cross each other" concept beat AND
+       the Given-card recap — both play out here before the pin, instead
+       of after it. data-duration extends past PIN_TIME (39.9) + pinFlow's
+       0.8s glide (40.7) + buffer (41.0).
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-nsb1" id="phase1" class="clip" data-start="0" data-duration="41.0" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-mh1m" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1600px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-8rvm" class="q-text">
+        Two trains of lengths <span data-hf-id="hf-s7ej" class="num">160 m</span> and <span data-hf-id="hf-ehxh" class="num">140 m</span> run in <span data-hf-id="hf-wi7g" class="num">opposite directions</span> at <span data-hf-id="hf-m7ad" class="num">54 km/h</span> and <span data-hf-id="hf-p219" class="num">36 km/h</span>. In how many seconds will they cross each other?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration — two trains approaching from opposite edges -->
+    <div data-hf-id="hf-y427" id="illustration">
+      <div data-hf-id="hf-gvf1" id="rail"></div>
+
+      <div data-hf-id="hf-o0he" id="train-a-unit">
+        <img data-hf-id="hf-q34n" src="illustration/train.svg" alt="">
+      </div>
+      <div data-hf-id="hf-sciq" id="length-badge-a" style="left: 209px;">160 m</div>
+      <div data-hf-id="hf-if7r" id="speed-badge-a" style="left: 209px;">54 km/hr</div>
+
+      <div data-hf-id="hf-fqsy" id="train-b-outer">
+        <div data-hf-id="hf-raif" id="train-b-img-wrap"><img data-hf-id="hf-ld93" src="illustration/train.svg" alt=""></div>
+      </div>
+      <div data-hf-id="hf-dgkj" id="length-badge-b" style="left: 1301px;">140 m</div>
+      <div data-hf-id="hf-cjw8" id="speed-badge-b" style="left: 1301px;">36 km/hr</div>
+
+      <div data-hf-id="hf-6amn" id="opp-arrows">
+        <span data-hf-id="hf-va0f" class="chevron-right"></span>
+        <span data-hf-id="hf-2328" class="chevron-left"></span>
+      </div>
+
+      <div data-hf-id="hf-o4mx" id="target-tag" class="tag-pill">Crossing Time = ?</div>
+
+      <!-- Bracket + label — appears once the trains have crossed,
+           stating the distance covered in words. -->
+      <div data-hf-id="hf-8ahd" id="cross-bracket-wrap">
+        <div data-hf-id="hf-navw" id="cross-label">Total Distance Covered = Length of Train A + Train B</div>
+        <div data-hf-id="hf-zxou" id="cross-line"></div>
+        <div data-hf-id="hf-3teb" id="cross-tick-left"></div>
+        <div data-hf-id="hf-rv3y" id="cross-tick-right"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       GIVEN — recap of the four raw facts + direction, managed inside
+       Phase 1 (appears right after the target tag, holds through the
+       "what does completely cross mean" concept beat + crossing
+       animation, then morphs to stack right as the question pins).
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-sbie" id="card-given" class="clip" data-start="7.0" data-duration="33.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:6;">
+    <div data-hf-id="hf-s9yp" class="solution-card" style="position:absolute;left:640px;top:600px;text-align:center;width:640px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-gmin" class="math">
+          Train A = <span data-hf-id="hf-pfpj" class="hi rv" data-t="6.96">160 m</span>, <span data-hf-id="hf-3kq9" class="hi rv" data-t="13.18">54 km/hr</span><br data-hf-id="hf-x5px">
+          Train B = <span data-hf-id="hf-8ax6" class="hi rv" data-t="9.92">140 m</span>, <span data-hf-id="hf-kuc7" class="hi rv" data-t="15.54">36 km/hr</span><br data-hf-id="hf-rsrt">
+          Direction = <span data-hf-id="hf-tweb" class="hi rv" data-t="19.48">Opposite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (39.9s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-g9jp" id="q-pinned" class="clip" data-start="39.9" data-duration="68" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-etgi" class="q-text">
+        Trains <span data-hf-id="hf-qkaj" class="num">160 m</span> &amp; <span data-hf-id="hf-4dcp" class="num">140 m</span>, opposite directions at <span data-hf-id="hf-v7ou" class="num">54</span> &amp; <span data-hf-id="hf-le4h" class="num">36 km/h</span>. Crossing time?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration — two mini trains, space-between, each with a
+       compact length+speed recap line. -->
+  <div data-hf-id="hf-ffx0" id="illus-pinned" class="clip" data-start="39.9" data-duration="60" data-track-index="3" style="position:absolute;left:660px;top:190px;width:700px;height:150px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-y0qg" class="pinned-illus-content">
+      <div data-hf-id="hf-q7cw" class="pinned-train-wrap">
+        <img data-hf-id="hf-aqpj" id="illus-pinned-icon-a" src="illustration/train.svg" alt="">
+        <div data-hf-id="hf-j4ob" class="pinned-illus-label"><span data-hf-id="hf-q5zi" class="num">160 m</span>, <span data-hf-id="hf-0h11" class="num">54 km/hr</span></div>
+      </div>
+      <div data-hf-id="hf-paoc" class="pinned-plus">+</div>
+      <div data-hf-id="hf-45h4" class="pinned-train-wrap">
+        <img data-hf-id="hf-wq08" id="illus-pinned-icon-b" src="illustration/train.svg" alt="" style="transform:scaleX(-1);">
+        <div data-hf-id="hf-eurv" class="pinned-illus-label"><span data-hf-id="hf-5k9s" class="num">140 m</span>, <span data-hf-id="hf-8771" class="num">36 km/hr</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Step 1–3)
+       ══════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — total-distance arithmetic. The "why we sum lengths"
+       reasoning has already been shown via the Phase-1 measuring-line
+       animation, so this card goes straight to substitution. Holds
+       through "Got it? Perfect." -->
+  <div data-hf-id="hf-4xr9" id="card-step1" class="clip" data-start="40.2" data-duration="9.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-62u5" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;width:660px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-4eyf" class="rv" data-t="40.20">Total Distance = Length A + Length B</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-x2fv" class="rv" data-t="41.86">160</span> <span data-hf-id="hf-ebbp" class="rv" data-t="43.46">+</span> <span data-hf-id="hf-a63k" class="rv" data-t="44.06">140</span> <span data-hf-id="hf-83bt" class="rv" data-t="45.60">=</span> <span data-hf-id="hf-js3x" class="ans rv" data-t="45.96">300 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — opposite-direction "add speeds" rule, substitute, then
+       convert km/hr to m/s (the classic unit trap in this topic). Widened
+       to 780px since "Relative Speed = 54 + 36 = 90 km/hr" is the longest
+       line. Holds through the final recap ("everything is ready... using
+       the formula"). -->
+  <div data-hf-id="hf-0zl5" id="card-step2" class="clip" data-start="49.4" data-duration="40.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-isam" class="solution-card" style="position:absolute;left:570px;top:370px;text-align:center;width:780px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-eabe" class="rv" data-t="49.40">Opposite Directions, Speeds Add</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-opke" class="rv" data-t="58.00">Relative Speed = Speed A + Speed B</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-ft4h" class="rv" data-t="65.60">54</span> <span data-hf-id="hf-euh8" class="rv" data-t="66.26">+</span> <span data-hf-id="hf-a4nb" class="rv" data-t="66.56">36</span> <span data-hf-id="hf-gwgv" class="rv" data-t="67.66">=</span> <span data-hf-id="hf-oae2" class="hi rv" data-t="67.90">90 km/hr</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-vv1f" class="rv" data-t="69.74">Convert km/hr to m/s</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-1ubz" class="rv" data-t="76.88">90</span> <span data-hf-id="hf-iisg" class="rv" data-t="77.28">×</span>
+          <span data-hf-id="hf-w8tu" class="frac rv" data-t="78.00"><span data-hf-id="hf-6owu" class="top hi">5</span><span data-hf-id="hf-bwfg" class="bot hi">18</span></span>
+          <span data-hf-id="hf-mowi" class="rv" data-t="78.72">=</span> <span data-hf-id="hf-1tjw" class="ans rv" data-t="79.10">25 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Time = Distance / Speed (as a real .frac, never a bare
+       ÷), substitute, deliver the answer. -->
+  <div data-hf-id="hf-jnwi" id="card-step3" class="clip" data-start="89.3" data-duration="10.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-1hjr" class="solution-card" style="position:absolute;left:610px;top:440px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-s7or" class="rv" data-t="89.30">Time = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-42u8" class="bot hi">Speed</span></span></span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-ekok" class="rv" data-t="92.92">Time</span> <span data-hf-id="hf-6k6r" class="rv" data-t="93.32">=</span>
+          <span data-hf-id="hf-jlje" class="frac rv" data-t="93.76"><span data-hf-id="hf-q0ck" class="top hi">300</span><span data-hf-id="hf-6t40" class="bot hi">25</span></span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-tl1i" class="rv" data-t="97.44">=</span> <span data-hf-id="hf-yk0n" class="ans rv" data-t="97.64">12 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps) — tops set at runtime by
+       layoutStack() below from each card's real rendered height.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-ztlt" id="stack-given" class="clip" data-start="39.2" data-duration="68" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-gn3z" class="math">
+          Train A = <span data-hf-id="hf-tk0e" class="hi">160 m</span>, <span data-hf-id="hf-e27q" class="hi">54 km/hr</span><br data-hf-id="hf-ombl">
+          Train B = <span data-hf-id="hf-jj2s" class="hi">140 m</span>, <span data-hf-id="hf-gmi2" class="hi">36 km/hr</span><br data-hf-id="hf-qsyj">
+          Direction = <span data-hf-id="hf-bexh" class="hi">Opposite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-qncg" id="stack-step1" class="clip" data-start="48.4" data-duration="59" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-oj9m" class="math">
+          160 + 140 = <span data-hf-id="hf-8xzn" class="ans">300 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ax5e" id="stack-step2" class="clip" data-start="88.3" data-duration="19.2" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-mwgs" class="math">
+          54 + 36 = 90 km/hr<br data-hf-id="hf-r79k">
+          × <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-r7nm" class="top hi">5</span><span data-hf-id="hf-tx8k" class="bot hi">18</span></span> = <span data-hf-id="hf-a3v3" class="ans">25 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-vgsw" id="stack-step3" class="clip" data-start="99.0" data-duration="8.5" data-track-index="14" style="position:absolute;left:100px;top:660px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-dxcd" class="math">
+          <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-3lh8" class="top hi">300</span><span data-hf-id="hf-owd4" class="bot hi">25</span></span> = <span data-hf-id="hf-1841" class="ans">12 s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines between stack circles — geometry set at
+       runtime by apt.setStackLine() from the actual rendered circle
+       centers, never hand-guessed. -->
+  <div data-hf-id="hf-wy79" id="line-g-1" class="clip stack-line" data-start="48.4" data-duration="59" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-tfm6" id="line-1-2" class="clip stack-line" data-start="88.3" data-duration="19.2" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-16h9" id="line-2-3" class="clip stack-line" data-start="99.0" data-duration="8.5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-2vk7" id="options-reveal" class="clip" data-start="100.0" data-duration="7.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-ol8b" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>10.56 s</div>
+        <div data-hf-id="hf-3oj0" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>12 s</div>
+        <div data-hf-id="hf-4xkj" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>13.44 s</div>
+        <div data-hf-id="hf-avss" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>14.88 s</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  /* Customize the timeline by editing per-question timings below.
+     The animations.js helpers handle the standard enter/exit patterns. */
+
+  // Space the stack column with a real, measured gap (Given is 3 lines,
+  // Step 1 is 1, Step 2 is 2, Step 3 is 1).
+  (function layoutStack() {
+    const ids = ["stack-given", "stack-step1", "stack-step2", "stack-step3"];
+    const root = document.querySelector("#root");
+    const rootBox = root.getBoundingClientRect();
+    const pxScale = 1920 / rootBox.width;
+    const gap = 40;
+    let top = 140;
+    ids.forEach(function (id) {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      wrapper.style.top = top + "px";
+      const card = wrapper.querySelector(".stack-card");
+      const h = card ? card.getBoundingClientRect().height * pxScale : 120;
+      top += h + gap;
+    });
+  })();
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.70; // end of "...one more problem."
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)", y: HERO_OFFSET_Y },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Rail + two trains assemble as every given fact is narrated
+  apt.roadSweep(tl, "#rail", 4.22);
+  apt.cardEnter(tl, "#train-a-unit", 6.00);    // "two" (trains)
+  apt.cardEnter(tl, "#train-b-outer", 6.00);
+  apt.cardEnter(tl, "#length-badge-a", 6.96);  // "The length of the first train is..."
+  apt.cardEnter(tl, "#length-badge-b", 9.92);  // "and the length of the second train is..."
+  apt.cardEnter(tl, "#speed-badge-a", 13.18);  // "Their speeds are..."
+  apt.cardEnter(tl, "#speed-badge-b", 15.54);  // "and thirty-six..."
+  apt.cardEnter(tl, "#opp-arrows", 19.48);     // "both" (trains are moving in opposite directions)
+  apt.cardEnter(tl, "#target-tag", 22.42);     // "The question is asking us to find..."
+
+  // ── Given card — managed inside Phase 1. Appears right after the
+  // target tag, holds through the "what does completely cross mean"
+  // concept beat below.
+  const GIVEN_TIME = 7.00; // right as "The length of the first train is..." starts
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math"); // each value reveals at its own spoken moment
+
+  // ── Crossing animation — while "completely cross each other... cover
+  // the sum of their lengths" is narrated (27.04–39.86), the trains
+  // actually drive all the way past each other's starting position (a
+  // real pass, not a token drift). Badges move WITH their train (they're
+  // separate DOM siblings, so they get the same tween, not a nested
+  // transform). Opposite-arrows fade first — the trains are about to
+  // drive straight through that spot.
+  apt.fadeOut(tl, "#opp-arrows", 27.20, 0.3);
+  const CROSS_START = 27.60;
+  const CROSS_DUR = 11.60; // ends 39.20, just before the pin
+  const CROSS_DIST = 980;  // each train ends past the other's start position
+  tl.to("#train-a-unit, #length-badge-a, #speed-badge-a",
+    { x: CROSS_DIST, duration: CROSS_DUR, ease: "power1.inOut" }, CROSS_START);
+  tl.to("#train-b-outer, #length-badge-b, #speed-badge-b",
+    { x: -CROSS_DIST, duration: CROSS_DUR, ease: "power1.inOut" }, CROSS_START);
+
+  // Bracket + label fades in once the trains have visibly crossed,
+  // timed to "...cover the sum of their lengths" (35.56).
+  const CROSS_LINE_START = 30.00;
+  const CROSS_LINE_DUR = 10.00; // ends 40.00 — right as the trains' backs meet the line's ends
+  apt.cardEnter(tl, "#cross-bracket-wrap", CROSS_LINE_START);
+  tl.fromTo("#cross-line", { scaleX: 0 }, { scaleX: 1, duration: CROSS_LINE_DUR, ease: "sine.inOut" }, CROSS_LINE_START);
+  // Vertical end-ticks appear only once the line has actually grown out
+  // to meet them — not before, so they read as "the line just reached
+  // the ends" rather than pre-existing markers.
+  apt.fadeIn(tl, "#cross-tick-left", CROSS_LINE_START + CROSS_LINE_DUR, 0.3);
+  apt.fadeIn(tl, "#cross-tick-right", CROSS_LINE_START + CROSS_LINE_DUR, 0.3);
+
+  // ── PHASE 2 — Pin flow. Fires right as the concept beat + crossing
+  // animation finish (~39.86), keeping Phase 1 running the full ~40s.
+  const PIN_TIME = 39.90;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Pinned two-train recap keeps bobbing through the entire Step 1 → 3
+  // hold — the longest ambient-loop span in this topic so far.
+  const RECENTER_TIME = 99.00;
+  apt.ambientLoop(tl, "#illus-pinned-icon-a", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+  apt.ambientLoop(tl, "#illus-pinned-icon-b", PIN_TIME + 1, RECENTER_TIME, { period: 1.4, amp: 6 });
+
+  // ── STEP 1 — Given morphs into the stack right as the question pins;
+  // Step 1 opens with the total-distance substitution (the "why we sum
+  // lengths" reasoning already played out via the measuring-line above).
+  const GIVEN_MORPH_TIME = 39.20;
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", GIVEN_MORPH_TIME);
+  const STEP1_TIME = 40.20; // "The total distance will be 160 plus 140..."
+  apt.cardEnter(tl, "#card-step1 .solution-card", STEP1_TIME);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2 — Step 1 joins the stack: grow the G→1 connector line at the
+  // same moment. Step 2 states the opposite-direction rule, substitutes,
+  // then converts km/hr to m/s.
+  const STEP1_MORPH_TIME = 48.40;
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", STEP1_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-g-1", STEP1_MORPH_TIME);
+  const STEP2_TIME = 49.40;
+  apt.cardEnter(tl, "#card-step2 .solution-card", STEP2_TIME);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── STEP 3 — Step 2 joins the stack: grow the 1→2 connector line. Step 3
+  // states the Time = Distance/Speed formula, substitutes, resolves.
+  const STEP2_MORPH_TIME = 88.30;
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", STEP2_MORPH_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", STEP2_MORPH_TIME);
+  const STEP3_TIME = 89.30;
+  apt.cardEnter(tl, "#card-step3 .solution-card", STEP3_TIME);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — clear the pinned illustration and align the pinned
+  // question against the stack column before the options reveal. Stack
+  // cards/circles/lines are deliberately NOT faded — they stay visible
+  // through the options reveal.
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal. Step 3 joins the stack: grow the 2→3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 100.00);
+  apt.optionsStagger(tl, ".opt-btn", 100.60);
+  apt.correctPulse(tl, ".opt-btn.correct", 104.10); // "...option B."
+
+  // ── END FADE — everything fades out together, once, after the correct
+  // pulse and narration have both settled.
+  const END_FADE_TIME = 105.50;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 109);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

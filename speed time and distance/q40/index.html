@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Illustration-only accent — same one as q39, not a design-system token.
+     Used ONLY on the track dots/tails/red legend swatch. */
+  :root { --runner-red: #e2574a; }
+
+  .illustration.circular-illus {
+    display: block !important; /* override template's flex default */
+  }
+  .track-svg { position: absolute; left: 50%; top: 0; transform: translateX(-50%); }
+  .track-ring {
+    fill: none; stroke: #e2e2e2; stroke-width: 14;
+    transform-origin: 280px 280px; transform: rotate(-90deg);
+  }
+  .tail { fill: none; stroke-width: 14; stroke-linecap: round; opacity: 0; }
+  .tail.red  { stroke: var(--runner-red); }
+  .tail.blue { stroke: var(--primary); }
+  .dot { stroke: #FFFFFF; stroke-width: 3; opacity: 0; }
+  .dot.red  { fill: var(--runner-red); }
+  .dot.blue { fill: var(--primary); }
+
+  .track-tag {
+    position: absolute; left: 50%; top: 14px; transform: translateX(-50%);
+    font-family: var(--font); font-size: 22px; color: var(--topic); opacity: 0;
+  }
+  .dir-arrows-glyph {
+    position: absolute; left: 50%; top: 44px; transform: translateX(-50%);
+    font-family: var(--font); font-size: 26px; color: var(--topic); opacity: 0;
+    letter-spacing: 10px;
+  }
+  .track-center-label {
+    position: absolute; left: 50%; top: 280px; transform: translate(-50%,-50%);
+    text-align: center; opacity: 0;
+  }
+  .track-center-label .cl-value {
+    font-family: var(--font); font-weight: 500; font-size: 34px; color: var(--text);
+  }
+  .track-center-label .cl-caption {
+    font-family: var(--font); font-weight: 400; font-size: 20px; color: var(--topic);
+    margin-bottom: 4px;
+  }
+  #lap-caption {
+    font-family: var(--font); font-weight: 500; font-size: 18px; color: var(--success);
+    margin-top: 4px; opacity: 0;
+  }
+
+  .runner-tag {
+    position: absolute; top: 268px; display: flex; align-items: center; gap: 10px;
+    font-family: var(--font); font-size: 24px; color: var(--text); opacity: 0;
+  }
+  .runner-tag .swatch {
+    width: 18px; height: 18px; border-radius: 50%; display: inline-block;
+  }
+  .runner-tag .swatch.red  { background: var(--runner-red); }
+  .runner-tag .swatch.blue { background: var(--primary); }
+  #tag-red  { right: 0; }
+  #tag-blue { left: 0; }
+
+  .pinned-track-label { font-family: var(--font); font-size: 20px; color: var(--text); margin-top: 6px; text-align: center; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-8xh5" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="95.7" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–64.5s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-b4dv" id="phase1" class="clip" data-start="0" data-duration="65.8" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-5mb2" class="q-text">
+        Two walkers start together on a <span data-hf-id="hf-4uek" class="num">600 m</span> circular track and move in
+        <span data-hf-id="hf-wi7g" class="num">opposite directions</span> at <span data-hf-id="hf-ww4p" class="num">7 m/s</span> and <span data-hf-id="hf-k0dz" class="num">5 m/s</span>.
+        After how many seconds will they meet for the first time?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration: 600 m circular track, two dots (red/blue) sweeping in
+         OPPOSITE directions with rotating comet-tail traces, legend, and a
+         live "Together" (combined-distance) counter at the ring's center. -->
+    <div data-hf-id="hf-r6lc" id="illustration" class="illustration circular-illus" style="position:absolute;left:50%;top:440px;transform:translateX(-50%);width:900px;height:580px;">
+
+      <svg data-hf-id="hf-983h" id="track-svg" class="track-svg" viewBox="0 0 560 560" width="560" height="560">
+        <circle data-hf-id="hf-w2nn" id="track-ring" class="track-ring" cx="280" cy="280" r="220" />
+
+        <!-- Blue (Walker B, 5 m/s) will rotate COUNTER-clockwise (negative
+             degrees) — its tail is authored on the +angle side of the dot so
+             it trails correctly once the rotation sign flips (mirror of q39's
+             blue tail, which was authored on the -angle side for clockwise
+             motion). -->
+        <g data-hf-id="hf-ar6s" id="runner-blue-group">
+          <path data-hf-id="hf-nv1d" id="tail-blue" class="tail blue" d="M 280 60 A 220 220 0 0 1 390 89.5" />
+          <circle data-hf-id="hf-tg4q" id="dot-blue" class="dot blue" cx="280" cy="60" r="15" />
+        </g>
+        <!-- Red (Walker A, 7 m/s) rotates CLOCKWISE (positive degrees) — same
+             tail orientation as q39's red runner. -->
+        <g data-hf-id="hf-p3tp" id="runner-red-group">
+          <path data-hf-id="hf-oauj" id="tail-red" class="tail red" d="M 124.4 124.4 A 220 220 0 0 1 280 60" />
+          <circle data-hf-id="hf-nq04" id="dot-red" class="dot red" cx="280" cy="60" r="15" />
+        </g>
+      </svg>
+
+      <div data-hf-id="hf-3nhv" id="start-label" class="track-tag">Start</div>
+      <div data-hf-id="hf-uiiu" id="dir-arrows" class="dir-arrows-glyph">↻↺</div>
+
+      <div data-hf-id="hf-yqoj" id="center-label-static" class="track-center-label">
+        <div data-hf-id="hf-6v2a" class="cl-value">600 m</div>
+      </div>
+      <div data-hf-id="hf-moj7" id="center-label-live" class="track-center-label">
+        <div data-hf-id="hf-cft6" class="cl-caption">Together</div>
+        <div data-hf-id="hf-oywg" class="cl-value"><span data-hf-id="hf-bdat" id="together-counter-value">0</span> m</div>
+        <div data-hf-id="hf-ay5j" id="lap-caption">= 1 full lap combined!</div>
+      </div>
+
+      <div data-hf-id="hf-j6uj" id="tag-red" class="runner-tag"><span data-hf-id="hf-n4jw" class="swatch red"></span>Walker A · 7 m/s</div>
+      <div data-hf-id="hf-uo4p" id="tag-blue" class="runner-tag"><span data-hf-id="hf-o5f3" class="swatch blue"></span>Walker B · 5 m/s</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (64.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bo1s" id="q-pinned" class="clip" data-start="64.5" data-duration="34" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-mpx3" class="q-text">
+        <span data-hf-id="hf-i0sk" class="num">600 m</span> circular track, <span data-hf-id="hf-kres" class="num">opposite directions</span> —
+        <span data-hf-id="hf-5kt9" class="num">7 m/s</span> and <span data-hf-id="hf-d59z" class="num">5 m/s</span>. First meeting time?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration — a static snapshot of the two dots at their
+       ACTUAL head-on meeting point (210 deg clockwise from the start point,
+       the real 7/12 split of the ring), not back at the top like q39's
+       same-direction "lap" meeting. -->
+  <div data-hf-id="hf-pm89" id="illus-pinned" class="clip" data-start="64.5" data-duration="25" data-track-index="3" style="position:absolute;left:800px;top:170px;width:320px;height:220px;z-index:5;opacity:0;
+              display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-2bh2" width="130" height="130" viewBox="0 0 130 130">
+      <circle data-hf-id="hf-dnnp" cx="65" cy="65" r="48" fill="none" stroke="#e2e2e2" stroke-width="8" />
+      <circle data-hf-id="hf-wy89" cx="38" cy="104" r="7" fill="var(--primary)" stroke="#FFFFFF" stroke-width="2" />
+      <circle data-hf-id="hf-7x7c" cx="44" cy="110" r="7" fill="#e2574a" stroke="#FFFFFF" stroke-width="2" />
+    </svg>
+    <div data-hf-id="hf-6a6e" class="pinned-track-label">600 m</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (Given + 2 Steps, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — recap card. .rv timestamps point to the ORIGINAL Phase-1
+       moments each fact was narrated (no separate recap beat exists in the
+       narration at PIN_TIME — "Now let us solve it" flows straight into
+       Step 1) — same honest-recap technique as q39/q12's Given cards. -->
+  <div data-hf-id="hf-w9hz" id="card-given" class="clip" data-start="64.5" data-duration="1.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-q7kv" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;width:680px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-wo0m" class="rv" data-t="7.859">Track = <span data-hf-id="hf-o225" class="hi">600 m</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-1csb" class="rv" data-t="11.979">Walker A speed = <span data-hf-id="hf-u2t8" class="hi">7 m/s</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-o4i6" class="rv" data-t="15.719">Walker B speed = <span data-hf-id="hf-s15a" class="hi">5 m/s</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-krux" class="rv" data-t="20.279">Direction = <span data-hf-id="hf-iv19" class="hi">Opposite directions</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Formula + Relative Speed -->
+  <div data-hf-id="hf-p5b3" id="card-step1" class="clip" data-start="66.4" data-duration="14.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:460px;text-align:center;width:720px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-46bs" class="rv" data-t="70.799">Time = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-299e" class="top hi">Total Distance</span><span data-hf-id="hf-8ble" class="bot hi">Relative Speed</span></span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-m86d" class="rv" data-t="77.22">Relative Speed = 7 + 5 =</span>
+          <span data-hf-id="hf-xg2g" class="ans rv" data-t="78.639">12 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Substitute -> answer -->
+  <div data-hf-id="hf-9uoj" id="card-step2" class="clip" data-start="80.9" data-duration="8.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-x4q0" class="solution-card" style="position:absolute;left:640px;top:490px;text-align:center;width:640px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-9lp3" class="rv" data-t="82.699"><span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-a4ub" class="top hi">600</span><span data-hf-id="hf-7xd6" class="bot hi">12</span></span></span> <span data-hf-id="hf-kq1r" class="rv" data-t="84.379">=</span>
+          <span data-hf-id="hf-e14c" class="ans rv" data-t="87.099">50 sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (Given, Step 1, Step 2)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bw2q" id="stack-given" class="clip" data-start="65.4" data-duration="33" data-track-index="11" style="position:absolute;left:100px;top:160px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-b5ll" class="math">
+          Track = <span data-hf-id="hf-3c4h" class="hi">600 m</span><br data-hf-id="hf-regs">
+          Speeds = <span data-hf-id="hf-9fec" class="hi">7 m/s</span>, <span data-hf-id="hf-ef2q" class="hi">5 m/s</span><br data-hf-id="hf-r05r">
+          Direction = <span data-hf-id="hf-5oap" class="hi">Opposite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-nwla" id="stack-step1" class="clip" data-start="79.9" data-duration="18.5" data-track-index="12" style="position:absolute;left:100px;top:330px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-ysae" class="math">
+          Relative Speed = 7 + 5 = <span data-hf-id="hf-39wp" class="ans">12 m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-odjc" id="stack-step2" class="clip" data-start="88.459" data-duration="9.5" data-track-index="13" style="position:absolute;left:100px;top:450px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-p6q9" class="math">
+          Time = <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-b5oj" class="top hi">600</span><span data-hf-id="hf-b59q" class="bot hi">12</span></span> = <span data-hf-id="hf-vi3z" class="ans">50 sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-we1w" id="line-g-1" class="clip stack-line" data-start="79.9" data-duration="18.5" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-v39v" id="line-1-2" class="clip stack-line" data-start="88.459" data-duration="9.5" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-chap" id="options-reveal" class="clip" data-start="88.459" data-duration="9.5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-uno6" class="opt-btn correct"><span data-hf-id="hf-sfug" class="letter">A</span>50 seconds</div>
+        <div data-hf-id="hf-kd91" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>40 seconds</div>
+        <div data-hf-id="hf-34fu" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>45 seconds</div>
+        <div data-hf-id="hf-hxyj" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>55 seconds</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  // Track-ring stroke-draw setup (svg-path-draw technique) — measured at
+  // build time via getTotalLength(), not a guessed circumference.
+  const trackRing = document.getElementById("track-ring");
+  const trackLen = trackRing.getTotalLength();
+  trackRing.style.strokeDasharray = trackLen;
+  trackRing.style.strokeDashoffset = trackLen;
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  const RISE_TIME = 2.22;
+  apt.heroEnterLowered(tl, "#q-full-card", 180, RISE_TIME);
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: 180 },
+    { scale: 1, rotation: 0, opacity: 1, y: 180, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Track draws itself, 12 o'clock -> clockwise -> full circle
+  tl.fromTo("#track-ring",
+    { strokeDashoffset: trackLen },
+    { strokeDashoffset: 0, duration: 3.2, ease: "power2.out" },
+    3.5);
+  apt.fadeIn(tl, "#center-label-static", 7.859, 0.4);
+
+  // Both dots appear together at the start point
+  apt.fadeIn(tl, "#dot-red, #dot-blue", 9.86, 0.5);
+  apt.fadeIn(tl, "#tag-red", 11.979, 0.4);
+  apt.fadeIn(tl, "#tag-blue", 15.719, 0.4);
+
+  // Same start, OPPOSITE directions
+  apt.fadeIn(tl, "#start-label", 17.42, 0.4);
+  apt.fadeIn(tl, "#dir-arrows", 20.279, 0.4);
+  tl.to("#dot-red, #dot-blue", { attr: { r: 17 }, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 20.92);
+
+  // ── THE WALK — one continuous, physically-honest motion sequence. Red
+  // sweeps CLOCKWISE (+210deg = its 7/12 share of the ring); blue sweeps
+  // COUNTER-CLOCKWISE (-150deg = its 5/12 share) — a real 7:5 split summing
+  // to exactly 360deg, matching the true relative-speed ratio (time-
+  // compressed, not literally 50 real seconds — same simplification class
+  // as q39/q37). Rotation uses the SVG transform ATTRIBUTE with an explicit
+  // center (280 280), not CSS transform-origin — see q39 for why.
+  const MOTION_START = 35.38;
+  const MEET_TIME = 62.1;
+  const MOTION_DURATION = MEET_TIME - MOTION_START;
+  const RED_TARGET_DEG = 210;   // 360 * 7/12
+  const BLUE_TARGET_DEG = -150; // 360 * 5/12, negative = counter-clockwise
+
+  apt.fadeOut(tl, "#center-label-static", MOTION_START, 0.3);
+  apt.fadeIn(tl, "#center-label-live", MOTION_START + 0.2, 0.3);
+  apt.fadeIn(tl, "#tail-red, #tail-blue", MOTION_START, 0.3);
+
+  const redGroupEl = document.getElementById("runner-red-group");
+  const blueGroupEl = document.getElementById("runner-blue-group");
+  const togetherValueEl = document.getElementById("together-counter-value");
+  const motionState = { t: 0 };
+  tl.to(motionState, {
+    t: 1,
+    duration: MOTION_DURATION,
+    ease: "none",
+    onUpdate: function () {
+      redGroupEl.setAttribute("transform", "rotate(" + (motionState.t * RED_TARGET_DEG) + " 280 280)");
+      blueGroupEl.setAttribute("transform", "rotate(" + (motionState.t * BLUE_TARGET_DEG) + " 280 280)");
+      if (togetherValueEl) togetherValueEl.textContent = Math.round(motionState.t * 600);
+    }
+  }, MOTION_START);
+
+  // MEET — red and blue arrive at the same point from opposite sides,
+  // combined distance = 600 m = one full lap together. Dots pulse (SVG
+  // attr, not CSS scale), counter locks green.
+  tl.to("#dot-red, #dot-blue", { attr: { r: 22 }, duration: 0.3, ease: "back.out(1.6)", yoyo: true, repeat: 1 }, MEET_TIME);
+  tl.to("#center-label-live", { scale: 1.15, duration: 0.3, ease: "back.out(1.5)", yoyo: true, repeat: 1 }, MEET_TIME);
+  tl.to("#center-label-live .cl-value, #center-label-live .cl-caption", { color: "#4eb85f", duration: 0.3 }, MEET_TIME);
+  apt.fadeIn(tl, "#lap-caption", MEET_TIME + 0.2, 0.3);
+
+  // GIVEN — recap (no separate recap narration beat here; PIN_TIME and
+  // GIVEN_TIME coincide by the narration's own structure, not by default).
+  const PIN_TIME = 64.5;
+  const GIVEN_TIME = 64.5;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — Formula + Relative Speed
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 65.4);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 66.4);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Substitute -> 50 sec
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 79.9);
+  apt.stackLineGrow(tl, "#line-g-1", 79.9);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 80.9);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Recenter — clear stack column, align pinned question before options
+  const RECENTER_TIME = 88.459;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 2 joins the stack
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 89.2);
+  apt.optionsStagger(tl, ".opt-btn", 89.7);
+  apt.correctPulse(tl, ".opt-btn.correct", 95.059);
+
+  // END FADE
+  const END_FADE_TIME = 96.8;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 99);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

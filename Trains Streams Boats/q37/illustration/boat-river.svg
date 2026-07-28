@@ -1,0 +1,27 @@
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <!-- river band -->
+  <rect x="0" y="120" width="700" height="60" fill="#e2e5ff"/>
+  <path d="M0 130 Q 25 122 50 130 T 100 130 T 150 130 T 200 130 T 250 130 T 300 130 T 350 130 T 400 130 T 450 130 T 500 130 T 550 130 T 600 130 T 650 130 T 700 130"
+        fill="none" stroke="#6373db" stroke-width="2" opacity="0.5"/>
+  <path d="M0 150 Q 25 142 50 150 T 100 150 T 150 150 T 200 150 T 250 150 T 300 150 T 350 150 T 400 150 T 450 150 T 500 150 T 550 150 T 600 150 T 650 150 T 700 150"
+        fill="none" stroke="#6373db" stroke-width="2" opacity="0.35"/>
+
+  <!-- boat hull -->
+  <g id="boat">
+    <path d="M300 118 L400 118 L385 148 L315 148 Z" fill="#6373db"/>
+    <rect x="335" y="90" width="10" height="30" fill="#6373db"/>
+    <path d="M345 92 L345 118 L375 118 Z" fill="#000000"/>
+  </g>
+
+  <!-- upstream arrow (left, against stream) -->
+  <g id="arrow-upstream">
+    <line x1="250" y1="105" x2="140" y2="105" stroke="#000000" stroke-width="4"/>
+    <path d="M140 105 L158 96 L158 114 Z" fill="#000000"/>
+  </g>
+
+  <!-- downstream arrow (right, with stream) -->
+  <g id="arrow-downstream">
+    <line x1="450" y1="165" x2="560" y2="165" stroke="#4eb85f" stroke-width="4"/>
+    <path d="M560 165 L542 156 L542 174 Z" fill="#4eb85f"/>
+  </g>
+</svg>

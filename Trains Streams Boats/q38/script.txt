@@ -1,0 +1,43 @@
+So "welcome back again", <break time="0.4s" /> it's time to solve one more problem.
+
+Now in this problem, we are given that two trains have the same speed.
+
+Train 1 crosses a pole in 12 seconds, and Train 2 crosses a pole in 18 seconds.
+
+The question is asking us to find the rayshio of their lengths.
+
+Let the speed of each train be "v" mee-ter per second.
+
+Let the lengths of the two trains be L1 and L2.
+
+Now the important concept here is, "when a train crosses a pole, it covers only its own length."
+
+There is no platform or another train involved. So the distance covered is simply the length of the train.
+
+Hence, we use the formula,
+
+Time = Length of Train divided by Speed.
+<break time="0.5s" />
+
+Since both trains have the "same speed", this speed will be equal for both.
+
+So we can say,
+
+L1 by L2 <break time="0.5s" />= T1 by T2.
+
+Why? Because length is directly proportional to time when the speed remains the same.
+
+This is the main idea of the question.
+
+Now let us put the given values.
+
+L1 by L2 = 12 by 18.
+
+After simplifying this by dividing both numbers by 6, we get,
+
+L₁ by L₂ = 2 by 3.
+<break time="0.6s" />
+
+So the required rayshio of the lengths of the two trains is "2 is to 3".
+
+Hence, the correct option is "Option B".

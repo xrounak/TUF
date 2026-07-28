@@ -1,0 +1,37 @@
+Question:
+A cyclist rides 35 km in 1 hour 24 minutes. Find the average speed.
+
+Options:
+A. 25 km/hr
+B. 20 km/hr
+C. 22 km/hr
+D. 28 km/hr
+
+Correct Option: A
+
+Solution:
+Given values:
+Distance = 35 km
+Time = 1 hr 24 min
+
+The speed is asked in km/hr, while the time is given in hours and minutes. So before using the formula, we must first convert the time fully into hours.
+
+We know that 1 hour = 60 minutes.
+So, 24 minutes = 24 / 60 hr = 2/5 hr
+
+We already have 1 hour, so:
+Total Time = 1 + 2/5 = 7/5 hr
+
+Now apply the basic formula.
+Average Speed = Distance / Time
+
+Putting the values:
+Average Speed = 35 / (7/5)
+
+Dividing by a fraction is the same as multiplying by its reciprocal.
+= 35 x (5/7)
+= 25 km/hr
+
+So the average speed of the cyclist is 25 km/hr.
+
+Hence, the correct answer is Option A.

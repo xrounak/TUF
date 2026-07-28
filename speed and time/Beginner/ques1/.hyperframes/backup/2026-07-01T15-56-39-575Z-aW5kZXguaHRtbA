@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-2918" class="topic-name">Speed and Time</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-8gzu" id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="72.3" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–17s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mdnc" id="phase1" class="clip" data-start="0" data-duration="17" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <!-- Question card (full) -->
+    <div data-hf-id="hf-jnl9" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);">
+      <div data-hf-id="hf-ex5s" class="q-text">
+        A runner covers a distance of <span data-hf-id="hf-44fm" class="num">400 m</span> in <span data-hf-id="hf-4djc" class="num">4 minutes</span>.
+        Find the runner's speed in <span data-hf-id="hf-jnsi" class="num">km/hr</span>.
+      </div>
+    </div>
+
+    <!-- Serial number badge -->
+    <div data-hf-id="hf-n9mg" id="serial-num" class="serial-num" style="left:60px;top:60px;">
+      <div data-hf-id="hf-lpki" class="digit">1</div>
+    </div>
+
+    <!-- Illustration area: runner on a track -->
+    <div data-hf-id="hf-appz" id="illustration" class="illustration" style="position:absolute;left:50%;top:520px;transform:translateX(-50%);
+                width:1400px;height:220px;">
+      <div data-hf-id="hf-8z0r" id="track-line" style="position:absolute;left:0;top:140px;width:1400px;height:6px;background:#e2e5ff;border-radius:3px;transform-origin:left center;"></div>
+      <div data-hf-id="hf-ev35" id="runner" style="position:absolute;left:0;top:80px;font-size:64px;line-height:1;">🏃</div>
+      <div data-hf-id="hf-32wc" id="dist-label" style="position:absolute;left:0;top:170px;width:1400px;text-align:center;
+           font-family:'Google Sans Flex', Inter, sans-serif;font-weight:400;font-size:32px;color:#000;opacity:0;">
+        Distance = <span data-hf-id="hf-6ifn" style="color:#6373db;">400 m</span>
+      </div>
+      <div data-hf-id="hf-2ti3" id="time-label" style="position:absolute;left:0;top:20px;width:1400px;text-align:center;
+           font-family:'Google Sans Flex', Inter, sans-serif;font-weight:400;font-size:32px;color:#000;opacity:0;">
+        Time = <span data-hf-id="hf-2uzx" style="color:#6373db;">4 minutes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (17s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-tnlp" id="q-pinned" class="clip" data-start="17" data-duration="56" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-0x9h" class="q-card pinned" style="position:absolute;left:1140px;top:30px;width:1400px;transform:translateX(-50%);">
+      <div data-hf-id="hf-6nad" class="q-text" style="font-size:30px;">
+        Runner covers <span data-hf-id="hf-7jue" class="num">400 m</span> in <span data-hf-id="hf-cg74" class="num">4 minutes</span>. Speed in <span data-hf-id="hf-lx4m" class="num">km/hr</span>?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller) -->
+  <div data-hf-id="hf-a1hv" id="illus-pinned" class="clip" data-start="17" data-duration="56" data-track-index="3" style="position:absolute;left:390px;top:170px;width:1500px;height:140px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:40px;">
+    <div data-hf-id="hf-hxb8" style="font-size:40px;">🏃</div>
+    <div data-hf-id="hf-snt1" style="font-family:'Google Sans Flex', Inter, sans-serif;font-size:22px;color:#000;">
+      400 m in <span data-hf-id="hf-ikio" style="color:#6373db;">4 min</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-83e9" id="card-given" class="clip" data-start="17" data-duration="8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <span data-hf-id="hf-7r0o" class="chip">Given</span>
+      <div data-hf-id="hf-cros" class="math">
+        Distance = <span data-hf-id="hf-41on" class="hi">400 m</span><br data-hf-id="hf-x5px">
+        Time = <span data-hf-id="hf-4cdd" class="hi">4 minutes</span><br data-hf-id="hf-rsrt">
+        Speed = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-buns" class="top hi">Distance</span><span data-hf-id="hf-36mc" class="bot hi">Time</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-66vc" id="card-step1" class="clip" data-start="25" data-duration="11" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+      <div data-hf-id="hf-zd2o" class="math">
+        Convert time to seconds<br data-hf-id="hf-szow">
+        4 × <span data-hf-id="hf-vyaa" class="hi">60</span> = <span data-hf-id="hf-lmhy" class="ans">240 s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-77w4" id="card-step2" class="clip" data-start="36" data-duration="9.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+      <div data-hf-id="hf-tujc" class="math">
+        Speed =
+        <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-g4i8" class="top hi">Distance</span><span data-hf-id="hf-ypoc" class="bot hi">Time</span></span>
+        =
+        <span data-hf-id="hf-tacg" class="frac"><span data-hf-id="hf-yzrt" class="top hi">400</span><span data-hf-id="hf-l37d" class="bot hi">240</span></span>
+        = <span data-hf-id="hf-bk4x" class="ans">5/3 m/s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-uz7z" id="card-step3" class="clip" data-start="45.5" data-duration="24" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vijz" class="solution-card" style="position:absolute;left:580px;top:420px;text-align:center;width:760px;">
+      <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+      <div data-hf-id="hf-33ox" class="math">
+        Convert m/s to km/hr, multiply by
+        <span data-hf-id="hf-sw1f" class="frac"><span data-hf-id="hf-gx3q" class="top hi">18</span><span data-hf-id="hf-m8wg" class="bot hi">5</span></span><br data-hf-id="hf-sldv">
+        <span data-hf-id="hf-js5x" class="hi">5/3</span> ×
+        <span data-hf-id="hf-qwia" class="frac"><span data-hf-id="hf-ic8q" class="top hi">18</span><span data-hf-id="hf-k8ko" class="bot hi">5</span></span>
+        = <span data-hf-id="hf-7wro" class="ans">6 km/hr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-khk7" id="stack-given" class="clip" data-start="25" data-duration="47" data-track-index="11" style="position:absolute;left:30px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <span data-hf-id="hf-sni8" class="chip">Given</span>
+      <div data-hf-id="hf-9m4m" class="math">
+        Distance = <span data-hf-id="hf-bbtz" class="hi">400 m</span><br data-hf-id="hf-qluq">
+        Time = <span data-hf-id="hf-0ng5" class="hi">4 minutes</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-73n8" id="stack-step1" class="clip" data-start="36" data-duration="36" data-track-index="12" style="position:absolute;left:30px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <span data-hf-id="hf-qd3i" class="chip">Step 1</span>
+      <div data-hf-id="hf-w0oh" class="math">
+        4 min = <span data-hf-id="hf-ne5f" class="hi">240 s</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-y5tq" id="stack-step2" class="clip" data-start="45.5" data-duration="26.5" data-track-index="13" style="position:absolute;left:30px;top:440px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <span data-hf-id="hf-m16f" class="chip">Step 2</span>
+      <div data-hf-id="hf-0wda" class="math" style="font-size:11px;">
+        Speed =
+        <span data-hf-id="hf-qi79" class="frac"><span data-hf-id="hf-o8z1" class="top hi">400</span><span data-hf-id="hf-no0d" class="bot hi">240</span></span>
+        = <span data-hf-id="hf-n43t" class="hi">5/3</span> m/s
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-23p7" id="stack-step3" class="clip" data-start="70" data-duration="2.3" data-track-index="14" style="position:absolute;left:30px;top:590px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <span data-hf-id="hf-61ss" class="chip">Step 3</span>
+      <div data-hf-id="hf-9xsw" class="math" style="font-size:11px;">
+        5/3 × 18/5 = <span data-hf-id="hf-w2u4" class="ans">6 km/hr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (69.5–72.3s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-h35j" id="options-reveal" class="clip" data-start="69.5" data-duration="2.8" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2wtw" style="position:absolute;left:390px;top:350px;width:1500px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-43hg" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>5 km/hr</div>
+        <div data-hf-id="hf-otsu" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>7 km/hr</div>
+        <div data-hf-id="hf-q1lv" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>6 km/hr</div>
+        <div data-hf-id="hf-tvir" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>4 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal
+  apt.questionEnter(tl, "#q-full-card", 0.3);
+  apt.serialEnter(tl, "#serial-num", 0.8);
+
+  // Illustration build: track sweeps in, runner enters, labels fade
+  apt.roadSweep(tl, "#track-line", 2.0, 0.9);
+  tl.fromTo("#runner", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "back.out(1.4)" }, 2.3);
+  // Runner runs along the track while narration states the numbers
+  tl.to("#runner", { x: 1300, duration: 13.5, ease: "none" }, 3.0);
+  apt.fadeIn(tl, "#dist-label", 8.6);
+  apt.fadeIn(tl, "#time-label", 10.7);
+
+  // PHASE 2 — Pinned + Given
+  apt.fadeOut(tl, "#phase1", 16.6);
+  apt.fadeIn(tl, "#q-pinned", 17.0);
+  apt.fadeIn(tl, "#illus-pinned", 17.0);
+  apt.cardEnter(tl, "#card-given .solution-card", 17.3);
+
+  // STEP 1 — morph Given card into Given stack (0.8s)
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 24.6);
+  tl.set("#card-step1 .solution-card", { backgroundColor:"#ffffff", boxShadow:"0 6px 24px rgba(99,115,219,0.15)", x:0, y:0, scale:1, opacity:0 }, 24.9);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 25.0);
+
+  // STEP 2
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 35.5);
+  tl.set("#card-step2 .solution-card", { backgroundColor:"#ffffff", boxShadow:"0 6px 24px rgba(99,115,219,0.15)", x:0, y:0, scale:1, opacity:0 }, 35.9);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 36.0);
+
+  // STEP 3
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 45.0);
+  tl.set("#card-step3 .solution-card", { backgroundColor:"#ffffff", boxShadow:"0 6px 24px rgba(99,115,219,0.15)", x:0, y:0, scale:1, opacity:0 }, 45.4);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 45.5);
+  apt.emphasize(tl, "#card-step3 .ans", 65.7);
+
+  // PHASE 3 — Options reveal
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 69.3);
+  apt.fadeIn(tl, "#options-reveal", 69.6, 0.3);
+  apt.optionsStagger(tl, ".opt-btn", 70.0);
+  apt.correctPulse(tl, ".opt-btn.correct", 71.5);
+
+  tl.set({},{},74);
+
+  window.__timelines = wtl.to("#q-full-card", { keyframes: { "0%": { y: 0, scale: 1, opacity: 1 }, "100%": { y: 0, scale: 1, opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#serial-num", { keyframes: { "0%": { scale: 1, rotation: 0, opacity: 1 }, "100%": { scale: 1, rotation: 0, opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#track-line", { keyframes: { "0%": { scaleX: 0, transformOrigin: "left center", runBackwards: 1 }, "100%": { scaleX: 0, transformOrigin: "left center", runBackwards: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#runner", { keyframes: { "0%": { x: 0, opacity: 1 }, "100%": { x: 0, opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#dist-label", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#time-label", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#phase1", { keyframes: { "0%": { opacity: 0 }, "100%": { opacity: 0 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#q-pinned", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#illus-pinned", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#stack-given", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#stack-step1", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#stack-step2", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#options-reveal", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74);
+  tl.to("#stack-step3", { keyframes: { "0%": { opacity: 1 }, "100%": { opacity: 1 } }, duration: 8, ease: "none" }, 74); || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

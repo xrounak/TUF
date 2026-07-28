@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     PER-QUESTION ILLUSTRATION — Bus stop scene (custom, per README
+     "Illustration" section). All colors reuse existing tokens
+     (--primary, --primary-light, --text, #141515/#949494 already
+     present in bus.svg's own palette) — nothing new invented.
+     ═══════════════════════════════════════════════════════════════ */
+
+  #illustration {
+    position: absolute;
+    left: 50%;
+    top: 470px;
+    transform: translateX(-50%);
+    width: 1500px;
+    height: 260px;
+  }
+
+  /* Road surface, spans the illustration width. Static scaleX(0) matches
+     apt.roadSweep's "from" state so there's no one-frame flash of a
+     full-width road before the sweep tween reaches 3.7s. */
+  #road {
+    position: absolute;
+    left: 0; top: 229px;
+    width: 100%; height: 10px;
+    background: #141515;
+    border-radius: 4px;
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+  #road::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 3px;
+    height: 3px;
+    background-image: repeating-linear-gradient(to right, #ffffff 0 18px, transparent 18px 34px);
+    opacity: 0.55;
+  }
+
+  /* Bus-stop sign — pole + board. Static opacity:0 + lowered/scaled
+     transform matches apt.cardEnter's "from" state. */
+  #bus-stop-sign {
+    position: absolute; left: 0; top: 0; width: 0; height: 0;
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  .sign-pole {
+    position: absolute; left: 1080px; top: 129px;
+    width: 4px; height: 100px;
+    background: #141515;
+  }
+  .sign-board {
+    position: absolute; left: 1035px; top: 85px;
+    width: 94px; height: 44px;
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: #FFFFFF;
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Bus + its badges + motion-lines + skid-marks, one wrapper so they all
+     travel together during the drive-in / exit translateX tweens. Static
+     opacity:0 + translateX(-230px) (START_X) matches the drive-in tween's
+     "from" state. */
+  #bus-unit {
+    position: absolute; left: 0; top: 0; width: 190px; height: 260px;
+    opacity: 0;
+    transform: translateX(-230px);
+  }
+  #bus-icon {
+    position: absolute; left: 0; top: 70px;
+    width: 190px; height: 190px;
+    display: block;
+    transform: scaleX(-1); /* face the direction of travel (left → right) */
+  }
+  .badge-slot { position: absolute; left: 50%; top: 35px; transform: translateX(-50%); }
+  #speed-badge, #stop-badge {
+    position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+  }
+  #stop-badge { opacity: 0; }
+  .motion-line {
+    position: absolute; top: 150px;
+    width: 26px; height: 5px;
+    background: var(--primary-light);
+    border-radius: 3px;
+    opacity: 0;
+  }
+  #motion-line-1 { left: -22px; }
+  #motion-line-2 { left: -40px; }
+  #motion-line-3 { left: -58px; }
+  .skid-mark {
+    position: absolute; top: 224px;
+    width: 18px; height: 4px;
+    background: var(--primary-light);
+    border-radius: 2px;
+    opacity: 0;
+  }
+  #skid-1 { left: 28px; }
+  #skid-2 { left: 138px; }
+
+  /* Stop clock — sits beside the sign (illustration-relative, not part of
+     #bus-unit, so it stays put while the bus itself moves). Static
+     opacity:0 + lowered/scaled transform matches apt.cardEnter's "from"
+     state. */
+  #stop-clock {
+    position: absolute; left: 900px; top: 40px;
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid var(--primary);
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  #clock-center {
+    position: absolute; left: 38px; top: 38px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+  #clock-hand {
+    position: absolute; left: 40.5px; top: 12px;
+    width: 3px; height: 30px;
+    background: var(--primary);
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: rotate(0deg);
+  }
+  #stop-label {
+    position: absolute; left: 830px; top: 210px;
+    width: 200px;
+    text-align: center;
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--primary);
+    opacity: 0;
+  }
+
+  /* Pinned (Phase 2+) illustration recap — single icon + one short line,
+     centered per design.md's "Pinned illustration layout" guidance. */
+  .pinned-illus-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%; height: 100%;
+  }
+  #illus-pinned-icon { width: 90px; height: 90px; transform: scaleX(-1); }
+  .pinned-illus-label {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--text);
+  }
+  .pinned-illus-label .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-7uix" class="topic-name">Speed, Time and Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-xh3t" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="84.759" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Bus-stop Illustration (0–26s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-oamu" id="phase1" class="clip" data-start="0" data-duration="26.0" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-nrc4" class="q-text">
+        A bus has a running speed of <span data-hf-id="hf-0h11" class="num">54 km/hr</span> and stops for
+        <span data-hf-id="hf-jm6c" class="num">8 minutes</span> in every hour. What is its average speed including stops?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — bus-stop scene. top:300px is a manual tweak
+         (moved up from the CSS default of 470px) — keep as-is. -->
+    <div data-hf-id="hf-r783" id="illustration" style="top:300px">
+      <div data-hf-id="hf-mftz" id="road"></div>
+
+      <div data-hf-id="hf-5f28" id="bus-stop-sign">
+        <div data-hf-id="hf-5vqy" class="sign-pole"></div>
+        <div data-hf-id="hf-d9mk" class="sign-board">STOP</div>
+      </div>
+
+      <div data-hf-id="hf-4468" id="bus-unit">
+        <div data-hf-id="hf-vnwy" class="badge-slot">
+          <div data-hf-id="hf-1gri" id="speed-badge">54 km/hr</div>
+          <div data-hf-id="hf-auxo" id="stop-badge">Stopped</div>
+        </div>
+        <img data-hf-id="hf-k535" id="bus-icon" src="illustration/bus.svg" alt="">
+        <div data-hf-id="hf-isiq" class="motion-line" id="motion-line-1"></div>
+        <div data-hf-id="hf-euep" class="motion-line" id="motion-line-2"></div>
+        <div data-hf-id="hf-e2qw" class="motion-line" id="motion-line-3"></div>
+        <div data-hf-id="hf-694c" class="skid-mark" id="skid-1"></div>
+        <div data-hf-id="hf-h4lz" class="skid-mark" id="skid-2"></div>
+      </div>
+
+      <div data-hf-id="hf-th5c" id="stop-clock">
+        <div data-hf-id="hf-uu65" id="clock-center"></div>
+        <div data-hf-id="hf-7h9p" id="clock-hand"></div>
+      </div>
+      <div data-hf-id="hf-hd45" id="stop-label">Stop · 8 min</div>
+    </div>
+
+    <!-- Given — appears early, in the SAME frame as the bus scene, synced
+         to the moment the running-speed/stop-time facts are actually
+         narrated. Morphs into the stack later, at the same moment the
+         illustration leaves frame (see ILLUSTRATION_OUT_TIME below) — not
+         a fade. top:600px is a manual tweak (moved up from 760px) — kept. -->
+    <div data-hf-id="hf-5nsl" id="card-given" class="solution-card" style="position:absolute;left:650px;top:600px;text-align:center;width:620px;opacity:0;transform:translateY(40px) scale(0.92);">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-vud6" class="rv" data-t="6.62">Running Speed = <span data-hf-id="hf-tk36" class="hi">54 km/hr</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-5vpj" class="rv" data-t="11.54">Stop Time = <span data-hf-id="hf-kprk" class="hi">8 min</span> every hour</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (24.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bosj" id="q-pinned" class="clip" data-start="24.5" data-duration="63.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-3bvn" class="q-text">
+        Bus runs at <span data-hf-id="hf-qmax" class="num">54 km/hr</span>, stops <span data-hf-id="hf-cauh" class="num">8 min</span> every hour.
+        Average speed?
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-g7r6" id="illus-pinned" class="clip" data-start="24.5" data-duration="57.5" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:150px;z-index:5;opacity:0;">
+    <div data-hf-id="hf-y0qg" class="pinned-illus-content">
+      <img data-hf-id="hf-y1kp" id="illus-pinned-icon" src="illustration/bus.svg" alt="">
+      <div data-hf-id="hf-ziuv" class="pinned-illus-label">Speed = <span data-hf-id="hf-rt80" class="num">54 km/hr</span> · Stop = <span data-hf-id="hf-f3ys" class="num">8 min/hr</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — Actual running time -->
+  <div data-hf-id="hf-8jaw" id="card-step1" class="clip" data-start="25.0" data-duration="6.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-isny" class="rv" data-t="25.30">Every hour: 60 min − <span data-hf-id="hf-5op4" class="hi">8 min</span> stop</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-swlq" class="rv" data-t="28.16">= <span data-hf-id="hf-4gbk" class="ans">52 min</span> running</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Distance covered -->
+  <div data-hf-id="hf-e1pp" id="card-step2" class="clip" data-start="31.1" data-duration="26.4" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-tv19" class="solution-card" style="position:absolute;left:510px;top:410px;text-align:center;width:900px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-d8j2" class="rv" data-t="34.98">Distance = Speed × Time</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-nfxj" class="rv" data-t="37.40">Speed = <span data-hf-id="hf-e27q" class="hi">54 km/hr</span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-959a" class="rv" data-t="41.20">Time = <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-dm10" class="top hi">52</span><span data-hf-id="hf-7ybf" class="bot hi">60</span></span> hr</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-ilev" class="rv" data-t="48.56">54</span>
+          <span data-hf-id="hf-3n1h" class="rv" data-t="49.44">×</span>
+          <span data-hf-id="hf-n6ip" class="frac rv" data-t="49.72"><span data-hf-id="hf-cwl8" class="top hi">52</span><span data-hf-id="hf-p8aj" class="bot hi">60</span></span>
+          <span data-hf-id="hf-fssv" class="rv" data-t="52.08">=</span>
+          <span data-hf-id="hf-syxj" class="ans rv" data-t="53.82">46.8 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Average speed -->
+  <div data-hf-id="hf-9afl" id="card-step3" class="clip" data-start="57.0" data-duration="25.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vnqu" class="solution-card" style="position:absolute;left:600px;top:450px;text-align:center;width:790px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-3nh5" class="rv" data-t="58.04">In this <span data-hf-id="hf-l8g7" class="hi">1 hr</span> (with the stop):</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-nou7" class="rv" data-t="64.60">Distance = <span data-hf-id="hf-y9x4" class="hi">46.8 km</span></span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-egeg" class="rv" data-t="72.70">Since Time = 1 hour:</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-yhfz" class="rv" data-t="79.72">Average Speed = <span data-hf-id="hf-mimc" class="ans">46.8 km/hr</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mwls" id="stack-given" class="clip" data-start="24.8" data-duration="63.2" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-n8xs" class="math">
+          Running Speed = <span data-hf-id="hf-egir" class="hi">54 km/hr</span><br data-hf-id="hf-p0mm">
+          Stop Time = <span data-hf-id="hf-4hs1" class="hi">8 min</span> every hour
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-rbfk" id="stack-step1" class="clip" data-start="29.8" data-duration="58.2" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-1hja" class="math">
+          Running time = 60 − 8<br data-hf-id="hf-ombl">
+          = <span data-hf-id="hf-sazc" class="ans">52 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-a4co" id="stack-step2" class="clip" data-start="55.7" data-duration="32.3" data-track-index="13" style="position:absolute;left:100px;top:460px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-ycmt" class="math">
+          Distance = 54 ×
+          <span data-hf-id="hf-s3fd" class="frac"><span data-hf-id="hf-bpo5" class="top hi">52</span><span data-hf-id="hf-otzi" class="bot hi">60</span></span>
+          = <span data-hf-id="hf-iyhl" class="ans">46.8 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-zb3s" id="stack-step3" class="clip" data-start="80.9" data-duration="7.1" data-track-index="14" style="position:absolute;left:100px;top:660px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-qsjn" class="math">
+          Time = 1 hr, so<br data-hf-id="hf-qsyj">
+          Avg Speed = <span data-hf-id="hf-ao70" class="ans">46.8 km/hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2i67" id="line-g-1" class="clip stack-line" data-start="29.8" data-duration="58.2" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-4y4s" id="line-1-2" class="clip stack-line" data-start="55.7" data-duration="32.3" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-58cd" id="line-2-3" class="clip stack-line" data-start="80.9" data-duration="7.1" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-qf9n" id="options-reveal" class="clip" data-start="82.0" data-duration="6.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-titc" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>45 km/hr</div>
+        <div data-hf-id="hf-znln" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>48 km/hr</div>
+        <div data-hf-id="hf-9kry" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>50 km/hr</div>
+        <div data-hf-id="hf-er6t" class="opt-btn correct"><span data-hf-id="hf-qgbb" class="letter">D</span>46.8 km/hr</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Space the stack column with a real, measured gap between each card's
+  // actual rendered height (Given/Step1/Step2/Step3 differ — Step2 has a
+  // fraction inside it and is taller) instead of hand-guessed top values,
+  // so the gaps between consecutive cards come out even. Runs synchronously
+  // before setStackLine so the connector lines measure the final positions.
+  (function layoutStack() {
+    const ids = ["stack-given", "stack-step1", "stack-step2", "stack-step3"];
+    const root = document.querySelector("#root");
+    const rootBox = root.getBoundingClientRect();
+    const pxScale = 1920 / rootBox.width;
+    const gap = 40;
+    let top = 140;
+    ids.forEach(function (id) {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      wrapper.style.top = top + "px";
+      const card = wrapper.querySelector(".stack-card");
+      const h = card ? card.getBoundingClientRect().height * pxScale : 120;
+      top += h + gap;
+    });
+  })();
+
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 — Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.4; // end of "Time for one more problem." (3.46s)
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Scene build: road sweeps in, sign pops in
+  apt.roadSweep(tl, "#road", 3.7, 0.9);
+  apt.cardEnter(tl, "#bus-stop-sign", 4.4);
+
+  // ── Bus drives in, speed badge attaches (Scene 2)
+  const START_X = -230, STOP_X = 640, EXIT_X = 1850;
+  tl.fromTo("#bus-unit", { opacity: 0, x: START_X }, { opacity: 1, duration: 0.3 }, 6.6);
+  tl.to("#bus-unit", { x: STOP_X, duration: 4.7, ease: "power1.out" }, 6.6);
+  tl.fromTo("#speed-badge",
+    { scale: 0.7, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" },
+    7.2);
+
+  // Bounded motion-line flicker while driving in (no infinite repeat —
+  // reps computed from the fixed window, same technique as apt.ambientLoop).
+  function motionLines(tl, start, end) {
+    const period = 0.4, half = period / 2;
+    const reps = Math.max(1, Math.floor((end - start) / half) - 1);
+    ["#motion-line-1", "#motion-line-2", "#motion-line-3"].forEach(function (sel, i) {
+      tl.fromTo(sel,
+        { opacity: 0 },
+        { opacity: 0.8, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps },
+        start + i * 0.08);
+    });
+  }
+  motionLines(tl, 6.9, 11.3);
+
+  // ── Given card — pops in at 5s, right in the same frame as the bus
+  // scene, so it's already on screen a beat before "runs at fifty-four…"
+  // starts at 6.62s. Word/line reveal is synced straight off
+  // transcript.json's phrase starts. Morphs into the stack later, at the
+  // same moment the illustration leaves frame (see ILLUSTRATION_OUT_TIME
+  // below) — not a fade.
+  apt.cardEnter(tl, "#card-given", 5.0);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── The stop (Scene 3) — brake squash, badge swap, clock sweep
+  tl.to("#bus-unit", { scaleX: 1.07, scaleY: 0.93, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 11.3);
+  tl.fromTo(["#skid-1", "#skid-2"], { opacity: 0 }, { opacity: 0.9, duration: 0.15, yoyo: true, repeat: 1 }, 11.3);
+
+  tl.to("#speed-badge", { opacity: 0, duration: 0.3 }, 11.6);
+  tl.to("#stop-badge", { opacity: 1, duration: 0.3 }, 11.6);
+  apt.cardEnter(tl, "#stop-clock", 11.8);
+  apt.fadeIn(tl, "#stop-label", 11.8, 0.4);
+  tl.to("#clock-hand", { rotation: 300, duration: 9.2, ease: "none" }, 12.1);
+  apt.ambientLoop(tl, "#bus-icon", 14.0, 21.0, { period: 1.2, amp: 4 });
+
+  // ── Resume & exit (Scene 4)
+  apt.fadeOut(tl, "#stop-clock", 21.6, 0.3);
+  apt.fadeOut(tl, "#stop-label", 21.6, 0.3);
+  tl.to("#stop-badge", { opacity: 0, duration: 0.3 }, 21.6);
+  tl.to("#speed-badge", { opacity: 1, duration: 0.3 }, 21.6);
+  tl.to("#bus-unit", { scaleX: 1.04, scaleY: 0.96, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, 21.6);
+  tl.to("#bus-unit", { x: EXIT_X, duration: 2.5, ease: "power1.in" }, 21.8);
+  motionLines(tl, 21.8, 24.3);
+
+  // ── PHASE 2 — Pin flow. The full illustration is fully hidden (and the
+  // pinned recap fully up) at PIN_TIME + 0.8 = 25.3s — Step 1 enters at
+  // exactly that moment, right as the main illustration comes out of frame.
+  const PIN_TIME = 24.5;
+  const ILLUSTRATION_OUT_TIME = 25.3;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  apt.ambientLoop(tl, "#illus-pinned-icon", PIN_TIME + 1, 81.0, { period: 1.6, amp: 5 });
+
+  // Given already had its own beat back at 5s — it morphs into the stack
+  // right alongside Step 1 taking center stage.
+  apt.morphToStack(tl, "#card-given", "#stack-given .stack-card", ILLUSTRATION_OUT_TIME);
+
+  // ── STEP 1
+  apt.cardEnter(tl, "#card-step1 .solution-card", ILLUSTRATION_OUT_TIME);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // ── STEP 2
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 30.3);
+  apt.stackLineGrow(tl, "#line-g-1", 30.3);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 31.1);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // ── STEP 3
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 56.2);
+  apt.stackLineGrow(tl, "#line-1-2", 56.2);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 57.0);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter + clear illustration recap before options
+  const RECENTER_TIME = 81.4;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 — Options reveal
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 82.3);
+  apt.optionsStagger(tl, ".opt-btn", 82.8);
+  apt.correctPulse(tl, ".opt-btn.correct", 84.0);
+
+  // ── END FADE
+  const END_FADE_TIME = 86.0;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 88);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
