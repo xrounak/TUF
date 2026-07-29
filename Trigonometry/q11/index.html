@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Per-question illustration - a big right-triangle (left) + a bordered
+     "ratio board" (right), same visual weight/pattern as the Trains/Boats
+     speed-board (600x300 white panel, thick primary border, large type)
+     instead of small stack-card scraps crammed in a corner. */
+  #ratio-board {
+    position: absolute; left: 760px; top: 10px; width: 600px; height: 300px;
+    background: #FFFFFF; border: 3px solid var(--primary); border-radius: 24px;
+    opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  }
+  .board-label { font-family: var(--font); font-weight: 400; font-size: 22px; color: var(--topic); letter-spacing: 1px; }
+  .board-value-main { font-family: var(--font); font-weight: 400; font-size: 44px; color: var(--primary); }
+  .board-arrow { font-family: var(--font); font-weight: 400; font-size: 24px; color: var(--topic); }
+  .board-frac-row { font-family: var(--font); font-weight: 400; font-size: 40px; color: #000000; opacity: 0; }
+  .board-frac-row .frac { font-size: 1em; margin: 0 10px; }
+  .board-frac-row .frac .top, .board-frac-row .frac .bot { padding: 0 12px 4px; }
+  .board-frac-sub .frac .top, .board-frac-sub .frac .bot { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-root11" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-bg1" class="dotted-grid"></div>
+  <div data-hf-id="hf-bg2" class="bottom-strip"></div>
+  <div data-hf-id="hf-bg3" class="topic-name">Trigonometry &amp; Height n Distance</div>
+  <div data-hf-id="hf-bg4" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-vo" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="64.6" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-27.34s, PIN_TIME 27.34 + pinFlow 0.8s + buffer)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-p1" id="phase1" class="clip" data-start="0" data-duration="29.7" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-qfull" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-qtext" class="q-text">
+        If <span data-hf-id="hf-num1" class="num">tan theta</span> = <span data-hf-id="hf-num2" class="num">7/24</span> for an acute angle, find sec theta.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-serial" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-digit" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area: big right-triangle on the left (true 7:24:25 ratio, scale
+         16px/unit - base=384, perp=112, hyp=400) + a bordered ratio-board on the right,
+         same 600x300 white-panel/thick-border/big-type pattern as the Trains/Boats
+         speed-board, positioned at the exact same coordinates (left:760 top:10) so the
+         two illustration styles read as one consistent product, not a downgrade. -->
+    <div data-hf-id="hf-illus" id="illustration" class="illustration" style="position:absolute;left:50%;top:380px;transform:translateX(-50%);
+                width:1400px;height:320px;">
+      <svg data-hf-id="hf-svg" id="tri-svg" viewBox="0 0 560 300" width="560" height="300" style="position:absolute;left:40px;top:10px;">
+        <!-- filled wash - fades in once all three sides exist, makes the triangle read as a solid shape -->
+        <polygon data-hf-id="hf-fill" id="tri-fill" points="60,250 444,250 444,138" fill="#e2e5ff" opacity="0" />
+        <!-- base side (horizontal), length 384 (24 units * 16px) -->
+        <line data-hf-id="hf-base" id="base-line" x1="60" y1="250" x2="444" y2="250" stroke="#6373db" stroke-width="12" stroke-dasharray="384" stroke-dashoffset="384" stroke-linecap="round" />
+        <!-- perpendicular side (vertical), length 112 (7 units * 16px) -->
+        <line data-hf-id="hf-perp" id="perp-line" x1="444" y1="250" x2="444" y2="138" stroke="#6373db" stroke-width="12" stroke-dasharray="112" stroke-dashoffset="112" stroke-linecap="round" />
+        <!-- hypotenuse (diagonal), length 400 (25 units * 16px) -->
+        <line data-hf-id="hf-hyp" id="hyp-line" x1="60" y1="250" x2="444" y2="138" stroke="#000000" stroke-width="8" stroke-dasharray="400" stroke-dashoffset="400" stroke-linecap="round" />
+        <!-- right-angle marker at bottom-right vertex -->
+        <path data-hf-id="hf-ra" id="right-angle-mark" d="M 404 250 L 404 210 L 444 210" fill="none" stroke="#000000" stroke-width="7" opacity="0" />
+        <!-- theta arc at bottom-left vertex - CSS stroke-dasharray circle technique (standard per Trigonometry/penelty.txt): theta = atan(7/24) = 16.26deg, computed not guessed. r=56, circumference=351.9. -->
+        <circle data-hf-id="hf-arc" id="angle-arc" cx="60" cy="250" r="56" fill="transparent" stroke="#4eb85f" stroke-width="10" stroke-linecap="round" transform="translate(0,500) scale(1,-1)" style="--angle:16.26; stroke-dasharray: calc((var(--angle) / 360) * 351.9) 351.9;" opacity="0" />
+        <text data-hf-id="hf-alab" id="angle-label" x="90" y="234" font-family="Google Sans Flex, Inter, sans-serif" font-size="42" fill="#4eb85f" opacity="0">θ</text>
+        <text data-hf-id="hf-baselab" id="base-label" x="252" y="286" font-family="Google Sans Flex, Inter, sans-serif" font-size="32" fill="#000000" text-anchor="middle" opacity="0">Base</text>
+        <text data-hf-id="hf-hyplab" id="hyp-label" x="170" y="178" font-family="Google Sans Flex, Inter, sans-serif" font-size="32" fill="#000000" text-anchor="middle" opacity="0">Hypotenuse</text>
+        <text data-hf-id="hf-perplab" id="perp-label" x="460" y="196" font-family="Google Sans Flex, Inter, sans-serif" font-size="32" fill="#6373db" opacity="0">Perpendicular</text>
+      </svg>
+
+      <!-- Ratio board - visualizes "find sec theta" -> the tan ratio -> the substituted
+           values, in the same order the narration says them, as one persistent bordered
+           panel (not transient chips) so it reads as a real fixture beside the triangle. -->
+      <div data-hf-id="hf-board" id="ratio-board">
+        <div data-hf-id="hf-boardlabel" class="board-label">SOLVING FOR</div>
+        <div data-hf-id="hf-boardvalue" class="board-value-main">sec θ</div>
+        <div data-hf-id="hf-boardarrow" class="board-arrow">↓ using ratio</div>
+        <div data-hf-id="hf-boardtarget" id="board-target" class="board-frac-row">tan θ = <span data-hf-id="hf-boardtargetfrac" class="frac"><span data-hf-id="hf-boardtargettop" class="top">Perpendicular</span><span data-hf-id="hf-boardtargetbot" class="bot">Base</span></span></div>
+        <div data-hf-id="hf-boardsub" id="board-sub" class="board-frac-row board-frac-sub">= <span data-hf-id="hf-boardsubfrac" class="frac"><span data-hf-id="hf-sub7" id="sub7" class="top">7</span><span data-hf-id="hf-sub24" id="sub24" class="bot">24</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (27.34s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-qpin" id="q-pinned" class="clip" data-start="27.34" data-duration="38.2" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-qpincard" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-qpintext" class="q-text">
+        Acute angle <span data-hf-id="hf-num3" class="num">theta</span>: tan theta = <span data-hf-id="hf-num4" class="num">7/24</span>. Find sec theta.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller). Perpendicular/base lines start GREEN here - they were
+       already confirmed before the pin, the color state carries over. Hypotenuse stays black
+       until Step 1 solves it (see script block: the "25" reveal at 51.14 turns it green +
+       fades in the "25" label). -->
+  <div data-hf-id="hf-illuspin" id="illus-pinned" class="clip" data-start="27.34" data-duration="35.5" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:200px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-svgpin" id="illus-pinned-icon" viewBox="0 0 260 170" width="203" height="133">
+      <polygon data-hf-id="hf-fillp" points="30,150 170,150 170,109" fill="#e2e5ff" opacity="0.35" />
+      <line data-hf-id="hf-basep" id="base-line-pin" x1="30" y1="150" x2="170" y2="150" stroke="#4eb85f" stroke-width="4" stroke-linecap="round" />
+      <line data-hf-id="hf-perpp" id="perp-line-pin" x1="170" y1="150" x2="170" y2="109" stroke="#4eb85f" stroke-width="4" stroke-linecap="round" />
+      <line data-hf-id="hf-hypp" id="hyp-line-pin" x1="30" y1="150" x2="170" y2="109" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+      <path data-hf-id="hf-rap" d="M 150 150 L 150 135 L 170 135" fill="none" stroke="#000000" stroke-width="2.5" />
+      <circle data-hf-id="hf-arcp" cx="30" cy="150" r="16" fill="transparent" stroke="#4eb85f" stroke-width="4" stroke-linecap="round" transform="translate(0,300) scale(1,-1)" style="--angle:16.26; stroke-dasharray: calc((var(--angle) / 360) * 100.5) 100.5;" />
+      <text data-hf-id="hf-alabp" x="42" y="143" font-family="Google Sans Flex, Inter, sans-serif" font-size="22" fill="#4eb85f">θ</text>
+      <!-- "25" label - hidden until the hypotenuse is actually solved (51.14), see script block -->
+      <text data-hf-id="hf-hypvalp" id="hyp-value-pin" x="70" y="120" font-family="Google Sans Flex, Inter, sans-serif" font-size="24" font-weight="600" fill="#4eb85f" opacity="0">25</text>
+    </svg>
+    <div data-hf-id="hf-pinlabel" style="font-family:'Google Sans Flex',Inter,sans-serif;font-size:24px;color:#000;margin-left:24px;">
+      tan θ = <span data-hf-id="hf-pinval1" style="color:#6373db;">7/24</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-cgiven" id="card-given" class="clip" data-start="28.16" data-duration="4.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-cgivencard" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-cgivencontent" class="card-content">
+        <span data-hf-id="hf-cgivenchip" class="chip">Given</span>
+        <div data-hf-id="hf-cgivenmath" class="math">
+          <span data-hf-id="hf-g1" class="rv" data-t="28.16">We know two sides, need the third</span><br data-hf-id="hf-gbr">
+          <span data-hf-id="hf-g2" class="rv" data-t="29.30">Perpendicular</span> <span data-hf-id="hf-g3" class="rv" data-t="29.55">=</span> <span data-hf-id="hf-g4" class="hi rv" data-t="29.60">7</span>, <span data-hf-id="hf-g5" class="rv" data-t="29.90">Base</span> <span data-hf-id="hf-g6" class="rv" data-t="30.05">=</span> <span data-hf-id="hf-g7" class="hi rv" data-t="30.10">24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-cstep1" id="card-step1" class="clip" data-start="31.6" data-duration="22.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-cstep1card" class="solution-card" style="position:absolute;left:540px;top:400px;text-align:center;width:840px;">
+      <div data-hf-id="hf-cstep1content" class="card-content">
+        <span data-hf-id="hf-cstep1chip" class="chip">Step 1</span>
+        <div data-hf-id="hf-cstep1math" class="math">
+          <span data-hf-id="hf-s1intro" class="rv" data-t="31.60">Using Pythagoras Theorem</span><br data-hf-id="hf-s1br0">
+          <span data-hf-id="hf-s1a" class="rv" data-t="34.82">Hyp</span> <span data-hf-id="hf-s1b" class="rv" data-t="35.62">=</span> <span data-hf-id="hf-s1c" class="rv" data-t="35.98">sqrt(</span><span data-hf-id="hf-s1d" class="rv" data-t="37.24">Perp²</span> <span data-hf-id="hf-s1e" class="rv" data-t="38.74">+</span> <span data-hf-id="hf-s1f" class="rv" data-t="39.50">Base²</span><span data-hf-id="hf-s1g" class="rv" data-t="39.84">)</span><br data-hf-id="hf-s1br1">
+          <span data-hf-id="hf-s1h" class="rv" data-t="42.22">Hyp</span> <span data-hf-id="hf-s1i" class="rv" data-t="43.00">=</span> <span data-hf-id="hf-s1j" class="rv" data-t="43.32">sqrt(</span><span data-hf-id="hf-s1k" class="hi rv" data-t="44.64">7²</span> <span data-hf-id="hf-s1l" class="rv" data-t="45.22">+</span> <span data-hf-id="hf-s1m" class="hi rv" data-t="45.48">24²</span><span data-hf-id="hf-s1n" class="rv" data-t="45.94">)</span><br data-hf-id="hf-s1br2">
+          <span data-hf-id="hf-s1o" class="rv" data-t="46.82">=</span> <span data-hf-id="hf-s1p" class="rv" data-t="47.10">sqrt(</span><span data-hf-id="hf-s1q" class="hi rv" data-t="47.30">49</span> <span data-hf-id="hf-s1r" class="rv" data-t="47.60">+</span> <span data-hf-id="hf-s1s" class="hi rv" data-t="47.80">576</span><span data-hf-id="hf-s1t" class="rv" data-t="48.20">)</span> <span data-hf-id="hf-s1u" class="rv" data-t="48.60">=</span> <span data-hf-id="hf-s1v" class="rv" data-t="49.00">sqrt(625)</span><br data-hf-id="hf-s1br3">
+          <span data-hf-id="hf-s1w" class="rv" data-t="51.14">Hyp</span> <span data-hf-id="hf-s1x" class="rv" data-t="51.50">=</span> <span data-hf-id="hf-s1y" class="ans rv" data-t="51.70">25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-cstep2" id="card-step2" class="clip" data-start="53.02" data-duration="10.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-cstep2card" class="solution-card" style="position:absolute;left:560px;top:440px;text-align:center;width:800px;">
+      <div data-hf-id="hf-cstep2content" class="card-content">
+        <span data-hf-id="hf-cstep2chip" class="chip">Step 2</span>
+        <div data-hf-id="hf-cstep2math" class="math">
+          <span data-hf-id="hf-s2a" class="rv" data-t="54.22">sec θ</span> <span data-hf-id="hf-s2b" class="rv" data-t="54.82">=</span>
+          <span data-hf-id="hf-s2c" class="frac rv" data-t="55.12"><span data-hf-id="hf-s2d" class="top hi">Hypotenuse</span><span data-hf-id="hf-s2e" class="bot hi">Base</span></span><br data-hf-id="hf-s2br">
+          <span data-hf-id="hf-s2f" class="rv" data-t="58.38">sec θ</span> <span data-hf-id="hf-s2g" class="rv" data-t="58.94">=</span>
+          <span data-hf-id="hf-s2h" class="frac ans rv" data-t="59.70"><span data-hf-id="hf-s2i" class="top">25</span><span data-hf-id="hf-s2j" class="bot">24</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-stackgiven" id="stack-given" class="clip" data-start="30.6" data-duration="34.9" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-stackgivencard" class="stack-card">
+      <div data-hf-id="hf-stackgivencontent" class="card-content">
+        <span data-hf-id="hf-stackgivencircle" class="step-circle">G</span>
+        <div data-hf-id="hf-stackgivenmath" class="math">
+          Perpendicular = <span data-hf-id="hf-sg1" class="hi">7</span><br data-hf-id="hf-sgbr">
+          Base = <span data-hf-id="hf-sg2" class="hi">24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-stackstep1" id="stack-step1" class="clip" data-start="51.9" data-duration="13.6" data-track-index="12" style="position:absolute;left:100px;top:300px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-stackstep1card" class="stack-card">
+      <div data-hf-id="hf-stackstep1content" class="card-content">
+        <span data-hf-id="hf-stackstep1circle" class="step-circle">1</span>
+        <div data-hf-id="hf-stackstep1math" class="math">
+          Hyp = sqrt(7²+24²) → <span data-hf-id="hf-ss1" class="ans">Hyp=25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-stackstep2" id="stack-step2" class="clip" data-start="60.9" data-duration="4.6" data-track-index="13" style="position:absolute;left:100px;top:450px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-stackstep2card" class="stack-card">
+      <div data-hf-id="hf-stackstep2content" class="card-content">
+        <span data-hf-id="hf-stackstep2circle" class="step-circle">2</span>
+        <div data-hf-id="hf-stackstep2math" class="math">
+          sec θ = <span data-hf-id="hf-ss2" class="frac"><span data-hf-id="hf-ss2a" class="top hi">25</span><span data-hf-id="hf-ss2b" class="bot hi">24</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-lineg1" id="line-g-1" class="clip stack-line" data-start="51.9" data-duration="13.6" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-line12" id="line-1-2" class="clip stack-line" data-start="60.9" data-duration="4.6" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL (60.9-64.58s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-optreveal" id="options-reveal" class="clip" data-start="60.9" data-duration="5.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-optcol" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-optgrid" class="options-grid">
+        <div data-hf-id="hf-opta" class="opt-btn"><span data-hf-id="hf-optaletter" class="letter">A</span>24/25</div>
+        <div data-hf-id="hf-optb" class="opt-btn"><span data-hf-id="hf-optbletter" class="letter">B</span>7/25</div>
+        <div data-hf-id="hf-optc" class="opt-btn correct"><span data-hf-id="hf-optcletter" class="letter">C</span>25/24</div>
+        <div data-hf-id="hf-optd" class="opt-btn"><span data-hf-id="hf-optdletter" class="letter">D</span>25/7</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.7;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)", y: HERO_OFFSET_Y },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build-in (true 7:24:25 triangle)
+  tl.to("#base-line", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 5.0);
+  tl.to("#perp-line", { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 5.9);
+  tl.to("#hyp-line", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 6.7);
+  tl.to("#right-angle-mark", { opacity: 1, duration: 0.3 }, 7.0);
+  tl.to("#angle-arc", { opacity: 1, duration: 0.4 }, 8.0);
+  tl.to("#angle-label", { opacity: 1, duration: 0.4 }, 8.0);
+  tl.to("#tri-fill", { opacity: 0.4, duration: 0.5 }, 8.4);
+
+  // Ratio board - literally visualizes what's being narrated, in order:
+  // "find sec theta" (board appears, static framing text already visible)
+  // -> the tan ratio definition -> the substituted values.
+  apt.fadeIn(tl, "#ratio-board", 8.4);
+  apt.fadeIn(tl, "#board-target", 15.04);
+  apt.fadeIn(tl, "#board-sub", 20.98);
+
+  // Side-confirmation: label fades in AND the side itself turns green at the
+  // same moment its value is actually narrated - a "locked in" cue, not just text.
+  // The matching number inside the board's substituted ratio pulses at the same instant.
+  tl.to("#perp-label", { opacity: 1, duration: 0.4 }, 23.26);
+  tl.to("#perp-line", { stroke: "#4eb85f", duration: 0.3 }, 23.26);
+  tl.to("#sub7", { color: "#4eb85f" }, 23.26);
+  apt.emphasize(tl, "#sub7", 23.26);
+  tl.to("#hyp-label", { opacity: 1, duration: 0.4 }, 24.4);
+  tl.to("#base-label", { opacity: 1, duration: 0.4 }, 25.62);
+  tl.to("#base-line", { stroke: "#4eb85f", duration: 0.3 }, 25.62);
+  tl.to("#sub24", { color: "#4eb85f" }, 25.62);
+  apt.emphasize(tl, "#sub24", 25.62);
+
+  // PHASE 2 - Pin, then Given
+  const PIN_TIME = 27.34;
+  const GIVEN_TIME = 28.16;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  apt.ambientLoop(tl, "#illus-pinned-icon", 29.0, 60.0);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 - morph starts AFTER Given's last reveal (29.90), not before.
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 30.6);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 31.6);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 - morph starts the instant "25" reveals (51.7), completes before
+  // Step 2 enters (53.02). The pinned hypotenuse confirms the same instant:
+  // turns green and its "25" label fades in - the diagram itself answers,
+  // not just the card text.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 51.9);
+  apt.stackLineGrow(tl, "#line-g-1", 51.9);
+  tl.to("#hyp-line-pin", { stroke: "#4eb85f", duration: 0.3 }, 51.14);
+  tl.to("#hyp-value-pin", { opacity: 1, duration: 0.4 }, 51.14);
+
+  apt.cardEnter(tl, "#card-step2 .solution-card", 53.02);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Final ratio confirmed - pulse the two sides that make up sec θ together.
+  tl.to(["#hyp-line-pin", "#base-line-pin"], { strokeWidth: 7, duration: 0.3, yoyo: true, repeat: 1, ease: "power2.out" }, 59.70);
+
+  // Recenter before options - starts after Step 2's last reveal (59.70), not before.
+  const RECENTER_TIME = 60.9;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+  apt.fadeIn(tl, "#options-reveal", 61.9);
+  apt.optionsStagger(tl, ".opt-btn", 62.5);
+  apt.correctPulse(tl, ".opt-btn.correct", 63.6);
+
+  const END_FADE_TIME = 64.9;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.0);
+
+  tl.set({},{},68)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
