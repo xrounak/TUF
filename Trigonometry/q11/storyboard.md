@@ -1,17 +1,19 @@
-# Trigonometry & Height n Distance - Question 11 - Storyboard (v3)
+# Trigonometry & Height n Distance - Question 11 - Storyboard (v4)
 
-## v3 update - illustration redesign
-v2's fix left the 8-27s window carrying only small `.stack-card`-styled chips crammed into a
-corner - too small, too pale, read as empty/unpolished next to the Trains/Boats questions'
-big bordered "speed-board" panels. v3 rebuilds the Phase 1 illustration to match that same
-visual weight: the triangle is bigger and bolder (scale 16px/unit, was 12px/unit; stroke-width
-12/8 was 8/6; arc radius 56 was 40), and the chip column is replaced by a single persistent
-`#ratio-board` panel - 600x300 white, 3px primary border, 24px radius, 44px/40px type - at the
-exact same coordinates Trains/Boats uses for its speed-board (left:760 top:10), so the two
-topics read as one consistent product. The board still visualizes the narration in order
-("SOLVING FOR sec θ" static -> "tan θ = Perpendicular/Base" fades in at 15.04 -> "= 7/24" fades
-in at 20.98, with the 7 and 24 turning green + pulsing at 23.26/25.62 in sync with the
-matching triangle side).
+## v4 update - fixed clipped label, replaced the board with one clean growing equation
+v3's `#ratio-board` panel clipped its own text ("Perpendicular" rendered as "Perpen") because
+an `<svg>` element clips anything past its own width/viewBox by default, and the panel
+overlapped the triangle's labels - messy, not the "elegant" bar set by the Trains/Boats
+speed-board. v4 fixes the actual bug (added `overflow:visible` to the triangle svg so its own
+side-name labels never clip either) and replaces the boxed board with ONE inline equation that
+grows in place next to the triangle: `tan θ = P/B` fades in, then `= 7/24` appends to the same
+line - no border, no box, no overlap, plus small grey italic captions ("Find: sec θ", "Using
+the tan ratio") per the "keep it clean" / "grey italic small text" note. Given card and its
+stack recap now read `P = 7 units`, `B = 24 units` (short-letter notation, matching what's
+literally in the transcript) instead of the spelled-out `Perpendicular = 7`. Every visual beat
+in the 8-27s window is now <=3s apart (added a theta-arc pulse at 9.7 and a ratio-frac pulse at
+18.54 to cover the two widest remaining gaps), so nothing sits idle more than 5s anywhere in
+Phase 1.
 
 ## Fixes from v1 (why v2 existed)
 - **Layout bug**: illustration SVG was 520px tall inside a 440px container - overflowed, clipped/overlapped the question card above it. Fixed: viewBox/container both sized to actual content (290px tall SVG in a 460px container, real margin both sides).
