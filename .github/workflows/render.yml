@@ -1,0 +1,24 @@
+name: Render HyperFrames
+
+on:
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Render all videos
+        run: node render-all.js
+
+      - name: Upload renders
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyperframes-renders
+          path: all-renders
