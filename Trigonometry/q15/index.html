@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-pcpi" class="topic-name">Trigonometry &amp; Height n Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-9dux" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="76" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-33.3s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-22pu" id="phase1" class="clip" data-start="0" data-duration="34.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-txjb" class="q-text">
+        A <span data-hf-id="hf-enzo" class="num">13 m</span> ladder reaches a window <span data-hf-id="hf-aq3j" class="num">12 m</span> above the ground. How far is the foot of the ladder from the wall?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area: wall, window, ladder, ground, right-angle mark,
+         role labels (Hypotenuse/Perpendicular/Base), bordered chip labels
+         for the numeric values (13 m/12 m/x m) - same white-card / colored-
+         border chip style as sibling q12's Opposite/Adjacent chips, not
+         flat SVG text. Drawn to true scale x1.25, ratio 12:5:13 -> wall
+         225px, base 94px, ladder 244px. -->
+    <div data-hf-id="hf-koav" id="illustration" class="illustration" style="position:absolute;left:50%;top:460px;transform:translateX(-50%);
+                width:425px;height:400px;">
+      <svg data-hf-id="hf-6tll" id="ladder-svg" viewBox="0 0 425 400" width="425" height="400" style="position:absolute;left:0;top:0;overflow:visible;">
+        <!-- wall (perpendicular), vertical, height 225 -->
+        <line data-hf-id="hf-qv6j" id="wall-line" x1="275" y1="350" x2="275" y2="125" stroke="#6373db" stroke-width="5" stroke-dasharray="225" stroke-dashoffset="225" stroke-linecap="round" />
+        <!-- window at top of wall -->
+        <rect data-hf-id="hf-4bph" id="window-rect" x="255" y="97" width="42" height="30" fill="none" stroke="#6373db" stroke-width="3.5" opacity="0" />
+        <line data-hf-id="hf-rpu3" x1="276" y1="97" x2="276" y2="127" stroke="#6373db" stroke-width="2.5" opacity="0" class="window-mullion" />
+        <!-- ground (base), from ladder foot to wall base, length 94 -->
+        <line data-hf-id="hf-ud6h" id="gnd-line" x1="181" y1="350" x2="275" y2="350" stroke="#6373db" stroke-width="5" stroke-dasharray="94" stroke-dashoffset="94" stroke-linecap="round" />
+        <!-- ladder (hypotenuse), from ground foot to window base corner, length 244 -->
+        <line data-hf-id="hf-55lv" id="ladder-line" x1="181" y1="350" x2="275" y2="125" stroke="#000000" stroke-width="4" stroke-dasharray="244" stroke-dashoffset="244" stroke-linecap="round" />
+        <!-- right-angle marker at wall/ground corner -->
+        <path data-hf-id="hf-skv8" id="right-angle-mark" d="M 256 350 L 256 331 L 275 331" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
+        <!-- role labels -->
+        <text data-hf-id="hf-21nh" id="role-hyp" x="175" y="255" font-family="Google Sans Flex, Inter, sans-serif" font-size="17" fill="#000000" opacity="0">(Hypotenuse)</text>
+        <text data-hf-id="hf-1csi" id="role-perp" x="295" y="270" font-family="Google Sans Flex, Inter, sans-serif" font-size="17" fill="#6373db" opacity="0">(Perpendicular)</text>
+        <text data-hf-id="hf-a6f2" id="role-base" x="228" y="392" font-family="Google Sans Flex, Inter, sans-serif" font-size="17" fill="#6373db" text-anchor="middle" opacity="0">(Base)</text>
+      </svg>
+
+      <!-- Bordered chip labels for the numeric values - white card, colored
+           border, popping in with a back.out bounce (see script block)
+           instead of a flat opacity fade, synced to the transcript word
+           that states each value. -->
+      <div data-hf-id="hf-lad0" id="ladder-label" style="position:absolute;left:150px;top:210px;opacity:0;">
+        <div data-hf-id="hf-lad1" style="background:#fff;border:2px solid #000;border-radius:10px;padding:5px 14px;font-size:22px;color:#000;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">13 m</div>
+      </div>
+      <div data-hf-id="hf-wal0" id="wall-label" style="position:absolute;left:298px;top:225px;opacity:0;">
+        <div data-hf-id="hf-wal1" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:5px 14px;font-size:22px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">12 m</div>
+      </div>
+      <div data-hf-id="hf-bas0" id="base-x-label" style="position:absolute;left:200px;top:365px;opacity:0;">
+        <div data-hf-id="hf-bas1" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:5px 14px;font-size:22px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">x m</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (33.3s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-t2vg" id="q-pinned" class="clip" data-start="33.3" data-duration="42.7" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-6ofb" class="q-text">
+        <span data-hf-id="hf-ijv0" class="num">13 m</span> ladder, <span data-hf-id="hf-qucf" class="num">12 m</span> window height. Find distance of foot from wall.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller) -->
+  <div data-hf-id="hf-0aqw" id="illus-pinned" class="clip" data-start="33.3" data-duration="34.5" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-bhxa" id="illus-pinned-icon" viewBox="0 0 340 320" width="230" height="216">
+      <line data-hf-id="hf-ge72" x1="220" y1="280" x2="220" y2="100" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
+      <rect data-hf-id="hf-irc8" x="204" y="78" width="34" height="24" fill="none" stroke="#6373db" stroke-width="3" />
+      <line data-hf-id="hf-c1hl" x1="221" y1="78" x2="221" y2="102" stroke="#6373db" stroke-width="2" />
+      <line data-hf-id="hf-v0it" x1="145" y1="280" x2="220" y2="280" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
+      <line data-hf-id="hf-bokk" x1="145" y1="280" x2="220" y2="100" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+      <path data-hf-id="hf-bztw" d="M 205 280 L 205 265 L 220 265" fill="none" stroke="#000000" stroke-width="2.5" />
+      <text data-hf-id="hf-gj0n" x="158" y="185" font-family="Google Sans Flex, Inter, sans-serif" font-size="20" fill="#000000">13 m</text>
+      <text data-hf-id="hf-kcu8" x="236" y="192" font-family="Google Sans Flex, Inter, sans-serif" font-size="20" fill="#6373db">12 m</text>
+      <text data-hf-id="hf-lqfn" x="182" y="304" font-family="Google Sans Flex, Inter, sans-serif" font-size="20" fill="#6373db" text-anchor="middle">x m</text>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-aiwp" id="card-given" class="clip" data-start="33.9" data-duration="12.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-68gq" class="solution-card" style="position:absolute;left:560px;top:460px;text-align:center;width:800px;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-5e8c" class="rv" data-t="33.90">Hypotenuse²</span> <span data-hf-id="hf-99b4" class="rv" data-t="34.30">=</span> <span data-hf-id="hf-gu0l" class="rv" data-t="34.40">Base²</span> <span data-hf-id="hf-1v53" class="rv" data-t="34.60">+</span> <span data-hf-id="hf-41in" class="rv" data-t="34.70">Perpendicular²</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-0o62" class="hi rv" data-t="42.82">13²</span> <span data-hf-id="hf-jfej" class="rv" data-t="43.68">=</span> <span data-hf-id="hf-33ks" class="hi rv" data-t="44.28">x²</span> <span data-hf-id="hf-jsjd" class="rv" data-t="44.72">+</span> <span data-hf-id="hf-sol8" class="hi rv" data-t="45.02">12²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-gqo4" id="card-step1" class="clip" data-start="46.0" data-duration="6.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-rd67" class="hi rv" data-t="47.24">169</span> <span data-hf-id="hf-82no" class="rv" data-t="48.24">=</span> <span data-hf-id="hf-pbd2" class="rv" data-t="48.50">x²</span> <span data-hf-id="hf-iold" class="rv" data-t="49.08">+</span> <span data-hf-id="hf-uepf" class="hi rv" data-t="49.94">144</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-d3mr" id="card-step2" class="clip" data-start="52.52" data-duration="11.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:460px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-8xkk" class="rv" data-t="52.82">x²</span> <span data-hf-id="hf-lnat" class="rv" data-t="53.96">=</span> <span data-hf-id="hf-agms" class="hi rv" data-t="55.22">169</span> <span data-hf-id="hf-bi6w" class="rv" data-t="56.92">-</span> <span data-hf-id="hf-acus" class="hi rv" data-t="57.52">144</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-bhbq" class="ans rv" data-t="60.78">x² = 25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-3x2m" id="card-step3" class="clip" data-start="63.52" data-duration="4.9" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-5f6w" class="solution-card" style="position:absolute;left:620px;top:480px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-2it0" class="rv" data-t="63.66">x</span> <span data-hf-id="hf-sbs6" class="rv" data-t="63.94">=</span> <span data-hf-id="hf-m2l3" class="rv" data-t="64.12">√25</span> <span data-hf-id="hf-4e7q" class="rv" data-t="64.60">=</span> <span data-hf-id="hf-1wgh" class="ans rv" data-t="65.34">5 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-02sf" id="stack-given" class="clip" data-start="45.7" data-duration="30.7" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-xw2n" class="math">
+          Hypotenuse² = Base² + Perpendicular²<br data-hf-id="hf-szow">
+          <span data-hf-id="hf-v376" class="hi">13²</span> = x² + <span data-hf-id="hf-gd9r" class="hi">12²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-e563" id="stack-step1" class="clip" data-start="51.2" data-duration="25.2" data-track-index="12" style="position:absolute;left:100px;top:270px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-ksn8" class="math">
+          <span data-hf-id="hf-i86e" class="hi">169</span> = x² + <span data-hf-id="hf-cg3z" class="hi">144</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-5u9y" id="stack-step2" class="clip" data-start="62.3" data-duration="14.1" data-track-index="13" style="position:absolute;left:100px;top:400px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-tfot" class="math">
+          x² = <span data-hf-id="hf-zq0a" class="hi">169</span> - <span data-hf-id="hf-xar3" class="hi">144</span> = <span data-hf-id="hf-4lae" class="ans">25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-l74s" id="stack-step3" class="clip" data-start="66.4" data-duration="9.6" data-track-index="14" style="position:absolute;left:100px;top:530px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-m5kd" class="math">
+          x = √25 = <span data-hf-id="hf-qj11" class="ans">5 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical connector lines between stack circles -->
+  <div data-hf-id="hf-az5i" id="line-g-1" class="clip stack-line" data-start="51.2" data-duration="25.2" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-sgus" id="line-1-2" class="clip stack-line" data-start="62.3" data-duration="14.1" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-vtfd" id="line-2-3" class="clip stack-line" data-start="66.4" data-duration="9.6" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-bjv6" id="options-reveal" class="clip" data-start="67.2" data-duration="8.8" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-h7zc" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>1 m</div>
+        <div data-hf-id="hf-5isq" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>7 m</div>
+        <div data-hf-id="hf-rxy2" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>5 m</div>
+        <div data-hf-id="hf-i2by" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>25 m</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question entrance
+  apt.questionEnter(tl, "#q-full-card", 0.3);
+  apt.serialEnter(tl, "#serial-num", 0.8);
+
+  // Illustration build - wall, window, ladder, ground, right-angle mark,
+  // role labels, x-label - each timed to its own spoken word.
+  tl.to("#wall-line", { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 6.5);
+  tl.to("#window-rect", { opacity: 1, duration: 0.3 }, 7.1);
+  tl.to(".window-mullion", { opacity: 1, duration: 0.3 }, 7.1);
+  tl.fromTo("#ladder-label", { y: 10, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 7.5);
+  tl.to("#ladder-line", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 8.3);
+  tl.fromTo("#wall-label", { y: 10, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 9.9);
+  tl.to("#gnd-line", { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 13.4);
+  tl.to("#right-angle-mark", { opacity: 1, duration: 0.3 }, 19.5);
+  tl.to("#role-hyp", { opacity: 1, duration: 0.4 }, 20.9);
+  tl.to("#role-perp", { opacity: 1, duration: 0.4 }, 25.6);
+  tl.to("#role-base", { opacity: 1, duration: 0.4 }, 28.0);
+  tl.fromTo("#base-x-label", { y: 10, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 32.0);
+
+  // PHASE 2 - Pin, then Given
+  const PIN_TIME = 33.3;
+  const GIVEN_TIME = 33.9;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.ambientLoop(tl, "#illus-pinned-icon", 34.7, 66.4);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 - morph Given card into Given stack.
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 45.7);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 46.0);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 - Step 1 joins the stack; grow G->1 connector line.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 51.2);
+  apt.stackLineGrow(tl, "#line-g-1", 51.2);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 52.52);
+  apt.textReveal(tl, "#card-step2 .math");
+  tl.fromTo("#card-step2 .ans", { scale: 1 }, { scale: 1.12, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 60.9);
+
+  // STEP 3 - Step 2 joins the stack; grow 1->2 connector line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 62.3);
+  apt.stackLineGrow(tl, "#line-1-2", 62.3);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 63.52);
+  apt.textReveal(tl, "#card-step3 .math");
+  tl.fromTo("#card-step3 .ans", { scale: 1 }, { scale: 1.12, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 66.2);
+
+  // Recenter - clear the stack column, fade pinned triangle, align question.
+  const RECENTER_TIME = 66.4;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal - Step 3 joins the stack; grow 2->3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 66.4);
+  apt.stackLineGrow(tl, "#line-2-3", 66.4);
+  apt.fadeIn(tl, "#options-reveal", 67.2);
+  apt.optionsStagger(tl, ".opt-btn", 67.6);
+  apt.correctPulse(tl, ".opt-btn.correct", 71.9);
+
+  // END FADE
+  const END_FADE_TIME = 74.0;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},77)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
