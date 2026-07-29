@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* ── Per-question illustration (two bikes, same start point, opposite
+     directions). Custom to this question, not part of the shared design
+     system. One bike.svg is reused twice: Bike A mirrored (scaleX:-1). ── */
+  #road {
+    position: absolute; left: 50px; top: 140px; width: 1300px; height: 14px;
+    background: #c7cbd6; border-radius: 7px;
+  }
+  #road .center-line {
+    position: absolute; top: 50%; left: 0; right: 0; height: 3px; transform: translateY(-50%);
+    background-image: repeating-linear-gradient(90deg, #ffffff 0 22px, transparent 22px 40px);
+  }
+  #start-point {
+    position: absolute; left: 693px; top: 133px; width: 14px; height: 14px;
+    border-radius: 50%; background: var(--primary); opacity: 0;
+  }
+  #bike-a, #bike-b {
+    position: absolute; top: 38px; left: 620px; width: 160px; height: 96px; opacity: 0;
+  }
+  /* Only the icon itself mirrors (Bike A faces left) — the wrapper (and
+     therefore the nested label) stays unflipped, so the label text and
+     its position never mirror, only the bike graphic does. */
+  #bike-a img { transform: scaleX(-1); }
+  #bike-a img, #bike-b img { width: 100%; height: 100%; display: block; }
+  .speed-label {
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font); font-weight: 400; font-size: 26px; color: var(--primary);
+    white-space: nowrap; opacity: 0;
+  }
+  .dir-arrow {
+    position: absolute; top: -55px; font-family: var(--font); font-weight: 400;
+    font-size: 36px; color: var(--primary); opacity: 0;
+  }
+  #arrow-left { left: 455px; }
+  #arrow-right { left: 1335px; }
+  #time-label {
+    position: absolute; left: 50%; top: 210px; transform: translateX(-50%);
+    font-family: var(--font); font-weight: 400; font-size: 24px; color: var(--text);
+    display: flex; align-items: center; gap: 8px; opacity: 0; white-space: nowrap;
+  }
+  #time-label svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+  /* Pinned (small) illustration — both bike icons + recap text, centered
+     per design.md's "single-icon recap → center it" rule (this is a
+     compact two-icon recap, not a full-width two-object spread). */
+  .pinned-bikes { display: flex; align-items: center; justify-content: center; gap: 60px; }
+  .pinned-bikes img { width: 70px; height: 42px; display: block; }
+  #bike-a-pinned-icon { transform: scaleX(-1); }
+  .pinned-recap {
+    font-family: var(--font); font-weight: 400; font-size: 22px; color: var(--topic);
+    text-align: center; margin-top: 14px;
+  }
+  .pinned-recap .num { color: var(--primary); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-u1rw" class="topic-name">Speed-Time-Distance</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-05vh" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="115.4" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 — Question + Illustration (0–21.3s)
+       data-duration extends past PIN_TIME (20.5) + pinFlow's 0.8s glide
+       + buffer (21.3 → 21.4).
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mywn" id="phase1" class="clip" data-start="0" data-duration="21.4" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-lv3s" class="q-text">
+        Two bikes start from the same point in opposite directions with speed values of
+        <span data-hf-id="hf-9zze" class="num">28 km/hr</span> and <span data-hf-id="hf-xbcp" class="num">32 km/hr</span>.
+        How far apart will they be after <span data-hf-id="hf-g0vo" class="num">2 hours</span>?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area — two bikes, shared start point, opposite directions -->
+    <div data-hf-id="hf-w7qn" id="illustration" class="illustration" style="position:absolute;left:50%;top:280px;transform:translateX(-50%);
+                width:1400px;height:300px;">
+      <div data-hf-id="hf-mftz" id="road">
+        <div data-hf-id="hf-a8gq" class="center-line"></div>
+      </div>
+      <div data-hf-id="hf-tnia" id="start-point"></div>
+
+      <div data-hf-id="hf-b7uk" id="bike-a">
+        <img data-hf-id="hf-dmwc" src="illustration/bike.svg" alt="">
+        <div data-hf-id="hf-28jd" class="speed-label">28 km/hr</div>
+      </div>
+      <div data-hf-id="hf-m3c7" id="bike-b">
+        <img data-hf-id="hf-k0qs" src="illustration/bike.svg" alt="">
+        <div data-hf-id="hf-dorq" class="speed-label">32 km/hr</div>
+      </div>
+
+      <div data-hf-id="hf-4fmv" id="arrow-left" class="dir-arrow">⟵</div>
+      <div data-hf-id="hf-lvyr" id="arrow-right" class="dir-arrow">⟶</div>
+
+      <div data-hf-id="hf-dg0g" id="time-label">
+        <svg data-hf-id="hf-aq7j" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle data-hf-id="hf-v7r9" cx="12" cy="12" r="9.5" stroke="#6373db" stroke-width="2" />
+          <path data-hf-id="hf-xdne" d="M12 7v5l3.2 2" stroke="#6373db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        2 hours
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 — Pinned question (20.5s onwards)
+       data-duration extends all the way to the END_FADE completion
+       (116.4+1.2=117.6, +buffer to match the tl.set(119) marker) — NOT just
+       to RECENTER_TIME (107.58). The previous 87.1 duration ended the clip's
+       mount window at exactly 107.6s, the same instant recenterForOptions
+       fires, so HyperFrames unmounted the pinned question right as it was
+       supposed to glide into the options view — it never got there.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-jk7t" id="q-pinned" class="clip" data-start="20.5" data-duration="98.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-0lv3" class="q-text">
+        Two bikes move in opposite directions at <span data-hf-id="hf-erla" class="num">28 km/hr</span> and
+        <span data-hf-id="hf-v2j1" class="num">32 km/hr</span>. Find the distance apart after <span data-hf-id="hf-syoc" class="num">2 hours</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration (smaller icons, object continuity) -->
+  <div data-hf-id="hf-haze" id="illus-pinned" class="clip" data-start="20.5" data-duration="87.1" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+              display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <div data-hf-id="hf-9jp7" class="pinned-bikes">
+      <img data-hf-id="hf-k47g" id="bike-a-pinned-icon" src="illustration/bike.svg" alt="">
+      <img data-hf-id="hf-uqcv" id="bike-b-pinned-icon" src="illustration/bike.svg" alt="">
+    </div>
+    <div data-hf-id="hf-5een" class="pinned-recap">Opposite Directions · t = <span data-hf-id="hf-scxr" class="num">2 hr</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS (one per step, center)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN — enters early at 6s per direct feedback (overlaps the still-
+       playing Phase 1 illustration by design). data-duration extends past
+       its own morphToStack completion (32.98+0.8=33.78, +0.3 buffer). -->
+  <div data-hf-id="hf-mqew" id="card-given" class="clip" data-start="6" data-duration="28.08" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-uasq" class="solution-card" style="position:absolute;left:640px;top:600px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-koju" class="math">
+          <span data-hf-id="hf-3t7p" class="rv" data-t="10.0">Speed of Bike A = <span data-hf-id="hf-peph" class="hi">28 km/hr</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-szpn" class="rv" data-t="13.2">Speed of Bike B = <span data-hf-id="hf-9c1u" class="hi">32 km/hr</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-g8kk" class="rv" data-t="18.54">Time = <span data-hf-id="hf-2r1x" class="hi">2 hours</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-3cev" class="rv" data-t="25.02">Distance</span> <span data-hf-id="hf-s6xb" class="rv" data-t="26.34">by</span> <span data-hf-id="hf-qhaa" class="rv" data-t="28.19">A</span> <span data-hf-id="hf-bvsn" class="rv" data-t="28.3">=</span> <span data-hf-id="hf-mbmz" class="hi rv" data-t="28.96">x km</span>,
+          <span data-hf-id="hf-uyo3" class="rv" data-t="30.46">by</span> <span data-hf-id="hf-d482" class="rv" data-t="31.72">B</span> <span data-hf-id="hf-j46n" class="rv" data-t="31.94">=</span> <span data-hf-id="hf-h6we" class="hi rv" data-t="32.28">y km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — Concept: opposite directions ⇒ distances add.
+       data-duration extends past its own morphToStack completion (56.94+0.8=57.74, +0.3 buffer). -->
+  <div data-hf-id="hf-iv64" id="card-step1" class="clip" data-start="33.78" data-duration="24.26" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-diip" class="solution-card" style="position:absolute;left:490px;top:420px;text-align:center;width:940px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-wb71" class="rv" data-t="37.22">Bikes</span> <span data-hf-id="hf-097l" class="rv" data-t="38.04">move</span> <span data-hf-id="hf-fvrv" class="rv" data-t="38.48">in</span> <span data-hf-id="hf-pnwq" class="hi rv" data-t="38.86">opposite directions</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-bu7h" class="rv" data-t="40.76">Moving away from each other ⇒ distance keeps increasing</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-0n7y" class="rv" data-t="53.06">Distance</span> <span data-hf-id="hf-7tzx" class="rv" data-t="53.48">between</span> <span data-hf-id="hf-rgpy" class="rv" data-t="54.06">bikes</span> <span data-hf-id="hf-dfmu" class="rv" data-t="54.56">=</span>
+          <span data-hf-id="hf-zhvn" class="hi rv" data-t="56.24">x</span> <span data-hf-id="hf-pqe9" class="rv" data-t="56.4">+</span> <span data-hf-id="hf-efjk" class="hi rv" data-t="57.12">y</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Compute both bikes' distances.
+       data-duration extends past its own morphToStack completion (93.98+0.8=94.78, +0.3 buffer). -->
+  <div data-hf-id="hf-hk5n" id="card-step2" class="clip" data-start="57.74" data-duration="37.04" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-1hjr" class="solution-card" style="position:absolute;left:610px;top:440px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-h1vy" class="rv" data-t="71.78">x</span> <span data-hf-id="hf-ypvx" class="rv" data-t="72.26">=</span> <span data-hf-id="hf-kb9h" class="rv" data-t="73.24">28</span> <span data-hf-id="hf-2fzz" class="rv" data-t="73.94">×</span> <span data-hf-id="hf-xbrs" class="rv" data-t="74.2">2</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-qkvb" class="rv" data-t="75.76">=</span> <span data-hf-id="hf-s328" class="ans rv" data-t="76.56">56 km</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-rz4u" class="rv" data-t="88.88">y</span> <span data-hf-id="hf-jxci" class="rv" data-t="89.36">=</span> <span data-hf-id="hf-q71c" class="rv" data-t="89.74">32</span> <span data-hf-id="hf-y94n" class="rv" data-t="90.26">×</span> <span data-hf-id="hf-xirf" class="rv" data-t="90.52">2</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-5s8t" class="rv" data-t="92.86">=</span> <span data-hf-id="hf-hpqd" class="ans rv" data-t="93.4">64 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Sum the distances.
+       data-duration extends past its own morphToStack completion (106.78+0.8=107.58, +0.3 buffer). -->
+  <div data-hf-id="hf-ntss" id="card-step3" class="clip" data-start="94.78" data-duration="12.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-duzb" class="solution-card" style="position:absolute;left:610px;top:440px;text-align:center;width:700px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-2c9m" class="rv" data-t="96.59">Distance apart = x + y</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-bagy" class="rv" data-t="101.02">=</span> <span data-hf-id="hf-skl5" class="rv" data-t="102.64">56</span> <span data-hf-id="hf-uoc0" class="rv" data-t="103.22">+</span> <span data-hf-id="hf-u6hp" class="rv" data-t="103.84">64</span><br data-hf-id="hf-ombl">
+          <span data-hf-id="hf-6euw" class="rv" data-t="104.94">=</span> <span data-hf-id="hf-qkoq" class="ans rv" data-t="105.66">120 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS (completed steps)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-mh60" id="stack-given" class="clip" data-start="32.98" data-duration="83.6" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-fg6r" class="math">
+          Speed A = <span data-hf-id="hf-wxyh" class="hi">28 km/hr</span><br data-hf-id="hf-qsyj">
+          Speed B = <span data-hf-id="hf-f15y" class="hi">32 km/hr</span><br data-hf-id="hf-r79k">
+          Time = <span data-hf-id="hf-fjl4" class="hi">2 hr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-7ysu" id="stack-step1" class="clip" data-start="56.94" data-duration="59.64" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-n5cl" class="math">
+          Opposite directions<br data-hf-id="hf-q0ch">
+          Distance apart = <span data-hf-id="hf-34vr" class="ans">x + y</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-n0j4" id="stack-step2" class="clip" data-start="93.98" data-duration="22.6" data-track-index="13" style="position:absolute;left:100px;top:440px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-fd9a" class="math">
+          x = 28 × 2 = <span data-hf-id="hf-cvjx" class="hi">56 km</span><br data-hf-id="hf-qeni">
+          y = 32 × 2 = <span data-hf-id="hf-tizm" class="hi">64 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3x1c" id="stack-step3" class="clip" data-start="106.78" data-duration="9.62" data-track-index="14" style="position:absolute;left:100px;top:590px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-6cwh" class="math">
+          56 + 64 = <span data-hf-id="hf-ebu4" class="ans">120 km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connector lines — top/height set at runtime by apt.setStackLine()
+       from the actual rendered .step-circle centers, not hand-guessed. -->
+  <div data-hf-id="hf-i0c5" id="line-g-1" class="clip stack-line" data-start="56.94" data-duration="59.64" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-z2ea" id="line-1-2" class="clip stack-line" data-start="93.98" data-duration="22.6" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-lm33" id="line-2-3" class="clip stack-line" data-start="106.78" data-duration="9.62" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 — OPTIONS REVEAL (107.58–116.4s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-j0ja" id="options-reveal" class="clip" data-start="107.58" data-duration="8.82" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-ymco" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>130 km</div>
+        <div data-hf-id="hf-4yn9" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>120 km</div>
+        <div data-hf-id="hf-wdst" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>100 km</div>
+        <div data-hf-id="hf-i766" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>150 km</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  // Set every stack-line's geometry from the ACTUAL rendered circle centers
+  // before building the timeline.
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 — Question reveal (starts lowered, rises exactly as the
+  // opening narration line ends at 3.6s — "...one more problem.")
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Illustration build — road sweeps in, start point marks the shared
+  // origin, both bikes enter stacked at that point.
+  apt.roadSweep(tl, "#road", 4.2);
+  apt.fadeIn(tl, "#start-point", 4.6);
+  // Small resting offset (-50/+50) so the two bikes read as two distinct
+  // objects at the start point instead of fully coinciding — still close
+  // enough to sell "same point," just not pixel-overlapping.
+  tl.fromTo("#bike-a", { x: 0, y: 40, scale: 0.92, opacity: 0 },
+    { x: -60, y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 6.42);
+  tl.fromTo("#bike-b", { x: 0, y: 40, scale: 0.92, opacity: 0 },
+    { x: 60, y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 6.7);
+  apt.emphasize(tl, "#start-point", 7.24);
+
+  // Speed labels land on the correct bike as it's named.
+  apt.fadeIn(tl, "#bike-a .speed-label", 8.9);
+  apt.fadeIn(tl, "#bike-b .speed-label", 13.2);
+
+  // Opposite directions: arrows appear, bikes drift apart at their real
+  // speed ratio (28:32 → 400:457px), duration label follows.
+  apt.fadeIn(tl, "#arrow-left", 16.36);
+  apt.fadeIn(tl, "#arrow-right", 16.36);
+  tl.to("#bike-a", { x: -400, duration: 4.14, ease: "none" }, 16.36);
+  tl.to("#bike-b", { x: 457, duration: 4.14, ease: "none" }, 16.36);
+  apt.fadeIn(tl, "#time-label", 18.54);
+
+  // PHASE 2 — Pin, then Given (two SEPARATE timestamps).
+  const PIN_TIME = 20.5;
+  const GIVEN_TIME = 6; // moved earlier per direct feedback — overlaps Phase 1's still-playing illustration
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  // Ambient bob on both pinned bike icons (offset phase) — keeps the
+  // pinned area alive through the long Given/Step1/Step2/Step3 stretch.
+  apt.ambientLoop(tl, "#bike-a-pinned-icon", PIN_TIME + 1, 107.58);
+  apt.ambientLoop(tl, "#bike-b-pinned-icon", PIN_TIME + 1.2, 107.58);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 — morph Given card into Given stack (0.8s).
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 32.98);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 33.78);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // STEP 2 — Step 1 joins the stack: grow the G→1 connector line.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 56.94);
+  apt.stackLineGrow(tl, "#line-g-1", 56.94);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 57.74);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // STEP 3 — Step 2 joins the stack: grow the 1→2 connector line.
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 93.98);
+  apt.stackLineGrow(tl, "#line-1-2", 93.98);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 94.78);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter — clear the stack column before options reveal.
+  const RECENTER_TIME = 107.58;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 — Options reveal — Step 3 joins the stack: grow the 2→3 line.
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 106.78);
+  apt.stackLineGrow(tl, "#line-2-3", 106.78);
+  apt.fadeIn(tl, "#options-reveal", 108.0);
+  apt.optionsStagger(tl, ".opt-btn", 108.6);
+  apt.correctPulse(tl, ".opt-btn.correct", 114.8);
+
+  // ── END FADE — everything fades out together, once, after the correct
+  // pulse and narration have both settled (narration ends 115.4s).
+  const END_FADE_TIME = 116.4;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},119)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
