@@ -8,3 +8,5 @@ also before making storyboard read the E:\HYPERFRAME\MasterAptitude\Trigonometry
 and before making or designing the illustration read E:\HYPERFRAME\MasterAptitude\Trigonometry\illustration_reference.md
 
 and please be more consistent with timing 
+
+please use symbol of root, theta, pie etc insted of using the actual words in solution or stack cards 
