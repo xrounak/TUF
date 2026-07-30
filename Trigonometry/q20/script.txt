@@ -2,44 +2,49 @@ So "welcome back again", <break time="0.2s" /> it's time to solve one more probl
 
 Now in this problem, a person is standing 18 mee-ter away from a pole.
 
-The person's eye level is 1.5 mee-ter above the ground.
-And from the eye level, the angle of elevation to the top of the pole is 45 degree.
+The person’s eye level is 1.5 mee-ter above the ground, and the angle of elevation from the eye to the top of the pole is 45 degree.
 
-The question is asking us to find the full height of the pole.
+We need to find the full height of the pole.
+
+Let us take the height from the person’s eye level to the top of the pole as X mee-ter.
+
+Why are we taking only this upper part?
+
+Because the angle of elevation starts from the person’s eye, not from the ground.
 
 <break time="0.5s" />
 
-Let the total height of the pole be h mee-ter.
+Now look at the right triangle.
 
-Then the vertical height from the person's eye to the top of the pole will be h my-nus 1.5.
+The horizontal distance between the person and the pole is 18 mee-ter, so this becomes the adjacent side.
 
-Using ten ratio,
+The vertical height from the eye level to the top is X mee-ter, so this becomes the opposite side.
 
-ten theta is equal to opposite by adjacent.
+Using the tan formula:
 
-So, here distance between pole and person became adjacent side which is 18 mee-ter and opposite side become H - 1.5 mee-ter
+Tan theta is equal to opposite divided by adjacent.
 
-now, ten 45 degree is equal to h my-nus 1.5 by 18.
+So, tan 45 degree is equal to X divided by 18.
 
-Now we know,
+We know that tan 45 degree is equal to 1.
 
-ten 45 degree is equal to 1.
+Therefore, 1 is equal to X divided by 18.
 
-So,
+This gives us X equal to 18 mee-ter.
 
-1 = <break time="0.2s" />h - 1.5<break time="0.2s" /> by 18.
+Okay, we have found the height of the pole above the person’s eye level.
+<break time="0.2s" />
 
-This means,
+Are we done? Not yet.
 
-h my-nus 1.5 is equal to 18.<break time="0.2s" />
+The question asks for the "full height" of the pole.
 
-Now add 1.5 on both sides.<break time="0.2s" />
+So we must also add the person’s eye level, which is 1.5 mee-ter.
 
-h is equal to 18 pluss 1.5.<break time="0.2s" />
+The full height is 18 pluss 1.5, which is 19.5 mee-ter.
 
-So h is equal to 19.5.
 <break time="0.6s" />
 
 Hence, the height of the pole is "19.5 mee-ter".
 
-So the correct option is option D.
+So the correct option is "D".

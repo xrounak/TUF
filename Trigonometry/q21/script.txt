@@ -1,62 +1,69 @@
 So "welcome back again", <break time="0.2s" /> it's time to solve one more problem.
 
-Now in this problem, two points are on level ground.
-They are 40 mee-ter apart, and both are on the same side of the tower.
+Now in this problem, we have a tower, and two points are on the same side of that tower.
 
-The nearer point gives angle of elevation 60 degree.
-The farther point gives angle of elevation 30 degree.
+These two points are 40 mee-ter apart.
 
-We need to find the height of the tower.
+From the nearer point, the angle of elevation is 60 degree.<break time="0.2s" />
+And from the farther point, the angle of elevation is 30 degree.
+<break time="0.2s" />
+and, We need to find the height of the tower.<break time="0.2s" />
 
-Let the height of the tower be h mee-ter.
-And let the distance of the nearer point from the tower be x mee-ter.
-
-So the distance of the farther point from the tower will be x pluss 40 mee-ter.
+Let the distance of the nearer point from the tower be x mee-ter.<break time="0.2s" />
+So the farther point will be x plus 40 mee-ter from the tower.
 <break time="0.5s" />
 
-Using the tangent formula,
+here<break time="0.2s" />, tangent is the most useful ratio.<break time="0.2s" />
 
-ten theta is equal to height by base.
+Why tangent?<break time="0.2s" />
 
-From the nearer point,
+Because tangent connects height and base.<break time="0.2s" />
 
-ten 60 degree is equal to h by x.
+tan thee-ta is equal to height by base.<break time="0.2s" />
 
-Root 3 is equal to h by x.
+So from the nearer point,<break time="0.2s" />
 
-So x is equal to h by root 3.
+tan 60 degree is equal to h by x.<break time="0.2s" />
 
-This is our first equation.
+which gives , Root 3 is equal to h by x.<break time="0.2s" />
+
+That means h is equal to x root 3.<break time="0.2s" />
+
+Okay, keep this aside for a second.<break time="0.2s" />
+We will use this same height from the other point also.
 <break time="0.2s" />
 
-Now use the farther point.
+Now from the farther point,<break time="0.2s" />
 
-ten 30 degree is equal to h by x pluss 40.
+tan 30 degree is equal to h by x plus 40.<break time="0.2s" />
 
-1 by root 3 is equal to h by x pluss 40.
+So 1 by root 3 is equal to h by x plus 40.<break time="0.2s" />
 
-Now substitute x is equal to h by root 3.
+But we already found that h is equal to x root 3.<break time="0.2s" />
 
-So,
+So put x root 3 in place of h.<break time="0.2s" />
 
-1 by root 3 is equal to h 
-<break time="0.2s" />by 
-<break time="0.2s" />h by 
-<break time="0.2s" />root 3,
-<break time="0.2s" /> pluss 40.
+Then it becomes,<break time="0.2s" />
 
-After cross multiplication,
+1 by root 3 is equal to x root 3 by x plus 40.<break time="0.2s" />
 
-h by root 3, pluss 40
-<break time="0.2s" />, is equal to h root 3.
+After cross multiplication, x plus 40 is equal to 3x.<break time="0.2s" />
 
-After solving this,
+So 40 is equal to 2x.<break time="0.2s" />
 
-h is equal to 40 root 3 by 2.
+And x is equal to 20.<break time="0.2s" />
 
-So h is equal to 20 root 3 mee-ter.
+Done. We got the distance of the nearer point.<break time="0.2s" />
+<break time="0.2s" />
+
+But wait<break time="0.2s" />, the question is not asking for this distance.
+The question is asking for the tower height.
+
+So use h is equal to x root 3.<break time="0.2s" />
+
+h is equal to 20 root 3 mee-ter.
 <break time="0.6s" />
 
-So the final answer will be "20 root 3 mee-ter".
+Hence, the height of the tower is "20 root 3 mee-ter".
 
-That means option A is the correct option.
+So the correct option is option A.
