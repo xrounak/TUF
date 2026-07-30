@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+<div id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div class="dotted-grid"></div>
+  <div class="bottom-strip"></div>
+  <div class="topic-name">Trigonometry</div>
+  <div class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="42.5" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question (no illustration - pure identity question)
+       ══════════════════════════════════════════════ -->
+  <div id="phase1" class="clip" data-start="0" data-duration="18" data-track-index="1"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div id="q-full-card" class="q-card"
+         style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div class="q-text">
+        Evaluate <span class="num">sec&sup2;&theta;</span> - <span class="num">tan&sup2;&theta;</span>.
+      </div>
+    </div>
+
+    <div id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div class="digit">Q</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (15.5s onwards)
+       ══════════════════════════════════════════════ -->
+  <div id="q-pinned" class="clip" data-start="15.5" data-duration="27" data-track-index="2"
+       style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div class="q-text">
+        Evaluate <span class="num">sec&sup2;&theta;</span> - <span class="num">tan&sup2;&theta;</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN - base identity -->
+  <div id="card-given" class="clip" data-start="16.1" data-duration="7" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div class="card-content">
+        <span class="chip">Identity</span>
+        <div class="math">
+          <span class="rv" data-t="17.059">sec&sup2;&theta;</span>
+          <span class="rv" data-t="18.319">=</span>
+          <span class="hi rv" data-t="18.879">1</span>
+          <span class="rv" data-t="19.139">+</span>
+          <span class="hi rv" data-t="19.459">tan&sup2;&theta;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 - rearranged, exactly matches the question -->
+  <div id="card-step1" class="clip" data-start="21.5" data-duration="8.5" data-track-index="4"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div class="solution-card"
+         style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div class="card-content">
+        <span class="chip">Step 1</span>
+        <div class="math">
+          <span class="rv" data-t="23.379">sec&sup2;&theta;</span>
+          <span class="rv" data-t="24.699">-</span>
+          <span class="rv" data-t="25.079">tan&sup2;&theta;</span>
+          <span class="rv" data-t="26.18">=</span>
+          <span class="ans rv" data-t="26.699">1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div id="stack-given" class="clip" data-start="20.7" data-duration="22" data-track-index="11"
+       style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">G</span>
+        <div class="math">
+          sec&sup2;&theta; = <span class="hi">1</span> + <span class="hi">tan&sup2;&theta;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="stack-step1" class="clip" data-start="27.3" data-duration="15" data-track-index="12"
+       style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div class="stack-card">
+      <div class="card-content">
+        <span class="step-circle">1</span>
+        <div class="math">
+          sec&sup2;&theta; - tan&sup2;&theta; = <span class="ans">1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="line-g-1" class="clip stack-line" data-start="27.3" data-duration="15" data-track-index="15"
+       style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div id="options-reveal" class="clip" data-start="29.0" data-duration="13" data-track-index="10"
+       style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div class="pinned-col" style="top:400px;">
+      <div class="options-grid">
+        <div class="opt-btn"><span class="letter">A</span>0</div>
+        <div class="opt-btn"><span class="letter">B</span>tan &theta;</div>
+        <div class="opt-btn correct"><span class="letter">C</span>1</div>
+        <div class="opt-btn"><span class="letter">D</span>sec &theta;</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.16; // end of "Now in this problem," - question then read aloud
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // PHASE 2 - Pin, then Given (no illustration in this question - pure identity)
+  const PIN_TIME = 15.5;
+  const GIVEN_TIME = 16.1;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // STEP 1 - rearrange, morph Given into stack
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 20.7);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 21.5);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Step 1 joins the stack
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 27.3);
+  apt.stackLineGrow(tl, "#line-g-1", 27.3);
+
+  // PHASE 3 - Options reveal (no recenter needed - no illustration to clear)
+  apt.fadeIn(tl, "#options-reveal", 29.0);
+  apt.optionsStagger(tl, ".opt-btn", 29.5);
+  apt.correctPulse(tl, ".opt-btn.correct", 38.74);
+
+  // END FADE
+  const END_FADE_TIME = 41.0;
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({},{},42.5)
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
