@@ -6,7 +6,7 @@ on:
       project_path:
         description: "Folder containing q1, q2, q3..."
         required: true
-        default: "speed time and distance"
+        default: "Trains Streams Boats"
 
       output_path:
         description: "Output folder"
@@ -16,12 +16,12 @@ on:
       start:
         description: "Start Question"
         required: true
-        default: "8"
+        default: "1"
 
       end:
         description: "End Question"
         required: true
-        default: "12"
+        default: "10"
 
 permissions:
   contents: read
