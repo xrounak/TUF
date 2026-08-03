@@ -16,20 +16,22 @@ There is no platform or another train involved. So the distance covered is simpl
 
 Hence, we use the formula,
 
-Time = Length of Train divided by Speed.
+Speed = Length of Train divided by Time.
 <break time="0.5s" />
 
 Since both trains have the "same speed", this speed will be equal for both.
 
 So we can say,
 
-L1 by L2 <break time="0.5s" />= T1 by T2.
+Speed of first train = L1 by time taken by first train , which is 12 so , speed becomes L1 by 12
 
-Why? Because length is directly proportional to time when the speed remains the same.
+and for second train , speed = L2 by time taken by second train , which is 18 so , speed becomes L1 by 18
 
-This is the main idea of the question.
+and we're given that speed of both trains are equal so 
 
-Now let us put the given values.
+L1 by 12 = L2 by 18
+
+which is 
 
 L1 by L2 = 12 by 18.
 

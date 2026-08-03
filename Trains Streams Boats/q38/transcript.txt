@@ -1,25 +1,34 @@
 [00:00.12 -> 00:00.28]  So
-[00:00.72 -> 00:01.52]  welcome back again.
-[00:02.18 -> 00:03.64]  It's time to solve one more problem.
-[00:04.10 -> 00:07.32]  Now in this problem, we are given that two trains have the same speed.
-[00:07.82 -> 00:09.86]  Train one crosses a pole in 12 seconds,
-[00:10.32 -> 00:12.62]  and train two crosses a pole in 18 seconds.
-[00:12.98 -> 00:15.64]  The question is asking us to find the ratio of their lengths.
-[00:16.10 -> 00:18.78]  Let the speed of each train be V meter per second.
-[00:19.22 -> 00:21.74]  Let the lengths of the two trains be L1 and L2.
-[00:22.16 -> 00:23.74]  Now, the important concept here is
-[00:24.12 -> 00:26.94]  when a train crosses a pole, it covers only its own length.
-[00:27.42 -> 00:29.44]  There is no platform or another train involved,
-[00:29.76 -> 00:37.14]  so the distance covered is simply the length of the train. Hence, we use the formula time equals length of train divided by speed.
-[00:37.80 -> 00:41.90]  Since both trains have the same speed, this speed will be equal for both.
-[00:42.42 -> 00:44.28]  So we can say L1 by
-[00:44.66 -> 00:46.90]  L2 equals T1 by T2.
-[00:47.34 -> 00:47.62]  Why?
-[00:48.10 -> 00:52.20]  Because length is directly proportional to time when the speed remains the same.
-[00:52.62 -> 00:54.26]  This is the main idea of the question.
-[00:54.70 -> 00:56.30]  Now, let us put the given values,
-[00:56.98 -> 00:57.42]  L1 by
-[00:57.90 -> 01:05.34]  L2 equals 12 by 18. After simplifying this by dividing both numbers by six, we get L1 by
-[01:05.96 -> 01:06.04]  L2
-[01:06.54 -> 01:08.14]  equals two by three.
-[01:08.92 -> 01:16.16]  So the required ratio of the lengths of the two trains is two is to three. Hence, the correct option is option B.
+[00:00.72 -> 00:01.40]  welcome back again.
+[00:02.08 -> 00:05.34]  It's time to solve one more problem. Now, in this problem, we are given that
+[00:05.90 -> 00:06.64]  two trains
+[00:07.12 -> 00:08.08]  have the same speed.
+[00:08.74 -> 00:10.60]  Train one crosses a pole in twelve seconds,
+[00:11.12 -> 00:12.26]  and train two crosses
+[00:12.72 -> 00:14.22]  a pole in eighteen seconds.
+[00:14.70 -> 00:16.30]  The question is asking us to find
+[00:16.80 -> 00:18.48]  the ratio of their lengths.
+[00:18.90 -> 00:21.68]  Let the speed of each train be V meter per second.
+[00:22.14 -> 00:25.12]  Let the lengths of the two trains be L1 and L2.
+[00:25.52 -> 00:28.88]  Now, the important concept here is when a train crosses a pole,
+[00:29.44 -> 00:31.06]  it covers only its own length.
+[00:31.44 -> 00:33.40]  There is no platform or another train involved.
+[00:33.70 -> 00:36.96]  So the distance covered is simply the length of the train.
+[00:37.30 -> 00:42.90]  Hence, we use the formula speed equals length of train divided by time.
+[00:43.58 -> 00:47.98]  Since both trains have the same speed, this speed will be equal for both.
+[00:48.32 -> 00:53.88]  So we can say speed of first train equals L1 by time taken by first train,
+[00:54.18 -> 00:56.52]  which is twelve. So speed becomes
+[00:57.12 -> 00:57.96]  L1 by twelve.
+[00:58.36 -> 00:59.36]  And for second train,
+[00:59.68 -> 01:00.36]  speed equals
+[01:00.76 -> 01:02.94]  L2 by time taken by second train,
+[01:03.30 -> 01:07.12]  which is eighteen. So speed becomes L2 by eighteen.
+[01:07.50 -> 01:13.44]  And we are given that speed of both trains are equal, so L1 by twelve equals
+[01:14.16 -> 01:14.24]  L2
+[01:14.54 -> 01:15.94]  by eighteen, which is
+[01:16.46 -> 01:16.82]  L1 by
+[01:17.32 -> 01:19.54]  L2 equals twelve by eighteen.
+[01:20.26 -> 01:25.36]  After simplifying this by dividing both numbers by six, we get L1 by
+[01:25.86 -> 01:27.62]  L2 equals two by three.
+[01:28.54 -> 01:34.04]  So the required ratio of the lengths of the two trains is two is to three.
+[01:34.94 -> 01:37.56]  Hence, the correct option is option B.
