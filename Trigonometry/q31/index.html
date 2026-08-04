@@ -99,6 +99,10 @@
         <!-- Ground: (100,430) to (330,430), len=230 -->
         <line data-hf-id="hf-0j40" id="ground-line" x1="100" y1="430" x2="330" y2="430" stroke="#6373db" stroke-width="4" stroke-linecap="round" stroke-dasharray="230" stroke-dashoffset="230" opacity="0" />
 
+        
+        <!-- top: (100,430) to (330,430), len=230 -->
+        <line data-hf-id="hf-0j40" id="ground-line" x1="130" y1="256" x2="277" y2="256" stroke="#6373db" stroke-width="4" stroke-linecap="round" stroke-dasharray="230" stroke-dashoffset="230" opacity="0" />
+
         <!-- Tower 1 (known, right, solid): x=276 (center 290), width=28. Grows 0->260. -->
         <rect data-hf-id="hf-egn1" id="tower1-rect" x="276" y="430" width="28" height="0" fill="none" stroke="#6373db" stroke-width="5" />
 
@@ -116,9 +120,9 @@
         <line data-hf-id="hf-lao4" id="sight-line-2" x1="140" y1="257" x2="290" y2="170" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0" />
 
         <!-- Right-angle marker at F1=(290,430): rays -x (to F2) and -y (to T1), inset 20 -->
-        <path data-hf-id="hf-v40a" id="right-angle-1" d="M 270 430 L 270 410 L 290 410" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
+        <path data-hf-id="hf-v40a" id="right-angle-1" d="M 260 430 L 260 410 L 280 410" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
         <!-- Right-angle marker at RA2=(290,257): rays -x (to T2) and -y (to T1), inset 20 -->
-        <path data-hf-id="hf-icqk" id="right-angle-2" d="M 270 257 L 270 237 L 290 237" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
+        <path data-hf-id="hf-icqk" id="right-angle-2" d="M 260 257 L 260 237 L 280 237" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
 
         <!-- Angle arc 1 (60deg at F2): cx=140 cy=430 r=70, C=2*PI*70=439.82. translate(0,860)=2*cy. unitless. -->
         <circle data-hf-id="hf-08w8" id="angle-arc-1" cx="140" cy="430" r="70" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 860) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 439.82) 439.82; opacity:0;" />
@@ -172,18 +176,19 @@
        Only outer width/height and stroke widths shrink. Static/always-visible (already
        established in Phase 1), except the diff-bracket (new info introduced only in
        Step 2) and the "solved" chip crossfade, which both start hidden. -->
-  <div data-hf-id="hf-o04c" id="illus-pinned" class="clip" data-start="36.9" data-duration="78.5" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+  <div data-hf-id="hf-o04c" id="illus-pinned" class="clip" data-start="36.9" data-duration="78.5" data-track-index="3" style="position:absolute;left:230px;top:0px;width:1400px;height:450px;z-index:5;opacity:0;
               display:flex;align-items:center;justify-content:center;">
     <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
       <line data-hf-id="hf-2rux" x1="100" y1="430" x2="330" y2="430" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
+      <line data-hf-id="hf-2rux"  x1="130" y1="256" x2="277" y2="256" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
       <rect data-hf-id="hf-b40k" id="tower1-rect-pinned" x="276" y="170" width="28" height="260" fill="none" stroke="#6373db" stroke-width="4" />
       <rect data-hf-id="hf-v049" id="tower2-rect-pinned" x="126" y="257" width="28" height="173" fill="none" stroke="#6373db" stroke-width="4" stroke-dasharray="5 5" />
       <circle data-hf-id="hf-sa68" cx="140" cy="430" r="4" fill="#6373db" />
       <circle data-hf-id="hf-g5wl" cx="140" cy="257" r="4" fill="#6373db" />
       <line data-hf-id="hf-q276" id="sight-line-1-pinned" x1="140" y1="430" x2="290" y2="170" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 5" />
       <line data-hf-id="hf-k3rm" id="sight-line-2-pinned" x1="140" y1="257" x2="290" y2="170" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 5" />
-      <path data-hf-id="hf-s182" d="M 270 430 L 270 410 L 290 410" fill="none" stroke="#000000" stroke-width="2.5" />
-      <path data-hf-id="hf-0p89" d="M 270 257 L 270 237 L 290 237" fill="none" stroke="#000000" stroke-width="2.5" />
+      <path data-hf-id="hf-s182" d="M 260 430 L 260 410 L 280 410" fill="none" stroke="#000000" stroke-width="2.5" />
+      <path data-hf-id="hf-0p89" d="M 260 257 L 260 237 L 280 237" fill="none" stroke="#000000" stroke-width="2.5" />
       <circle data-hf-id="hf-rz8y" id="angle-arc-1-pinned" cx="140" cy="430" r="70" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 860) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 439.82) 439.82;" />
       <circle data-hf-id="hf-gk94" id="angle-arc-2-pinned" cx="140" cy="257" r="60" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 514) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 376.99) 376.99;" />
 
@@ -225,7 +230,7 @@
 
   <!-- STEP 1 - solve for x via tan60. duration >= (65.9-37.9)+0.8+1.5 = 30.3 -> 30.5 -->
   <div data-hf-id="hf-kl1m" id="card-step1" class="clip" data-start="37.9" data-duration="30.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
-    <div data-hf-id="hf-p06k" class="solution-card" style="position:absolute;left:590px;top:420px;text-align:center;width:740px;">
+    <div data-hf-id="hf-p06k" class="solution-card" style="position:absolute;left:590px;top:420px;text-align:center;width:848px;">
       <div data-hf-id="hf-3rv6" class="card-content">
         <span data-hf-id="hf-3ife" class="chip">Step 1</span>
         <div data-hf-id="hf-8tlu" class="math">
@@ -248,7 +253,7 @@
 
   <!-- STEP 2 - solve for h via tan30. duration >= (112.5-67.9)+0.8+1.5 = 46.9 -> 47.5 -->
   <div data-hf-id="hf-0g32" id="card-step2" class="clip" data-start="67.9" data-duration="47.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
-    <div data-hf-id="hf-cy4c" class="solution-card" style="position:absolute;left:560px;top:390px;text-align:center;width:800px;">
+    <div data-hf-id="hf-cy4c" class="solution-card" style="position:absolute;left:560px;top:430px;text-align:center;width:850px;">
       <div data-hf-id="hf-0yza" class="card-content">
         <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
         <div data-hf-id="hf-ng7a" class="math">
@@ -407,7 +412,7 @@
   apt.emphasize(tl, "#stack-step1 .ans", 98.52);
 
   // ── ANSWER REVEAL - Tower 2 confirms: dashed -> solid + success pulse
-  tl.to("#tower2-rect-pinned", { attr: { strokeDasharray: "0" }, duration: 0.3 }, 107.57);
+  tl.to("#tower2-rect-pinned", { attr: { "stroke-dasharray": "0" }, duration: 0.3 }, 107.57);
   tl.to("#tower2-rect-pinned", { stroke: "#4eb85f", duration: 0.3, yoyo: true, repeat: 1 }, 107.57);
   apt.fadeOut(tl, "#chip-h-pinned", 107.57, 0.3);
   apt.fadeIn(tl, "#chip-h-solved-pinned", 107.57, 0.35);
@@ -429,7 +434,7 @@
   const END_FADE_TIME = 117.62; // NARR_END(117.02) + 0.6
   apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
 
-  tl.set({}, {}, 119.02); // END_FADE_TIME(117.62) + 1.2 + 0.2 - nothing beyond this
+  tl.set({}, {}, 120.9); // END_FADE_TIME(117.62) + 1.2 + 0.2 - nothing beyond this
 
   window.__timelines = window.__timelines || {};
   window.__timelines["root"] = tl;
