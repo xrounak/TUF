@@ -46,9 +46,9 @@ transcript.json duration = 111.56s. All timestamps below are pulled directly fro
 - `STEP2_MORPH=76.0` -> morph into stack; `apt.stackLineGrow("#line-1-2")`.
 - Continuity: the h-chip established in Step1/2 as a shared unknown carries directly into Scene 5's substitution.
 
-### Scene 5 (76.6-103.4s) - Step 3: combine to solve h
-- `STEP3_TIME=76.6`: cardEnter + textReveal.
-- Step3 lines: "Both x, y now in terms of h" (76.6), "x + y = 100" (81.72), "h + h/root3 = 100" (85.98), "h(1 + 1/root3) = 100" (91.98), "h = 50(3 - root3) m" (ans, 98.14).
+### Scene 5 (76.9-103.4s) - Step 3: combine to solve h
+- `STEP3_TIME=76.9`: cardEnter + textReveal (kept just after STEP2_MORPH(76.0)+0.8=76.8 completes, so Step3 never overlaps Step2's morph).
+- Step3 lines: "Both x, y now in terms of h" (76.9), "x + y = 100" (81.72), "h + h/root3 = 100" (85.98), "h(1 + 1/root3) = 100" (91.98), "h = 50(3 - root3) m" (ans, 98.14).
 - Illustration: pulse chip-h (78.5), pulse chip-x (81.72), pulse chip-y (82.68), pulse chip-h (84.38), pulse chip-h (88.84), pulse arc-45+arc-60 together (90.02), pulse chip-h (96.32), LINK crossfade chip-h "h" -> "50(3-root3) m" + pulse pole-guide green (98.14), pulse pole-guide again (100.4), emphasize final chip (101.46).
 - `STEP3_MORPH=103.4` -> morph into stack; `apt.stackLineGrow("#line-2-3")`.
 - Continuity: the numeric h resolved here is the payoff of every symbolic h-chip pulse from Scenes 2-4.
@@ -81,7 +81,7 @@ No external assets. Pure inline SVG: ground line, dashed pole guide (F-D, the sh
 25.6  GIVEN_TIME (cardEnter)           76.6  STEP3_TIME (cardEnter)        103.4 STEP3_MORPH
 25.6-39.0 given lines + arc pulses     81.72 L1 "x+y=100"                  104.2 RECENTER_TIME
 40.6  GIVEN_MORPH                      85.98 L2 "h+h/root3=100"            104.5 options fadeIn
-41.6  STEP1_TIME (cardEnter)                                               105.2 optionsStagger
+41.6  STEP1_TIME (cardEnter)           76.9  STEP3_TIME (cardEnter)        105.2 optionsStagger
 45.02-48.24 tan45=h/x chain                                                106.0/107.5/109.5 fill beats
 55.6  ans "h=x"                                                            111.0 CORRECT_PULSE
 57.26 emphasize                                                            112.16 END_FADE_TIME
