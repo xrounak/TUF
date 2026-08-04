@@ -14,3 +14,9 @@ please use symbol of root, theta, pie etc insted of using the actual words in so
 and if needed don't keep the illustration static on pin illustration keep animating there too : only of needed 
 
 somehow whenevrer you try to draw perpendicular rectangular arc by using path in right angle triangle you miscalulated and incresd the all three x by 10px keep it in mind 
+
+and in illustration don't unse only the blod coluor , sharp edges try to adjust opacity, edges, etc also in solution cards texts (steps)
+
+please don't use thick lines in illustration no matter how big it is okay keep it sleak - elegant.
+
+and inc the tl.set duration its keeep getting shoter
