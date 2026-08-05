@@ -70,58 +70,51 @@
       <div data-hf-id="hf-yfde" class="digit">Q</div>
     </div>
 
-    <!-- Illustration area - right triangle, drawn true to scale.
-         Single unified coordinate system, viewBox "0 0 700 480" (matches the
-         wrapper 1:1, no separate svg-offset-within-wrapper math needed):
-           theta-vertex        = (174, 352)  [angle vertex, LEFT - base ray points +x]
-           right-angle-vertex  = (414, 352)  [RIGHT of theta-vertex]
-           apex                = (414, 224)  [directly above right-angle-vertex]
-         base(adjacent)  = 414-174 = 240
-         perp(opposite)  = 352-224 = 128
-         hyp             = sqrt(240^2+128^2) = sqrt(73984) = 272
-         computed angle  = atan2(128,240) = 28.07deg -> --angle:28.07 (bare unitless, opacity-fade only)
-         Arc: cx=174,cy=352,r=72, circumference=2*pi*72=452.39. The arc-flip
-         transform must be a LITERAL translate value, never calc() - the SVG
-         "transform" XML attribute (unlike the CSS "transform" style property)
-         does not support calc() expressions; a calc() here is invalid and
-         silently fails, leaving the arc unflipped so it sweeps away from the
-         triangle instead of up into it. translate Y = 2*cy = 704 (literal).
-         Labels are <foreignObject> INSIDE this same svg (not separate HTML
-         divs positioned alongside it) so the pinned copy can be a pure
-         width/height shrink of this exact markup - viewBox unchanged, only
-         the outer width/height attributes differ - matching the proven
-         q10/q16 pinned-copy technique (penelty.txt rule 5) instead of a
-         separate CSS transform:scale wrapper. -->
+    <!-- Illustration area - right triangle, drawn true to scale, 2x the
+         original geometry inside a bigger viewBox (coordinates doubled,
+         render kept 1:1 with viewBox so stroke-width/font-size/chip-box
+         sizes are untouched - only the triangle itself and its margins
+         got bigger, same technique used to enlarge q27's figure):
+           theta-vertex        = (150, 450)  [angle vertex, LEFT - base ray points +x]
+           right-angle-vertex  = (630, 450)  [RIGHT of theta-vertex]
+           apex                = (630, 194)  [directly above right-angle-vertex]
+         base(adjacent)  = 630-150 = 480
+         perp(opposite)  = 450-194 = 256
+         hyp             = sqrt(480^2+256^2) = sqrt(295936) = 544
+         computed angle  = atan2(256,480) = 28.07deg -> --angle:28.07 (unchanged, same true-scale triangle)
+         Arc: cx=150,cy=450,r=144, circumference=2*pi*144=904.78. translate Y = 2*cy = 900 (literal).
+         Labels are <foreignObject> INSIDE this same svg (pinned copy stays a
+         pure width/height shrink of this exact markup, viewBox unchanged). -->
     <div data-hf-id="hf-e916" id="illustration" style="position:absolute;left:50%;top:340px;transform:translateX(-50%);
-                width:700px;height:480px;opacity:0;">
-      <svg data-hf-id="hf-7e46" viewBox="0 0 700 480" width="700" height="480" xmlns="http://www.w3.org/2000/svg">
-        <!-- base (adjacent), len=sqrt((414-174)^2+(352-352)^2)=240 -->
-        <line data-hf-id="hf-r8e9" x1="174" y1="352" x2="414" y2="352" stroke="#000000" stroke-width="6" stroke-linecap="round" />
-        <!-- perpendicular (opposite), len=sqrt((414-414)^2+(352-224)^2)=128 -->
-        <line data-hf-id="hf-gere" x1="414" y1="352" x2="414" y2="224" stroke="#000000" stroke-width="6" stroke-linecap="round" />
-        <!-- hypotenuse, len=sqrt((414-174)^2+(224-352)^2)=272 -->
-        <line data-hf-id="hf-op0e" x1="174" y1="352" x2="414" y2="224" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
-        <!-- right-angle marker at (414,352), rays -y and -x, inset 24px each -->
-        <path data-hf-id="hf-qh26" d="M 390 352 L 390 328 L 414 328" fill="none" stroke="#000000" stroke-width="4" />
+                width:900px;height:650px;opacity:0;">
+      <svg data-hf-id="hf-7e46" viewBox="0 0 900 650" width="900" height="650" xmlns="http://www.w3.org/2000/svg">
+        <!-- base (adjacent), len=sqrt((630-150)^2+(450-450)^2)=480 -->
+        <line data-hf-id="hf-r8e9" x1="150" y1="450" x2="630" y2="450" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+        <!-- perpendicular (opposite), len=sqrt((630-630)^2+(450-194)^2)=256 -->
+        <line data-hf-id="hf-gere" x1="630" y1="450" x2="630" y2="194" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+        <!-- hypotenuse, len=sqrt((630-150)^2+(194-450)^2)=544 -->
+        <line data-hf-id="hf-op0e" x1="150" y1="450" x2="630" y2="194" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+        <!-- right-angle marker at (630,450), rays -y and -x, inset 48px each -->
+        <path data-hf-id="hf-qh26" d="M 582 450 L 582 402 L 630 402" fill="none" stroke="#000000" stroke-width="4" />
         <!-- theta arc - stroke-dasharray circle technique, bare unitless --angle,
              LITERAL translate (not calc()), opacity-only reveal -->
-        <circle data-hf-id="hf-lxu9" id="theta-arc" cx="174" cy="352" r="72" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 704) scale(1,-1)" style="--angle: 28.07; stroke-dasharray: calc((var(--angle) / 360) * 452.39) 452.39; opacity:0;" />
+        <circle data-hf-id="hf-lxu9" id="theta-arc" cx="150" cy="450" r="144" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 900) scale(1,-1)" style="--angle: 28.07; stroke-dasharray: calc((var(--angle) / 360) * 904.78) 904.78; opacity:0;" />
         <!-- Chip labels (per feedback: pill chips, not bare svg text) -->
-        <foreignobject data-hf-id="hf-a890" id="chip-theta" x="150" y="326" width="60" height="40" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-a890" id="chip-theta" x="102" y="398" width="60" height="40" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-wdvc" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">θ</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-5ll6" id="chip-opp" x="441" y="272" width="140" height="44" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-5ll6" id="chip-opp" x="684" y="270" width="140" height="44" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-4m9k" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">8 units</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-ghu1" id="chip-hyp" x="183" y="230" width="150" height="44" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-ghu1" id="chip-hyp" x="168" y="206" width="150" height="44" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-edvw" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">17 units</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-rp0m" id="chip-adj" x="223" y="364" width="140" height="44" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-rp0m" id="chip-adj" x="248" y="474" width="140" height="44" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-atnc" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">X units</div>
         </foreignobject>
       </svg>
       <!-- Formula row - bigger, clearer than a small chip pill -->
-      <div data-hf-id="hf-k2u7" id="formula-row" style="position:absolute;left:0;top:420px;width:700px;text-align:center;
+      <div data-hf-id="hf-k2u7" id="formula-row" style="position:absolute;left:0;top:560px;width:900px;text-align:center;
                   font-family:var(--font);font-size:40px;color:var(--text);opacity:0;">
         tanθ = <span data-hf-id="hf-dkto" class="frac" style="font-size:1em;margin:0 10px;"><span data-hf-id="hf-v9s6" class="top hi">opposite</span><span data-hf-id="hf-dvfj" class="bot hi">adjacent</span></span>
       </div>
@@ -140,31 +133,31 @@
   </div>
 
   <!-- Pinned illustration - EXACT same underlying viewBox/coordinates as
-       #illustration above, only the outer svg width/height shrink
-       (700*0.629=440, 480*0.629=302) - a pure scale, never a separate
+       #illustration above (now 0 0 900 650), only the outer svg width/height
+       shrink (900*0.629=566, 650*0.629=409) - a pure scale, never a separate
        eyeballed redraw (penelty.txt rule 5), matching the q10/q16 pattern.
        Labels use .fig-chip-pinned (bigger source font-size) instead of
        .fig-chip so they still read >20px after the shrink - see the CSS
        comment above .fig-chip-pinned for the math. Boxes are enlarged and
        recentered on the same anchor points the smaller .fig-chip boxes used. -->
-  <div data-hf-id="hf-hqa0" id="illus-pinned" class="clip" data-start="19.6" data-duration="49.2" data-track-index="3" style="position:absolute;left:690px;top:135px;width:440px;height:302px;z-index:5;opacity:0;">
-    <svg data-hf-id="hf-hr79" viewBox="0 0 700 480" width="440" height="302" xmlns="http://www.w3.org/2000/svg">
-      <line data-hf-id="hf-ia8l" x1="174" y1="352" x2="414" y2="352" stroke="#000000" stroke-width="6" stroke-linecap="round" />
-      <line data-hf-id="hf-51em" x1="414" y1="352" x2="414" y2="224" stroke="#000000" stroke-width="6" stroke-linecap="round" />
-      <line data-hf-id="hf-qr9e" x1="174" y1="352" x2="414" y2="224" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
-      <path data-hf-id="hf-jef6" d="M 390 352 L 390 328 L 414 328" fill="none" stroke="#000000" stroke-width="4" />
-      <circle data-hf-id="hf-ew82" cx="174" cy="352" r="72" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 704) scale(1,-1)" style="--angle: 28.07; stroke-dasharray: calc((var(--angle) / 360) * 452.39) 452.39;" />
-      <!-- box centers match the original .fig-chip anchors (theta:180,346 / opp:451,294 / hyp:258,252 / adj:293,386), just bigger boxes for the bigger font -->
-      <foreignobject data-hf-id="hf-dm7t" x="115" y="316" width="90" height="60" style="overflow:visible;">
+  <div data-hf-id="hf-hqa0" id="illus-pinned" class="clip" data-start="19.6" data-duration="49.2" data-track-index="3" style="position:absolute;left:690px;top:15px;width:566px;height:409px;z-index:5;opacity:0;">
+    <svg data-hf-id="hf-hr79" viewBox="0 0 900 650" width="566" height="409" xmlns="http://www.w3.org/2000/svg">
+      <line data-hf-id="hf-ia8l" x1="150" y1="450" x2="630" y2="450" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-51em" x1="630" y1="450" x2="630" y2="194" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-qr9e" x1="150" y1="450" x2="630" y2="194" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <path data-hf-id="hf-jef6" d="M 582 450 L 582 402 L 630 402" fill="none" stroke="#000000" stroke-width="4" />
+      <circle data-hf-id="hf-ew82" cx="150" cy="450" r="144" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 900) scale(1,-1)" style="--angle: 28.07; stroke-dasharray: calc((var(--angle) / 360) * 904.78) 904.78;" />
+      <!-- box centers match the original .fig-chip anchors, offsets doubled to track the 2x geometry, boxes themselves unchanged (bigger font, not bigger box) -->
+      <foreignobject data-hf-id="hf-dm7t" x="32" y="378" width="90" height="60" style="overflow:visible;">
         <div data-hf-id="hf-8du8" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">θ</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-0jn6" x="446" y="261" width="210" height="66" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-0jn6" x="694" y="268" width="210" height="66" style="overflow:visible;">
         <div data-hf-id="hf-5y1c" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">8 units</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-kz71" x="146" y="219" width="225" height="66" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-kz71" x="94" y="184" width="225" height="66" style="overflow:visible;">
         <div data-hf-id="hf-k0ys" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">17 units</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-kg0x" id="chip-adj-pinned" x="228" y="383" width="210" height="66" style="overflow:visible;opacity:0;">
+      <foreignobject data-hf-id="hf-kg0x" id="chip-adj-pinned" x="258" y="512" width="210" height="66" style="overflow:visible;opacity:0;">
         <div data-hf-id="hf-at4g" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">X units</div>
       </foreignobject>
     </svg>

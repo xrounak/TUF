@@ -84,88 +84,89 @@
          LENGTH CHECK: hyp(A-C)=sqrt(260^2+150^2)=300.17 ; hyp(B-C)=sqrt(150^2+150^2)=212.13
          GROUND: y=400
          VIEWBOX: x[0..560] y[0..500] (labels/arrows fit with margin) -> "0 0 560 500"
-         Render: width=630 height=563 (scale 1.125), top:380px, left:50% translateX(-50%)
+         Render: width=1260 height=1126 (2x, ratio kept at 1.125 so stroke-width/font-size
+         values are untouched - only coordinates doubled), top:380px, left:50% translateX(-50%)
          ══════════════════════════════════════════════ -->
-    <div data-hf-id="hf-0iiv" id="illustration" style="position:absolute;left:50%;top:380px;transform:translateX(-50%);
-                width:630px;height:563px;overflow:visible;">
-      <svg data-hf-id="hf-1u3a" viewBox="0 0 560 500" width="630" height="563" style="overflow:visible;">
+    <div data-hf-id="hf-0iiv" id="illustration" style="position:absolute;left:50%;top:-50px;transform:translateX(-50%);
+                width:1260px;height:1126px;overflow:visible;">
+      <svg data-hf-id="hf-1u3a" viewBox="0 0 1120 1000" width="1260" height="1126" style="overflow:visible;">
 
-        <!-- ground line A(40,400) -> B(450,400), len=410 (exact, horizontal) -->
-        <line data-hf-id="hf-ilp2" id="ground-line" x1="40" y1="400" x2="450" y2="400" stroke="#6373db" stroke-width="4" stroke-linecap="round" stroke-dasharray="410" stroke-dashoffset="410" />
+        <!-- ground line A(80,800) -> B(900,800), len=820 (exact, horizontal) -->
+        <line data-hf-id="hf-ilp2" id="ground-line" x1="80" y1="800" x2="900" y2="800" stroke="#6373db" stroke-width="4" stroke-linecap="round" stroke-dasharray="820" stroke-dashoffset="820" />
 
-        <!-- tower: grows from ground (y=400,height=0) to full height (y=250,height=150) -->
-        <rect data-hf-id="hf-70uq" id="tower-rect" x="292" y="400" width="16" height="0" fill="none" stroke="#6373db" stroke-width="5" />
+        <!-- tower: grows from ground (y=800,height=0) to full height (y=500,height=300) -->
+        <rect data-hf-id="hf-70uq" id="tower-rect" x="584" y="800" width="32" height="0" fill="none" stroke="#6373db" stroke-width="5" />
 
-        <!-- right-angle marker at T=(300,400), inset 15px along ground(+x toward B) and tower(+y up) -->
-        <path data-hf-id="hf-z2gj" id="right-angle-mark" d="M 310 385 L 325 385 L 325 400" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
+        <!-- right-angle marker at T=(600,800), inset 30px along ground(+x toward B) and tower(+y up) -->
+        <path data-hf-id="hf-z2gj" id="right-angle-mark" d="M 620 770 L 650 770 L 650 800" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
 
         <!-- sight lines (dashed, static pattern - not a draw-in stroke-length line) -->
-        <line data-hf-id="hf-su1y" id="sight-left" x1="40" y1="400" x2="300" y2="250" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0" />
-        <line data-hf-id="hf-zs5q" id="sight-right" x1="450" y1="400" x2="300" y2="250" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0" />
+        <line data-hf-id="hf-su1y" id="sight-left" x1="80" y1="800" x2="600" y2="500" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0" />
+        <line data-hf-id="hf-zs5q" id="sight-right" x1="900" y1="800" x2="600" y2="500" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0" />
 
-        <!-- 30-deg arc (standard technique): cx=40,cy=400,r=90, C=2*PI*90=565.49; translate(0,800) since 2*cy=800 -->
-        <circle data-hf-id="hf-bagv" id="arc-30" cx="40" cy="400" r="90" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 800) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 565.49) 565.49; opacity:0;" />
+        <!-- 30-deg arc (standard technique): cx=80,cy=800,r=180, C=2*PI*180=1130.97; translate(0,1600) since 2*cy=1600 -->
+        <circle data-hf-id="hf-bagv" id="arc-30" cx="80" cy="800" r="180" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 1600) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 1130.97) 1130.97; opacity:0;" />
 
-        <!-- 45-deg arc (MIRRORED technique - B's base ray points -x): cx=450,cy=400,r=70,
-             C=2*PI*70=439.82; transform mirrors both axes: translate(900,800) scale(-1,-1)
-             since 2*cx=900, 2*cy=800 -->
-        <circle data-hf-id="hf-uot2" id="arc-45" cx="450" cy="400" r="70" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(900, 800) scale(-1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 439.82) 439.82; opacity:0;" />
+        <!-- 45-deg arc (MIRRORED technique - B's base ray points -x): cx=900,cy=800,r=140,
+             C=2*PI*140=879.65; transform mirrors both axes: translate(1800,1600) scale(-1,-1)
+             since 2*cx=1800, 2*cy=1600 -->
+        <circle data-hf-id="hf-uot2" id="arc-45" cx="900" cy="800" r="140" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(1800, 1600) scale(-1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 879.65) 879.65; opacity:0;" />
 
         <!-- observer markers: circle head + rect body, feet exactly at the vertex (ground point) -->
         <g data-hf-id="hf-b4s9" id="obs-A-icon" opacity="0">
-          <rect data-hf-id="hf-qn0w" x="33" y="386" width="14" height="14" rx="4" fill="none" stroke="#6373db" stroke-width="2.5" />
-          <circle data-hf-id="hf-u3vt" cx="40" cy="386" r="7" fill="#FFFFFF" stroke="#6373db" stroke-width="2.5" />
+          <rect data-hf-id="hf-qn0w" x="52" y="744" width="56" height="56" rx="16" fill="none" stroke="#6373db" stroke-width="2.5" />
+          <circle data-hf-id="hf-u3vt" cx="80" cy="744" r="28" fill="#FFFFFF" stroke="#6373db" stroke-width="2.5" />
         </g>
         <g data-hf-id="hf-vz1o" id="obs-B-icon" opacity="0">
-          <rect data-hf-id="hf-220z" x="443" y="386" width="14" height="14" rx="4" fill="none" stroke="#6373db" stroke-width="2.5" />
-          <circle data-hf-id="hf-987e" cx="450" cy="386" r="7" fill="#FFFFFF" stroke="#6373db" stroke-width="2.5" />
+          <rect data-hf-id="hf-220z" x="872" y="744" width="56" height="56" rx="16" fill="none" stroke="#6373db" stroke-width="2.5" />
+          <circle data-hf-id="hf-987e" cx="900" cy="744" r="28" fill="#FFFFFF" stroke="#6373db" stroke-width="2.5" />
         </g>
 
         <!-- h height arrow (double-headed vertical), alongside tower -->
         <g data-hf-id="hf-gfst" id="arrow-h" opacity="0">
-          <line data-hf-id="hf-i5ue" x1="260" y1="400" x2="260" y2="250" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-          <path data-hf-id="hf-tfmi" d="M 253,268 L 260,250 L 267,268 Z" fill="#000000" />
-          <path data-hf-id="hf-w181" d="M 253,382 L 260,400 L 267,382 Z" fill="#000000" />
+          <line data-hf-id="hf-i5ue" x1="520" y1="800" x2="520" y2="500" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-tfmi" d="M 506,536 L 520,500 L 534,536 Z" fill="#000000" />
+          <path data-hf-id="hf-w181" d="M 506,764 L 520,800 L 534,764 Z" fill="#000000" />
         </g>
 
         <!-- x distance arrow, A to T -->
         <g data-hf-id="hf-a9m5" id="arrow-x" opacity="0">
-          <line data-hf-id="hf-m7ko" x1="40" y1="414" x2="300" y2="414" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-          <path data-hf-id="hf-75s3" d="M 58,407 L 40,414 L 58,421 Z" fill="#000000" />
-          <path data-hf-id="hf-72z2" d="M 282,407 L 300,414 L 282,421 Z" fill="#000000" />
+          <line data-hf-id="hf-m7ko" x1="80" y1="828" x2="600" y2="828" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-75s3" d="M 116,814 L 80,828 L 116,842 Z" fill="#000000" />
+          <path data-hf-id="hf-72z2" d="M 564,814 L 600,828 L 564,842 Z" fill="#000000" />
         </g>
 
         <!-- 60-x distance arrow, T to B -->
         <g data-hf-id="hf-st7n" id="arrow-60x" opacity="0">
-          <line data-hf-id="hf-0jqf" x1="300" y1="414" x2="450" y2="414" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-          <path data-hf-id="hf-jbpa" d="M 318,407 L 300,414 L 318,421 Z" fill="#000000" />
-          <path data-hf-id="hf-899q" d="M 432,407 L 450,414 L 432,421 Z" fill="#000000" />
+          <line data-hf-id="hf-0jqf" x1="600" y1="828" x2="900" y2="828" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-jbpa" d="M 636,814 L 600,828 L 636,842 Z" fill="#000000" />
+          <path data-hf-id="hf-899q" d="M 864,814 L 900,828 L 864,842 Z" fill="#000000" />
         </g>
 
         <!-- 60 m total-distance bracket, A to B -->
         <g data-hf-id="hf-l664" id="bracket-60" opacity="0">
-          <line data-hf-id="hf-naqr" x1="40" y1="454" x2="450" y2="454" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
-          <path data-hf-id="hf-yypa" d="M 58,447 L 40,454 L 58,461 Z" fill="#6373db" />
-          <path data-hf-id="hf-8mvr" d="M 432,447 L 450,454 L 432,461 Z" fill="#6373db" />
+          <line data-hf-id="hf-naqr" x1="80" y1="908" x2="900" y2="908" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-yypa" d="M 116,894 L 80,908 L 116,922 Z" fill="#6373db" />
+          <path data-hf-id="hf-8mvr" d="M 864,894 L 900,908 L 864,922 Z" fill="#6373db" />
         </g>
 
         <!-- chips -->
-        <foreignobject data-hf-id="hf-pnxb" id="chip-30" x="36" y="322" width="72" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-pnxb" id="chip-30" x="72" y="644" width="144" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-k1wh" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">30°</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-0hzl" id="chip-45" x="412" y="319" width="72" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-0hzl" id="chip-45" x="824" y="638" width="144" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-kdv5" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">45°</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-l6j4" id="chip-h" x="222" y="302" width="42" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-l6j4" id="chip-h" x="444" y="604" width="84" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-ddp6" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">h</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-axb6" id="chip-x" x="140" y="422" width="60" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-axb6" id="chip-x" x="280" y="844" width="120" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-jqlm" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">x</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-mxm7" id="chip-60x" x="335" y="422" width="90" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-mxm7" id="chip-60x" x="670" y="844" width="180" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-o75z" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">60 - x</div>
         </foreignobject>
-        <foreignobject data-hf-id="hf-k6pe" id="label-60" x="210" y="458" width="70" height="42" style="overflow:visible;opacity:0;">
+        <foreignobject data-hf-id="hf-k6pe" id="label-60" x="420" y="916" width="140" height="84" style="overflow:visible;opacity:0;">
           <div data-hf-id="hf-kzvx" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">60 m</div>
         </foreignobject>
       </svg>
@@ -183,58 +184,58 @@
     </div>
   </div>
 
-  <!-- Pinned illustration - EXACT coordinate copy (same viewBox 0 0 560 500), only
-       outer width/height and stroke widths shrink (scale 240/500 = 0.48, so
-       269/560 = 0.480 too - matches). Pinned chip font bumped to 46px so effective
-       size clears the 21px floor at this smaller scale (46 * 0.48 = 22.1px).
+  <!-- Pinned illustration - EXACT coordinate copy (viewBox doubled to 0 0 1120 1000,
+       matching the 2x main illustration), outer render doubled too (538/1120 = 0.480,
+       matches old 269/560 = 0.480 - same effective scale, so stroke widths and the
+       46px pinned chip font are untouched).
        Geometry is static/always-visible per design.md 9.1's pinned-copy rule;
        only LINK pulses (stroke recolor / emphasize) animate on top later. -->
-  <div data-hf-id="hf-ews5" id="illus-pinned" class="clip" data-start="37.56" data-duration="56.5" data-track-index="3" style="position:absolute;left:280px;top:170px;width:1300px;height:240px;z-index:5;opacity:0;
+  <div data-hf-id="hf-ews5" id="illus-pinned" class="clip" data-start="37.56" data-duration="56.5" data-track-index="3" style="position:absolute;left:280px;top:30px;width:1300px;height:240px;z-index:5;opacity:0;
               display:flex;align-items:center;justify-content:center;">
-    <svg data-hf-id="hf-nrly" viewBox="0 0 560 500" width="269" height="240" style="overflow:visible;">
-      <line data-hf-id="hf-y5vp" x1="40" y1="400" x2="450" y2="400" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
-      <rect data-hf-id="hf-1g8y" x="292" y="250" width="16" height="150" fill="none" stroke="#6373db" stroke-width="4" />
-      <path data-hf-id="hf-tsd5" d="M 300 385 L 315 385 L 315 400" fill="none" stroke="#000000" stroke-width="2.5" />
-      <line data-hf-id="hf-wcks" x1="40" y1="400" x2="300" y2="250" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
-      <line data-hf-id="hf-ffs1" x1="450" y1="400" x2="300" y2="250" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
-      <circle data-hf-id="hf-gn0j" id="arc-30-pinned" cx="40" cy="400" r="90" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 800) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 565.49) 565.49;" />
-      <circle data-hf-id="hf-urm6" id="arc-45-pinned" cx="450" cy="400" r="70" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(900, 800) scale(-1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 439.82) 439.82;" />
+    <svg data-hf-id="hf-nrly" viewBox="0 0 1120 1000" width="538" height="480" style="overflow:visible;">
+      <line data-hf-id="hf-y5vp" x1="80" y1="800" x2="900" y2="800" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
+      <rect data-hf-id="hf-1g8y" x="584" y="500" width="32" height="300" fill="none" stroke="#6373db" stroke-width="4" />
+      <path data-hf-id="hf-tsd5" d="M 610 770 L 640 770 L 640 800" fill="none" stroke="#000000" stroke-width="2.5" />
+      <line data-hf-id="hf-wcks" x1="80" y1="800" x2="600" y2="500" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
+      <line data-hf-id="hf-ffs1" x1="900" y1="800" x2="600" y2="500" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
+      <circle data-hf-id="hf-gn0j" id="arc-30-pinned" cx="80" cy="800" r="180" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 1600) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 1130.97) 1130.97;" />
+      <circle data-hf-id="hf-urm6" id="arc-45-pinned" cx="900" cy="800" r="140" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(1800, 1600) scale(-1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 879.65) 879.65;" />
       <g data-hf-id="hf-vera">
-        <rect data-hf-id="hf-yc5j" x="33" y="386" width="14" height="14" rx="4" fill="none" stroke="#6373db" stroke-width="2" />
-        <circle data-hf-id="hf-0zfa" cx="40" cy="386" r="7" fill="#FFFFFF" stroke="#6373db" stroke-width="2" />
+        <rect data-hf-id="hf-yc5j" x="66" y="772" width="28" height="28" rx="8" fill="none" stroke="#6373db" stroke-width="2" />
+        <circle data-hf-id="hf-0zfa" cx="80" cy="772" r="14" fill="#FFFFFF" stroke="#6373db" stroke-width="2" />
       </g>
       <g data-hf-id="hf-pwpm">
-        <rect data-hf-id="hf-32pu" x="443" y="386" width="14" height="14" rx="4" fill="none" stroke="#6373db" stroke-width="2" />
-        <circle data-hf-id="hf-l37t" cx="450" cy="386" r="7" fill="#FFFFFF" stroke="#6373db" stroke-width="2" />
+        <rect data-hf-id="hf-32pu" x="886" y="772" width="28" height="28" rx="8" fill="none" stroke="#6373db" stroke-width="2" />
+        <circle data-hf-id="hf-l37t" cx="900" cy="772" r="14" fill="#FFFFFF" stroke="#6373db" stroke-width="2" />
       </g>
       <g data-hf-id="hf-h0us" id="arrow-h-pinned">
-        <line data-hf-id="hf-jb4o" x1="260" y1="400" x2="260" y2="250" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
-        <path data-hf-id="hf-jvr2" d="M 253,268 L 260,250 L 267,268 Z" fill="#000000" />
-        <path data-hf-id="hf-cmxx" d="M 253,382 L 260,400 L 267,382 Z" fill="#000000" />
+        <line data-hf-id="hf-jb4o" x1="520" y1="800" x2="520" y2="500" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-jvr2" d="M 506,536 L 520,500 L 534,536 Z" fill="#000000" />
+        <path data-hf-id="hf-cmxx" d="M 506,764 L 520,800 L 534,764 Z" fill="#000000" />
       </g>
       <g data-hf-id="hf-byv8" id="arrow-x-pinned">
-        <line data-hf-id="hf-tbsm" x1="40" y1="414" x2="300" y2="414" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
-        <path data-hf-id="hf-hjsz" d="M 58,407 L 40,414 L 58,421 Z" fill="#000000" />
-        <path data-hf-id="hf-tjgy" d="M 282,407 L 300,414 L 282,421 Z" fill="#000000" />
+        <line data-hf-id="hf-tbsm" x1="80" y1="828" x2="600" y2="828" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-hjsz" d="M 116,814 L 80,828 L 116,842 Z" fill="#000000" />
+        <path data-hf-id="hf-tjgy" d="M 564,814 L 600,828 L 564,842 Z" fill="#000000" />
       </g>
       <g data-hf-id="hf-sicu" id="arrow-60x-pinned">
-        <line data-hf-id="hf-48rt" x1="300" y1="414" x2="450" y2="414" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
-        <path data-hf-id="hf-3sgy" d="M 318,407 L 300,414 L 318,421 Z" fill="#000000" />
-        <path data-hf-id="hf-lq0i" d="M 432,407 L 450,414 L 432,421 Z" fill="#000000" />
+        <line data-hf-id="hf-48rt" x1="600" y1="828" x2="900" y2="828" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-3sgy" d="M 636,814 L 600,828 L 636,842 Z" fill="#000000" />
+        <path data-hf-id="hf-lq0i" d="M 864,814 L 900,828 L 864,842 Z" fill="#000000" />
       </g>
-      <foreignobject data-hf-id="hf-aujy" id="chip-30-pinned" x="6" y="302" width="72" height="42" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-aujy" id="chip-30-pinned" x="12" y="604" width="144" height="84" style="overflow:visible;">
         <div data-hf-id="hf-kd1k" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">30°</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-epnq" id="chip-45-pinned" x="412" y="319" width="72" height="42" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-epnq" id="chip-45-pinned" x="824" y="638" width="144" height="84" style="overflow:visible;">
         <div data-hf-id="hf-883s" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">45°</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-0jwd" id="chip-h-pinned" x="222" y="302" width="42" height="42" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-0jwd" id="chip-h-pinned" x="444" y="604" width="84" height="84" style="overflow:visible;">
         <div data-hf-id="hf-amm1" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">h</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-g5u3" id="chip-x-pinned" x="140" y="422" width="60" height="42" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-g5u3" id="chip-x-pinned" x="280" y="844" width="120" height="84" style="overflow:visible;">
         <div data-hf-id="hf-49pl" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">x</div>
       </foreignobject>
-      <foreignobject data-hf-id="hf-b7hm" id="chip-60x-pinned" x="335" y="422" width="90" height="42" style="overflow:visible;">
+      <foreignobject data-hf-id="hf-b7hm" id="chip-60x-pinned" x="670" y="844" width="180" height="84" style="overflow:visible;">
         <div data-hf-id="hf-kj6m" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">60 - x</div>
       </foreignobject>
     </svg>
@@ -407,7 +408,7 @@
   tl.fromTo("#bracket-60", { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 7.8);
   tl.fromTo("#label-60", { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 7.8);
 
-  tl.to("#tower-rect", { attr: { height: 150, y: 250 }, duration: 0.7, ease: "power2.out" }, 10.6);
+  tl.to("#tower-rect", { attr: { height: 300, y: 500 }, duration: 0.7, ease: "power2.out" }, 10.6);
   tl.to("#right-angle-mark", { opacity: 1, duration: 0.3 }, 11.2);
   tl.to("#sight-left", { opacity: 1, duration: 0.4 }, 11.8);
   tl.to("#sight-right", { opacity: 1, duration: 0.4 }, 12.6);

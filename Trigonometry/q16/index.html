@@ -31,44 +31,50 @@
       <div data-hf-id="hf-yfde" class="digit">Q</div>
     </div>
 
-    <!-- Illustration area: two reference right-triangles side by side, each
-         with a standard stroke-dasharray theta arc (30 deg / 60 deg) per
-         penelty.txt, and bordered chip labels for the standard values. -->
-    <div data-hf-id="hf-70xc" id="illustration" class="illustration" style="position:absolute;left:50%;top:470px;transform:translateX(-50%);
-                width:420px;height:280px;">
-      <!-- Angle vertex is on the LEFT of each triangle so the base ray points
-           +x, matching the arc's 0deg start direction (penelty.txt q10/q12
-           technique needs start ray and arc-start aligned or the arc sweeps
-           away from the triangle). Side lengths are true to their angle:
-           tri1 base=130,perp=75 (tan30=75/130=1/√3); tri2 base=75,perp=130
-           (tan60=130/75=√3). -->
-      <svg data-hf-id="hf-bxr0" id="tri-svg" viewBox="0 0 420 280" width="420" height="280" style="position:absolute;left:0;top:0;overflow:visible;">
-        <!-- Triangle 1: angle vertex (70,220), right angle at (200,220), apex (200,145) -->
-        <line data-hf-id="hf-yigv" id="tri1-base" x1="70" y1="220" x2="200" y2="220" stroke="#6373db" stroke-width="5" stroke-dasharray="130" stroke-dashoffset="130" stroke-linecap="round" />
-        <line data-hf-id="hf-hoxt" id="tri1-perp" x1="200" y1="220" x2="200" y2="145" stroke="#6373db" stroke-width="5" stroke-dasharray="75" stroke-dashoffset="75" stroke-linecap="round" />
-        <line data-hf-id="hf-r48g" id="tri1-hyp" x1="70" y1="220" x2="200" y2="145" stroke="#000000" stroke-width="4" stroke-dasharray="150" stroke-dashoffset="150" stroke-linecap="round" />
-        <path data-hf-id="hf-abd1" id="right-angle-1" d="M 185 220 L 185 205 L 200 205" fill="none" stroke="#000000" stroke-width="2.5" opacity="0" />
-        <!-- theta arc, 30 degrees, penelty.txt standard circle technique -->
-        <circle data-hf-id="hf-bgk1" id="angle-arc-30" cx="70" cy="220" r="34" fill="transparent" stroke="#4eb85f" stroke-width="6" stroke-linecap="round" transform="translate(0, 440) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 213.6) 213.6; opacity:0;" />
-        <text data-hf-id="hf-289n" id="tri1-label" x="70" y="260" font-family="Google Sans Flex, Inter, sans-serif" font-size="22" fill="#4eb85f" text-anchor="middle" opacity="0">30°</text>
+    <!-- Illustration area: two reference right-triangles side by side, viewBox 0 0 640 440.
+         PENALTY FIX (penelty.txt q16 entry): angle vertex MUST be the LEFTMOST base vertex
+         so the base/adjacent ray points +x, matching the theta arc's fixed 0deg start
+         direction. Both triangles now use the STANDARD (non-mirrored) arc technique.
 
-        <!-- Triangle 2: angle vertex (260,220), right angle at (335,220), apex (335,90) -->
-        <line data-hf-id="hf-hvrb" id="tri2-base" x1="260" y1="220" x2="335" y2="220" stroke="#6373db" stroke-width="5" stroke-dasharray="75" stroke-dashoffset="75" stroke-linecap="round" />
-        <line data-hf-id="hf-jcdy" id="tri2-perp" x1="335" y1="220" x2="335" y2="90" stroke="#6373db" stroke-width="5" stroke-dasharray="130" stroke-dashoffset="130" stroke-linecap="round" />
-        <line data-hf-id="hf-v4iw" id="tri2-hyp" x1="260" y1="220" x2="335" y2="90" stroke="#000000" stroke-width="4" stroke-dasharray="150" stroke-dashoffset="150" stroke-linecap="round" />
-        <path data-hf-id="hf-1q8j" id="right-angle-2" d="M 320 220 L 320 205 L 335 205" fill="none" stroke="#000000" stroke-width="2.5" opacity="0" />
-        <!-- theta arc, 60 degrees -->
-        <circle data-hf-id="hf-1b4f" id="angle-arc-60" cx="260" cy="220" r="34" fill="transparent" stroke="#4eb85f" stroke-width="6" stroke-linecap="round" transform="translate(0, 440) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 213.6) 213.6; opacity:0;" />
-        <text data-hf-id="hf-k7uh" id="tri2-label" x="260" y="260" font-family="Google Sans Flex, Inter, sans-serif" font-size="22" fill="#4eb85f" text-anchor="middle" opacity="0">60°</text>
+         VERTICES (defined once, reused literally everywhere):
+           Triangle 1 (30 deg): A1=(60,360) angle vertex, B1=(230,360) right-angle vertex, C1=(230,262) apex
+           Triangle 2 (60 deg): A2=(400,360) angle vertex, B2=(540,360) right-angle vertex, C2=(540,118) apex
+         GROUND: y=360
+         RATIO CHECK: T1 base=170, perp=170*tan(30)=98.16->98 | T2 base=140, perp=140*tan(60)=242.49->242
+         ANGLE CHECK: atan2(98,170)=29.98deg -> --angle:30 matches | atan2(242,140)=59.94deg -> --angle:60 matches
+         LENGTH CHECK: hyp1=sqrt(170^2+98^2)=196.24 | hyp2=sqrt(140^2+242^2)=279.58
+         VIEWBOX: x[20..580] y[78..430] -> "0 0 640 440" -->
+    <div data-hf-id="hf-70xc" id="illustration" class="illustration" style="position:absolute;left:50%;top:470px;transform:translateX(-50%);
+                width:640px;height:440px;">
+      <svg data-hf-id="hf-bxr0" id="tri-svg" viewBox="0 0 640 440" width="640" height="440" style="position:absolute;left:0;top:0;overflow:visible;">
+        <!-- Triangle 1: angle vertex (60,360), right angle (230,360), apex (230,262) -->
+        <line data-hf-id="hf-yigv" id="tri1-base" x1="60" y1="360" x2="230" y2="360" stroke="#6373db" stroke-width="7" stroke-dasharray="170" stroke-dashoffset="170" stroke-linecap="round" />
+        <line data-hf-id="hf-hoxt" id="tri1-perp" x1="230" y1="360" x2="230" y2="262" stroke="#6373db" stroke-width="7" stroke-dasharray="98" stroke-dashoffset="98" stroke-linecap="round" />
+        <line data-hf-id="hf-r48g" id="tri1-hyp" x1="60" y1="360" x2="230" y2="262" stroke="#000000" stroke-width="6" stroke-dasharray="196.2" stroke-dashoffset="196.2" stroke-linecap="round" />
+        <!-- right-angle marker at B1=(230,360): rays -x (toward A1) and -y (toward C1), inset 25 -->
+        <path data-hf-id="hf-abd1" id="right-angle-1" d="M 205 360 L 205 335 L 230 335" fill="none" stroke="#000000" stroke-width="3.5" opacity="0" />
+        <!-- theta arc 1: cx=60,cy=360,r=50, C=2*pi*50=314.2. computed atan2(98,170)=29.98deg matches --angle:30. Standard: translate(0,720) scale(1,-1) -->
+        <circle data-hf-id="hf-bgk1" id="angle-arc-30" cx="60" cy="360" r="50" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 720) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 314.2) 314.2; opacity:0;" />
+        <text data-hf-id="hf-289n" id="tri1-label" x="60" y="405" font-family="Google Sans Flex, Inter, sans-serif" font-size="28" fill="#4eb85f" text-anchor="middle" opacity="0">30°</text>
+
+        <!-- Triangle 2: angle vertex (400,360), right angle (540,360), apex (540,118) -->
+        <line data-hf-id="hf-hvrb" id="tri2-base" x1="400" y1="360" x2="540" y2="360" stroke="#6373db" stroke-width="7" stroke-dasharray="140" stroke-dashoffset="140" stroke-linecap="round" />
+        <line data-hf-id="hf-jcdy" id="tri2-perp" x1="540" y1="360" x2="540" y2="118" stroke="#6373db" stroke-width="7" stroke-dasharray="242" stroke-dashoffset="242" stroke-linecap="round" />
+        <line data-hf-id="hf-v4iw" id="tri2-hyp" x1="400" y1="360" x2="540" y2="118" stroke="#000000" stroke-width="6" stroke-dasharray="279.6" stroke-dashoffset="279.6" stroke-linecap="round" />
+        <!-- right-angle marker at B2=(540,360): rays -x (toward A2) and -y (toward C2), inset 25 -->
+        <path data-hf-id="hf-1q8j" id="right-angle-2" d="M 515 360 L 515 335 L 540 335" fill="none" stroke="#000000" stroke-width="3.5" opacity="0" />
+        <!-- theta arc 2: cx=400,cy=360,r=50, C=314.2. computed atan2(242,140)=59.94deg matches --angle:60. Standard: translate(0,720) scale(1,-1) -->
+        <circle data-hf-id="hf-1b4f" id="angle-arc-60" cx="400" cy="360" r="50" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0, 720) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 314.2) 314.2; opacity:0;" />
+        <text data-hf-id="hf-k7uh" id="tri2-label" x="400" y="405" font-family="Google Sans Flex, Inter, sans-serif" font-size="28" fill="#4eb85f" text-anchor="middle" opacity="0">60°</text>
       </svg>
 
-      <div data-hf-id="hf-7qoq" id="tri1-value" style="position:absolute;left:100px;top:80px;opacity:0;">
-        <div data-hf-id="hf-tglz" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:5px 14px;font-size:20px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">
+      <div data-hf-id="hf-7qoq" id="tri1-value" style="position:absolute;left:165px;top:76px;opacity:0;">
+        <div data-hf-id="hf-tglz" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:6px 16px;font-size:24px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">
           <span data-hf-id="hf-gq2t" class="frac"><span data-hf-id="hf-ycvl" class="top">1</span><span data-hf-id="hf-dptf" class="bot">√3</span></span>
         </div>
       </div>
-      <div data-hf-id="hf-e670" id="tri2-value" style="position:absolute;left:360px;top:120px;opacity:0;">
-        <div data-hf-id="hf-arm4" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:5px 14px;font-size:20px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">√3</div>
+      <div data-hf-id="hf-e670" id="tri2-value" style="position:absolute;left:470px;top:36px;opacity:0;">
+        <div data-hf-id="hf-arm4" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:6px 16px;font-size:24px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">√3</div>
       </div>
       <div data-hf-id="hf-g6pb" id="product-expr" style="position:absolute;left:0;right:0;top:0px;text-align:center;opacity:0;">
         <div data-hf-id="hf-nfpp" style="display: inline-block; background: #fff; border: 2px solid #000; border-radius: 10px; padding: 5px 14px; font-size: 24px; color: #000; font-family: 'Google Sans Flex','Inter',sans-serif; white-space: nowrap">tan 30° × tan 60°</div>
@@ -87,20 +93,20 @@
     </div>
   </div>
 
-  <!-- Pinned illustration (smaller) -->
-  <div data-hf-id="hf-erh0" id="illus-pinned" class="clip" data-start="26.88" data-duration="16.6" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+  <!-- Pinned illustration (smaller) - exact coordinate copy of #illustration, only width/height/stroke-width shrunk -->
+  <div data-hf-id="hf-erh0" id="illus-pinned" class="clip" data-start="26.88" data-duration="16.6" data-track-index="3" style="position:absolute;left:280px;top:20px;width:1300px;height:420px;z-index:5;opacity:0;overflow:visible;
               display:flex;align-items:center;justify-content:center;">
-    <svg data-hf-id="hf-012q" id="illus-pinned-icon" viewBox="0 0 420 280" width="300" height="200">
-      <line data-hf-id="hf-lmhy" x1="70" y1="220" x2="200" y2="220" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-ie6q" x1="200" y1="220" x2="200" y2="145" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-fthr" x1="70" y1="220" x2="200" y2="145" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-      <circle data-hf-id="hf-vwy2" cx="70" cy="220" r="34" fill="transparent" stroke="#4eb85f" stroke-width="5" stroke-linecap="round" transform="translate(0, 440) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 213.6) 213.6;" />
-      <text data-hf-id="hf-a5i2" x="70" y="260" font-family="Google Sans Flex, Inter, sans-serif" font-size="20" fill="#4eb85f" text-anchor="middle">30°</text>
-      <line data-hf-id="hf-6pyl" x1="260" y1="220" x2="335" y2="220" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-yjxi" x1="335" y1="220" x2="335" y2="90" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-sia0" x1="260" y1="220" x2="335" y2="90" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-      <circle data-hf-id="hf-rwb9" cx="260" cy="220" r="34" fill="transparent" stroke="#4eb85f" stroke-width="5" stroke-linecap="round" transform="translate(0, 440) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 213.6) 213.6;" />
-      <text data-hf-id="hf-012v" x="260" y="260" font-family="Google Sans Flex, Inter, sans-serif" font-size="20" fill="#4eb85f" text-anchor="middle">60°</text>
+    <svg data-hf-id="hf-012q" id="illus-pinned-icon" viewBox="0 0 640 440" width="632" height="434" style="overflow:visible;">
+      <line data-hf-id="hf-lmhy" x1="60" y1="360" x2="230" y2="360" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-ie6q" x1="230" y1="360" x2="230" y2="262" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-fthr" x1="60" y1="360" x2="230" y2="262" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+      <circle data-hf-id="hf-vwy2" cx="60" cy="360" r="50" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 720) scale(1,-1)" style="--angle: 30; stroke-dasharray: calc((var(--angle) / 360) * 314.2) 314.2;" />
+      <text data-hf-id="hf-a5i2" x="60" y="405" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" fill="#4eb85f" text-anchor="middle">30°</text>
+      <line data-hf-id="hf-6pyl" x1="400" y1="360" x2="540" y2="360" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-yjxi" x1="540" y1="360" x2="540" y2="118" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-sia0" x1="400" y1="360" x2="540" y2="118" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+      <circle data-hf-id="hf-rwb9" cx="400" cy="360" r="50" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0, 720) scale(1,-1)" style="--angle: 60; stroke-dasharray: calc((var(--angle) / 360) * 314.2) 314.2;" />
+      <text data-hf-id="hf-012v" x="400" y="405" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" fill="#4eb85f" text-anchor="middle">60°</text>
     </svg>
   </div>
 
@@ -210,7 +216,7 @@
   apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
   apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
 
-  gsap.set("#tri-svg", { z: -18, transformPerspective: 1080, rotationX: 10, rotationY: -15 });
+  gsap.set("#tri-svg", { z: 0, rotationX: 0, rotationY: 0 });
 
   const tl = gsap.timeline({ paused: true });
 
