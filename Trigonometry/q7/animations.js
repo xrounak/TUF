@@ -62,14 +62,15 @@ window.apt = (function() {
     const root = document.querySelector("#root");
     const toParent = to && to.parentElement;
 
-    let targetX = 0, targetY = 0, targetScale = 1;
+    let targetX = 0, targetY = 0, targetScaleX = 1, targetScaleY = 1;
     if (from && to && root) {
       const fromBox = from.getBoundingClientRect();
       const toBox   = to.getBoundingClientRect();
       const pxScale = 1920 / root.getBoundingClientRect().width; // canvas px per CSS px
       targetX = (toBox.left - fromBox.left) * pxScale;
       targetY = (toBox.top  - fromBox.top)  * pxScale;
-      targetScale = toBox.width / fromBox.width;
+      targetScaleX = toBox.width / fromBox.width;
+      targetScaleY = toBox.height / fromBox.height;
     }
 
     // 1) Active card's TEXT fades out first - box hasn't started moving yet,
@@ -77,11 +78,15 @@ window.apt = (function() {
     tl.to(fromSel + " .card-content", { opacity: 0, duration: TEXT_FADE, ease: "power2.in" }, time);
 
     // 2) BOX morphs position/size/color - text already hidden, so no
-    //    distorted mid-scale text is ever visible.
+    //    distorted mid-scale text is ever visible. Independent scaleX/scaleY
+    //    (not a single uniform scale) so the box lands at the stack card's
+    //    true width AND height instead of being constrained to one aspect
+    //    ratio - a uniform scale under/overshoots whichever axis differs.
     tl.to(fromSel, {
       x: targetX,
       y: targetY,
-      scale: targetScale,
+      scaleX: targetScaleX,
+      scaleY: targetScaleY,
       transformOrigin: "top left",
       backgroundColor: "#e2e5ff",          // primary-light
       boxShadow: "0 0 0 rgba(0,0,0,0)",    // remove shadow

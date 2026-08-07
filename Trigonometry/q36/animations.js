@@ -280,14 +280,15 @@ window.apt = (function() {
     const to   = document.querySelector(toSel);
     const root = document.querySelector("#root");
 
-    let targetX = 0, targetY = 0, targetScale = 1;
+    let targetX = 0, targetY = 0, targetScaleX = 1, targetScaleY = 1;
     if (from && to && root) {
       const fromBox = from.getBoundingClientRect();
       const toBox   = to.getBoundingClientRect();
       const pxScale = 1920 / root.getBoundingClientRect().width;
       targetX = (toBox.left - fromBox.left) * pxScale;
       targetY = (toBox.top  - fromBox.top)  * pxScale;
-      targetScale = toBox.width / fromBox.width;
+      targetScaleX = toBox.width / fromBox.width;
+      targetScaleY = toBox.height / fromBox.height;
     }
 
     // Content fades out first (mirrors morphToStack's own text-then-box
@@ -298,10 +299,14 @@ window.apt = (function() {
     // translate on top of whatever transform is already set (e.g. a
     // centered card's static xPercent:-50) - GSAP composes them, so this
     // does not need to know or reset the element's existing centering.
+    // Independent scaleX/scaleY (not uniform scale) so the box lands at the
+    // pinned slot's true width AND height instead of snapping to correct
+    // size the instant the pinned element takes over.
     tl.to(fromSel, {
       x: targetX,
       y: targetY,
-      scale: targetScale,
+      scaleX: targetScaleX,
+      scaleY: targetScaleY,
       transformOrigin: "top left",
       duration: DUR,
       ease: EASE

@@ -1,4 +1,18 @@
-# Trigonometry & Height n Distance - Question 11 - Storyboard (v4)
+# Trigonometry & Height n Distance - Question 11 - Storyboard (v5)
+
+## v5 update - new voiceover (91.95s, was 64.6s), re-synced to index.html
+The voiceover was re-recorded with an expanded script - same solution, but it now
+adds a "do these have to be the exact side lengths? No - any sides in the same
+ratio work, 7 & 24 just keep it easy" aside after the perpendicular/base
+comparison, and a "theta is acute, so we take the positive value" note after the
+final sec θ = 25/24 answer. Every absolute timestamp below and in `index.html`
+was rebuilt from the new `transcript.json` word timings (PIN_TIME 27.34 -> 39.08,
+GIVEN_TIME 28.16 -> 39.88, etc. - see Master Timeline Overview). No layout,
+color, component, or animation-helper changes - only content/timing. New
+`#ratio-aside` element (four `.rv`-tagged captions, one visible at a time, same
+`apt.fadeIn`/`fadeOut` pattern as everywhere else) carries the new ratio-flexibility
+beat; the new "acute -> positive" line was added as a fourth reveal inside Step 2's
+existing card instead of a new component.
 
 ## v4 update - fixed clipped label, replaced the board with one clean growing equation
 v3's `#ratio-board` panel clipped its own text ("Perpendicular" rendered as "Perpen") because
@@ -101,7 +115,7 @@ CONTINUITY FROM PREVIOUS SCENE: Step 2's morph clears center stage exactly as op
 - `sec θ = 25/24` uses the `.frac` component, never a bare `÷` character.
 - All clip `data-duration`s sized to (transition_start - own data-start) + transition_duration + ~1.5s buffer, recomputed for every shifted timestamp in this version.
 
-## PART 5: Master Timeline Overview
+## PART 5: Master Timeline Overview (v5 - rebuilt for the 91.95s voiceover)
 ```
 0.0    bg layers
 0.3    Question card enter
@@ -112,27 +126,38 @@ CONTINUITY FROM PREVIOUS SCENE: Step 2's morph clears center stage exactly as op
 7.0    Right-angle mark
 8.0    Theta arc + label
 8.4    Triangle fill wash fades in
-23.26  Perpendicular label + perp-line turns green
-24.4   Hypotenuse label (name only, stays black)
-25.62  Base label + base-line turns green
-27.34  PIN_TIME - pinFlow (question + illustration, colors carry over)
-28.16  GIVEN card enter (line0 immediate, no blank gap)
-29.30  Perpendicular = 7 recap
-29.90  Base = 24 recap
-29.0-60.0  ambientLoop on pinned icon
-30.6   Given -> stack morph (after last reveal, no cutoff)
-31.6   Step 1 card enter (intro line immediate)
-34.82  Formula reveal
-42.22  Substitution reveal
-46.82  Intermediate sum reveal (49+576=625)
-51.14  Result reveal (Hyp=25)
-51.9   Step 1 -> stack morph + pinned hypotenuse turns green + "25" label
-53.02  Step 2 card enter
-54.22  Formula reveal
-59.70  Final answer reveal (25/24) + pinned hyp+base pulse together
-60.9   Step 2 -> stack morph + recenter
-61.9   Options fadeIn
-62.5   Options stagger
-63.6   Correct option (C) pulses
-64.9   End fade
+9.2    Theta arc emphasize pulse
+12.12  eq-caption-find + eq-line fade in ("tan θ = P/B")
+16.26  eq-caption-ratio + eq-frac1 fade in
+19.24  eq-frac1 emphasize pulse
+20.60  eq-eq2 (" = ") fades in
+20.90  eq-frac2 ("7/24") fades in
+23.98  Perpendicular label + perp-line turns green + sub7 pulses
+24.66  Hypotenuse label (name only, stays black)
+25.66  Base label + base-line turns green + sub24 pulses
+26.68  NEW - ratio-aside "Do these have to be the exact side lengths?"
+29.16  NEW - ratio-aside "No - it's just a ratio!"
+30.02  NEW - ratio-aside "Any sides in ratio 7:24 work."
+35.74  NEW - ratio-aside "7 & 24 just keep the calculation easy."
+39.08  PIN_TIME - pinFlow (question + illustration, colors carry over); ratio-aside fades out
+39.88  GIVEN card enter (line0 immediate, no blank gap)
+41.18  Given line 2 ("but sec θ needs Hypotenuse & Base")
+41.0-70.0  ambientLoop on pinned icon
+43.60  Given recap (P=7, B=24)
+44.2   Given -> stack morph (after last reveal, no cutoff)
+45.02  Step 1 card enter (intro line immediate)
+49.46  Formula reveal (Hyp = sqrt(Perp²+Base²))
+55.98  Substitution reveal (7², 24²)
+61.76  Intermediate sum reveal (49+576=625)
+70.22  Result reveal (Hyp=25)
+71.06  Step 1 -> stack morph + pinned hypotenuse turns green + "25" label
+72.28  Step 2 card enter
+72.46  Formula reveal (sec θ = Hyp/Base)
+76.82  Final answer reveal (25/24) + pinned hyp+base pulse together
+79.72  NEW - "θ acute, so sec θ is positive" note
+84.0   Step 2 -> stack morph + recenter
+85.0   Options fadeIn
+85.6   Options stagger
+91.58  Correct option (C) pulses (on the word "C")
+92.2   End fade
 ```

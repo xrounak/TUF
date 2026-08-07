@@ -31,24 +31,32 @@
       <div data-hf-id="hf-digit" class="digit">Q</div>
     </div>
 
-    <!-- Illustration area: right triangle, true 4:3:5 ratio (120:90:150px, scale 30px/unit) -->
-    <div data-hf-id="hf-illus" id="illustration" class="illustration" style="position:absolute;left:50%;top:400px;transform:translateX(-50%);
-                width:1400px;height:440px;display:flex;align-items:center;justify-content:center;">
-      <svg data-hf-id="hf-svg" id="tri-svg" viewBox="0 0 600 520" width="600" height="520">
-        <!-- adjacent side (base), length 240 (2x) -->
-        <line data-hf-id="hf-adj" id="adj-line" x1="80" y1="440" x2="320" y2="440" stroke="#6373db" stroke-width="8" stroke-dasharray="240" stroke-dashoffset="240" stroke-linecap="round" />
-        <!-- opposite side (vertical), length 180 (2x) -->
-        <line data-hf-id="hf-opp" id="opp-line" x1="320" y1="440" x2="320" y2="260" stroke="#6373db" stroke-width="8" stroke-dasharray="180" stroke-dashoffset="180" stroke-linecap="round" />
-        <!-- hypotenuse (diagonal), length 300 (2x) -->
-        <line data-hf-id="hf-hyp" id="hyp-line" x1="80" y1="440" x2="320" y2="260" stroke="#000000" stroke-width="6" stroke-dasharray="300" stroke-dashoffset="300" stroke-linecap="round" />
-        <!-- right-angle marker at bottom-right vertex -->
-        <path data-hf-id="hf-ra" id="right-angle-mark" d="M 290 440 L 290 410 L 320 410" fill="none" stroke="#000000" stroke-width="5" opacity="0" />
-        <!-- theta arc at bottom-left vertex - CSS stroke-dasharray circle technique (standard from now on, see Trigonometry/penelty.txt): a full circle at the vertex, dash length = (theta/360)*circumference so the visible portion is EXACTLY theta degrees (36.87deg = acos(4/5), computed not guessed). transform flips the circle vertically about its own center (translate(0, 2*cy) scale(1,-1)) so the stroke starts at the adjacent ray (0deg, pointing +x) and sweeps UP toward the hypotenuse instead of the default clockwise/downward direction. -->
-        <circle data-hf-id="hf-arc" id="angle-arc" cx="80" cy="440" r="40" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0,880) scale(1,-1)" style="--angle:36.87; stroke-dasharray: calc((var(--angle) / 360) * 251.2) 251.2;" opacity="0" />
-        <text data-hf-id="hf-alab" id="angle-label" x="92" y="414" font-family="Google Sans Flex, Inter, sans-serif" font-size="40" fill="#4eb85f" opacity="0">θ</text>
-        <text data-hf-id="hf-adjlab" id="adj-label" x="200" y="492" font-family="Google Sans Flex, Inter, sans-serif" font-size="36" fill="#000000" text-anchor="middle" opacity="0">Adjacent</text>
-        <text data-hf-id="hf-hyplab" id="hyp-label" x="150" y="266" font-family="Google Sans Flex, Inter, sans-serif" font-size="36" fill="#000000" text-anchor="middle" opacity="0">Hypotenuse</text>
-        <text data-hf-id="hf-opplab" id="opp-label" x="336" y="356" font-family="Google Sans Flex, Inter, sans-serif" font-size="36" fill="#6373db" opacity="0">Opposite</text>
+    <!-- Illustration: right triangle, exact 4:3:5 ratio (theta = acos(4/5) = 36.87deg)
+    VERTICES (defined once, reused literally everywhere):
+      A = (150,340)  angle vertex (theta) - leftmost, base ray points +x
+      B = (370,340)  right-angle vertex
+      C = (370,175)  apex
+    RATIO CHECK:  adjacent(A-B) = 220, opposite(B-C) = 165 -> 165/220 = 0.75 = tan(36.87deg)
+    ANGLE CHECK:  atan2(165,220) = 36.8699deg -> --angle: 36.87 matches; cos = 220/275 = 0.8 = 4/5
+    LENGTH CHECK: hyp(A-C) = sqrt(220^2+165^2) = 275 exact
+    VIEWBOX:      x[0..580], y[0..500] -> "0 0 580 500", scale 1.733 per illustration_reference.md -->
+    <div data-hf-id="hf-illus" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);
+                width:1005px;height:866px;overflow:visible;">
+      <svg data-hf-id="hf-svg" id="tri-svg" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+        <!-- adjacent side (base): A(150,340) to B(370,340), len=220 -->
+        <line data-hf-id="hf-adj" id="adj-line" x1="150" y1="340" x2="370" y2="340" stroke="#6373db" stroke-width="4" stroke-dasharray="220" stroke-dashoffset="220" stroke-linecap="round" />
+        <!-- opposite side (vertical): B(370,340) to C(370,175), len=165 -->
+        <line data-hf-id="hf-opp" id="opp-line" x1="370" y1="340" x2="370" y2="175" stroke="#6373db" stroke-width="5" stroke-dasharray="165" stroke-dashoffset="165" stroke-linecap="round" />
+        <!-- hypotenuse: dashed annotation (illustration_reference.md 6.1), fades in, no draw-in -->
+        <line data-hf-id="hf-hyp" id="hyp-line" x1="150" y1="340" x2="370" y2="175" stroke="#000000" stroke-width="3.5" stroke-dasharray="6 6" stroke-linecap="round" opacity="0" />
+        <!-- right-angle marker at B: rays -x toward A, -y toward C, inset 30 -->
+        <path data-hf-id="hf-ra" id="right-angle-mark" d="M 340 340 L 340 310 L 370 310" fill="none" stroke="#000000" stroke-width="3" opacity="0" />
+        <!-- theta arc: cx/cy = vertex A exactly. r=90, C=2*PI*90=565.5. translate(0,680)=2*cy(340). --angle unitless, opacity-only. -->
+        <circle data-hf-id="hf-arc" id="angle-arc" cx="150" cy="340" r="90" fill="transparent" stroke="#4eb85f" stroke-width="8" stroke-linecap="round" transform="translate(0,680) scale(1,-1)" style="--angle:36.87; stroke-dasharray: calc((var(--angle) / 360) * 565.5) 565.5;" opacity="0" />
+        <text data-hf-id="hf-alab" id="angle-label" x="196" y="335" font-family="Google Sans Flex, Inter, sans-serif" font-size="34" text-anchor="middle" fill="#4eb85f" opacity="0">θ</text>
+        <text data-hf-id="hf-adjlab" id="adj-label" x="260" y="390" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000" text-anchor="middle" opacity="0">Adjacent</text>
+        <text data-hf-id="hf-hyplab" id="hyp-label" x="190" y="230" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000" text-anchor="middle" opacity="0">Hypotenuse</text>
+        <text data-hf-id="hf-opplab" id="opp-label" x="410" y="258" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000" opacity="0">Opposite</text>
       </svg>
     </div>
   </div>
@@ -64,18 +72,23 @@
     </div>
   </div>
 
-  <!-- Pinned illustration (smaller) -->
-  <div data-hf-id="hf-illuspin" id="illus-pinned" class="clip" data-start="27.9" data-duration="58.7" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
-              display:flex;align-items:center;justify-content:center;">
-    <svg data-hf-id="hf-svgpin" id="illus-pinned-icon" viewBox="0 0 260 260" width="203" height="203">
-      <line data-hf-id="hf-adjp" x1="40" y1="220" x2="160" y2="220" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-oppp" x1="160" y1="220" x2="160" y2="130" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-hypp" x1="40" y1="220" x2="160" y2="130" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-      <path data-hf-id="hf-rap" d="M 145 220 L 145 205 L 160 205" fill="none" stroke="#000000" stroke-width="2.5" />
-      <circle data-hf-id="hf-arcp" cx="40" cy="220" r="16" fill="transparent" stroke="#4eb85f" stroke-width="4" stroke-linecap="round" transform="translate(0,440) scale(1,-1)" style="--angle:36.87; stroke-dasharray: calc((var(--angle) / 360) * 100.5) 100.5;" />
-      <text data-hf-id="hf-alabp" x="78" y="205" font-family="Google Sans Flex, Inter, sans-serif" font-size="22" fill="#4eb85f">θ</text>
+  <!-- Pinned illustration - coordinate-exact copy of the full-size figure (same viewBox,
+       same internal numbers, only outer width/height + stroke widths shrink), per
+       illustration_reference.md sections 1/4/7. Static/always-visible (no opacity:0). -->
+  <div data-hf-id="hf-illuspin" id="illus-pinned" class="clip" data-start="27.9" data-duration="58.7" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;gap:32px;">
+    <svg data-hf-id="hf-svgpin" id="illus-pinned-icon" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <line data-hf-id="hf-adjp" x1="150" y1="340" x2="370" y2="340" stroke="#6373db" stroke-width="3" stroke-linecap="round" />
+      <line data-hf-id="hf-oppp" x1="370" y1="340" x2="370" y2="175" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
+      <line data-hf-id="hf-hypp" x1="150" y1="340" x2="370" y2="175" stroke="#000000" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round" />
+      <path data-hf-id="hf-rap" d="M 340 340 L 340 310 L 370 310" fill="none" stroke="#000000" stroke-width="2.5" />
+      <circle data-hf-id="hf-arcp" cx="150" cy="340" r="90" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0,680) scale(1,-1)" style="--angle:36.87; stroke-dasharray: calc((var(--angle) / 360) * 565.5) 565.5;" />
+      <text data-hf-id="hf-alabp" x="196" y="335" font-family="Google Sans Flex, Inter, sans-serif" font-size="34" text-anchor="middle" fill="#4eb85f">θ</text>
+      <text data-hf-id="hf-adjlabp" x="260" y="390" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000" text-anchor="middle">Adjacent</text>
+      <text data-hf-id="hf-hyplabp" x="190" y="230" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000" text-anchor="middle">Hypotenuse</text>
+      <text data-hf-id="hf-opplabp" x="410" y="258" font-family="Google Sans Flex, Inter, sans-serif" font-size="30" fill="#000000">Opposite</text>
     </svg>
-    <div data-hf-id="hf-pinlabel" style="font-family:'Google Sans Flex',Inter,sans-serif;font-size:24px;color:#000;margin-left:24px;">
+    <div data-hf-id="hf-pinlabel" style="font-family:'Google Sans Flex',Inter,sans-serif;font-size:30px;color:#000;white-space:nowrap;">
       cos θ = <span data-hf-id="hf-pinval1" style="color:#6373db;">4/5</span>
     </div>
   </div>
@@ -206,7 +219,7 @@
   // Illustration build-in (true 4:3:5 triangle)
   tl.to("#adj-line", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 5.0);
   tl.to("#opp-line", { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 5.9);
-  tl.to("#hyp-line", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 6.7);
+  tl.to("#hyp-line", { opacity: 1, duration: 0.5, ease: "power2.out" }, 6.7);
   tl.to("#right-angle-mark", { opacity: 1, duration: 0.3 }, 7.0);
   tl.to("#angle-arc", { opacity: 1, duration: 0.4 }, 8.0);
   tl.to("#angle-label", { opacity: 1, duration: 0.4 }, 8.0);

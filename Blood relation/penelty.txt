@@ -1,0 +1,87 @@
+PENALTY / CHECK NOTE - read this before finishing any question build in this Blood relation folder.
+
+WORKFLOW GATE - read before starting: before writing a storyboard.md OR building index.html for any
+question in this Blood relation folder, read this file top to bottom plus
+Blood relation/illustration_reference.md, and apply every standing fix/standard listed. Also read
+Trigonometry/VIDEO_BUILD_PROMPT.md (topic-agnostic master build prompt: timeline tail arithmetic,
+clip data-duration buffer, 3-second law, pop-in law, solution-card timing, final self-audit) and
+_template/README.md Step 4A / Step 5A.
+
+WHAT THE QUESTIONS IN THIS BANK ARE: three named people, two stated links (one sentence each), and
+one asked-for link between the two outer people. Example: "Amit is the father of Neha. Neha is the
+sister of Karan. How is Amit related to Karan?" The figure is therefore always a three-node graph
+with two solid edges and one dashed grey gap, and the video is the act of closing that gap. Real
+names on every node, never letters. A fourth node is a design error.
+
+
+STANDING ITEMS CARRIED OVER FROM Trigonometry/penelty.txt (topic-agnostic, still binding):
+
+1. Clip data-duration buffer (q9 bug): any clip whose data-duration ends exactly at a
+   morphToStack / fadeOut / pinFlow call needs +1.5-2s past that transition's completion
+   (morph = start+0.8s, fadeOut ~0.4s), or the animation visibly cuts off at unmount.
+
+2. Label clipping (q10 bug): size the SVG viewBox with margin for the full label string at its
+   font-size, not just for the geometry. Here that means the NAME text under each node, which is
+   wider than the 56px node box, and the relation chips, which are wider still.
+
+3. Exact-copy pinned figure: the Phase-2 pinned icon must be a coordinate-exact copy of the
+   full-size figure (same viewBox, same internal numbers) with only outer width/height shrunk.
+   Never a separately-eyeballed smaller redraw.
+
+4. stroke-dasharray on any drawn line/path must equal that path's true total length, with the
+   arithmetic in a trailing comment. For multi-segment descent paths, sum every segment.
+
+5. Every coordinate used in more than one place is defined ONCE in the comment block at the top
+   of the illustration and reused literally. No restating "the same" point with different numbers.
+
+6. No em dash in any file. No bare division character in solution-card math - use .frac.
+   No infinite repeat: -1 anywhere.
+
+NOT APPLICABLE IN THIS TOPIC: the angle-arc constitution (--angle custom property, translate(0,2*cy)
+flip, atan2 check, angle-vertex-on-the-left rule). There is no arc here. Do not copy that machinery
+into a family tree.
+
+
+TOPIC-SPECIFIC STANDING ITEMS (full text in illustration_reference.md sections 3, 6, 7 and 12):
+
+7. Derive all three genders from the statement's relation words before drawing, and write them in
+   the geometry comment. father/brother/son/husband -> square. mother/sister/daughter/wife ->
+   circle. Never stated -> rounded square rx=14, and confirm the answer does not depend on it.
+   Drawing a gender the question never gave is a factual error in the figure.
+
+8. Name goes UNDER the node, font-size 26, baseline cy+46, same offset on every node. Not inside
+   the shape - names are 4-7 characters and either overflow the 56px box or fall below the
+   legibility floor. 26 is chosen so the pinned copy lands at 22.4px, clear of the 21px floor.
+
+9. "Brother of" / "sister of" is a SIBLING BAR: both people on the SAME row, joined by a single
+   horizontal line with drop stubs. Putting a sibling below their sibling claims a parent link.
+   Marriage / in-law links are horizontal DOUBLE lines (10px gap). Descent links are vertical or
+   square-cornered single lines. No diagonals, no curves.
+
+10. Statement order is NOT top-to-bottom order. "Pooja is the daughter of Harish" names Harish
+    second but places him on the row ABOVE. Resolve every direction before assigning rows.
+
+11. The answer edge is the only dashed edge in the figure. Grey (#949494) with a "?" while
+    unresolved, and it must clear every node box by >= 20px - route it around the outside with a
+    square corner. In a three-generation question it passes the middle person; if it grazes their
+    node the figure reads as if the relation runs through them. It resolves dashed-to-solid plus
+    grey-to-green in ONE 0.5s tween. Never fade a finished green line in instead.
+
+12. Maternal vs paternal is the answer in some questions ("Dev is the son of Kavita. Kavita is the
+    sister of Manoj." -> maternal uncle). The mother's-side path must be unmistakable in the
+    figure: sibling bar above the mother, pivot fill on the mother.
+
+13. The answer word's gender follows the ANSWERING person, not the pivot ("Anita is the wife of
+    Rohit. Rohit is the father of Meera." -> mother, not father). Check the answer word against
+    the answering node's shape before shipping.
+
+14. Every relation chip carries the exact lower-case word the statement used (father, sister,
+    daughter, wife, son, brother, mother, husband). No paraphrase, no symbol. Chip and narration
+    say the same word on the same frame.
+
+15. Phase 1 needs >= 8 timed events across the two-sentence statement (3 nodes, 2 edges, 2 chips,
+    endpoint highlights, answer edge). Fewer means chips or the answer edge were skipped.
+
+
+(Append new findings below as questions ship, in the same format: issue found in qN, fix applied,
+check for this same bug on every future question.)

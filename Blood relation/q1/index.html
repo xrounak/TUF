@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--
+  Blood Relation - q1
+  Alex is the father of Neha. Neha is the sister of John. How is Alex related to John?
+  Answer: A - Father.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Topic constitution chip CSS - illustration_reference.md section 4 */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: var(--success); color: var(--success); }
+
+  .fig-chip-pinned {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip-pinned.role { border-color: #000000; color: #000000; }
+  .fig-chip-pinned.done { border-color: var(--success); color: var(--success); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-8j5s" class="topic-name">Blood Relations</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-mk4s" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="41.7" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-17.9s)
+       data-duration covers PIN_TIME(17.9) + pinFlow(0.8) + buffer
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-7oo3" id="phase1" class="clip" data-start="0" data-duration="20.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-oxek" class="q-text">
+        <span data-hf-id="hf-npmf" class="num">Alex</span> is the father of <span data-hf-id="hf-aebx" class="num">Neha</span>. <span data-hf-id="hf-ao1t" class="num">Neha</span> is the sister of <span data-hf-id="hf-zg9e" class="num">John</span>. How is <span data-hf-id="hf-n1iv" class="num">Alex</span> related to <span data-hf-id="hf-9652" class="num">John</span>?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Illustration area - family tree SVG.
+
+    STATEMENT: Alex is the father of Neha. Neha is the sister of John.  ASK: Alex -> John.
+    GENDERS:   Alex male (father) -> square. Neha female (sister) -> circle.
+               John gender never stated by a relation word describing HIM -> rounded-square
+               unknown. Answer "father" follows Alex (already known male), so it does not
+               depend on John's gender.
+    SHAPE:     parent over a sibling pair -> 2 rows, 2 columns.
+
+    GENERATION ROWS (y of node CENTRE, top to bottom):
+      G1 = 150   Alex
+      G2 = 340   Neha, John
+      ROW PITCH = 190
+
+    COLUMN SLOTS (x of node CENTRE, left to right):
+      C1 = 195 (Neha)   C2 = 385 (John)
+      COLUMN PITCH = 190
+
+    NODES (defined once, reused literally everywhere):
+      ALEX = (290,150) square rx=6   name y=196   STATED-EDGE endpoint, ASK endpoint (green)
+      NEHA = (195,340) circle r=28   name y=386   pivot (the person in both sentences)
+      JOHN = (385,340) rounded-square rx=14  name y=386   ASK endpoint (green)
+
+    EDGES:
+      ALEX -> NEHA   descent, STATED "father"
+                     from (290,178) down to bar y=255, along to x=195, down to (195,312)
+                     len = 77 + 95 + 57 = 229
+      NEHA = JOHN    sibling bar, STATED "sister"
+                     bar y=255 spans 195..385; stub down to (385,312) len = 57
+                     total path M195,255 L385,255 L385,312 -> len = 190 + 57 = 247
+      ALEX -> JOHN   ANSWER edge, dashed grey, drawn last, routed around the outside
+                     from ALEX's right edge (318,150) right to x=460, down to JOHN's row
+                     y=340, left into JOHN's right edge (413,340)
+                     path M318,150 L460,150 L460,340 L413,340
+                     len = 142 + 190 + 47 = 379
+                     clearance check: vertical run at x=460 is 460-223(Neha right edge)=237px
+                     clear of Neha's node - well over the 20px minimum.
+
+    SPAN CHECK:  x 167(Neha left) .. 460+~20("?" glyph half-width) = 480, fits 0..580
+    DEPTH CHECK: y 122(Alex top) .. 368(Neha/John bottom)+46(name offset)+10(descender)=424, fits 0..500
+    VIEWBOX:     "0 0 580 500"
+    -->
+    <div data-hf-id="hf-xuhf" id="illustration" class="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);overflow:visible;">
+      <svg data-hf-id="hf-rtav" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <!-- STATED EDGE: Alex -> Neha (descent). len = 77+95+57 = 229 -->
+        <path data-hf-id="hf-f01y" id="edge-alex-neha" d="M 290 178 L 290 255 L 195 255 L 195 312" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="229" stroke-dashoffset="229" />
+
+        <!-- STATED EDGE: Neha = John (sibling bar). len = 190+57 = 247 -->
+        <path data-hf-id="hf-nviy" id="edge-neha-john" d="M 195 255 L 385 255 L 385 312" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="247" stroke-dashoffset="247" />
+
+        <!-- ANSWER EDGE: Alex -> John, dashed grey with "?", resolves green. len = 142+190+47 = 379 -->
+        <g data-hf-id="hf-v41f" id="edge-answer" opacity="0">
+          <path data-hf-id="hf-751w" id="edge-answer-line" d="M 318 150 L 460 150 L 460 340 L 413 340" fill="none" stroke="#949494" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 8" />
+          <text data-hf-id="hf-cbfq" id="edge-answer-q" x="460" y="255" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="34" fill="#949494">?</text>
+          <foreignobject data-hf-id="hf-q0mg" id="chip-answer" x="426" y="270" width="130" height="46" style="overflow:visible;opacity:0;">
+            <div data-hf-id="hf-xe5i" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role done">father</div>
+          </foreignobject>
+        </g>
+
+        <!-- NODE: Alex = (290,150) male, name baseline y=196 -->
+        <g data-hf-id="hf-1u00" id="node-alex" opacity="0">
+          <rect data-hf-id="hf-iqfx" x="262" y="122" width="56" height="56" rx="6" fill="#FFFFFF" stroke="#6373db" stroke-width="5" />
+          <text data-hf-id="hf-xhfd" x="290" y="196" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">Alex</text>
+        </g>
+
+        <!-- NODE: Neha = (195,340) female, name baseline y=386. Pivot fill target = the circle. -->
+        <g data-hf-id="hf-ox46" id="node-neha" opacity="0">
+          <circle data-hf-id="hf-531z" cx="195" cy="340" r="28" fill="#FFFFFF" stroke="#6373db" stroke-width="5" />
+          <text data-hf-id="hf-cin4" x="195" y="386" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">Neha</text>
+        </g>
+
+        <!-- NODE: John = (385,340) gender unstated, name baseline y=386 -->
+        <g data-hf-id="hf-e1tf" id="node-john" opacity="0">
+          <rect data-hf-id="hf-83ie" x="357" y="312" width="56" height="56" rx="14" fill="#FFFFFF" stroke="#6373db" stroke-width="5" />
+          <text data-hf-id="hf-6b4i" x="385" y="386" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">John</text>
+        </g>
+
+        <!-- Relation chips.
+             chip-father: right of the ALEX->NEHA vertical segment (x=290,
+             y=178..255), centered on it (edge_x+14=304, mid-y=216).
+             chip-sister: the sibling bar (y=255) leaves an open 57px gap
+             above the node row (255..312, both stubs are off to the sides
+             at x=195/385, not under the bar's midpoint) - centered there
+             instead of directly above the bar, which would collide with
+             chip-father in the cramped bend at (290,255). -->
+        <foreignobject data-hf-id="hf-fd0h" id="chip-father" x="304" y="198" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ncjg" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">father</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-se15" id="chip-sister" x="245" y="276" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-t11i" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">sister</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (17.9s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-n2mh" id="q-pinned" class="clip" data-start="17.9" data-duration="24" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-a1vb" class="q-text">
+        <span data-hf-id="hf-mn7u" class="num">Alex</span> is father of <span data-hf-id="hf-buyw" class="num">Neha</span>. <span data-hf-id="hf-bgnv" class="num">Neha</span> is sister of <span data-hf-id="hf-9kg3" class="num">John</span>. How is Alex related to John?
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - coordinate-exact copy of the full-size SVG.
+       Same viewBox "0 0 580 500", same internal numbers. Only outer
+       width/height and stroke widths differ (canvas contract section 1). -->
+  <div data-hf-id="hf-ezq7" id="illus-pinned" class="clip" data-start="17.9" data-duration="24" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <path data-hf-id="hf-ee60" d="M 290 178 L 290 255 L 195 255 L 195 312" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+      <path data-hf-id="hf-6k85" d="M 195 255 L 385 255 L 385 312" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+      <g data-hf-id="hf-r4xq" id="edge-answer-pinned">
+        <path data-hf-id="hf-wn48" id="edge-answer-line-pinned" d="M 318 150 L 460 150 L 460 340 L 413 340" fill="none" stroke="#949494" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
+        <text data-hf-id="hf-86ps" id="edge-answer-q-pinned" x="460" y="255" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="29.3" fill="#949494">?</text>
+        <foreignobject data-hf-id="hf-c7kz" id="chip-answer-pinned" x="426" y="270" width="130" height="46" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-lrpd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role done">father</div>
+        </foreignobject>
+      </g>
+      <g data-hf-id="hf-3pez" id="node-alex-pinned">
+        <rect data-hf-id="hf-j0ui" x="262" y="122" width="56" height="56" rx="6" fill="#FFFFFF" stroke="#6373db" stroke-width="4" />
+        <text data-hf-id="hf-74gd" x="290" y="196" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">Alex</text>
+      </g>
+      <g data-hf-id="hf-z2e5" id="node-neha-pinned">
+        <circle data-hf-id="hf-14xy" cx="195" cy="340" r="28" fill="#FFFFFF" stroke="#6373db" stroke-width="4" />
+        <text data-hf-id="hf-117c" x="195" y="386" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">Neha</text>
+      </g>
+      <g data-hf-id="hf-gv9a" id="node-john-pinned">
+        <rect data-hf-id="hf-d05x" x="357" y="312" width="56" height="56" rx="14" fill="#FFFFFF" stroke="#6373db" stroke-width="4" />
+        <text data-hf-id="hf-k8wm" x="385" y="386" text-anchor="middle" font-family="Google Sans Flex, Inter, sans-serif" font-size="26" font-weight="500" fill="#6373db">John</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-heqx" id="card-given" class="clip" data-start="18.9" data-duration="3.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-6e25" class="rv" data-t="18.00">Alex is father of Neha</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-rd5t" class="rv" data-t="18.50">Neha is sister of John</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-vjv9" id="card-step1" class="clip" data-start="19.98" data-duration="6.5" data-track-index="5" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-8ca0" class="rv" data-t="19.979">Neha</span> <span data-hf-id="hf-3j11" class="rv" data-t="20.379">and</span> <span data-hf-id="hf-n9is" class="rv" data-t="20.639">John</span> <span data-hf-id="hf-kmgq" class="rv" data-t="20.959">are</span> <span data-hf-id="hf-lev2" class="hi rv" data-t="22.719">siblings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-2bch" id="card-step2" class="clip" data-start="23.76" data-duration="11.5" data-track-index="6" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-9mhg" class="solution-card" style="position:absolute;left:600px;top:440px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-d6r5" class="rv" data-t="23.76">So</span> <span data-hf-id="hf-nsvl" class="rv" data-t="23.899">if</span> <span data-hf-id="hf-sah5" class="rv" data-t="24.059">Alex</span> <span data-hf-id="hf-oguu" class="rv" data-t="24.359">is</span> <span data-hf-id="hf-r7tu" class="rv" data-t="24.500">Neha's</span> <span data-hf-id="hf-oz4h" class="hi rv" data-t="24.939">father</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-00ku" class="rv" data-t="25.739">then</span> <span data-hf-id="hf-m5hh" class="rv" data-t="25.959">Alex</span> <span data-hf-id="hf-9jam" class="rv" data-t="26.619">also</span> <span data-hf-id="hf-b3ke" class="rv" data-t="26.959">is</span> <span data-hf-id="hf-6o5w" class="rv" data-t="27.199">John's</span> <span data-hf-id="hf-579x" class="ans rv" data-t="27.559">father</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-pg9c" id="card-step3" class="clip" data-start="32.939" data-duration="7" data-track-index="7" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-69gi" class="rv" data-t="32.939">Hence,</span> <span data-hf-id="hf-lirm" class="rv" data-t="33.939">Alex</span> <span data-hf-id="hf-ruas" class="rv" data-t="34.259">is</span> <span data-hf-id="hf-ygds" class="rv" data-t="34.399">related</span> <span data-hf-id="hf-p5xo" class="rv" data-t="34.759">to</span> <span data-hf-id="hf-k3dy" class="rv" data-t="34.919">John</span> <span data-hf-id="hf-7p8q" class="rv" data-t="35.159">as</span> <span data-hf-id="hf-rxrw" class="ans rv" data-t="36.000">father</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-41jq" id="stack-given" class="clip" data-start="19.7" data-duration="22" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-6rne" class="math">
+          Alex is father of <span data-hf-id="hf-td8e" class="hi">Neha</span><br data-hf-id="hf-szow">
+          Neha is sister of <span data-hf-id="hf-8so1" class="hi">John</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-rp00" id="stack-step1" class="clip" data-start="23.8" data-duration="18" data-track-index="12" style="position:absolute;left:100px;top:270px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-o5r8" class="math">
+          Neha and John are <span data-hf-id="hf-peyn" class="hi">siblings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-rztz" id="stack-step2" class="clip" data-start="32.5" data-duration="9.5" data-track-index="13" style="position:absolute;left:100px;top:390px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-y33k" class="math">
+          Alex is Neha's father, so Alex is <span data-hf-id="hf-2jeq" class="ans">John's father</span> too
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-7vp0" id="stack-step3" class="clip" data-start="37.05" data-duration="5" data-track-index="14" style="position:absolute;left:100px;top:540px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-p535" class="math">
+          Alex is related to John as <span data-hf-id="hf-5cqt" class="ans">father</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r0ql" id="line-g-1" class="clip stack-line" data-start="23.8" data-duration="18" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-ouvn" id="line-1-2" class="clip stack-line" data-start="32.5" data-duration="9.5" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-yifo" id="line-2-3" class="clip stack-line" data-start="37.05" data-duration="5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-t9g1" id="options-reveal" class="clip" data-start="37.3" data-duration="5" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-sun8" class="opt-btn correct"><span data-hf-id="hf-sfug" class="letter">A</span>Father</div>
+        <div data-hf-id="hf-osai" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>Brother</div>
+        <div data-hf-id="hf-0t3r" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>Uncle</div>
+        <div data-hf-id="hf-h89c" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>Grandfather</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 - Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.6;
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+  // Fill the opening gap before the first illustration beat ("...time to
+  // solve some problems.") - card sits risen but not dead-static.
+  tl.to("#q-full-card", { scale: 1.02, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 6.00);
+
+  // ── Illustration build - "Alex is the father of Neha,"
+  tl.fromTo("#node-alex", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 8.50);
+  apt.fadeIn(tl, "#chip-father", 9.14, 0.35);
+  tl.fromTo("#node-neha", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 9.74);
+  tl.to("#edge-alex-neha", { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 10.20);
+
+  // "and Neha is the sister of John."
+  tl.fromTo("#node-john", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 12.70);
+  apt.fadeIn(tl, "#chip-sister", 12.90, 0.35);
+  tl.to("#edge-neha-john", { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 13.00);
+
+  // "The question is asking us to find how Alex is related to John."
+  tl.to("#node-alex rect", { stroke: "#4eb85f", duration: 0.3 }, 15.72);
+  tl.to("#node-john rect",  { stroke: "#4eb85f", duration: 0.3 }, 16.88);
+  apt.fadeIn(tl, "#edge-answer", 17.10, 0.4);
+  apt.emphasize(tl, "#edge-answer-q", 17.50);
+
+  // ── PHASE 2 - Pin, then Given
+  const PIN_TIME = 17.9;
+  const GIVEN_TIME = 18.9;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  // pinned answer edge mirrors the full-size one's dashed/grey unresolved state
+  tl.set("#edge-answer-line-pinned", { opacity: 1 }, PIN_TIME + 0.8);
+  tl.set("#edge-answer-q-pinned", { opacity: 1 }, PIN_TIME + 0.8);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── STEP 1 - siblings
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 19.70);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 19.98);
+  apt.textReveal(tl, "#card-step1 .math");
+  // CHAIN-WALK fact 1 - sibling bar pulses green with the card's own beat
+  tl.to("#edge-neha-john", { stroke: "#4eb85f", strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, 19.979);
+  tl.to("#node-neha circle", { fill: "#e2e5ff", duration: 0.4 }, 19.979); // pivot fill
+
+  // ── STEP 2 - same father
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 23.80);
+  apt.stackLineGrow(tl, "#line-g-1", 23.80);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 23.76);
+  apt.textReveal(tl, "#card-step2 .math");
+  // CHAIN-WALK fact 2 - descent edge pulses
+  tl.to("#edge-alex-neha", { stroke: "#4eb85f", strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, 23.76);
+
+  // Answer edge resolves - dashed grey -> solid green, ONE 0.5s tween
+  tl.to("#edge-answer-line", { attr: { "stroke-dasharray": "0" }, stroke: "#4eb85f",
+                               strokeWidth: 4, duration: 0.5, ease: "power2.out" }, 27.60);
+  tl.to("#edge-answer-q", { opacity: 0, duration: 0.25 }, 27.60);
+  apt.fadeIn(tl, "#chip-answer", 27.85);
+  // pinned copy mirrors the resolve for continuity
+  tl.to("#edge-answer-line-pinned", { attr: { "stroke-dasharray": "0" }, stroke: "#4eb85f",
+                                      strokeWidth: 3.5, duration: 0.5, ease: "power2.out" }, 27.60);
+  tl.to("#edge-answer-q-pinned", { opacity: 0, duration: 0.25 }, 27.60);
+  apt.fadeIn(tl, "#chip-answer-pinned", 27.85);
+
+  // Reinforcement narration (28.34-32.24) - keep the resolved edge alive, no new fact
+  apt.emphasize(tl, "#edge-answer-line", 28.34);
+  apt.emphasize(tl, "#chip-answer", 30.68);
+
+  // ── STEP 3 - final statement
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 32.50);
+  apt.stackLineGrow(tl, "#line-1-2", 32.50);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 32.939);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  // ── Recenter before options
+  const RECENTER_TIME = 37.05;
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-2-3", RECENTER_TIME);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 - Options reveal
+  apt.fadeIn(tl, "#options-reveal", 37.30);
+  apt.optionsStagger(tl, ".opt-btn", 37.70);
+  apt.correctPulse(tl, ".opt-btn.correct", 38.60);
+  apt.emphasize(tl, ".opt-btn.correct", 39.28);
+
+  // ── END FADE
+  const END_FADE_TIME = 40.30; // NARR_END 39.699 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+  tl.set({}, {}, 43.70); // 40.30 + 1.2 + 0.2
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

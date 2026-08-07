@@ -1,53 +1,29 @@
 So "welcome back again", <break time="0.2s" /> it's time to solve one more problem.
 
-Now in this problem, we are given that ten theta is equal to 7 by 24, and theta is an acute angle.
+Now in this problem, tan theta is equal to 7 by 24, and theta is an acute angle.
 
-The problem is asking us to find sec theta. <break time="0.5s" />
+We need to find sec theta. <break time="0.3s" />
 
-so,
+We know that tan theta is perpendicular divided by base.
 
-tan theta is equal to,
+So when tan theta is 7 by 24, we can take the perpendicular as seven and the base as twenty-four.
 
-Perpendicular upon Base.
+Do these have to be the actual side lengths? <break time="0.3s" /> No.
 
-Comparing this with,
+Since tan gives us a ratio, we can take any sides in the same ratio.
 
-tan theta = 7 by 24,
+Taking seven and twenty-four simply makes our calculation easy.
 
-we get,
+We now know two sides of the right triangle, but sec theta needs the hypotenuse and the base.
 
-Perpendicular = 7,
+So first, we need to find the hypotenuse.
 
-and Base = 24.
+Using the Pythagoras theorem, hypotenuse is equal to the square root of perpendicular square plus base square.
 
-Done. We now know two sides of the right triangle. We just need the third side. <break time="0.2s" />
+Putting the values, we get the square root of seven square plus twenty-four square. This becomes the square root of forty-nine plus five hundred seventy-six, which is the square root of six hundred twenty-five.
 
-To find the hypotenuse, we will use the Pythagoras Theorem.
+So the hypotenuse is twenty-five. Now, sec theta is hypotenuse divided by base.
 
-Hypotenuse = square root of <break time="0.2s" /> Perpendicular square + Base square
+Therefore, sec theta is twenty-five by twenty-four. Since theta is an acute angle, we take the positive value.
 
-Substitute the values.
-
-Hypotenuse = square root of<break time="0.2s" /> 7 square + 24 square
-
-After simplifying,
-
-Hypotenuse = square root of 625,
-
-which is equal to 25.
-
-. <break time="0.2s" />
-
-Now
-
-We know that,
-
-sec theta = Hypotenuse upon Base.
-
-Substitute the values.
-
-sec theta = 25 by 24.
- <break time="0.6s" />
-
-
-Hence, the correct option is "Option C".
+Hence, sec theta is twenty-five by twenty-four. So the correct option is "Option C".

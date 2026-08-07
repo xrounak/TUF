@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Illustration figure labels - illustration_reference.md section 4. */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: #4eb85f; color: #4eb85f; }
+
+  .fig-chip-pinned {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip-pinned.role { border-color: #000000; color: #000000; }
+  .fig-chip-pinned.done { border-color: #4eb85f; color: #4eb85f; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-ly5i" class="topic-name">Mensuration</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-zpok" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="72.4" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-23.7s)
+       data-duration covers PIN_TIME(23.7) + pinFlow(0.8) + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-46q8" id="phase1" class="clip" data-start="0" data-duration="26.0" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-hroe" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1400px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-vdfl" class="q-text">
+        In a brief shower, <span data-hf-id="hf-8f6g" class="num">2 cm</span> of rain falls on <span data-hf-id="hf-pbuc" class="num">2 hectares</span> of ground. The volume of water that falls on the ground is:
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- ILLUSTRATION GEOMETRY (category B - unit-conversion + formula)
+      STATEMENT: 2 cm of rain falls on 2 hectares of ground. Find the volume of water.
+      SHAPE: isometric ground slab (the field) with a thin water layer on top - fixed 30deg
+        iso shear per illustration_reference.md section 3.1, non-equal-edge cuboid. Box is
+        drawn small/left so a separate CONVERSION PANEL can sit to its right without
+        widening the fixed 580x500 viewBox.
+
+      FOOTPRINT: the field's footprint is ILLUSTRATIVE (only its AREA is given, never a
+        length x width split, so no true aspect ratio exists to compute) - front width
+        FW=180, depth D=105, ground substrate thickness GH=27 (all illustrative, noted here
+        so the choice is not mistaken for a computed true ratio).
+      ISO PROJECTION CONSTANTS (fixed for every cuboid in this bank):
+        depth-dx = D * cos(30deg) = 105 * 0.866 = 90.93 -> 91
+        depth-dy = D * sin(30deg) * -1 = 105 * -0.5 = -52.5 -> -53
+
+      GROUND VERTICES (defined once, reused literally everywhere):
+        FBL = (100,330)                       FBR = FBL+(180,0) = (280,330)
+        FTL = FBL+(0,-27) = (100,303)          FTR = FBR+(0,-27) = (280,303)
+        BBL = FBL+(91,-53) = (191,277)         BBR = FBR+(91,-53) = (371,277)
+        BTL = FTL+(91,-53) = (191,250)         BTR = FTR+(91,-53) = (371,250)
+      GROUND FACES:
+        front = rect x=100 y=303 w=180 h=27
+        top   = path M100,303 L191,250 L371,250 L280,303 Z
+        side  = path M280,303 L371,250 L371,277 L280,330 Z
+
+      WATER LAYER: the true linear ratio of height (0.02 m) against the footprint (105-180
+        illustrative units) is undrawable at any single shared scale - same undrawable-ratio
+        exception the topic constitution allows for a displacement rise band (section 13),
+        applied here since this layer literally IS a height-over-area figure, the closest
+        structural sibling to that category. Two states: a small dashed-grey SLIVER (given,
+        not yet unit-matched) shown from Phase 1 through early Step 2, replaced by the FULL
+        stylized band once the height conversion resolves (44.60s, pinned copy only).
+      WATER-SLIVER: front-only, rect x=100 y=297 w=180 h=6, dashed grey (height not yet
+        meaningful in matching units).
+      WATER-FULL VERTICES (shares the ground's top-face corners as its own bottom):
+        FBL = (100,303) [=ground FTL]          FBR = (280,303) [=ground FTR]
+        FTL = FBL+(0,-26) = (100,277)           FTR = FBR+(0,-26) = (280,277)
+        BBL = FBL+(91,-53) = (191,250) [=ground BTL]   BBR = (371,250) [=ground BTR]
+        BTL = FTL+(91,-53) = (191,224)          BTR = FTR+(91,-53) = (371,224)
+      WATER-FULL FACES:
+        front = rect x=100 y=277 w=180 h=26
+        top   = path M100,277 L191,224 L371,224 L280,277 Z
+        side  = path M280,277 L371,224 L371,250 L280,303 Z
+
+      LABEL SLOTS (foreignObjects, defined once, reused identically on pinned copy):
+        chip-find:              x=20  y=60  w=140 h=36  (top-left, above the box)
+        chip-area-given/resolved:  x=20 y=140 w=150 h=36 (left of box, same slot, crossfade)
+        chip-rain-given/height-resolved: x=20 y=190 w=150 h=36 (left of box, same slot, crossfade)
+        chip-answer:             x=250 y=410 w=200 h=44
+
+      CONVERSION PANEL (separate bordered box, right of the illustration - pinned copy only,
+        section 7.2's callout component grouped in its own container instead of loose in the
+        chip column):
+        panel-conversions (wrapper rect): x=392 y=150 w=178 h=120 rx=14, solid --primary
+          border + --primary-light fill (a thin dashed-grey border was invisible at this
+          render scale - solid tinted container reads clearly against the white page bg)
+        panel-conversions-label: x=402 y=156 w=158 h=24 ("Unit conversions" heading)
+        conv-callout-area:   x=404 y=186 w=150 h=36 (inside panel, top line)
+        conv-callout-height: x=404 y=228 w=150 h=36 (inside panel, bottom line)
+
+      SPAN CHECK:  x 20(chips) .. 570(panel right edge), +margin fits 0..580
+      DEPTH CHECK: y 60(chip-find) .. 454(chip-answer bottom), +margin fits 0..500
+      VIEWBOX:     "0 0 580 500" (fixed canvas contract, identical both phases)
+    -->
+    <div data-hf-id="hf-scpf" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);overflow:visible;">
+      <svg data-hf-id="hf-rtav" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <g data-hf-id="hf-gnd1" id="ground-figure" opacity="0">
+          <rect data-hf-id="hf-gnd-f" x="100" y="303" width="180" height="27" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="4" />
+          <path data-hf-id="hf-gnd-t" d="M 100 303 L 191 250 L 371 250 L 280 303 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="4" />
+          <path data-hf-id="hf-gnd-s" d="M 280 303 L 371 250 L 371 277 L 280 330 Z" fill="#dcdffc" stroke="#6373db" stroke-width="4" />
+        </g>
+
+        <g data-hf-id="hf-wsl1" id="water-sliver" opacity="0">
+          <rect data-hf-id="hf-wsl-r" x="100" y="297" width="180" height="6" fill="#949494" fill-opacity="0.3" stroke="#949494" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round" />
+        </g>
+
+        <g data-hf-id="hf-wfl1" id="water-full" opacity="0">
+          <rect data-hf-id="hf-wfl-f" x="100" y="277" width="180" height="26" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="4" />
+          <path data-hf-id="hf-wfl-t" d="M 100 277 L 191 224 L 371 224 L 280 277 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="4" />
+          <path data-hf-id="hf-wfl-s" d="M 280 277 L 371 224 L 371 250 L 280 303 Z" fill="#dcdffc" stroke="#6373db" stroke-width="4" />
+        </g>
+
+        <foreignobject data-hf-id="hf-cfnd" id="chip-find" x="20" y="60" width="140" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-cfnd-d" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">Find: Volume</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-cag1" id="chip-area-given" x="20" y="140" width="150" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-cag1-d" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Area = 2 ha</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-crg1" id="chip-rain-given" x="20" y="190" width="150" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-crg1-d" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Rain = 2 cm</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (23.7s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vdfg" id="q-pinned" class="clip" data-start="23.7" data-duration="49.5" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-c6fs" class="q-card pinned" style="position:absolute;left:480px;top:30px;width:1000px;">
+      <div data-hf-id="hf-goht" class="q-text">
+        2 cm of rain falls on <span data-hf-id="hf-gaq4" class="num">2 hectares</span> of ground. Find the volume of water.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - exact coordinate copy of the full-size SVG (same viewBox, same
+       internal numbers, only outer width/height + stroke widths shrink). Given chips/shapes
+       are static (always visible per section 8); resolved chips + water-full are the
+       solution-step-timed elements that animate here once their conversion narration lands. -->
+  <div data-hf-id="hf-y8vh" id="illus-pinned" class="clip" data-start="23.7" data-duration="47.5" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+
+      <rect data-hf-id="hf-gnd-f-p" x="100" y="303" width="180" height="27" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" />
+      <path data-hf-id="hf-gnd-t-p" d="M 100 303 L 191 250 L 371 250 L 280 303 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="3.5" />
+      <path data-hf-id="hf-gnd-s-p" d="M 280 303 L 371 250 L 371 277 L 280 330 Z" fill="#dcdffc" stroke="#6373db" stroke-width="3.5" />
+
+      <g data-hf-id="hf-wsl1-p" id="water-sliver-pinned">
+        <rect data-hf-id="hf-wsl-r-p" x="100" y="297" width="180" height="6" fill="#949494" fill-opacity="0.3" stroke="#949494" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round" />
+      </g>
+
+      <g data-hf-id="hf-wfl1-p" id="water-full-pinned" opacity="0">
+        <rect data-hf-id="hf-wfl-f-p" x="100" y="277" width="180" height="26" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" />
+        <path data-hf-id="hf-wfl-t-p" d="M 100 277 L 191 224 L 371 224 L 280 277 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="3.5" />
+        <path data-hf-id="hf-wfl-s-p" d="M 280 277 L 371 224 L 371 250 L 280 303 Z" fill="#dcdffc" stroke="#6373db" stroke-width="3.5" />
+      </g>
+
+      <foreignobject data-hf-id="hf-cfnd-p" x="80" y="70" width="140" height="36" style="overflow:visible;">
+        <div data-hf-id="hf-cfnd-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">Find: Volume</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-cag1-p" id="chip-area-given-pinned" x="-80" y="140" width="150" height="36" style="overflow:visible;">
+        <div data-hf-id="hf-cag1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Area = 2 ha</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-car1-p" id="chip-area-resolved-pinned" x="-80" y="140" width="160" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-car1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Area = 20,000 m²</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-crg1-p" id="chip-rain-given-pinned" x="-80" y="190" width="150" height="36" style="overflow:visible;">
+        <div data-hf-id="hf-crg1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Rain = 2 cm</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-chr1-p" id="chip-height-resolved-pinned" x="-80" y="190" width="160" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-chr1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Height = 0.02 m</div>
+      </foreignobject>
+
+      <!-- CONVERSION PANEL - separate bordered box, right of the illustration. Solid
+           --primary-light fill + solid --primary border so it reads as an actual container
+           against the white page background (a thin dashed grey line was invisible at this
+           scale) - grouping both unit-conversion callouts (section 7.2) instead of leaving
+           them loose in the left chip column. -->
+      <rect data-hf-id="hf-panel-conv" id="panel-conversions" x="592" y="150" width="278" height="180" rx="14" fill="#eef0ff" stroke="#6373db" stroke-width="3" opacity="0" />
+      <foreignobject data-hf-id="hf-panel-label" x="602" y="156" width="158" height="24" style="overflow:visible;opacity:0;" id="panel-conversions-label">
+        <div data-hf-id="hf-panel-label-d" xmlns="http://www.w3.org/1999/xhtml" style="font-family:var(--font);font-size:25px;font-weight:600;color:#6373db;white-space:nowrap;">Conversions</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-cca1-p" id="conv-callout-area-pinned" x="604" y="196" width="150" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-cca1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">1 ha = 10,000 m²</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-cch1-p" id="conv-callout-height-pinned" x="604" y="258" width="150" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-cch1-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">100 cm = 1 m</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-cans-p" id="chip-answer" x="250" y="410" width="200" height="44" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-cans-pd" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned done">Volume = 400 m³</div>
+      </foreignobject>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS - Given -> Step1(area) -> Step2(height) -> Step3(formula) -> Step4(answer)
+       ══════════════════════════════════════════════ -->
+
+  <div data-hf-id="hf-jln8" id="card-given" class="clip" data-start="23.9" data-duration="3.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-jal3" class="rv" data-t="23.90">Rain = <span data-hf-id="hf-dgp1" class="hi">2 cm</span>, Area = <span data-hf-id="hf-dgp2" class="hi">2 ha</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 - convert the area: 1 ha = 10,000 m2 -> 2 ha = 20,000 m2. -->
+  <div data-hf-id="hf-srg6" id="card-step1" class="clip" data-start="24.35" data-duration="13.2" data-track-index="5" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-5b47" class="solution-card" style="position:absolute;left:640px;top:450px;text-align:center;width:760px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-sk0d" class="rv" data-t="24.039">Convert</span> <span data-hf-id="hf-24hn" class="rv" data-t="25.059">the</span> <span data-hf-id="hf-3zbn" class="rv" data-t="25.479">area:</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-9azc" class="rv" data-t="26.799">1</span> <span data-hf-id="hf-1x4k" class="rv" data-t="26.959">hectare</span> <span data-hf-id="hf-gxhy" class="rv" data-t="27.799">=</span> <span data-hf-id="hf-0qem" class="hi rv" data-t="28.299">10,000 m²</span><br data-hf-id="hf-x5py">
+          <span data-hf-id="hf-qen6" class="rv" data-t="30.219">2</span> <span data-hf-id="hf-03x4" class="rv" data-t="30.399">hectares</span> <span data-hf-id="hf-v46m" class="rv" data-t="31.559">=</span> <span data-hf-id="hf-v46n" class="ans rv" id="step1-ans" data-t="32.020">20,000 m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 - convert the height: 100 cm = 1 m -> 2 cm = 0.02 m. -->
+  <div data-hf-id="hf-251j" id="card-step2" class="clip" data-start="35.20" data-duration="18.6" data-track-index="6" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:450px;text-align:center;width:760px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-zvzo" class="rv" data-t="35.860">Convert</span> <span data-hf-id="hf-1zge" class="rv" data-t="36.219">the</span> <span data-hf-id="hf-786f" class="rv" data-t="36.639">rainfall:</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-9olh" class="rv" data-t="40.659">100</span> <span data-hf-id="hf-k5td" class="rv" data-t="40.879">cm</span> <span data-hf-id="hf-z6zb" class="rv" data-t="42.659">=</span> <span data-hf-id="hf-9ph1" class="hi rv" data-t="43.139">1 m</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-66db" class="rv" data-t="44.399">2</span> <span data-hf-id="hf-yjzq" class="rv" data-t="44.739">cm</span> <span data-hf-id="hf-04pm" class="rv" data-t="45.860">=</span> <span data-hf-id="hf-04pn" class="ans rv" id="step2-ans" data-t="46.360">0.02 m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 - the formula: Volume = Area x Height = 20,000 x 0.02 = 400 m3. -->
+  <div data-hf-id="hf-3st3" id="card-step3" class="clip" data-start="51.50" data-duration="14.3" data-track-index="7" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-3st3b" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;width:760px;">
+      <div data-hf-id="hf-3st3c" class="card-content">
+        <span data-hf-id="hf-3st3d" class="chip">Step 3</span>
+        <div data-hf-id="hf-3st3e" class="math">
+          <span data-hf-id="hf-3st3f" class="rv" data-t="51.579">Volume</span> <span data-hf-id="hf-3st3g" class="rv" data-t="53.539">=</span> <span data-hf-id="hf-3st3h" class="rv" data-t="53.959">Area</span> <span data-hf-id="hf-3st3i" class="rv" data-t="54.239">×</span> <span data-hf-id="hf-3st3j" class="rv" data-t="54.479">Height</span><br data-hf-id="hf-3st3k">
+          <span data-hf-id="hf-3st3l" class="rv" data-t="55.500">=</span> <span data-hf-id="hf-3st3m" class="hi rv" data-t="56.879">20,000</span> <span data-hf-id="hf-3st3n" class="rv" data-t="58.079">×</span> <span data-hf-id="hf-3st3o" class="hi rv" data-t="58.139">0.02</span><br data-hf-id="hf-3st3p">
+          <span data-hf-id="hf-3st3q" class="rv" data-t="59.819">=</span> <span data-hf-id="hf-3st3r" class="ans rv" id="step3-ans" data-t="61.359">400 m³</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 - final restatement + answer confirm. -->
+  <div data-hf-id="hf-4st4" id="card-step4" class="clip" data-start="63.50" data-duration="7.0" data-track-index="8" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-4st4b" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-4st4c" class="card-content">
+        <span data-hf-id="hf-4st4d" class="chip">Step 4</span>
+        <div data-hf-id="hf-4st4e" class="math">
+          <span data-hf-id="hf-4st4f" class="rv" data-t="65.220">Final</span> <span data-hf-id="hf-4st4g" class="rv" data-t="65.779">answer:</span> <span data-hf-id="hf-4st4h" class="ans rv" id="step4-ans" data-t="66.400">400 m³</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-zohc" id="stack-given" class="clip" data-start="24.15" data-duration="49.0" data-track-index="11" style="position:absolute;left:100px;top:120px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-kzs8" class="math">Rain = <span data-hf-id="hf-0ra1" class="hi">2 cm</span>, Area = <span data-hf-id="hf-0ra2" class="hi">2 ha</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-9arl" id="stack-step1" class="clip" data-start="35.00" data-duration="38.0" data-track-index="12" style="position:absolute;left:100px;top:250px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-jdmg" class="math">Area = <span data-hf-id="hf-0cxw" class="ans">20,000 m²</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-1w5f" id="stack-step2" class="clip" data-start="51.30" data-duration="21.7" data-track-index="13" style="position:absolute;left:100px;top:380px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-ccg1" class="math">Height = <span data-hf-id="hf-7dq9" class="ans">0.02 m</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-2w6f" id="stack-step3" class="clip" data-start="63.30" data-duration="9.7" data-track-index="14" style="position:absolute;left:100px;top:510px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2w6g" class="stack-card">
+      <div data-hf-id="hf-2w6h" class="card-content">
+        <span data-hf-id="hf-2w6i" class="step-circle">3</span>
+        <div data-hf-id="hf-2w6j" class="math">Volume = 20,000 × 0.02 = <span data-hf-id="hf-2w6k" class="ans">400 m³</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3w7f" id="stack-step4" class="clip" data-start="67.90" data-duration="5.1" data-track-index="15" style="position:absolute;left:100px;top:640px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3w7g" class="stack-card">
+      <div data-hf-id="hf-3w7h" class="card-content">
+        <span data-hf-id="hf-3w7i" class="step-circle">4</span>
+        <div data-hf-id="hf-3w7j" class="math">Answer = <span data-hf-id="hf-3w7k" class="ans">400 m³</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-r0ql" id="line-g-1" class="clip stack-line" data-start="35.80" data-duration="37.2" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-ouvn" id="line-1-2" class="clip stack-line" data-start="52.10" data-duration="20.9" data-track-index="17" style="opacity:0;"></div>
+  <div data-hf-id="hf-yifo" id="line-2-3" class="clip stack-line" data-start="64.10" data-duration="8.9" data-track-index="18" style="opacity:0;"></div>
+  <div data-hf-id="hf-yifp" id="line-3-4" class="clip stack-line" data-start="68.70" data-duration="4.3" data-track-index="19" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-t9g1" id="options-reveal" class="clip" data-start="68.10" data-duration="4.9" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-sun8" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>40 cu. m</div>
+        <div data-hf-id="hf-osai" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>400 cu. m</div>
+        <div data-hf-id="hf-0t3r" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>4000 cu. m</div>
+        <div data-hf-id="hf-h89c" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>40000 cu. m</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+  apt.setStackLine("#line-3-4", "#stack-step3 .step-circle", "#stack-step4 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // ── PHASE 1 - Question hero entrance
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 4.30; // "...one more problem." ends 4.199
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration build - "Now, in this problem, two centimeter of rain falls on two hectares"
+  tl.fromTo("#ground-figure", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 4.72);
+  tl.fromTo("#water-sliver", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 6.04);
+  apt.fadeIn(tl, "#chip-rain-given", 6.22);
+  apt.fadeIn(tl, "#chip-area-given", 7.74);
+
+  // "...we need to find the volume of water collected."
+  tl.fromTo("#chip-find", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 9.98);
+
+  // "What does this mean in simple words?"
+  apt.emphasize(tl, "#ground-figure", 12.62);
+
+  // "Just imagine a big field covered with a layer of water of height two centimeter."
+  tl.to("#water-sliver", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, 14.68);
+  tl.to("#water-sliver", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, 18.20);
+
+  // "If we know the area of the field and the height of the water, we can easily find the volume."
+  apt.emphasize(tl, "#chip-area-given", 19.86);
+  apt.emphasize(tl, "#chip-rain-given", 20.86);
+  tl.to("#ground-figure", { scale: 1.03, duration: 0.3, yoyo: true, repeat: 1 }, 22.12);
+
+  // ── PHASE 2 - Pin, then Given
+  const PIN_TIME = 23.70;
+  const GIVEN_TIME = 23.90;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // ── STEP 1 - convert the area
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 24.15);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 24.35);
+  apt.textReveal(tl, "#card-step1 .math");
+  apt.fadeIn(tl, "#panel-conversions", 24.70, 0.4);
+  apt.fadeIn(tl, "#panel-conversions-label", 24.90, 0.35);
+  tl.fromTo("#conv-callout-area-pinned", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 25.06);
+  // LINK: pinned Area chip crossfades given -> resolved as "twenty thousand square meter" lands
+  tl.to("#chip-area-given-pinned", { opacity: 0, duration: 0.25 }, 30.40);
+  tl.fromTo("#chip-area-resolved-pinned", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 30.40);
+  apt.emphasize(tl, "#step1-ans", 32.020);
+  apt.emphasize(tl, "#chip-area-resolved-pinned", 33.80);
+
+  // ── STEP 2 - convert the height
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 35.00);
+  apt.stackLineGrow(tl, "#line-g-1", 35.80);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 35.20);
+  apt.textReveal(tl, "#card-step2 .math");
+  tl.fromTo("#conv-callout-height-pinned", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 36.02);
+  // Water layer resolves: sliver -> full stylized band, grey/dashed -> blue/solid
+  tl.to("#water-sliver-pinned", { opacity: 0, duration: 0.3 }, 44.60);
+  tl.fromTo("#water-full-pinned", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 44.60);
+  // LINK: pinned height chip crossfades given -> resolved as "zero point zero two meters" lands
+  tl.to("#chip-rain-given-pinned", { opacity: 0, duration: 0.25 }, 44.60);
+  tl.fromTo("#chip-height-resolved-pinned", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 44.60);
+  apt.emphasize(tl, "#step2-ans", 46.360);
+  apt.emphasize(tl, "#chip-height-resolved-pinned", 47.90);
+
+  // ── STEP 3 - the formula
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 51.30);
+  apt.stackLineGrow(tl, "#line-1-2", 52.10);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 51.50);
+  apt.textReveal(tl, "#card-step3 .math");
+  // LINK: water fill turns green + answer chip pops as "four hundred cubic meter" lands
+  tl.to("#water-full-pinned rect", { fill: "#4eb85f", fillOpacity: 0.35, stroke: "#4eb85f", duration: 0.4 }, 61.359);
+  tl.to("#water-full-pinned path", { fill: "#4eb85f", fillOpacity: 0.35, stroke: "#4eb85f", duration: 0.4 }, 61.359);
+  tl.fromTo("#chip-answer", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 61.60);
+  apt.emphasize(tl, "#step3-ans", 61.359);
+
+  // ── STEP 4 - final restatement
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 63.30);
+  apt.stackLineGrow(tl, "#line-2-3", 64.10);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 63.50);
+  apt.textReveal(tl, "#card-step4 .math");
+  apt.emphasize(tl, "#chip-answer", 64.20);
+
+  // ── Recenter before options
+  const RECENTER_TIME = 67.90;
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-3-4", 68.70);
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 - Options reveal
+  apt.fadeIn(tl, "#options-reveal", 68.10);
+  apt.optionsStagger(tl, ".opt-btn", 68.30);
+  apt.correctPulse(tl, ".opt-btn.correct", 69.34);
+  apt.emphasize(tl, ".opt-btn.correct", 70.02);
+
+  // ── END FADE
+  const END_FADE_TIME = 70.98; // NARR_END 70.379 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+  tl.set({}, {}, 73.38); // 70.98 + 1.2 + 0.2
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

@@ -1,25 +1,28 @@
-[00:00.10 -> 00:01.14]  So welcome back again.
-[00:01.76 -> 00:03.24]  It's time to solve one more problem.
-[00:03.70 -> 00:05.32]  Now in this problem, we are given that
-[00:05.80 -> 00:06.46]  tan theta
-[00:07.02 -> 00:09.10]  is equal to seven by twenty-four,
-[00:09.72 -> 00:11.64]  and theta is an acute angle.
-[00:12.24 -> 00:14.40]  The problem is asking us to find sec theta.
-[00:15.04 -> 00:18.08]  So tan theta is equal to perpendicular upon base.
-[00:18.54 -> 00:19.44]  Comparing this with
-[00:19.84 -> 00:20.48]  tan theta
-[00:20.98 -> 00:26.88]  equals seven by twenty-four, we get perpendicular equals seven and base equals twenty-four.
-[00:27.34 -> 00:27.62]  Done.
-[00:28.16 -> 00:31.18]  We now know two sides of the right triangle. We just need the third side.
-[00:31.48 -> 00:32.74]  To find the hypotenuse,
-[00:33.08 -> 00:36.78]  we will use the Pythagoras theorem. Hypotenuse equals square root of
-[00:37.24 -> 00:40.22]  perpendicular square plus base square.
-[00:40.62 -> 00:41.84]  Substitute the values.
-[00:42.22 -> 00:46.28]  Hypotenuse equals square root of seven square plus twenty-four square.
-[00:46.82 -> 00:50.74]  After simplifying, hypotenuse equals square root of six hundred twenty-five,
-[00:51.14 -> 00:52.52]  which is equal to twenty-five.
-[00:53.02 -> 00:56.32]  Now we know that sec theta equals hypotenuse upon base.
-[00:56.80 -> 00:57.96]  Substitute the values.
-[00:58.38 -> 01:00.76]  Sec theta equals twenty-five by twenty-four.
-[01:01.48 -> 01:01.86]  Hence,
-[01:02.24 -> 01:04.58]  the correct option is option C.
+[00:00.10 -> 00:00.96]  So welcome back again.
+[00:01.50 -> 00:04.26]  It's time to solve one more problem. Now, in this problem,
+[00:04.86 -> 00:05.70]  tan theta
+[00:06.54 -> 00:08.44]  is equal to seven by twenty-four,
+[00:09.00 -> 00:09.56]  and theta
+[00:10.00 -> 00:11.30]  is an acute angle.
+[00:11.70 -> 00:12.40]  We need to find
+[00:12.90 -> 00:14.00]  sec theta.
+[00:14.78 -> 00:18.22]  We know that tan theta is perpendicular divided by base.
+[00:18.70 -> 00:18.82]  So
+[00:19.24 -> 00:20.24]  when tan theta is
+[00:20.60 -> 00:21.50]  seven by twenty-four,
+[00:21.92 -> 00:26.20]  we can take the perpendicular as seven and the base as twenty-four.
+[00:26.68 -> 00:28.58]  Do these have to be the actual side lengths?
+[00:29.16 -> 00:29.36]  No.
+[00:30.02 -> 00:32.14]  Since tan gives us a ratio,
+[00:32.54 -> 00:35.22]  we can take any sides in the same ratio.
+[00:35.74 -> 00:38.50]  Taking seven and twenty-four simply makes our calculation easy.
+[00:39.08 -> 00:42.02]  We now know two sides of the right triangle, but sec theta
+[00:42.52 -> 00:44.58]  needs the hypotenuse and the base.
+[00:45.02 -> 00:47.48]  So first, we need to find the hypotenuse.
+[00:48.00 -> 00:55.44]  Using the Pythagoras theorem, hypotenuse is equal to the square root of perpendicular square plus base square.
+[00:55.98 -> 01:09.30]  Putting the values, we get the square root of seven square plus twenty-four square. This becomes the square root of forty-nine plus five hundred seventy-six, which is the square root of six hundred twenty-five.
+[01:09.88 -> 01:15.26]  So the hypotenuse is twenty-five. Now, sec theta is hypotenuse divided by base.
+[01:15.88 -> 01:16.40]  Therefore,
+[01:16.82 -> 01:23.58]  sec theta is twenty-five by twenty-four. Since theta is an acute angle, we take the positive value.
+[01:24.34 -> 01:24.78]  Hence,
+[01:25.48 -> 01:31.72]  sec theta is twenty-five by twenty-four. So the correct option is C.

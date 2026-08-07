@@ -1,0 +1,93 @@
+PENALTY / CHECK NOTE - read this before finishing any question build in this Mensuration folder.
+
+WORKFLOW GATE - read before starting: before writing a storyboard.md OR building index.html for any
+question in this Mensuration folder, read this file top to bottom plus
+Mensuration/illustration_reference.md, and apply every standing fix/standard listed. Also read
+Trigonometry/VIDEO_BUILD_PROMPT.md (topic-agnostic master build prompt: timeline tail arithmetic,
+clip data-duration buffer, 3-second law, pop-in law, solution-card timing, final self-audit) and
+_template/README.md Step 4A / Step 5A.
+
+WHAT THE QUESTIONS IN THIS BANK ARE: one of five fixed categories - A) direct formula (area <->
+side, slant+height -> CSA), B) unit-conversion + formula (hectares/cm/mm mixed with the formula's
+native units), C) percentage change (dimension(s) change by a stated %, find % change in
+area/volume - always drawn as two shapes, before and after), D) volume-conservation recast (a
+fixed volume of material reshaped, e.g. block melted into a wire), E) composite/displacement (an
+object placed in a container changes a level). Identify the category (or categories - some
+questions combine two) before drawing anything; illustration_reference.md section 0 has the table.
+
+
+STANDING ITEMS CARRIED OVER FROM Trigonometry/penelty.txt (topic-agnostic, still binding):
+
+1. Clip data-duration buffer (q9 bug): any clip whose data-duration ends exactly at a
+   morphToStack / fadeOut / pinFlow call needs +1.5-2s past that transition's completion
+   (morph = start+0.8s, fadeOut ~0.4s), or the animation visibly cuts off at unmount.
+
+2. Label clipping (q10 bug): size the SVG viewBox with margin for the full label string at its
+   font-size, not just for the geometry. Here that includes unit-conversion callout text, which
+   runs long ("1 hectare = 10,000 m2").
+
+3. Exact-copy pinned figure: the Phase-2 pinned icon must be a coordinate-exact copy of the
+   full-size figure (same viewBox, same internal numbers) with only outer width/height shrunk.
+   Never a separately-eyeballed smaller redraw.
+
+4. stroke-dasharray on any drawn line/path must equal that path's true total length, with the
+   arithmetic in a trailing comment.
+
+5. Every coordinate used in more than one place is defined ONCE in the comment block at the top
+   of the illustration and reused literally. No restating "the same" point with different numbers.
+
+6. No em dash in any file. No bare division character in solution-card math - use .frac.
+   No infinite repeat: -1 anywhere.
+
+7. angle-arc rules from Trigonometry (--angle custom property, translate(0,2*cy) flip, atan2
+   check) DO apply here, narrowly: cone questions (category A, slant+height->CSA, q6-style) draw
+   a real right angle between the vertical height and the base radius. Use the SAME right-angle
+   marker discipline (derived from the two real ray directions, inset fixed amount, never
+   hand-guessed) - but there is no arc/theta value to animate, only the marker.
+
+
+TOPIC-SPECIFIC STANDING ITEMS (full text in illustration_reference.md sections 3, 6, 7, 9, 13):
+
+8. Every shape is drawn to its TRUE ratio, computed from the given numbers, never eyeballed.
+   Area/volume answers must be back-derived to a linear dimension first (area 144 cm2 -> side
+   sqrt(144)=12 -> THAT is the drawn side), even when the question never asks for the linear value.
+
+9. Two-shape questions (category C and D) use ONE shared scale factor for both shapes, derived
+   from whichever true dimension is larger. Scaling each shape independently to "look similar
+   sized" visually lies about the percentage change - this is the single most common way this
+   topic goes wrong.
+
+10. Percentage changes on two different dimensions COMPOUND, they do not add (10% and 20% ->
+    1.10*1.20=1.32 -> +32%, not +30%). The after-shape's width and height must be tweened
+    independently to their own true multipliers, anchored at one fixed corner, never uniformly
+    scaled by the combined percentage.
+
+11. Isometric solids (cube/cuboid/tank) use a FIXED 30deg shear for every question in this bank -
+    never re-derive the projection angle per question. Cylinders/cones use a FIXED
+    ry = rx * 0.3 ellipse squash ratio, also never re-picked.
+
+12. Unit conversions are a visible step (a callout chip), not a silent substitution. If the
+    question mixes units (hectares/m2, cm/m, mm/cm), the converted value must appear on screen
+    before the formula consumes it.
+
+13. Displacement/rise questions draw the CONTAINER and a scaled rise band, never icons for the
+    displacing objects (50 men are a number in the formula, not 50 drawn people). The band's
+    on-screen height is the true scaled rise - do not exaggerate a genuinely thin rise for
+    visibility; the thinness is the answer.
+
+14. Recast/melt-and-reshape questions conserve VOLUME only. The two solids do NOT share a linear
+    scale factor - only the volume number travels between them, as a chip that moves via a
+    gsap x/y tween timed to the "same volume" narration beat. Drawing the second solid "the same
+    size" as the first asserts a false equality.
+
+15. A cone's slant height and vertical height are two different labelled lines, drawn meeting the
+    base radius at a right angle at the base centre - this right triangle is the solution and
+    must be visible in the figure, not just present in the formula.
+
+16. Derived (not given) dimensions and the after/solved-for shape turn green only AFTER the
+    formula resolves them on screen, never before - the figure must not appear to know the
+    answer before the equation does.
+
+
+(Append new findings below as questions ship, in the same format: issue found in qN, fix applied,
+check for this same bug on every future question.)

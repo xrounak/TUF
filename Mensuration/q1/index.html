@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Illustration figure labels - illustration_reference.md section 4.
+     design-system.css .chip is scoped to .solution-card/.stack-card, so the
+     illustration's own value/role labels need this separate rule. */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: #4eb85f; color: #4eb85f; }
+
+  .fig-chip-pinned {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip-pinned.role { border-color: #000000; color: #000000; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-ly5i" class="topic-name">Mensuration</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-zpok" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="81.3" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-25.6s)
+       Pins BEFORE the side-derivation narration begins, since that whole
+       derivation now lives in the Step 1 solution card (Given=Area only,
+       Step 1=side, Step 2=perimeter, per the standing structure for this
+       question - see storyboard.md v2 note).
+       duration extends PIN_TIME(25.6) + pinFlow 0.8s + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-46q8" id="phase1" class="clip" data-start="0" data-duration="28.0" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-hroe" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1200px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-vdfl" class="q-text">
+        The area of a <span data-hf-id="hf-8f6g" class="num">square</span> is <span data-hf-id="hf-pbuc" class="num">144 cm²</span>. Find its perimeter.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- ILLUSTRATION GEOMETRY (category A - direct formula, single square figure)
+      STATEMENT: area of square = 144 cm^2, find perimeter.
+      TRUE DIMENSIONS: side = sqrt(144) = 12 cm - back-derived first, per bank rule 1
+        (illustration_reference.md section 13.1), even though the question never
+        asks for the linear side value directly. The DERIVATION itself (Area=s^2=144
+        -> s=sqrt(144)=12) is worked in the Step 1 solution card, not here - the
+        illustration only sets the shape up and, on the PINNED copy, confirms the
+        resolved side once Step 1 lands on it (illustration_reference.md section 8:
+        pinned copy's own solution-step-timed elements may still animate).
+      DRAWING BUDGET: longest true dimension (the 12cm side) maps to 260px on screen.
+      SCALE FACTOR: 260 / 12 = 21.667 px per cm.
+      DRAWN SIZE: side = 12 * 21.667 = 260px (rounded).
+      SQUARE RECT (defined once, reused literally): x=160 y=130 width=260 height=260
+        -> right edge x=420, bottom edge y=390, center=(290,260).
+      SIDE ARROW: vertical, x=440 (20px clear of the square's right edge x=420),
+        y1=390 (bottom) y2=130 (top) -> length 260, matching the true drawn side
+        (the square outline stays --primary blue throughout - it's the GIVEN shape,
+        not the target; only the arrow + its label resolve to --success green, and
+        only on the pinned copy, since resolution happens after PIN_TIME).
+      LABEL SLOTS (foreignObjects, defined once, reused identically on the pinned copy):
+        chip-area-given: x=220 y=235 w=140 h=50  (centered in square: 290-70, 260-25)
+        chip-find:       x=220 y=70  w=140 h=50  (above square)
+        label-unknown/label-side: x=465/455 y=235/233 w=50/110 h=50/54 (right of arrow)
+      VIEWBOX: geometry spans x[160..515(labels)] y[70(chip-find)..390], +30-40px
+        margin on every side -> "0 0 580 500" (matches the topic's fixed canvas
+        contract in illustration_reference.md section 1).
+    -->
+    <div data-hf-id="hf-scpf" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);overflow:visible;">
+      <svg data-hf-id="hf-rtav" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <g data-hf-id="hf-gtfv" id="square-figure" opacity="0">
+          <rect data-hf-id="hf-uu0a" x="160" y="130" width="260" height="260" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="4" />
+        </g>
+
+        <foreignobject data-hf-id="hf-cxgy" id="chip-area-given" x="220" y="235" width="140" height="50" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-xiff" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Area = 144 cm²</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-oomj" id="chip-find" x="220" y="70" width="140" height="50" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ogqu" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">Find: Perimeter</div>
+        </foreignobject>
+
+        <!-- unknown side arrow - entrance only here; it never resolves on the
+             full-size copy since PIN_TIME (25.6) fires before the side is
+             derived. length = |390-130| = 260, matches the true drawn side. -->
+        <g data-hf-id="hf-ks72" id="arrow-side" opacity="0">
+          <line data-hf-id="hf-dz6f" x1="440" y1="390" x2="440" y2="130" stroke="#949494" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" />
+          <path data-hf-id="hf-x2py" d="M 427,148 L 440,130 L 453,148 Z" fill="#949494" />
+          <path data-hf-id="hf-df4q" d="M 427,372 L 440,390 L 453,372 Z" fill="#949494" />
+        </g>
+
+        <foreignobject data-hf-id="hf-wtsm" id="label-unknown" x="465" y="235" width="50" height="50" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-tmby" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip" style="border-color:#949494;color:#949494;">?</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (25.6s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-vdfg" id="q-pinned" class="clip" data-start="25.6" data-duration="55.7" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-c6fs" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1150px;">
+      <div data-hf-id="hf-goht" class="q-text">
+        Area of square = <span data-hf-id="hf-gaq4" class="num">144 cm²</span>. Find perimeter.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - exact coordinate copy of the full-size SVG (same
+       viewBox, same internal numbers, only outer width/height + stroke widths
+       shrink). chip-area-given/chip-find are static (the given shape is always
+       visible per section 8); the arrow/"?" start in the SAME unresolved grey
+       state they left off in on the full-size copy, then resolve to green here
+       once Step 1's narration actually derives the side (50.58s) - these are
+       the "solution-step-timed" elements section 8 allows on a pinned copy. -->
+  <div data-hf-id="hf-y8vh" id="illus-pinned" class="clip" data-start="25.6" data-duration="53.2" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <rect data-hf-id="hf-6f9e" x="160" y="130" width="260" height="260" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" />
+      <foreignobject data-hf-id="hf-xqoh" id="chip-area-given-pinned" x="180" y="235" width="140" height="50" style="overflow:visible;">
+        <div data-hf-id="hf-7jgc" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Area = 144 cm²</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-4vpr" x="220" y="70" width="140" height="50" style="overflow:visible;">
+        <div data-hf-id="hf-zao9" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned role">Find: Perimeter</div>
+      </foreignobject>
+      <g data-hf-id="hf-95at" id="arrow-side-pinned">
+        <line data-hf-id="hf-z4m5" x1="440" y1="390" x2="440" y2="130" stroke="#949494" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 5" />
+        <path data-hf-id="hf-gj62" d="M 427,148 L 440,130 L 453,148 Z" fill="#949494" />
+        <path data-hf-id="hf-ry7y" d="M 427,372 L 440,390 L 453,372 Z" fill="#949494" />
+      </g>
+      <foreignobject data-hf-id="hf-kz1t" id="label-unknown-pinned" x="465" y="235" width="50" height="50" style="overflow:visible;">
+        <div data-hf-id="hf-e14f" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned" style="border-color:#949494;color:#949494;">?</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-nqeo" id="label-side-pinned" x="455" y="233" width="110" height="54" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-7uer" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned" style="border-color:#4eb85f;color:#4eb85f;">12 cm</div>
+      </foreignobject>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS - Given (Area) -> Step 1 (side) -> Step 2 (perimeter)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN - the area only. GIVEN_TIME (25.9) is its own timestamp, separate
+       from PIN_TIME (25.6) - the layout finishes settling first. -->
+  <div data-hf-id="hf-jln8" id="card-given" class="clip" data-start="25.7" data-duration="3.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-jal3" class="rv" data-t="25.90">Area = <span data-hf-id="hf-dgp1" class="hi">144 cm²</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 - derive the side: Area = s^2 = 144, so s = sqrt(144) = 12 cm.
+       Word-level .rv pulled straight from transcript.json's 26.12-53.88s span. -->
+  <div data-hf-id="hf-srg6" id="card-step1" class="clip" data-start="26.9" data-duration="31.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-5b47" class="solution-card" style="position:absolute;left:640px;top:450px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-sk0d" class="rv" data-t="27.22">Area</span> <span data-hf-id="hf-24hn" class="rv" data-t="28.56">=</span> <span data-hf-id="hf-3zbn" class="rv" data-t="28.94">s<sup data-hf-id="hf-etg7">2</sup></span> <span data-hf-id="hf-9azc" class="rv" data-t="29.90">=</span> <span data-hf-id="hf-1x4k" class="hi rv" data-t="32.80">144</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-gxhy" class="rv" data-t="37.80">s</span> <span data-hf-id="hf-0qem" class="rv" data-t="39.66">=</span> <span data-hf-id="hf-qen6" class="rv" data-t="40.00">√144</span> <span data-hf-id="hf-03x4" class="rv" data-t="44.68">=</span> <span data-hf-id="hf-v46m" class="ans rv" id="step1-ans" data-t="44.68">12 cm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 - Perimeter = 4 x side. -->
+  <div data-hf-id="hf-251j" id="card-step2" class="clip" data-start="60.5" data-duration="18.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:460px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-zvzo" class="rv" data-t="60.88">Perimeter</span> <span data-hf-id="hf-1zge" class="rv" data-t="62.44">=</span> <span data-hf-id="hf-786f" class="hi rv" data-t="62.78">4</span> <span data-hf-id="hf-i8vz" class="rv" data-t="63.02">×</span> <span data-hf-id="hf-5ods" class="rv" data-t="63.32">side</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-9olh" class="rv" data-t="65.06">(a square has 4 equal sides)</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-k5td" class="rv" data-t="68.50">=</span> <span data-hf-id="hf-z6zb" class="hi rv" data-t="68.94">4</span> <span data-hf-id="hf-9ph1" class="rv" data-t="69.20">×</span> <span data-hf-id="hf-66db" class="hi rv" data-t="69.56">12</span> <span data-hf-id="hf-yjzq" class="rv" data-t="70.54">=</span> <span data-hf-id="hf-04pm" class="ans rv" id="step2-ans" data-t="70.92">48 cm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-zohc" id="stack-given" class="clip" data-start="27.0" data-duration="54.3" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-kzs8" class="math">Area = <span data-hf-id="hf-0ra1" class="hi">144 cm²</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-9arl" id="stack-step1" class="clip" data-start="56.2" data-duration="25.1" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-jdmg" class="math">Side = √144 = <span data-hf-id="hf-0cxw" class="ans">12 cm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-1w5f" id="stack-step2" class="clip" data-start="76.9" data-duration="4.4" data-track-index="13" style="position:absolute;left:100px;top:440px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-ccg1" class="math">Perimeter = 4 × 12 = <span data-hf-id="hf-7dq9" class="ans">48 cm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-kebq" id="line-g-1" class="clip stack-line" data-start="56.2" data-duration="25.1" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-gozb" id="line-1-2" class="clip stack-line" data-start="76.9" data-duration="4.4" data-track-index="16" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL (77-79.3s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-gw6g" id="options-reveal" class="clip" data-start="77.0" data-duration="4.3" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-v2zb" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>36 cm</div>
+        <div data-hf-id="hf-8v5c" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>44 cm</div>
+        <div data-hf-id="hf-m786" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>48 cm</div>
+        <div data-hf-id="hf-4wtt" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>52 cm</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 5.82; // "...time to solve some problems." ends
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Square figure entrance - "...area of a square as 144 cm2,"
+  tl.fromTo("#square-figure", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 6.36);
+  // Unknown side arrow enters early too (grey/dashed = real but not yet known)
+  tl.fromTo("#arrow-side", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.90);
+  tl.fromTo("#label-unknown", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 7.10);
+  // "...144 square centimeter," - given value chip pops
+  apt.fadeIn(tl, "#chip-area-given", 9.08);
+  // "...find its perimeter." - find-role chip pops
+  apt.fadeIn(tl, "#chip-find", 11.46);
+  // "what does perimeter mean?"
+  apt.emphasize(tl, "#square-figure", 14.06);
+  // "...total length of all four sides..." - two stroke pulses read as "all four sides"
+  tl.to("#square-figure rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, 15.96);
+  tl.to("#square-figure rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, 18.30);
+  // "...first need to find length of one side."
+  apt.emphasize(tl, "#arrow-side", 20.48);
+  apt.emphasize(tl, "#label-unknown", 22.40);
+  // "Correct?"
+  apt.emphasize(tl, "#square-figure", 24.96);
+
+  // PHASE 2 - Pin, then Given (two separate timestamps)
+  const PIN_TIME = 25.60;
+  const GIVEN_TIME = 25.90;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Given -> stack, Step 1 opens right as "We know that area..." starts (word
+  // "area" lands at 27.219 - cardEnter fires just before it).
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 27.00);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 27.20);
+  apt.textReveal(tl, "#card-step1 .math");
+  // LINK: the pinned Area chip pulses together with "144" landing in Step 1's equation
+  apt.emphasize(tl, "#chip-area-given-pinned", 32.80);
+  // "...twelve times twelve equal to 144." - confirm
+  apt.emphasize(tl, "#step1-ans", 45.52);
+
+  // "So the side of the square is twelve centimeter." - pinned figure resolves
+  // (this is a solution-step-timed animation ON the pinned copy - the full-size
+  // arrow/label never get this treatment, they were already pinned away).
+  tl.to("#arrow-side-pinned line", { stroke: "#4eb85f", attr: { "stroke-dasharray": "0 0" }, duration: 0.3 }, 50.58);
+  tl.to("#arrow-side-pinned path", { fill: "#4eb85f", duration: 0.3 }, 50.58);
+  apt.fadeOut(tl, "#label-unknown-pinned", 50.58, 0.2);
+  tl.fromTo("#label-side-pinned", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 50.78);
+  apt.emphasize(tl, "#step1-ans", 50.78); // LINK: figure and card confirm the same value
+  apt.emphasize(tl, "#label-side-pinned", 52.16);
+  // "Got it? Perfect."
+  apt.emphasize(tl, "#label-side-pinned", 54.76);
+
+  // "...now that we have the side, finding the perimeter is very easy." - Step 1
+  // joins the stack, small filler beat on the resolved label while Step 2 isn't
+  // open yet (keeps this ~4.7s stretch from reading as dead).
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 56.20);
+  apt.emphasize(tl, "#label-side-pinned", 58.00);
+
+  apt.cardEnter(tl, "#card-step2 .solution-card", 60.90);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  // Confirm pulses on the answer once it has landed
+  apt.emphasize(tl, "#step2-ans", 72.92); // "Done and dusted."
+  apt.emphasize(tl, "#step2-ans", 74.74); // "...final answer will be..."
+
+  // Recenter + clear illustration, Step 2 -> stack, grow the 1->2 connector
+  const RECENTER_TIME = 76.90;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", RECENTER_TIME);
+  apt.stackLineGrow(tl, "#line-g-1", 56.20);
+  apt.stackLineGrow(tl, "#line-1-2", RECENTER_TIME);
+
+  // PHASE 3 - Options reveal, "Hence, option C is the correct answer"
+  apt.fadeIn(tl, "#options-reveal", 77.30);
+  apt.optionsStagger(tl, ".opt-btn", 77.60);
+  apt.correctPulse(tl, ".opt-btn.correct", 78.40);
+
+  // END FADE
+  const END_FADE_TIME = 79.88; // NARR_END 79.279 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+  tl.set({}, {}, 82.28); // 79.88 + 1.2 + 0.2
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

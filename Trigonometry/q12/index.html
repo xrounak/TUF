@@ -35,38 +35,45 @@
     </div>
 
     <!-- Illustration: ground, observer, tower (with flag cap), line of
-         sight, right-angle marker, 45deg angle arc - built like the
-         sibling Trigonometry questions (q4/q5/q8): bold strokes, a flag
-         cap so the vertical reads as a tower not an abstract line, an
-         observation-point dot, a green angle arc, and floating bordered
-         chip labels rather than flat text, so Phase 1 never sits static.
-         Ground (40,260)->(180,260) len 140. Tower (180,260)->(180,120)
-         len 140 too -> exact 1:1 ratio, so the real angle at the observer
-         is atan(140/140) = 45deg, matching the given angle exactly. -->
-    <div data-hf-id="hf-3hxd" id="illustration" class="illustration" style="position:absolute;left:50%;top:480px;transform:translateX(-50%);width:340px;height:300px;">
-      <svg data-hf-id="hf-i7mo" id="tower-svg" viewBox="0 0 340 300" width="340" height="300" style="position:absolute;left:0;top:0;overflow:visible;">
-        <!-- ground line (adjacent side) -->
-        <line data-hf-id="hf-jmsa" id="gnd-line" x1="40" y1="260" x2="180" y2="260" stroke="#6373db" stroke-width="6" stroke-dasharray="140" stroke-dashoffset="140" stroke-linecap="round" />
-        <!-- tower (opposite side) -->
-        <line data-hf-id="hf-8fki" id="tower-line" x1="180" y1="260" x2="180" y2="120" stroke="#6373db" stroke-width="6" stroke-dasharray="140" stroke-dashoffset="140" stroke-linecap="round" />
+         sight, right-angle marker, 45deg angle arc - redrawn per
+         storyboard.md Scene 2 (bigger, readable canvas; angle vertex
+         stays leftmost so the arc's fixed 0deg start matches the ground
+         ray, per penelty.txt's standing arc-direction rule).
+
+         VERTICES (defined once, reused literally everywhere):
+           A = (90,380)  angle vertex (observer) - leftmost base vertex
+           B = (350,380) right-angle vertex (tower base)
+           C = (350,120) apex (tower top)
+         GROUND: y=380
+         RATIO CHECK: base(A-B)=260, opposite(B-C)=260 -> tan45 = 1 exact
+         ANGLE CHECK: atan2(260,260) = 45.00deg -> --angle: 45 matches exactly
+         LENGTH CHECK: hyp(A-C) = sqrt(260^2+260^2) = 367.7
+         VIEWBOX: x[0..620] y[0..480] -> "0 0 620 480" -->
+    <div data-hf-id="hf-3hxd" id="illustration" class="illustration" style="position:absolute;left:50%;top:290px;transform:translateX(-50%);width:620px;height:480px;">
+      <svg data-hf-id="hf-i7mo" id="tower-svg" viewBox="0 0 620 480" width="620" height="480" style="position:absolute;left:0;top:0;overflow:visible;">
+        <!-- ground line (adjacent side), len=260 -->
+        <line data-hf-id="hf-jmsa" id="gnd-line" x1="90" y1="380" x2="350" y2="380" stroke="#6373db" stroke-width="8" stroke-dasharray="260" stroke-dashoffset="260" stroke-linecap="round" />
+        <!-- tower (opposite side), len=260 -->
+        <line data-hf-id="hf-8fki" id="tower-line" x1="350" y1="380" x2="350" y2="120" stroke="#6373db" stroke-width="8" stroke-dasharray="260" stroke-dashoffset="260" stroke-linecap="round" />
         <!-- flag cap on tower top, reads as a tower not a bare line -->
-        <path data-hf-id="hf-7q6t" id="tower-flag" d="M 180 120 L 215 130 L 180 140 Z" fill="#6373db" opacity="0" />
-        <!-- line of sight (hypotenuse), observer to tower top -->
-        <line data-hf-id="hf-5qno" id="los-line" x1="40" y1="260" x2="180" y2="120" stroke="#000000" stroke-width="3" stroke-dasharray="196" stroke-dashoffset="196" stroke-linecap="round" />
+        <path data-hf-id="hf-7q6t" id="tower-flag" d="M 350 120 L 410 140 L 350 160 Z" fill="#6373db" opacity="0" />
+        <!-- line of sight (hypotenuse), observer to tower top, len=sqrt(260^2+260^2)=367.7 -->
+        <line data-hf-id="hf-5qno" id="los-line" x1="90" y1="380" x2="350" y2="120" stroke="#000000" stroke-width="5" stroke-dasharray="367.7" stroke-dashoffset="367.7" stroke-linecap="round" />
         <!-- observation point -->
-        <circle data-hf-id="hf-qzz4" id="obs-point" cx="40" cy="260" r="6" fill="#000000" opacity="0" />
-        <!-- right-angle marker at tower base -->
-        <path data-hf-id="hf-d6f3" id="right-angle-mark" d="M 165 260 L 165 245 L 180 245" fill="none" stroke="#000000" stroke-width="2.5" opacity="0" />
+        <circle data-hf-id="hf-qzz4" id="obs-point" cx="90" cy="380" r="9" fill="#000000" opacity="0" />
+        <!-- right-angle marker at B=(350,380): rays -x (toward A) and -y (toward C), inset 28 -->
+        <path data-hf-id="hf-d6f3" id="right-angle-mark" d="M 322 380 L 322 352 L 350 352" fill="none" stroke="#000000" stroke-width="3.5" opacity="0" />
         <!-- 45-degree elevation angle arc at the observer, full-circle
              stroke-dasharray technique (penelty.txt standard from q10
-             onward): --angle is the EXACT given angle (45deg), sibling
-             green (#4eb85f), bold stroke, always precise on rescale. -->
-        <circle data-hf-id="hf-592v" id="angle-arc" cx="40" cy="260" r="45" fill="transparent" stroke="#4eb85f" stroke-width="6" stroke-linecap="round" transform="translate(0, 520) scale(1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 282.74) 282.74;" opacity="0" />
-        <text data-hf-id="hf-ijoi" id="angle-label" x="86" y="234" font-family="'Google Sans Flex','Inter',sans-serif" font-size="24" fill="#4eb85f" opacity="0">45°</text>
+             onward): cx/cy=A exactly, r=85, C=2*pi*85=534.07, --angle
+             is the EXACT given angle (45deg), sibling green (#4eb85f),
+             bold stroke, translate(0,760) = 2*cy, opacity-only reveal. -->
+        <circle data-hf-id="hf-592v" id="angle-arc" cx="90" cy="380" r="85" fill="transparent" stroke="#4eb85f" stroke-width="9" stroke-linecap="round" transform="translate(0, 760) scale(1,-1)" style="--angle: 45; stroke-dasharray: calc((var(--angle) / 360) * 534.07) 534.07;" opacity="0" />
+        <text data-hf-id="hf-ijoi" id="angle-label" x="180" y="345" font-family="'Google Sans Flex','Inter',sans-serif" font-size="30" fill="#4eb85f" opacity="0">45°</text>
         <!-- flat 2D person icon standing at the observation point -->
         <g data-hf-id="hf-p4q2" id="person-icon" opacity="0">
-          <circle data-hf-id="hf-11nn" cx="40" cy="230" r="11" fill="#6373db" />
-          <rect data-hf-id="hf-91hc" x="29" y="241" width="22" height="27" rx="6" fill="#6373db" />
+          <circle data-hf-id="hf-11nn" cx="90" cy="344" r="18" fill="#6373db" />
+          <rect data-hf-id="hf-91hc" x="72" y="356" width="36" height="42" rx="10" fill="#6373db" />
         </g>
       </svg>
 
@@ -75,11 +82,11 @@
            colored-border style as the sibling questions' pole/shadow/
            ladder chips, synced to the transcript beat that states each
            value: opposite/tower height 24.68-29.32, adjacent/x 34.84-35.88. -->
-      <div data-hf-id="hf-lvto" id="chip-opposite" style="position:absolute;left:196px;top:150px;opacity:0;">
-        <div data-hf-id="hf-0yxl" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:6px 14px;font-size:22px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">Opposite = 20 m</div>
+      <div data-hf-id="hf-lvto" id="chip-opposite" style="position:absolute;left:430px;top:205px;opacity:0;">
+        <div data-hf-id="hf-0yxl" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:7px 16px;font-size:26px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">Opposite = 20 m</div>
       </div>
-      <div data-hf-id="hf-u9vh" id="chip-adjacent" style="position:absolute;left:58px;top:272px;opacity:0;">
-        <div data-hf-id="hf-jkcr" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:6px 14px;font-size:22px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">Adjacent = x</div>
+      <div data-hf-id="hf-u9vh" id="chip-adjacent" style="position:absolute;left:55px;top:398px;opacity:0;">
+        <div data-hf-id="hf-jkcr" style="background:#fff;border:2px solid #6373db;border-radius:10px;padding:7px 16px;font-size:26px;color:#6373db;font-family:'Google Sans Flex','Inter',sans-serif;white-space:nowrap;">Adjacent = x</div>
       </div>
     </div>
   </div>
@@ -95,17 +102,18 @@
     </div>
   </div>
 
-  <div data-hf-id="hf-a2us" id="illus-pinned" class="clip" data-start="35.9" data-duration="32.3" data-track-index="3" style="position:absolute;left:280px;top:190px;width:1300px;height:210px;z-index:5;opacity:0;
+  <div data-hf-id="hf-a2us" id="illus-pinned" class="clip" data-start="35.9" data-duration="32.3" data-track-index="3" style="position:absolute;left:280px;top:180px;width:1300px;height:240px;z-index:5;opacity:0;
               display:flex;align-items:center;justify-content:center;">
-    <svg data-hf-id="hf-d4mi" id="illus-pinned-icon" viewBox="0 0 340 300" width="230" height="203">
-      <line data-hf-id="hf-m7hu" x1="40" y1="260" x2="180" y2="260" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <line data-hf-id="hf-f77s" x1="180" y1="260" x2="180" y2="120" stroke="#6373db" stroke-width="4" stroke-linecap="round" />
-      <path data-hf-id="hf-bl75" d="M 180 120 L 215 130 L 180 140 Z" fill="#6373db" />
-      <line data-hf-id="hf-hz7v" x1="40" y1="260" x2="180" y2="120" stroke="#000000" stroke-width="3" stroke-linecap="round" />
-      <circle data-hf-id="hf-l95l" cx="40" cy="260" r="6" fill="#000000" />
-      <path data-hf-id="hf-m4er" d="M 165 260 L 165 245 L 180 245" fill="none" stroke="#000000" stroke-width="2.5" />
-      <circle data-hf-id="hf-ec8q" cx="40" cy="260" r="30" fill="transparent" stroke="#4eb85f" stroke-width="4" stroke-linecap="round" transform="translate(0,520) scale(1,-1)" style="--angle:45; stroke-dasharray: calc((var(--angle) / 360) * 188.5) 188.5;" />
-      <text data-hf-id="hf-w31u" x="86" y="234" font-family="'Google Sans Flex','Inter',sans-serif" font-size="20" fill="#4eb85f">45°</text>
+    <!-- exact coordinate copy of #tower-svg's viewBox and internal numbers; only width/height/stroke-width shrink -->
+    <svg data-hf-id="hf-d4mi" id="illus-pinned-icon" viewBox="0 0 620 480" width="300" height="232">
+      <line data-hf-id="hf-m7hu" x1="90" y1="380" x2="350" y2="380" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <line data-hf-id="hf-f77s" x1="350" y1="380" x2="350" y2="120" stroke="#6373db" stroke-width="6" stroke-linecap="round" />
+      <path data-hf-id="hf-bl75" d="M 350 120 L 410 140 L 350 160 Z" fill="#6373db" />
+      <line data-hf-id="hf-hz7v" x1="90" y1="380" x2="350" y2="120" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+      <circle data-hf-id="hf-l95l" cx="90" cy="380" r="8" fill="#000000" />
+      <path data-hf-id="hf-m4er" d="M 322 380 L 322 352 L 350 352" fill="none" stroke="#000000" stroke-width="3" />
+      <circle data-hf-id="hf-ec8q" cx="90" cy="380" r="85" fill="transparent" stroke="#4eb85f" stroke-width="7" stroke-linecap="round" transform="translate(0,760) scale(1,-1)" style="--angle:45; stroke-dasharray: calc((var(--angle) / 360) * 534.07) 534.07;" />
+      <text data-hf-id="hf-w31u" x="180" y="345" font-family="'Google Sans Flex','Inter',sans-serif" font-size="26" fill="#4eb85f">45°</text>
     </svg>
     <div data-hf-id="hf-0x1r" style="font-family:'Google Sans Flex','Inter',sans-serif;font-size:24px;color:#000;margin-left:24px;">
       Opposite = <span data-hf-id="hf-z8dl" style="color:#6373db;">20 m</span><br data-hf-id="hf-x5px">Adjacent = <span data-hf-id="hf-2fhc" style="color:#6373db;">x</span>
