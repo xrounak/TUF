@@ -1,6 +1,6 @@
 # Q24 Storyboard - sin theta + cos theta = 7/5, find sin theta cos theta
 
-Duration: 93.219s (transcript.json). Answer: D, 12/25.
+Duration: 82.299s (transcript.json, re-synced from a script/voiceover update - was 93.219s). Answer: D, 12/25.
 
 ## PART 1 - Narration Beat Analysis
 
@@ -57,29 +57,33 @@ None external. Pure inline SVG (triangle), design-system components (q-card, sol
 - No new animation helpers invented; only `apt.*` from animations.js plus one-off `tl.to()` calls for the triangle's raw SVG (per VIDEO_BUILD_PROMPT.md section 1.3, allowed for illustrations).
 
 ## PART 5 - Master Timeline Overview
+
+Re-synced to the updated voiceover.wav (82.3s, was 93.2s) via a transcript-anchored
+time-warp of the original cut - same relative choreography, rescaled absolute times.
+
 ```
 0.3   q-full-card hero enter (lowered)
 0.8   serial-num pop
-4.3   hero rises
-4.9-9.5  triangle stroke-draw + chips (sin theta, cos theta, 1, theta)
-11.9  sin/cos chips emphasize together
-14.7  PIN_TIME - pinFlow
-15.0  GIVEN_TIME - Given card enters (facts pre-resolved)
-16.6/18.4/20.6  pinned-triangle LINK pulses during trick explanation
-20.58 Given card 2nd line "Trick: square both sides"
-21.7  Given -> stack morph
-22.72 Step 1 enters (square + expand)
-39.2  Step 1 -> stack morph (line-g-1 grows)
-40.86 Step 2 enters (identity substitution)
-52.5  LINK - pinned hypotenuse "1" confirms
-65.6  Step 2 -> stack morph (line-1-2 grows)
-66.76 Step 3 enters (isolate + solve)
-85.279 answer confirm pulse
-87.6  Step 3 -> stack morph (line-2-3 grows)
-88.4  recenter for options, illus-pinned fades
-88.9  options fade in
-89.4  options stagger
-91.68 correct (D) pulse
-93.819 END_FADE_TIME, fade 1.2s
-95.2  tl.set - nothing beyond
+3.79  hero rises
+4.22-7.6  triangle stroke-draw + chips (sin theta, cos theta, 1, theta)
+10.2  sin/cos chips emphasize together
+12.59 PIN_TIME - pinFlow
+12.8  GIVEN_TIME - Given card enters (facts pre-resolved)
+14.22/15.46/17.12  pinned-triangle LINK pulses during trick explanation
+17.12 Given card 2nd line "Trick: square both sides"
+18.19 Given -> stack morph
+19.08 Step 1 enters (square + expand)
+33.4  Step 1 -> stack morph (line-g-1 grows)
+35.19 Step 2 enters (identity substitution)
+46.6  LINK - pinned hypotenuse "1" confirms
+60.16 Step 2 -> stack morph (line-1-2 grows)
+61.38 Step 3 enters (isolate + solve)
+75.15 answer confirm pulse ("Perfect.")
+76.6  Step 3 -> stack morph (line-2-3 grows)
+77.58 recenter for options, illus-pinned fades
+78.08 options fade in
+78.58 options stagger
+80.9  correct (D) pulse
+82.9  END_FADE_TIME, fade 1.2s
+84.3  tl.set - nothing beyond
 ```

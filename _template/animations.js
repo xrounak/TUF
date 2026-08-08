@@ -64,7 +64,27 @@ window.apt = (function() {
 
     let targetX = 0, targetY = 0, targetScaleX = 1, targetScaleY = 1;
     if (from && to && root) {
+      // An earlier apt.cardEnter() call on this same element immediate-
+      // renders its fromTo() "from" state (scale:0.92, y:40) onto the DOM
+      // the instant it's added to the timeline - GSAP's default
+      // immediateRender:true for fromTo(). That leftover 0.92 scale is
+      // still sitting on `from` right now, at build time, well before this
+      // tween's own start time actually plays out. Measuring through it
+      // shrank fromBox by ~8%, which skewed targetScaleX/Y and targetX/Y
+      // enough that the morph visibly landed short of the real stack-card
+      // slot. Snapshot the live GSAP transform, zero it via gsap.set (so
+      // GSAP's internal transform cache stays correct, unlike poking
+      // el.style.transform directly), measure the TRUE resting box, then
+      // restore - single synchronous tick, no frame is painted in between.
+      const sx = gsap.getProperty(from, "x");
+      const sy = gsap.getProperty(from, "y");
+      const sSX = gsap.getProperty(from, "scaleX");
+      const sSY = gsap.getProperty(from, "scaleY");
+      gsap.set(from, { x: 0, y: 0, scaleX: 1, scaleY: 1 });
       const fromBox = from.getBoundingClientRect();
+      gsap.set(from, { x: sx, y: sy, scaleX: sSX, scaleY: sSY });
+      console.log("MORPH DEBUG", fromSel, "sx/sy/sSX/sSY:", sx, sy, sSX, sSY, "fromBox.width:", fromBox.width);
+
       const toBox   = to.getBoundingClientRect();
       const pxScale = 1920 / root.getBoundingClientRect().width; // canvas px per CSS px
       targetX = (toBox.left - fromBox.left) * pxScale;

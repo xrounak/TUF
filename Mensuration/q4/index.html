@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Illustration figure labels - illustration_reference.md section 4. */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: #4eb85f; color: #4eb85f; }
+  .fig-chip.unknown { border-color: #949494; color: #949494; }
+
+  .fig-chip-pinned {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip-pinned.role { border-color: #000000; color: #000000; }
+  .fig-chip-pinned.done { border-color: #4eb85f; color: #4eb85f; }
+  .fig-chip-pinned.unknown { border-color: #949494; color: #949494; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-ly5i" class="topic-name">Mensuration</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-fc79" id="voiceover" class="clip" src="voiceover.mp3" data-start="0" data-duration="72.6" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-38.9s)
+       data-duration = (PIN_TIME 38.9 - data_start 0) + pinFlow 0.8 + 1.5 buffer = 41.2 -> 41.5
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-lg76" id="phase1" class="clip" data-start="0" data-duration="41.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-1d4f" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1300px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-pxmk" class="q-text">
+        A <span data-hf-id="hf-ziw2" class="num">cube</span> has an edge length of <span data-hf-id="hf-wxyf" class="num">4 cm</span>. What is its <span data-hf-id="hf-qyo9" class="num">volume</span>?
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- ILLUSTRATION GEOMETRY (category A - direct formula, single cube figure)
+      STATEMENT: cube, edge = 4 cm, find volume = s^3.
+      TRUE DIMENSIONS: all three edges (length, breadth, height) = 4 cm each - a cube has no
+        derived linear dimension to back-solve (rule 1 doesn't apply here, the edge IS the
+        given). Only the VOLUME is derived (not given) and stays grey until Step 1 resolves it.
+      ISO PROJECTION (illustration_reference.md 3.1, fixed 30deg shear, reused verbatim):
+        depth-dx = depth*cos(30) = depth*0.866   depth-dy = depth*sin(30)*-1 = depth*-0.5
+      DRAWING BUDGET: longest projected dimension (edge + depth-dx = edge*1.866) maps to ~260px.
+      SCALE FACTOR: edge_px = 260/1.866 = 139.3 -> 140px drawn. 140/4 = 35 px per true cm.
+      DRAWN SIZE: every edge = 4 * 35 = 140px (all three faces share this one edge length).
+      VERTICES (defined once, reused literally everywhere):
+        FBL = (180,360)                          front-bottom-left
+        FBR = FBL + (140,0)   = (320,360)        depth-dx=140*0.866=121.2->121  depth-dy=140*-0.5=-70
+        BBL = FBL + (121,-70) = (301,290)
+        BBR = FBR + (121,-70) = (441,290)
+        FTL = FBL + (0,-140)  = (180,220)
+        FTR = FBR + (0,-140)  = (320,220)
+        BTL = FTL + (121,-70) = (301,150)
+        BTR = FTR + (121,-70) = (441,150)
+      LENGTH CHECK (all three visible edges are the SAME true 4cm, drawn the same px length):
+        |FBL-FBR| = 140                                              (length edge)
+        |FBL-FTL| = 140                                              (height edge)
+        |FBR-BBR| = sqrt(121^2+70^2) = sqrt(14641+4900) = sqrt(19541) = 139.86 -> 140 (breadth edge)
+      ARROWS (double-headed measurement arrow, section 7.1, head half-width 13 length 18):
+        arrow-length: horizontal, y=390 (20px below FBL-FBR), x1=180 x2=320 -> length 140
+        arrow-height: vertical, x=150 (30px left of FBL-FTL), y1=360 y2=220 -> length 140
+        arrow-breadth: diagonal, parallel to FBR-BBR, offset by perpendicular unit vector
+          p=(0.5,0.866)*25=(12.5,21.65) so it clears the cube's silhouette:
+          d = unit(FBR->BBR) = (121,-70)/139.86 = (0.865,-0.500)
+          A1 = FBR + p = (320+12.5, 360+21.65) = (332.5,381.65) -> (333,382)
+          A2 = BBR + p = (441+12.5, 290+21.65) = (453.5,311.65) -> (454,312)
+          |A1-A2| = 140 (parallel to FBR-BBR, same length)
+      LABEL SLOTS (foreignObjects, defined once, reused identically on the pinned copy):
+        chip-find:        x=190 y=65  w=200 h=50   ("Find: Volume", above the cube)
+        chip-edge-given:  x=420 y=90  w=130 h=40   ("Edge = 4 cm", general given, fades before PIN)
+        chip-volume:      x=195 y=270 w=125 h=44   ("Volume = ?" grey -> "Volume = 64 cm3" green)
+        chip-length:      x=170 y=400 w=160 h=40   (below arrow-length)
+        chip-height:      x=5   y=265 w=140 h=40   (left of arrow-height)
+        chip-breadth:     x=395 y=327 w=150 h=40   (beside arrow-breadth midpoint)
+      VIEWBOX: geometry spans x[5..550] y[65..440], fixed topic canvas contract -> "0 0 580 500".
+    -->
+    <div data-hf-id="hf-scpf" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);overflow:visible;">
+      <svg data-hf-id="hf-rtav" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <g data-hf-id="hf-24jj" id="cube-figure" style="transform-box:fill-box;transform-origin:50% 50%;">
+          <!-- front face -->
+          <rect data-hf-id="hf-71a7" id="cube-front" x="180" y="220" width="140" height="140" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="4" opacity="0" />
+          <!-- top face -->
+          <path data-hf-id="hf-g1gm" id="cube-top" d="M 180,220 L 301,150 L 441,150 L 320,220 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="4" opacity="0" />
+          <!-- side face -->
+          <path data-hf-id="hf-bbic" id="cube-side" d="M 320,220 L 441,150 L 441,290 L 320,360 Z" fill="#dcdffc" stroke="#6373db" stroke-width="4" opacity="0" />
+        </g>
+
+        <foreignobject data-hf-id="hf-fxra" id="chip-find" x="190" y="65" width="200" height="50" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-rfx9" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">Find: Volume</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-hlw5" id="chip-edge-given" x="420" y="90" width="130" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-8xk6" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Edge = 4 cm</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-0555" id="chip-volume-q" x="195" y="270" width="125" height="44" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-hns6" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip unknown">Volume = ?</div>
+        </foreignobject>
+
+        <!-- arrow-length: |180,390 -> 320,390| = 140 -->
+        <g data-hf-id="hf-6kmn" id="arrow-length" opacity="0">
+          <line data-hf-id="hf-4t6d" x1="180" y1="390" x2="320" y2="390" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-0d8n" d="M 198,377 L 180,390 L 198,403 Z" fill="#000000" />
+          <path data-hf-id="hf-9sib" d="M 302,377 L 320,390 L 302,403 Z" fill="#000000" />
+        </g>
+        <foreignobject data-hf-id="hf-d4x0" id="chip-length" x="170" y="400" width="160" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ld6d" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Length = 4 cm</div>
+        </foreignobject>
+
+        <!-- arrow-height: |150,360 -> 150,220| = 140 -->
+        <g data-hf-id="hf-zeoi" id="arrow-height" opacity="0">
+          <line data-hf-id="hf-23rk" x1="150" y1="360" x2="150" y2="220" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-j0s1" d="M 137,238 L 150,220 L 163,238 Z" fill="#000000" />
+          <path data-hf-id="hf-zj06" d="M 137,342 L 150,360 L 163,342 Z" fill="#000000" />
+        </g>
+        <foreignobject data-hf-id="hf-wc5j" id="chip-height" x="5" y="265" width="140" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-z138" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Height = 4 cm</div>
+        </foreignobject>
+
+        <!-- arrow-breadth: |333,382 -> 454,312| = 140, parallel to FBR-BBR -->
+        <g data-hf-id="hf-99zf" id="arrow-breadth" opacity="0">
+          <line data-hf-id="hf-iahm" x1="333" y1="382" x2="454" y2="312" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-ztd2" d="M 355,384 L 333,382 L 342,362 Z" fill="#000000" />
+          <path data-hf-id="hf-ld5z" d="M 445,332 L 454,312 L 432,310 Z" fill="#000000" />
+        </g>
+        <foreignobject data-hf-id="hf-1rb0" id="chip-breadth" x="395" y="327" width="150" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ojzf" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">Breadth = 4 cm</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (38.9s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-dgh9" id="q-pinned" class="clip" data-start="38.9" data-duration="34.0" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-c6fs" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1150px;">
+      <div data-hf-id="hf-qll1" class="q-text">
+        Cube edge = <span data-hf-id="hf-s87b" class="num">4 cm</span>. Find its <span data-hf-id="hf-9ptp" class="num">volume</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - exact coordinate copy of the full-size SVG (same viewBox, same
+       internal numbers, only outer width/height + stroke widths shrink). The cube outline and
+       all three GIVEN edge labels are static/always-visible (section 8) since they're resolved
+       before PIN_TIME. Only chip-volume (derived) is still grey and animates on its own
+       solution-step timing. -->
+  <div data-hf-id="hf-at0v" id="illus-pinned" class="clip" data-start="38.9" data-duration="28.3" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <g data-hf-id="hf-znm8" id="cube-figure-pinned">
+        <rect data-hf-id="hf-n76g" x="180" y="220" width="140" height="140" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" />
+        <path data-hf-id="hf-6bxl" d="M 180,220 L 301,150 L 441,150 L 320,220 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="3.5" />
+        <path data-hf-id="hf-2dm7" d="M 320,220 L 441,150 L 441,290 L 320,360 Z" fill="#dcdffc" stroke="#6373db" stroke-width="3.5" />
+      </g>
+
+      <foreignobject data-hf-id="hf-byyq" id="chip-volume-q-pinned"  x="190" y="75" width="125" height="44" style="overflow:visible;">
+        <div data-hf-id="hf-68i1" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned unknown">Volume = ?</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-3nni" id="chip-volume-ans-pinned"  x="190" y="75" width="180" height="48" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-h0dp" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned done">Volume = 64 cm³</div>
+      </foreignobject>
+
+      <g data-hf-id="hf-umju" id="arrow-length-pinned">
+        <line data-hf-id="hf-shxv" x1="180" y1="390" x2="320" y2="390" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-ndwn" d="M 198,377 L 180,390 L 198,403 Z" fill="#000000" />
+        <path data-hf-id="hf-8kxf" d="M 302,377 L 320,390 L 302,403 Z" fill="#000000" />
+      </g>
+      <foreignobject data-hf-id="hf-28ub" x="170" y="400" width="160" height="40" style="overflow:visible;">
+        <div data-hf-id="hf-7gp8" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Length = 4 cm</div>
+      </foreignobject>
+
+      <g data-hf-id="hf-22mx" id="arrow-height-pinned">
+        <line data-hf-id="hf-wp1i" x1="150" y1="360" x2="150" y2="220" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-mrhh" d="M 137,238 L 150,220 L 163,238 Z" fill="#000000" />
+        <path data-hf-id="hf-45zu" d="M 137,342 L 150,360 L 163,342 Z" fill="#000000" />
+      </g>
+      <foreignobject data-hf-id="hf-esx5" x="5" y="265" width="140" height="40" style="overflow:visible;">
+        <div data-hf-id="hf-gggt" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Height = 4 cm</div>
+      </foreignobject>
+
+      <g data-hf-id="hf-5tyu" id="arrow-breadth-pinned">
+        <line data-hf-id="hf-f0f8" x1="333" y1="382" x2="454" y2="312" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-ipre" d="M 355,384 L 333,382 L 342,362 Z" fill="#000000" />
+        <path data-hf-id="hf-00av" d="M 445,332 L 454,312 L 432,310 Z" fill="#000000" />
+      </g>
+      <foreignobject data-hf-id="hf-t9h1" x="395" y="327" width="150" height="40" style="overflow:visible;">
+        <div data-hf-id="hf-g8fo" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">Breadth = 4 cm</div>
+      </foreignobject>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN - "Edge = 4 cm" restated as the layout settles. data-duration extends past its
+       own morphToStack completion (41.0+0.8=41.8) + buffer. -->
+  <div data-hf-id="hf-3hfd" id="card-given" class="clip" data-start="39.9" data-duration="3.6" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:480px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-047s" class="rv" data-t="39.90">Edge of cube = <span data-hf-id="hf-tah8" class="hi">4 cm</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-k7mk" class="rv" data-t="40.30">(all sides equal)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 - Volume = side x side x side = 4x4x4 = 64 cm3.
+       data-duration extends past its own morphToStack completion (60.0+0.8=60.8) + buffer. -->
+  <div data-hf-id="hf-e5ia" id="card-step1" class="clip" data-start="41.3" data-duration="21.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-7yr8" class="solution-card" style="position:absolute;left:610px;top:480px;text-align:center;width:700px;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-e5ms" class="rv" data-t="41.459">Volume</span> <span data-hf-id="hf-euqs" class="rv" data-t="42.419">=</span> <span data-hf-id="hf-43ai" class="rv" data-t="42.84">Side</span> <span data-hf-id="hf-miz3" class="rv" data-t="43.079">×</span> <span data-hf-id="hf-75tu" class="rv" data-t="43.919">Side</span> <span data-hf-id="hf-nsvc" class="rv" data-t="44.239">×</span> <span data-hf-id="hf-wqnv" class="rv" data-t="44.579">Side</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-ne9k" class="rv" data-t="45.319">(= Side<sup data-hf-id="hf-f7r8">3</sup>)</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-85pu" class="rv" data-t="51.479">=</span> <span data-hf-id="hf-ccjy" class="hi rv" data-t="51.879">4</span> <span data-hf-id="hf-apdb" class="rv" data-t="52.099">×</span> <span data-hf-id="hf-4p0g" class="hi rv" data-t="52.399">4</span> <span data-hf-id="hf-4rns" class="rv" data-t="52.559">×</span> <span data-hf-id="hf-ud4z" class="hi rv" data-t="52.86">4</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-r9no" class="rv" data-t="53.619">=</span> <span data-hf-id="hf-oty7" class="hi rv" data-t="55.419">16</span> <span data-hf-id="hf-jwsv" class="rv" data-t="57.34">×</span> <span data-hf-id="hf-658y" class="hi rv" data-t="57.639">4</span> <span data-hf-id="hf-c8xa" class="rv" data-t="57.84">=</span> <span data-hf-id="hf-ea8t" class="ans rv" id="step1-ans" data-t="58.459">64 cm³</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-wkf2" id="stack-given" class="clip" data-start="41.0" data-duration="31.6" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-9ky2" class="math">Edge = <span data-hf-id="hf-dpb8" class="hi">4 cm</span> (all sides equal)</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-zxx9" id="stack-step1" class="clip" data-start="60.0" data-duration="12.6" data-track-index="12" style="position:absolute;left:100px;top:290px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-dppk" class="math">Volume = 4 × 4 × 4 = <span data-hf-id="hf-ie34" class="ans">64 cm³</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-h4ua" id="line-g-1" class="clip stack-line" data-start="60.0" data-duration="12.6" data-track-index="15" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL (65.66-70.54s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-m267" id="options-reveal" class="clip" data-start="65.66" data-duration="7.0" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-mti5" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>48 cm³</div>
+        <div data-hf-id="hf-sc7u" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>56 cm³</div>
+        <div data-hf-id="hf-jp55" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>64 cm³</div>
+        <div data-hf-id="hf-57b8" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>72 cm³</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.90; // "...one more problem." ends 3.819
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+  // filler beat - "It's time to solve one more problem." (fills the 0.8->3.9 gap)
+  apt.emphasize(tl, "#q-full-card", 2.22);
+
+  // Cube draws in, one face per beat - "...a cube has an edge length of..."
+  tl.fromTo("#cube-front", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 4.20);
+  tl.fromTo("#cube-top",   { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 4.55);
+  tl.fromTo("#cube-side",  { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 4.85);
+  apt.emphasize(tl, "#cube-figure", 6.48); // "...edge length of..."
+  // "...four centimeter," - the general edge chip pops
+  apt.fadeIn(tl, "#chip-edge-given", 7.68);
+
+  // "...we need to find its volume." - Find chip, then the unknown Volume chip
+  apt.fadeIn(tl, "#chip-find", 9.04);
+  tl.fromTo("#chip-volume-q", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 10.16);
+
+  // "What does volume actually mean?"
+  apt.emphasize(tl, "#chip-find", 11.02);
+  apt.emphasize(tl, "#chip-volume-q", 12.04);
+
+  // "Imagine you have a small gift box shaped like a cube."
+  apt.emphasize(tl, "#cube-figure", 14.00);
+  tl.to("#cube-front", { fillOpacity: 0.7, duration: 0.35, yoyo: true, repeat: 1 }, 15.58);
+
+  // "The volume tells us how much space is available inside that box."
+  apt.emphasize(tl, "#chip-volume-q", 17.88);
+  tl.to("#cube-front", { fillOpacity: 0.75, duration: 0.6, yoyo: true, repeat: 1 }, 19.36);
+
+  // "In other words, how much it can hold."
+  apt.emphasize(tl, "#chip-volume-q", 22.08);
+  tl.to("#cube-front", { fillOpacity: 0.65, duration: 0.35, yoyo: true, repeat: 1 }, 23.32);
+
+  // "Here we are sure about one fact."
+  tl.to("#cube-figure rect, #cube-figure path", { strokeWidth: 5.5, duration: 0.3, yoyo: true, repeat: 1 }, 25.00);
+  // "In a cube," - filler beat before the all-edges pulse
+  apt.emphasize(tl, "#cube-figure", 27.34);
+  // "all the edges are exactly the same." - all three outlines pulse together
+  tl.to("#cube-figure rect, #cube-figure path", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, 28.58);
+
+  // "So if one edge is four centimeter," - re-emphasize the general chip
+  apt.emphasize(tl, "#chip-edge-given", 30.94);
+
+  // "the length is four," / "the breadth is four," / "and the height is also four."
+  tl.fromTo("#arrow-length", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 33.40);
+  apt.fadeIn(tl, "#chip-length", 33.55);
+  tl.fromTo("#arrow-breadth", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 34.94);
+  apt.fadeIn(tl, "#chip-breadth", 35.09);
+  tl.fromTo("#arrow-height", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 36.62);
+  apt.fadeIn(tl, "#chip-height", 36.77);
+
+  // "This is why the formula becomes very simple." - the general chip is redundant now
+  apt.fadeOut(tl, "#chip-edge-given", 38.86, 0.3);
+
+  // PHASE 2 - Pin, then Given
+  const PIN_TIME = 38.90;
+  const GIVEN_TIME = 39.90;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Given -> stack, Step 1 opens right as "Volume equal to..." begins.
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 41.00);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 41.30);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  // Filler beats across the "or you can remember it as... now let us put the value" stretch
+  // (real narration content between the formula and the substitution - keep the pinned figure alive)
+  apt.emphasize(tl, "#chip-length", 45.68);        // "...remember it as..."
+  apt.emphasize(tl, "#chip-volume-q-pinned", 47.14); // "...volume equal to side cube."
+  tl.to("#cube-figure-pinned rect, #cube-figure-pinned path", { strokeWidth: 4.2, duration: 0.3, yoyo: true, repeat: 1 }, 49.00); // "Now let us put the value."
+
+  // "...16 times four becomes 64." - the derived Volume resolves grey -> green (LINK: fires the
+  // same instant Step 1's own "64 cm³" answer span reveals via textReveal above).
+  apt.fadeOut(tl, "#chip-volume-q-pinned", 58.459, 0.25);
+  tl.fromTo("#chip-volume-ans-pinned", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 58.60);
+  apt.emphasize(tl, "#step1-ans", 58.60);
+
+  // "This means the cube can hold 64 cubic centimeter of space."
+  apt.emphasize(tl, "#chip-volume-ans-pinned", 59.54);
+
+  // Step 1 -> stack, connector line grows.
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 60.00);
+  apt.stackLineGrow(tl, "#line-g-1", 60.00);
+  apt.emphasize(tl, "#chip-volume-ans-pinned", 62.18); // "64 cubic centimeter of space."
+
+  // Recenter - clear the illustration, align the pinned question with the options column.
+  const RECENTER_TIME = 65.00;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal, "...the final answer will be 64 cubic centimeter, which is option C."
+  apt.fadeIn(tl, "#options-reveal", 65.66);
+  apt.optionsStagger(tl, ".opt-btn", 66.00);
+  apt.emphasize(tl, "#chip-volume-ans-pinned", 67.68); // filler - "...final answer will be 64..."
+  apt.correctPulse(tl, ".opt-btn.correct", 70.00); // "...option C."
+
+  // END FADE
+  const END_FADE_TIME = 71.14; // NARR_END 70.539 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+  tl.set({}, {}, 73.54); // 71.14 + 1.2 + 0.2
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

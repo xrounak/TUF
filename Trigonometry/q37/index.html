@@ -274,7 +274,7 @@
   </div>
 
   <!-- STEP 1: 45deg triangle, solve h=x. duration survives STEP1_MORPH(57.6)+0.8+1.5=59.9, start 41.6 -> 18.3 -->
-  <div data-hf-id="hf-q37cp" id="card-step1" class="clip" data-start="41.6" data-duration="18.3" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+  <div data-hf-id="hf-q37cp" id="card-step1" class="clip" data-start="41.6" data-duration="18.3" data-track-index="5" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
     <div data-hf-id="hf-q37cq" class="solution-card" style="position:absolute;left:610px;top:530px;text-align:center;width:700px;">
       <div data-hf-id="hf-q37cr" class="card-content">
         <span data-hf-id="hf-q37cs" class="chip">Step 1</span>
@@ -289,7 +289,7 @@
   </div>
 
   <!-- STEP 2: 60deg triangle, solve y=h/root3. duration survives STEP2_MORPH(76.0)+0.8+1.5=78.3, start 58.6 -> 19.7 -->
-  <div data-hf-id="hf-q37d5" id="card-step2" class="clip" data-start="58.6" data-duration="19.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+  <div data-hf-id="hf-q37d5" id="card-step2" class="clip" data-start="58.6" data-duration="19.7" data-track-index="6" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
     <div data-hf-id="hf-q37d6" class="solution-card" style="position:absolute;left:590px;top:530px;text-align:center;width:740px;">
       <div data-hf-id="hf-q37d7" class="card-content">
         <span data-hf-id="hf-q37d8" class="chip">Step 2</span>
@@ -305,7 +305,7 @@
   </div>
 
   <!-- STEP 3: combine, solve h numerically. duration survives STEP3_MORPH(103.4)+0.8+1.5=105.7, start 76.6 -> 29.1 -->
-  <div data-hf-id="hf-q37do" id="card-step3" class="clip" data-start="76.9" data-duration="28.8" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+  <div data-hf-id="hf-q37do" id="card-step3" class="clip" data-start="76.9" data-duration="28.8" data-track-index="7" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
     <div data-hf-id="hf-q37dp" class="solution-card" style="position:absolute;left:570px;top:520px;text-align:center;width:780px;">
       <div data-hf-id="hf-q37dq" class="card-content">
         <span data-hf-id="hf-q37dr" class="chip">Step 3</span>
@@ -390,6 +390,30 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <script src="animations.js"></script>
 <script>
+  // Auto-space the stack column from REAL rendered heights, not hand-guessed
+  // `top` values. Lines containing a .frac component render taller than a
+  // plain text line (the fraction's top/bottom stack pushes the line box
+  // well past the CSS line-height), so a fixed top-spacing guess drifts
+  // short on fraction-heavy steps - the morphing card then lands crowded
+  // into/overlapping the card above instead of a clean gap. Measuring each
+  // card's actual height (still valid via getBoundingClientRect() while
+  // opacity:0 - only display:none would collapse it) and stacking
+  // cumulatively fixes this for any content, matching the same "measure
+  // real geometry, never guess" rule apt.setStackLine() already follows
+  // for the connector lines below.
+  (function autoSpaceStack() {
+    const GAP = 40;
+    const ids = ["stack-given", "stack-step1", "stack-step2", "stack-step3"];
+    let cursor = null;
+    ids.forEach(id => {
+      const wrapper = document.getElementById(id);
+      if (!wrapper) return;
+      if (cursor !== null) wrapper.style.top = cursor + "px";
+      const startTop = parseFloat(wrapper.style.top);
+      cursor = startTop + wrapper.getBoundingClientRect().height + GAP;
+    });
+  })();
+
   apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
   apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
   apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");

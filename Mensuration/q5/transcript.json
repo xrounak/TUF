@@ -1,0 +1,3633 @@
+{
+  "duration": 93.479,
+  "phrases": [
+    {
+      "start": 0.099,
+      "end": 1.579,
+      "text": "So welcome back again."
+    },
+    {
+      "start": 2.159,
+      "end": 3.779,
+      "text": "It's time to solve one more problem."
+    },
+    {
+      "start": 4.259,
+      "end": 6.399,
+      "text": "Now in this problem, 50 men enter a water tank."
+    },
+    {
+      "start": 7.059,
+      "end": 9.619,
+      "text": "The tank is 50 meter long and 20 meter broad."
+    },
+    {
+      "start": 10.179,
+      "end": 12.639,
+      "text": "Each man displaces four cubic meter of water."
+    },
+    {
+      "start": 13.279,
+      "end": 15.399,
+      "text": "We need to find how much the water level rises."
+    },
+    {
+      "start": 15.899,
+      "end": 17.439,
+      "text": "So what does displaces water mean?"
+    },
+    {
+      "start": 17.879,
+      "end": 19.819,
+      "text": "Imagine a bucket filled with water."
+    },
+    {
+      "start": 20.279,
+      "end": 24.939,
+      "text": "If you put one stone into the bucket, the water level goes up a little. If you put many stones into the bucket,"
+    },
+    {
+      "start": 25.34,
+      "end": 27.099,
+      "text": "the water level rises even more."
+    },
+    {
+      "start": 27.5,
+      "end": 29.719,
+      "text": "The same thing happens when people enter a water tank."
+    },
+    {
+      "start": 30.319,
+      "end": 33.34,
+      "text": "Every person pushes some water away, so the water level rises."
+    },
+    {
+      "start": 34.059,
+      "end": 34.38,
+      "text": "First,"
+    },
+    {
+      "start": 34.759,
+      "end": 37.259,
+      "text": "let us find how much water all the men displace."
+    },
+    {
+      "start": 37.659,
+      "end": 44.36,
+      "text": "One man displaces four cubic meter. So 50 men will displace 50 times four, that is equal to 200 cubic meter."
+    },
+    {
+      "start": 44.7,
+      "end": 47.34,
+      "text": "This is the total extra volume added inside the tank."
+    },
+    {
+      "start": 47.68,
+      "end": 48.619,
+      "text": "Now that we have found this,"
+    },
+    {
+      "start": 48.979,
+      "end": 50.979,
+      "text": "we can use it to find the rise in water level."
+    },
+    {
+      "start": 51.459,
+      "end": 51.759,
+      "text": "First,"
+    },
+    {
+      "start": 52.079,
+      "end": 53.719,
+      "text": "find the bottom area of the tank."
+    },
+    {
+      "start": 54.139,
+      "end": 56.759,
+      "text": "Area equal to length into breadth equal to"
+    },
+    {
+      "start": 57.119,
+      "end": 60.259,
+      "text": "50 times 20, that is equal to 1,000 square meter."
+    },
+    {
+      "start": 60.699,
+      "end": 62.099,
+      "text": "Think about one simple idea."
+    },
+    {
+      "start": 62.479,
+      "end": 65.899,
+      "text": "The displaced water spreads over the entire bottom of the tank."
+    },
+    {
+      "start": 66.319,
+      "end": 70.739,
+      "text": "So volume equal to area into height. We already know the volume and the area."
+    },
+    {
+      "start": 71.18,
+      "end": 72.5,
+      "text": "The only unknown is the height,"
+    },
+    {
+      "start": 72.879,
+      "end": 80.639,
+      "text": "which is the rise in water level. So height equal to volume upon area, that is equal to 200 upon 1,000, which equals 0.2 meter."
+    },
+    {
+      "start": 81.059,
+      "end": 93.479,
+      "text": "Here, the answer is asked in centimeter, 0.2 meter is equal to 20 centimeter. The water level rises by 20 centimeter. So the final answer will be 20 centimeter, which is option C."
+    }
+  ],
+  "words": [
+    {
+      "text": "So",
+      "start": 0.099,
+      "end": 0.62,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 0.62,
+      "end": 0.68,
+      "type": "spacing"
+    },
+    {
+      "text": "welcome",
+      "start": 0.68,
+      "end": 0.959,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 0.959,
+      "end": 1.039,
+      "type": "spacing"
+    },
+    {
+      "text": "back",
+      "start": 1.039,
+      "end": 1.179,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 1.179,
+      "end": 1.24,
+      "type": "spacing"
+    },
+    {
+      "text": "again.",
+      "start": 1.24,
+      "end": 1.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 1.579,
+      "end": 2.159,
+      "type": "spacing"
+    },
+    {
+      "text": "It's",
+      "start": 2.159,
+      "end": 2.339,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.339,
+      "end": 2.359,
+      "type": "spacing"
+    },
+    {
+      "text": "time",
+      "start": 2.359,
+      "end": 2.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.559,
+      "end": 2.599,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 2.599,
+      "end": 2.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 2.7,
+      "end": 2.759,
+      "type": "spacing"
+    },
+    {
+      "text": "solve",
+      "start": 2.759,
+      "end": 3.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.0,
+      "end": 3.079,
+      "type": "spacing"
+    },
+    {
+      "text": "one",
+      "start": 3.079,
+      "end": 3.179,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.179,
+      "end": 3.279,
+      "type": "spacing"
+    },
+    {
+      "text": "more",
+      "start": 3.279,
+      "end": 3.419,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.419,
+      "end": 3.459,
+      "type": "spacing"
+    },
+    {
+      "text": "problem.",
+      "start": 3.46,
+      "end": 3.779,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 3.779,
+      "end": 4.259,
+      "type": "spacing"
+    },
+    {
+      "text": "Now",
+      "start": 4.259,
+      "end": 4.339,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.339,
+      "end": 4.359,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 4.36,
+      "end": 4.44,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.44,
+      "end": 4.48,
+      "type": "spacing"
+    },
+    {
+      "text": "this",
+      "start": 4.48,
+      "end": 4.619,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.619,
+      "end": 4.699,
+      "type": "spacing"
+    },
+    {
+      "text": "problem,",
+      "start": 4.699,
+      "end": 4.98,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 4.98,
+      "end": 5.259,
+      "type": "spacing"
+    },
+    {
+      "text": "50",
+      "start": 5.259,
+      "end": 5.359,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.359,
+      "end": 5.399,
+      "type": "spacing"
+    },
+    {
+      "text": "men",
+      "start": 5.4,
+      "end": 5.519,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.519,
+      "end": 5.579,
+      "type": "spacing"
+    },
+    {
+      "text": "enter",
+      "start": 5.579,
+      "end": 5.799,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.799,
+      "end": 5.859,
+      "type": "spacing"
+    },
+    {
+      "text": "a",
+      "start": 5.859,
+      "end": 5.879,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 5.879,
+      "end": 5.959,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 5.96,
+      "end": 6.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 6.139,
+      "end": 6.199,
+      "type": "spacing"
+    },
+    {
+      "text": "tank.",
+      "start": 6.199,
+      "end": 6.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 6.399,
+      "end": 7.059,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 7.059,
+      "end": 7.119,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.119,
+      "end": 7.179,
+      "type": "spacing"
+    },
+    {
+      "text": "tank",
+      "start": 7.179,
+      "end": 7.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.399,
+      "end": 7.459,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 7.46,
+      "end": 7.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.559,
+      "end": 7.619,
+      "type": "spacing"
+    },
+    {
+      "text": "50",
+      "start": 7.619,
+      "end": 7.859,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 7.859,
+      "end": 7.919,
+      "type": "spacing"
+    },
+    {
+      "text": "meter",
+      "start": 7.919,
+      "end": 8.099,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 8.099,
+      "end": 8.179,
+      "type": "spacing"
+    },
+    {
+      "text": "long",
+      "start": 8.179,
+      "end": 8.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 8.399,
+      "end": 8.559,
+      "type": "spacing"
+    },
+    {
+      "text": "and",
+      "start": 8.559,
+      "end": 8.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 8.659,
+      "end": 8.739,
+      "type": "spacing"
+    },
+    {
+      "text": "20",
+      "start": 8.739,
+      "end": 9.019,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.019,
+      "end": 9.079,
+      "type": "spacing"
+    },
+    {
+      "text": "meter",
+      "start": 9.079,
+      "end": 9.319,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.319,
+      "end": 9.359,
+      "type": "spacing"
+    },
+    {
+      "text": "broad.",
+      "start": 9.359,
+      "end": 9.619,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 9.619,
+      "end": 10.179,
+      "type": "spacing"
+    },
+    {
+      "text": "Each",
+      "start": 10.179,
+      "end": 10.319,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 10.319,
+      "end": 10.399,
+      "type": "spacing"
+    },
+    {
+      "text": "man",
+      "start": 10.399,
+      "end": 10.519,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 10.519,
+      "end": 10.539,
+      "type": "spacing"
+    },
+    {
+      "text": "displaces",
+      "start": 10.539,
+      "end": 11.079,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.079,
+      "end": 11.199,
+      "type": "spacing"
+    },
+    {
+      "text": "four",
+      "start": 11.199,
+      "end": 11.359,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.359,
+      "end": 11.479,
+      "type": "spacing"
+    },
+    {
+      "text": "cubic",
+      "start": 11.479,
+      "end": 11.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 11.739,
+      "end": 11.8,
+      "type": "spacing"
+    },
+    {
+      "text": "meter",
+      "start": 11.8,
+      "end": 12.059,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 12.059,
+      "end": 12.099,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 12.099,
+      "end": 12.199,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 12.199,
+      "end": 12.3,
+      "type": "spacing"
+    },
+    {
+      "text": "water.",
+      "start": 12.3,
+      "end": 12.639,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 12.639,
+      "end": 13.279,
+      "type": "spacing"
+    },
+    {
+      "text": "We",
+      "start": 13.279,
+      "end": 13.359,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.359,
+      "end": 13.399,
+      "type": "spacing"
+    },
+    {
+      "text": "need",
+      "start": 13.399,
+      "end": 13.519,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.519,
+      "end": 13.559,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 13.559,
+      "end": 13.639,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.639,
+      "end": 13.699,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 13.699,
+      "end": 13.859,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 13.859,
+      "end": 13.899,
+      "type": "spacing"
+    },
+    {
+      "text": "how",
+      "start": 13.899,
+      "end": 14.019,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.019,
+      "end": 14.079,
+      "type": "spacing"
+    },
+    {
+      "text": "much",
+      "start": 14.079,
+      "end": 14.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.239,
+      "end": 14.299,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 14.299,
+      "end": 14.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.36,
+      "end": 14.439,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 14.439,
+      "end": 14.619,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.619,
+      "end": 14.679,
+      "type": "spacing"
+    },
+    {
+      "text": "level",
+      "start": 14.679,
+      "end": 14.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 14.899,
+      "end": 14.979,
+      "type": "spacing"
+    },
+    {
+      "text": "rises.",
+      "start": 14.979,
+      "end": 15.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.399,
+      "end": 15.899,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 15.899,
+      "end": 15.96,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 15.96,
+      "end": 16.0,
+      "type": "spacing"
+    },
+    {
+      "text": "what",
+      "start": 16.0,
+      "end": 16.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.1,
+      "end": 16.159,
+      "type": "spacing"
+    },
+    {
+      "text": "does",
+      "start": 16.159,
+      "end": 16.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.299,
+      "end": 16.379,
+      "type": "spacing"
+    },
+    {
+      "text": "displaces",
+      "start": 16.379,
+      "end": 16.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 16.84,
+      "end": 16.899,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 16.899,
+      "end": 17.1,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 17.1,
+      "end": 17.18,
+      "type": "spacing"
+    },
+    {
+      "text": "mean?",
+      "start": 17.18,
+      "end": 17.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 17.439,
+      "end": 17.879,
+      "type": "spacing"
+    },
+    {
+      "text": "Imagine",
+      "start": 17.879,
+      "end": 18.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 18.18,
+      "end": 18.26,
+      "type": "spacing"
+    },
+    {
+      "text": "a",
+      "start": 18.26,
+      "end": 18.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 18.299,
+      "end": 18.399,
+      "type": "spacing"
+    },
+    {
+      "text": "bucket",
+      "start": 18.399,
+      "end": 18.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 18.739,
+      "end": 18.92,
+      "type": "spacing"
+    },
+    {
+      "text": "filled",
+      "start": 18.92,
+      "end": 19.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.18,
+      "end": 19.239,
+      "type": "spacing"
+    },
+    {
+      "text": "with",
+      "start": 19.239,
+      "end": 19.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.399,
+      "end": 19.52,
+      "type": "spacing"
+    },
+    {
+      "text": "water.",
+      "start": 19.52,
+      "end": 19.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 19.819,
+      "end": 20.279,
+      "type": "spacing"
+    },
+    {
+      "text": "If",
+      "start": 20.279,
+      "end": 20.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.379,
+      "end": 20.399,
+      "type": "spacing"
+    },
+    {
+      "text": "you",
+      "start": 20.399,
+      "end": 20.459,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.459,
+      "end": 20.559,
+      "type": "spacing"
+    },
+    {
+      "text": "put",
+      "start": 20.559,
+      "end": 20.699,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.699,
+      "end": 20.819,
+      "type": "spacing"
+    },
+    {
+      "text": "one",
+      "start": 20.819,
+      "end": 20.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 20.92,
+      "end": 21.0,
+      "type": "spacing"
+    },
+    {
+      "text": "stone",
+      "start": 21.0,
+      "end": 21.219,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.219,
+      "end": 21.26,
+      "type": "spacing"
+    },
+    {
+      "text": "into",
+      "start": 21.26,
+      "end": 21.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.399,
+      "end": 21.439,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 21.439,
+      "end": 21.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.5,
+      "end": 21.559,
+      "type": "spacing"
+    },
+    {
+      "text": "bucket,",
+      "start": 21.559,
+      "end": 21.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 21.819,
+      "end": 21.939,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 21.939,
+      "end": 22.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.0,
+      "end": 22.059,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 22.059,
+      "end": 22.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.239,
+      "end": 22.299,
+      "type": "spacing"
+    },
+    {
+      "text": "level",
+      "start": 22.299,
+      "end": 22.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.5,
+      "end": 22.539,
+      "type": "spacing"
+    },
+    {
+      "text": "goes",
+      "start": 22.539,
+      "end": 22.699,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.699,
+      "end": 22.759,
+      "type": "spacing"
+    },
+    {
+      "text": "up",
+      "start": 22.76,
+      "end": 22.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.84,
+      "end": 22.899,
+      "type": "spacing"
+    },
+    {
+      "text": "a",
+      "start": 22.899,
+      "end": 22.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 22.92,
+      "end": 22.979,
+      "type": "spacing"
+    },
+    {
+      "text": "little.",
+      "start": 22.979,
+      "end": 23.159,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.159,
+      "end": 23.239,
+      "type": "spacing"
+    },
+    {
+      "text": "If",
+      "start": 23.239,
+      "end": 23.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.34,
+      "end": 23.379,
+      "type": "spacing"
+    },
+    {
+      "text": "you",
+      "start": 23.379,
+      "end": 23.479,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.479,
+      "end": 23.519,
+      "type": "spacing"
+    },
+    {
+      "text": "put",
+      "start": 23.519,
+      "end": 23.639,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.639,
+      "end": 23.739,
+      "type": "spacing"
+    },
+    {
+      "text": "many",
+      "start": 23.739,
+      "end": 23.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 23.92,
+      "end": 24.019,
+      "type": "spacing"
+    },
+    {
+      "text": "stones",
+      "start": 24.019,
+      "end": 24.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.239,
+      "end": 24.279,
+      "type": "spacing"
+    },
+    {
+      "text": "into",
+      "start": 24.279,
+      "end": 24.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.439,
+      "end": 24.499,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 24.5,
+      "end": 24.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.559,
+      "end": 24.619,
+      "type": "spacing"
+    },
+    {
+      "text": "bucket,",
+      "start": 24.619,
+      "end": 24.939,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 24.939,
+      "end": 25.34,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 25.34,
+      "end": 25.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 25.399,
+      "end": 25.479,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 25.479,
+      "end": 25.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 25.68,
+      "end": 25.719,
+      "type": "spacing"
+    },
+    {
+      "text": "level",
+      "start": 25.719,
+      "end": 25.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 25.979,
+      "end": 26.039,
+      "type": "spacing"
+    },
+    {
+      "text": "rises",
+      "start": 26.039,
+      "end": 26.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 26.5,
+      "end": 26.599,
+      "type": "spacing"
+    },
+    {
+      "text": "even",
+      "start": 26.599,
+      "end": 26.839,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 26.839,
+      "end": 26.879,
+      "type": "spacing"
+    },
+    {
+      "text": "more.",
+      "start": 26.879,
+      "end": 27.099,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.099,
+      "end": 27.499,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 27.5,
+      "end": 27.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.579,
+      "end": 27.659,
+      "type": "spacing"
+    },
+    {
+      "text": "same",
+      "start": 27.659,
+      "end": 27.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 27.819,
+      "end": 27.899,
+      "type": "spacing"
+    },
+    {
+      "text": "thing",
+      "start": 27.899,
+      "end": 28.039,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.039,
+      "end": 28.079,
+      "type": "spacing"
+    },
+    {
+      "text": "happens",
+      "start": 28.079,
+      "end": 28.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.379,
+      "end": 28.42,
+      "type": "spacing"
+    },
+    {
+      "text": "when",
+      "start": 28.42,
+      "end": 28.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.5,
+      "end": 28.599,
+      "type": "spacing"
+    },
+    {
+      "text": "people",
+      "start": 28.599,
+      "end": 28.779,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 28.779,
+      "end": 28.839,
+      "type": "spacing"
+    },
+    {
+      "text": "enter",
+      "start": 28.84,
+      "end": 29.059,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 29.059,
+      "end": 29.119,
+      "type": "spacing"
+    },
+    {
+      "text": "a",
+      "start": 29.119,
+      "end": 29.159,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 29.159,
+      "end": 29.219,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 29.219,
+      "end": 29.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 29.439,
+      "end": 29.539,
+      "type": "spacing"
+    },
+    {
+      "text": "tank.",
+      "start": 29.539,
+      "end": 29.719,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 29.719,
+      "end": 30.319,
+      "type": "spacing"
+    },
+    {
+      "text": "Every",
+      "start": 30.319,
+      "end": 30.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 30.5,
+      "end": 30.619,
+      "type": "spacing"
+    },
+    {
+      "text": "person",
+      "start": 30.619,
+      "end": 30.92,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 30.92,
+      "end": 30.979,
+      "type": "spacing"
+    },
+    {
+      "text": "pushes",
+      "start": 30.979,
+      "end": 31.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.239,
+      "end": 31.279,
+      "type": "spacing"
+    },
+    {
+      "text": "some",
+      "start": 31.279,
+      "end": 31.42,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.42,
+      "end": 31.5,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 31.5,
+      "end": 31.76,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.76,
+      "end": 31.84,
+      "type": "spacing"
+    },
+    {
+      "text": "away,",
+      "start": 31.84,
+      "end": 31.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 31.979,
+      "end": 32.059,
+      "type": "spacing"
+    },
+    {
+      "text": "so",
+      "start": 32.059,
+      "end": 32.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.139,
+      "end": 32.18,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 32.18,
+      "end": 32.279,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.279,
+      "end": 32.34,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 32.34,
+      "end": 32.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.579,
+      "end": 32.619,
+      "type": "spacing"
+    },
+    {
+      "text": "level",
+      "start": 32.619,
+      "end": 32.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 32.84,
+      "end": 32.88,
+      "type": "spacing"
+    },
+    {
+      "text": "rises.",
+      "start": 32.88,
+      "end": 33.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 33.34,
+      "end": 34.059,
+      "type": "spacing"
+    },
+    {
+      "text": "First,",
+      "start": 34.059,
+      "end": 34.38,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 34.38,
+      "end": 34.759,
+      "type": "spacing"
+    },
+    {
+      "text": "let",
+      "start": 34.759,
+      "end": 34.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 34.84,
+      "end": 34.899,
+      "type": "spacing"
+    },
+    {
+      "text": "us",
+      "start": 34.899,
+      "end": 35.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.0,
+      "end": 35.079,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 35.079,
+      "end": 35.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.54,
+      "end": 35.619,
+      "type": "spacing"
+    },
+    {
+      "text": "how",
+      "start": 35.619,
+      "end": 35.719,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.719,
+      "end": 35.799,
+      "type": "spacing"
+    },
+    {
+      "text": "much",
+      "start": 35.799,
+      "end": 35.939,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 35.939,
+      "end": 36.0,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 36.0,
+      "end": 36.219,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.219,
+      "end": 36.299,
+      "type": "spacing"
+    },
+    {
+      "text": "all",
+      "start": 36.299,
+      "end": 36.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.399,
+      "end": 36.439,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 36.439,
+      "end": 36.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.5,
+      "end": 36.54,
+      "type": "spacing"
+    },
+    {
+      "text": "men",
+      "start": 36.54,
+      "end": 36.68,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 36.68,
+      "end": 36.719,
+      "type": "spacing"
+    },
+    {
+      "text": "displace.",
+      "start": 36.719,
+      "end": 37.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 37.259,
+      "end": 37.659,
+      "type": "spacing"
+    },
+    {
+      "text": "One",
+      "start": 37.659,
+      "end": 37.799,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 37.799,
+      "end": 37.86,
+      "type": "spacing"
+    },
+    {
+      "text": "man",
+      "start": 37.86,
+      "end": 38.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.04,
+      "end": 38.079,
+      "type": "spacing"
+    },
+    {
+      "text": "displaces",
+      "start": 38.079,
+      "end": 38.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.659,
+      "end": 38.759,
+      "type": "spacing"
+    },
+    {
+      "text": "four",
+      "start": 38.759,
+      "end": 38.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 38.979,
+      "end": 39.04,
+      "type": "spacing"
+    },
+    {
+      "text": "cubic",
+      "start": 39.04,
+      "end": 39.319,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 39.319,
+      "end": 39.36,
+      "type": "spacing"
+    },
+    {
+      "text": "meter.",
+      "start": 39.36,
+      "end": 40.079,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.079,
+      "end": 40.119,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 40.119,
+      "end": 40.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.239,
+      "end": 40.479,
+      "type": "spacing"
+    },
+    {
+      "text": "50",
+      "start": 40.479,
+      "end": 40.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.559,
+      "end": 40.619,
+      "type": "spacing"
+    },
+    {
+      "text": "men",
+      "start": 40.619,
+      "end": 40.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.739,
+      "end": 40.799,
+      "type": "spacing"
+    },
+    {
+      "text": "will",
+      "start": 40.799,
+      "end": 40.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 40.899,
+      "end": 40.939,
+      "type": "spacing"
+    },
+    {
+      "text": "displace",
+      "start": 40.939,
+      "end": 41.679,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 41.679,
+      "end": 41.899,
+      "type": "spacing"
+    },
+    {
+      "text": "50",
+      "start": 41.899,
+      "end": 42.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.0,
+      "end": 42.04,
+      "type": "spacing"
+    },
+    {
+      "text": "times",
+      "start": 42.04,
+      "end": 42.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.259,
+      "end": 42.319,
+      "type": "spacing"
+    },
+    {
+      "text": "four,",
+      "start": 42.319,
+      "end": 42.459,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.459,
+      "end": 42.479,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 42.479,
+      "end": 42.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.579,
+      "end": 42.639,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 42.639,
+      "end": 42.719,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.719,
+      "end": 42.779,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 42.779,
+      "end": 42.959,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 42.959,
+      "end": 43.0,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 43.0,
+      "end": 43.059,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 43.059,
+      "end": 43.299,
+      "type": "spacing"
+    },
+    {
+      "text": "200",
+      "start": 43.299,
+      "end": 43.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 43.579,
+      "end": 43.659,
+      "type": "spacing"
+    },
+    {
+      "text": "cubic",
+      "start": 43.659,
+      "end": 43.939,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 43.939,
+      "end": 43.979,
+      "type": "spacing"
+    },
+    {
+      "text": "meter.",
+      "start": 43.979,
+      "end": 44.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.36,
+      "end": 44.7,
+      "type": "spacing"
+    },
+    {
+      "text": "This",
+      "start": 44.7,
+      "end": 44.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.819,
+      "end": 44.879,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 44.879,
+      "end": 44.959,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 44.959,
+      "end": 45.0,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 45.0,
+      "end": 45.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.139,
+      "end": 45.219,
+      "type": "spacing"
+    },
+    {
+      "text": "total",
+      "start": 45.219,
+      "end": 45.539,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.539,
+      "end": 45.599,
+      "type": "spacing"
+    },
+    {
+      "text": "extra",
+      "start": 45.599,
+      "end": 45.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 45.899,
+      "end": 45.959,
+      "type": "spacing"
+    },
+    {
+      "text": "volume",
+      "start": 45.959,
+      "end": 46.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.239,
+      "end": 46.299,
+      "type": "spacing"
+    },
+    {
+      "text": "added",
+      "start": 46.299,
+      "end": 46.52,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.52,
+      "end": 46.559,
+      "type": "spacing"
+    },
+    {
+      "text": "inside",
+      "start": 46.559,
+      "end": 46.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 46.899,
+      "end": 46.939,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 46.939,
+      "end": 47.02,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.02,
+      "end": 47.079,
+      "type": "spacing"
+    },
+    {
+      "text": "tank.",
+      "start": 47.079,
+      "end": 47.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.34,
+      "end": 47.68,
+      "type": "spacing"
+    },
+    {
+      "text": "Now",
+      "start": 47.68,
+      "end": 47.759,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.759,
+      "end": 47.799,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 47.799,
+      "end": 47.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 47.899,
+      "end": 47.959,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 47.959,
+      "end": 48.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.0,
+      "end": 48.039,
+      "type": "spacing"
+    },
+    {
+      "text": "have",
+      "start": 48.039,
+      "end": 48.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.139,
+      "end": 48.18,
+      "type": "spacing"
+    },
+    {
+      "text": "found",
+      "start": 48.18,
+      "end": 48.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.36,
+      "end": 48.419,
+      "type": "spacing"
+    },
+    {
+      "text": "this,",
+      "start": 48.419,
+      "end": 48.619,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 48.619,
+      "end": 48.979,
+      "type": "spacing"
+    },
+    {
+      "text": "we",
+      "start": 48.979,
+      "end": 49.039,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.039,
+      "end": 49.079,
+      "type": "spacing"
+    },
+    {
+      "text": "can",
+      "start": 49.079,
+      "end": 49.219,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.219,
+      "end": 49.339,
+      "type": "spacing"
+    },
+    {
+      "text": "use",
+      "start": 49.34,
+      "end": 49.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.439,
+      "end": 49.5,
+      "type": "spacing"
+    },
+    {
+      "text": "it",
+      "start": 49.5,
+      "end": 49.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.579,
+      "end": 49.619,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 49.619,
+      "end": 49.7,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.7,
+      "end": 49.739,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 49.739,
+      "end": 49.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.899,
+      "end": 49.939,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 49.939,
+      "end": 49.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 49.979,
+      "end": 50.059,
+      "type": "spacing"
+    },
+    {
+      "text": "rise",
+      "start": 50.059,
+      "end": 50.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 50.239,
+      "end": 50.279,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 50.279,
+      "end": 50.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 50.379,
+      "end": 50.439,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 50.439,
+      "end": 50.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 50.659,
+      "end": 50.719,
+      "type": "spacing"
+    },
+    {
+      "text": "level.",
+      "start": 50.719,
+      "end": 50.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 50.979,
+      "end": 51.459,
+      "type": "spacing"
+    },
+    {
+      "text": "First,",
+      "start": 51.459,
+      "end": 51.759,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 51.759,
+      "end": 52.079,
+      "type": "spacing"
+    },
+    {
+      "text": "find",
+      "start": 52.079,
+      "end": 52.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.239,
+      "end": 52.279,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 52.279,
+      "end": 52.34,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.34,
+      "end": 52.399,
+      "type": "spacing"
+    },
+    {
+      "text": "bottom",
+      "start": 52.399,
+      "end": 52.699,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 52.699,
+      "end": 52.779,
+      "type": "spacing"
+    },
+    {
+      "text": "area",
+      "start": 52.779,
+      "end": 53.039,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.039,
+      "end": 53.099,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 53.099,
+      "end": 53.199,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.199,
+      "end": 53.259,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 53.259,
+      "end": 53.36,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.36,
+      "end": 53.419,
+      "type": "spacing"
+    },
+    {
+      "text": "tank.",
+      "start": 53.419,
+      "end": 53.719,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 53.719,
+      "end": 54.139,
+      "type": "spacing"
+    },
+    {
+      "text": "Area",
+      "start": 54.139,
+      "end": 54.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 54.739,
+      "end": 54.859,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 54.86,
+      "end": 55.039,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.039,
+      "end": 55.079,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 55.079,
+      "end": 55.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.139,
+      "end": 55.219,
+      "type": "spacing"
+    },
+    {
+      "text": "length",
+      "start": 55.219,
+      "end": 55.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.579,
+      "end": 55.639,
+      "type": "spacing"
+    },
+    {
+      "text": "into",
+      "start": 55.639,
+      "end": 55.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 55.819,
+      "end": 55.899,
+      "type": "spacing"
+    },
+    {
+      "text": "breadth",
+      "start": 55.899,
+      "end": 56.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 56.399,
+      "end": 56.479,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 56.479,
+      "end": 56.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 56.659,
+      "end": 56.699,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 56.699,
+      "end": 56.759,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 56.759,
+      "end": 57.119,
+      "type": "spacing"
+    },
+    {
+      "text": "50",
+      "start": 57.119,
+      "end": 57.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 57.239,
+      "end": 57.299,
+      "type": "spacing"
+    },
+    {
+      "text": "times",
+      "start": 57.299,
+      "end": 57.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 57.559,
+      "end": 57.799,
+      "type": "spacing"
+    },
+    {
+      "text": "20,",
+      "start": 57.799,
+      "end": 58.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.299,
+      "end": 58.34,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 58.34,
+      "end": 58.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.439,
+      "end": 58.479,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 58.479,
+      "end": 58.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.579,
+      "end": 58.659,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 58.659,
+      "end": 58.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.84,
+      "end": 58.899,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 58.899,
+      "end": 58.939,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 58.939,
+      "end": 59.139,
+      "type": "spacing"
+    },
+    {
+      "text": "1,000",
+      "start": 59.139,
+      "end": 59.599,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.599,
+      "end": 59.659,
+      "type": "spacing"
+    },
+    {
+      "text": "square",
+      "start": 59.659,
+      "end": 59.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 59.84,
+      "end": 59.919,
+      "type": "spacing"
+    },
+    {
+      "text": "meter.",
+      "start": 59.919,
+      "end": 60.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 60.259,
+      "end": 60.699,
+      "type": "spacing"
+    },
+    {
+      "text": "Think",
+      "start": 60.699,
+      "end": 60.84,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 60.84,
+      "end": 60.899,
+      "type": "spacing"
+    },
+    {
+      "text": "about",
+      "start": 60.899,
+      "end": 61.159,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.159,
+      "end": 61.239,
+      "type": "spacing"
+    },
+    {
+      "text": "one",
+      "start": 61.239,
+      "end": 61.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.379,
+      "end": 61.439,
+      "type": "spacing"
+    },
+    {
+      "text": "simple",
+      "start": 61.439,
+      "end": 61.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 61.659,
+      "end": 61.759,
+      "type": "spacing"
+    },
+    {
+      "text": "idea.",
+      "start": 61.759,
+      "end": 62.099,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 62.099,
+      "end": 62.479,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 62.479,
+      "end": 62.559,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 62.559,
+      "end": 62.639,
+      "type": "spacing"
+    },
+    {
+      "text": "displaced",
+      "start": 62.639,
+      "end": 63.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 63.139,
+      "end": 63.219,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 63.219,
+      "end": 63.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 63.819,
+      "end": 63.919,
+      "type": "spacing"
+    },
+    {
+      "text": "spreads",
+      "start": 63.919,
+      "end": 64.279,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.279,
+      "end": 64.36,
+      "type": "spacing"
+    },
+    {
+      "text": "over",
+      "start": 64.36,
+      "end": 64.479,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.479,
+      "end": 64.519,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 64.519,
+      "end": 64.579,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 64.579,
+      "end": 64.639,
+      "type": "spacing"
+    },
+    {
+      "text": "entire",
+      "start": 64.639,
+      "end": 65.019,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.019,
+      "end": 65.079,
+      "type": "spacing"
+    },
+    {
+      "text": "bottom",
+      "start": 65.08,
+      "end": 65.339,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.339,
+      "end": 65.399,
+      "type": "spacing"
+    },
+    {
+      "text": "of",
+      "start": 65.4,
+      "end": 65.459,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.459,
+      "end": 65.5,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 65.5,
+      "end": 65.58,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.58,
+      "end": 65.639,
+      "type": "spacing"
+    },
+    {
+      "text": "tank.",
+      "start": 65.639,
+      "end": 65.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 65.899,
+      "end": 66.319,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 66.319,
+      "end": 66.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 66.379,
+      "end": 66.459,
+      "type": "spacing"
+    },
+    {
+      "text": "volume",
+      "start": 66.459,
+      "end": 67.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.139,
+      "end": 67.26,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 67.26,
+      "end": 67.419,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.419,
+      "end": 67.479,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 67.479,
+      "end": 67.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.54,
+      "end": 67.619,
+      "type": "spacing"
+    },
+    {
+      "text": "area",
+      "start": 67.619,
+      "end": 67.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 67.819,
+      "end": 67.879,
+      "type": "spacing"
+    },
+    {
+      "text": "into",
+      "start": 67.879,
+      "end": 68.059,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 68.059,
+      "end": 68.119,
+      "type": "spacing"
+    },
+    {
+      "text": "height.",
+      "start": 68.119,
+      "end": 68.839,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 68.839,
+      "end": 68.9,
+      "type": "spacing"
+    },
+    {
+      "text": "We",
+      "start": 68.9,
+      "end": 68.959,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 68.959,
+      "end": 69.0,
+      "type": "spacing"
+    },
+    {
+      "text": "already",
+      "start": 69.0,
+      "end": 69.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.259,
+      "end": 69.319,
+      "type": "spacing"
+    },
+    {
+      "text": "know",
+      "start": 69.319,
+      "end": 69.399,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.399,
+      "end": 69.439,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 69.439,
+      "end": 69.519,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 69.519,
+      "end": 69.579,
+      "type": "spacing"
+    },
+    {
+      "text": "volume",
+      "start": 69.58,
+      "end": 70.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.0,
+      "end": 70.099,
+      "type": "spacing"
+    },
+    {
+      "text": "and",
+      "start": 70.099,
+      "end": 70.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.239,
+      "end": 70.279,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 70.279,
+      "end": 70.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.379,
+      "end": 70.459,
+      "type": "spacing"
+    },
+    {
+      "text": "area.",
+      "start": 70.459,
+      "end": 70.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 70.739,
+      "end": 71.179,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 71.18,
+      "end": 71.26,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.26,
+      "end": 71.319,
+      "type": "spacing"
+    },
+    {
+      "text": "only",
+      "start": 71.319,
+      "end": 71.519,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.519,
+      "end": 71.599,
+      "type": "spacing"
+    },
+    {
+      "text": "unknown",
+      "start": 71.599,
+      "end": 71.899,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 71.899,
+      "end": 71.939,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 71.939,
+      "end": 72.019,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.019,
+      "end": 72.059,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 72.059,
+      "end": 72.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.139,
+      "end": 72.199,
+      "type": "spacing"
+    },
+    {
+      "text": "height,",
+      "start": 72.199,
+      "end": 72.5,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 72.5,
+      "end": 72.879,
+      "type": "spacing"
+    },
+    {
+      "text": "which",
+      "start": 72.879,
+      "end": 73.0,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.0,
+      "end": 73.019,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 73.019,
+      "end": 73.099,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.099,
+      "end": 73.139,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 73.139,
+      "end": 73.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.22,
+      "end": 73.279,
+      "type": "spacing"
+    },
+    {
+      "text": "rise",
+      "start": 73.279,
+      "end": 73.539,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.539,
+      "end": 73.58,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 73.58,
+      "end": 73.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.659,
+      "end": 73.719,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 73.72,
+      "end": 73.959,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 73.959,
+      "end": 74.0,
+      "type": "spacing"
+    },
+    {
+      "text": "level.",
+      "start": 74.0,
+      "end": 74.659,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.659,
+      "end": 74.72,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 74.72,
+      "end": 74.779,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 74.779,
+      "end": 74.839,
+      "type": "spacing"
+    },
+    {
+      "text": "height",
+      "start": 74.839,
+      "end": 75.499,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.499,
+      "end": 75.599,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 75.599,
+      "end": 75.779,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.779,
+      "end": 75.819,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 75.819,
+      "end": 75.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 75.9,
+      "end": 75.959,
+      "type": "spacing"
+    },
+    {
+      "text": "volume",
+      "start": 75.959,
+      "end": 76.239,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 76.239,
+      "end": 76.339,
+      "type": "spacing"
+    },
+    {
+      "text": "upon",
+      "start": 76.339,
+      "end": 76.54,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 76.54,
+      "end": 76.619,
+      "type": "spacing"
+    },
+    {
+      "text": "area,",
+      "start": 76.619,
+      "end": 77.22,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 77.22,
+      "end": 77.259,
+      "type": "spacing"
+    },
+    {
+      "text": "that",
+      "start": 77.259,
+      "end": 77.359,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 77.359,
+      "end": 77.419,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 77.419,
+      "end": 77.619,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 77.619,
+      "end": 77.639,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 77.639,
+      "end": 77.759,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 77.759,
+      "end": 77.999,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 78.0,
+      "end": 78.039,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.039,
+      "end": 78.059,
+      "type": "spacing"
+    },
+    {
+      "text": "200",
+      "start": 78.059,
+      "end": 78.319,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.319,
+      "end": 78.4,
+      "type": "spacing"
+    },
+    {
+      "text": "upon",
+      "start": 78.4,
+      "end": 78.819,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 78.819,
+      "end": 78.839,
+      "type": "spacing"
+    },
+    {
+      "text": "1,000,",
+      "start": 78.839,
+      "end": 79.179,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 79.179,
+      "end": 79.239,
+      "type": "spacing"
+    },
+    {
+      "text": "which",
+      "start": 79.239,
+      "end": 79.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 79.379,
+      "end": 79.459,
+      "type": "spacing"
+    },
+    {
+      "text": "equals",
+      "start": 79.459,
+      "end": 79.859,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 79.859,
+      "end": 79.879,
+      "type": "spacing"
+    },
+    {
+      "text": "0.2",
+      "start": 79.879,
+      "end": 80.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 80.259,
+      "end": 80.279,
+      "type": "spacing"
+    },
+    {
+      "text": "meter.",
+      "start": 80.279,
+      "end": 80.639,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 80.639,
+      "end": 81.059,
+      "type": "spacing"
+    },
+    {
+      "text": "Here,",
+      "start": 81.059,
+      "end": 81.18,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.18,
+      "end": 81.219,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 81.22,
+      "end": 81.279,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.279,
+      "end": 81.379,
+      "type": "spacing"
+    },
+    {
+      "text": "answer",
+      "start": 81.379,
+      "end": 81.539,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.539,
+      "end": 81.599,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 81.599,
+      "end": 81.679,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.679,
+      "end": 81.799,
+      "type": "spacing"
+    },
+    {
+      "text": "asked",
+      "start": 81.799,
+      "end": 81.979,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 81.979,
+      "end": 82.019,
+      "type": "spacing"
+    },
+    {
+      "text": "in",
+      "start": 82.019,
+      "end": 82.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 82.259,
+      "end": 82.279,
+      "type": "spacing"
+    },
+    {
+      "text": "centimeter,",
+      "start": 82.279,
+      "end": 83.479,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 83.479,
+      "end": 83.519,
+      "type": "spacing"
+    },
+    {
+      "text": "0.2",
+      "start": 83.519,
+      "end": 83.859,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 83.859,
+      "end": 83.919,
+      "type": "spacing"
+    },
+    {
+      "text": "meter",
+      "start": 83.919,
+      "end": 84.139,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 84.139,
+      "end": 84.18,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 84.18,
+      "end": 84.259,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 84.259,
+      "end": 84.319,
+      "type": "spacing"
+    },
+    {
+      "text": "equal",
+      "start": 84.319,
+      "end": 84.499,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 84.499,
+      "end": 84.54,
+      "type": "spacing"
+    },
+    {
+      "text": "to",
+      "start": 84.54,
+      "end": 84.9,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 84.9,
+      "end": 84.919,
+      "type": "spacing"
+    },
+    {
+      "text": "20",
+      "start": 84.919,
+      "end": 85.08,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 85.08,
+      "end": 85.159,
+      "type": "spacing"
+    },
+    {
+      "text": "centimeter.",
+      "start": 85.159,
+      "end": 86.199,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.199,
+      "end": 86.239,
+      "type": "spacing"
+    },
+    {
+      "text": "The",
+      "start": 86.239,
+      "end": 86.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.299,
+      "end": 86.359,
+      "type": "spacing"
+    },
+    {
+      "text": "water",
+      "start": 86.36,
+      "end": 86.539,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.539,
+      "end": 86.599,
+      "type": "spacing"
+    },
+    {
+      "text": "level",
+      "start": 86.599,
+      "end": 86.859,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 86.859,
+      "end": 86.879,
+      "type": "spacing"
+    },
+    {
+      "text": "rises",
+      "start": 86.879,
+      "end": 87.199,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.199,
+      "end": 87.239,
+      "type": "spacing"
+    },
+    {
+      "text": "by",
+      "start": 87.239,
+      "end": 87.379,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.379,
+      "end": 87.599,
+      "type": "spacing"
+    },
+    {
+      "text": "20",
+      "start": 87.599,
+      "end": 87.719,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 87.719,
+      "end": 87.799,
+      "type": "spacing"
+    },
+    {
+      "text": "centimeter.",
+      "start": 87.799,
+      "end": 89.04,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.04,
+      "end": 89.079,
+      "type": "spacing"
+    },
+    {
+      "text": "So",
+      "start": 89.079,
+      "end": 89.159,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.159,
+      "end": 89.199,
+      "type": "spacing"
+    },
+    {
+      "text": "the",
+      "start": 89.199,
+      "end": 89.299,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.299,
+      "end": 89.379,
+      "type": "spacing"
+    },
+    {
+      "text": "final",
+      "start": 89.379,
+      "end": 89.699,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.699,
+      "end": 89.779,
+      "type": "spacing"
+    },
+    {
+      "text": "answer",
+      "start": 89.779,
+      "end": 89.999,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 89.999,
+      "end": 90.079,
+      "type": "spacing"
+    },
+    {
+      "text": "will",
+      "start": 90.079,
+      "end": 90.159,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 90.159,
+      "end": 90.199,
+      "type": "spacing"
+    },
+    {
+      "text": "be",
+      "start": 90.199,
+      "end": 90.319,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 90.319,
+      "end": 90.559,
+      "type": "spacing"
+    },
+    {
+      "text": "20",
+      "start": 90.559,
+      "end": 90.72,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 90.72,
+      "end": 90.739,
+      "type": "spacing"
+    },
+    {
+      "text": "centimeter,",
+      "start": 90.739,
+      "end": 91.739,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 91.739,
+      "end": 91.799,
+      "type": "spacing"
+    },
+    {
+      "text": "which",
+      "start": 91.799,
+      "end": 91.939,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 91.939,
+      "end": 92.019,
+      "type": "spacing"
+    },
+    {
+      "text": "is",
+      "start": 92.019,
+      "end": 92.799,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 92.799,
+      "end": 92.819,
+      "type": "spacing"
+    },
+    {
+      "text": "option",
+      "start": 92.819,
+      "end": 93.439,
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "start": 93.439,
+      "end": 93.459,
+      "type": "spacing"
+    },
+    {
+      "text": "C.",
+      "start": 93.459,
+      "end": 93.479,
+      "type": "word"
+    }
+  ]
+}

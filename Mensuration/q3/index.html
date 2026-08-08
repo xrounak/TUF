@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!--
+  Mensuration Q3 - "length +10%, breadth +20%, find % increase in area"
+  Category C (percentage change) - illustration_reference.md section 0/7.3/13.2.
+  Built from storyboard.md + transcript.json. See Mensuration/penelty.txt and
+  illustration_reference.md for the standing rules this composition follows.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Figure labels - .chip is scoped to .solution-card/.stack-card, illustration
+     labels need their own rule (illustration_reference.md section 4). */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: var(--success); color: var(--success); }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-ly5i" class="topic-name">Mensuration</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-wtnw" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="87.5" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0 - 27.9s)
+       data-duration covers PIN_TIME(27.9) + pinFlow(0.8) + buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-0jbr" id="phase1" class="clip" data-start="0" data-duration="30.2" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-4jkw" class="q-text">
+        If the <span data-hf-id="hf-xelb" class="num">length</span> and <span data-hf-id="hf-u6dr" class="num">breadth</span> of a rectangle
+        increase by <span data-hf-id="hf-4ww1" class="num">10%</span> and <span data-hf-id="hf-s9bk" class="num">20%</span> respectively,
+        find the percentage increase in its area.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- Formula row - grows term by term, lives OUTSIDE the illustration/pinned figure
+         (design.md typography table). Fixed row, reserved full width, nothing reflows. -->
+    <div data-hf-id="hf-8n6w" id="eq-row" style="position:absolute;left:0;right:0;top:300px;text-align:center;
+         font-family:var(--font);font-size:40px;white-space:nowrap;opacity:1;">
+      <span data-hf-id="hf-1wk0" id="eq-caption-find" style="opacity:0;">Area</span>
+      <span data-hf-id="hf-quwn" id="eq-eq1" style="opacity:0;"> = </span>
+      <span data-hf-id="hf-hmaw" id="eq-term-L" style="opacity:0;" class="hi">Length</span>
+      <span data-hf-id="hf-b6li" id="eq-eq2" style="opacity:0;"> × </span>
+      <span data-hf-id="hf-hpfk" id="eq-term-B" style="opacity:0;" class="hi">Breadth</span>
+    </div>
+
+    <!-- ═══ ILLUSTRATION - canvas contract per illustration_reference.md section 1 ═══
+         Full-size: svg 1005x866 rendered, viewBox "0 0 580 500", wrapper left:50% top:230px.
+
+         VERTICES (defined once, reused literally everywhere):
+           ANCHOR (shared bottom-left corner, never moves) = (170,380)
+           ORIGINAL square (assumed L=B=100, matches the narration's own simplifying
+             assumption - this is not eyeballed, it is the exact figure the solution uses):
+             top-left = (170,163)  bottom-right = (387,380)   side = 217
+           AFTER rect, final true size (L=110, B=120):
+             top-left = (170,120)  bottom-right = (408,380)   w=238  h=260
+
+         DRAWING BUDGET: longest final dimension (after-breadth 120) -> 260px.
+         SCALE FACTOR:  260 / 120 = 2.16667 px per unit.
+         DRAWN SIZE:    original side  = 100 * 2.16667 = 216.67 -> 217
+                        after width    = 110 * 2.16667 = 238.33 -> 238
+                        after height   = 120 * 2.16667 = 260.00 -> 260
+         (both shapes share the SAME scale factor and the SAME anchor corner - the 1.10x
+         width growth and 1.20x height growth are independent attr tweens, never a single
+         uniform 1.32x scale - illustration_reference.md rule 10/13.2.)
+
+         PERCENTAGE DIRECTION ARROWS (single arrowhead, indicate growth direction, not a
+         measured span - distinct from the double-headed measurement arrows below):
+           length-dir: (395,271) -> (425,271) horizontal, right (length axis)
+           breadth-dir: (278,158) -> (278,128) vertical, up (breadth axis)
+           (271 = original square vertical mid: 163 + 217/2. 278 = horizontal mid: 170 + 217/2.)
+
+         MEASUREMENT ARROWS (double-headed, component 7.1, head half-width 13 len 18):
+           bottom-original: (170,400) -> (387,400)  length 217  labels "100"
+           left-original:   (150,380) -> (150,163)  length 217  labels "100"
+           bottom-after:    (170,430) -> (408,430)  length 238  labels "110"
+           left-after:      (110,380) -> (110,120)  length 260  labels "120"
+
+         VIEWBOX: geometry spans x[110..425] y[95..430] + label margin -> "0 0 580 500" (fits
+         with margin on every side for the widest label string "Assume Breadth" at 24px chip
+         font).
+    -->
+    <div data-hf-id="hf-e7vz" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);
+                width:1005px;height:866px;">
+      <svg data-hf-id="hf-vk69" id="illus-svg" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <!-- ORIGINAL square - grey dashed (real dimension, not yet KNOWN until the Given
+             card states it). Static "6 6" dash, never a stroke-draw-in (see storyboard.md
+             Scene 2 note: entrance is scale+opacity, dash pattern stays fixed grey until
+             the Given card resolves it solid blue). -->
+        <rect data-hf-id="hf-311p" id="square-original" x="210" y="232" width="187" height="187" fill="#e2e5ff" fill-opacity="0" stroke="#949494" stroke-width="4" stroke-dasharray="6 6" stroke-linecap="round" opacity="0" />
+
+        <!-- AFTER rect - same placeholder size/position as the original at first (dashed
+             grey "?"), resolves to solid green and grows to its TRUE 110x120 size in Scene 8
+             once the new sides are computed (rule 16 - never green/known before the formula
+             resolves it). -->
+        <rect data-hf-id="hf-eaap" id="rect-after" x="170" y="163" width="217" height="217" fill="none" stroke="#949494" stroke-width="4" stroke-dasharray="6 6" stroke-linecap="round" opacity="0" />
+
+        <!-- percentage direction arrows (single arrowhead) -->
+        <g data-hf-id="hf-szid" id="arrow-length-dir" opacity="0">
+          <line data-hf-id="hf-lssf" x1="395" y1="271" x2="421" y2="271" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-vd9h" d="M 415,262 L 429,271 L 415,280 Z" fill="#000000" />
+        </g>
+        <g data-hf-id="hf-kdfl" id="arrow-breadth-dir" opacity="0">
+          <line data-hf-id="hf-v7qh" x1="278" y1="158" x2="278" y2="132" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-lme2" d="M 269,138 L 278,124 L 287,138 Z" fill="#000000" />
+        </g>
+
+        <!-- measurement arrows - original (double-headed, component 7.1) -->
+        <g data-hf-id="hf-1ghe" id="arrow-bottom-original" opacity="0">
+          <line data-hf-id="hf-n7fn" x1="170" y1="400" x2="387" y2="400" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-ul6o" d="M 188,388 L 170,400 L 188,412 Z" fill="#000000" />
+          <path data-hf-id="hf-9bek" d="M 369,388 L 387,400 L 369,412 Z" fill="#000000" />
+        </g>
+        <g data-hf-id="hf-eo1c" id="arrow-left-original" opacity="0">
+          <line data-hf-id="hf-cd9u" x1="150" y1="380" x2="150" y2="163" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-viby" d="M 138,362 L 150,380 L 162,362 Z" fill="#000000" />
+          <path data-hf-id="hf-68kb" d="M 138,181 L 150,163 L 162,181 Z" fill="#000000" />
+        </g>
+
+        <!-- measurement arrows - after (double-headed, outer edges) -->
+        <g data-hf-id="hf-yqz7" id="arrow-bottom-after" opacity="0">
+          <line data-hf-id="hf-l48r" x1="170" y1="430" x2="408" y2="430" stroke="#4eb85f" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-x6wg" d="M 188,418 L 170,430 L 188,442 Z" fill="#4eb85f" />
+          <path data-hf-id="hf-uzsw" d="M 390,418 L 408,430 L 390,442 Z" fill="#4eb85f" />
+        </g>
+        <g data-hf-id="hf-jxz9" id="arrow-left-after" opacity="0">
+          <line data-hf-id="hf-n36r" x1="110" y1="380" x2="110" y2="120" stroke="#4eb85f" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-mayz" d="M 98,362 L 110,380 L 122,362 Z" fill="#4eb85f" />
+          <path data-hf-id="hf-if3f" d="M 98,138 L 110,120 L 122,138 Z" fill="#4eb85f" />
+        </g>
+
+        <!-- chips -->
+        <foreignobject data-hf-id="hf-jvnm" id="chip-length-pct" x="430" y="253" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-b8vz" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">+10%</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-uhz5" id="chip-breadth-pct" x="233" y="75" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-y0ey" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">+20%</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-i4nf" id="chip-side-original" x="233" y="410" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ytd7" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">100</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-2nxi" id="chip-side-original-v" x="62" y="253" width="80" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-cmbv" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">100</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-hvk1" id="chip-side-after-h" x="249" y="440" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-263o" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">110</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-tc6k" id="chip-side-after-v" x="22" y="232" width="80" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-y9pb" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">120</div>
+        </foreignobject>
+
+        <foreignobject data-hf-id="hf-2d7h" id="chip-question" x="248" y="230" width="90" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-waiz" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">?</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-xg6m" id="chip-area-original" x="228" y="253" width="100" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-p5md" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">10,000</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-x1ko" id="chip-area-after" x="248" y="130" width="110" height="36" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-ia7c" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">13,200</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (27.9s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-3ddi" id="q-pinned" class="clip" data-start="27" data-duration="61" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-u1rj" class="q-text">
+        Rectangle: <span data-hf-id="hf-m8ga" class="num">length +10%</span>, <span data-hf-id="hf-kudb" class="num">breadth +20%</span> -
+        find % increase in area.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - EXACT coordinate copy of the full-size figure (same viewBox,
+       same every internal number), only the outer svg width/height and stroke widths shrink
+       (illustration_reference.md section 1: canvas contract, pinned = 500x431, scale 0.862). -->
+  <div data-hf-id="hf-h28k" id="illus-pinned" class="clip" data-start="27" data-duration="61" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-3fpf" id="illus-svg-pinned" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <rect data-hf-id="hf-bxm1" id="square-pinned" x="170" y="163" width="217" height="217" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" stroke-linecap="round" />
+      <rect data-hf-id="hf-zefy" id="rect-after-pinned" x="170" y="120" width="238" height="260" fill="none" stroke="#4eb85f" stroke-width="3.5" stroke-linecap="round" opacity="0" />
+
+      <foreignobject data-hf-id="hf-ru77" x="233" y="410" width="90" height="36" style="overflow:visible;">
+        <div data-hf-id="hf-c80u" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">100</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-w55b" x="62" y="253" width="80" height="36" style="overflow:visible;">
+        <div data-hf-id="hf-btpt" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">100</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-xg2o" id="chip-side-after-h-pinned" x="333" y="410" width="90" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-syzg" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">110</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-5u4z" id="chip-side-after-v-pinned" x="62" y="203" width="80" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-1tzz" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">120</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-0lt9" id="chip-area-original-pinned" x="228" y="253" width="100" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-kbmx" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">10,000</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-4b5l" id="chip-area-after-pinned" x="248" y="130" width="110" height="36" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-4ylc" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">13,200</div>
+      </foreignobject>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN -->
+  <div data-hf-id="hf-q5or" id="card-given" class="clip" data-start="29.7" data-duration="10.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-iiia" class="solution-card" style="position:absolute;left:640px;top:530px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-zw0l" class="rv" data-t="29.70">Assume</span> <span data-hf-id="hf-hiht" class="rv" data-t="30.56">Length</span> <span data-hf-id="hf-e5i8" class="rv" data-t="31.28">=</span> <span data-hf-id="hf-74iq" class="hi rv" data-t="31.50">100</span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-fpxp" class="rv" data-t="32.56">Assume</span> <span data-hf-id="hf-al1q" class="rv" data-t="32.82">Breadth</span> <span data-hf-id="hf-shmn" class="rv" data-t="33.92">=</span> <span data-hf-id="hf-y9j1" class="hi rv" data-t="34.30">100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div data-hf-id="hf-35dc" id="card-step1" class="clip" data-start="37.0" data-duration="6.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:510px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-rh3l" class="rv" data-t="35.66">Original Area</span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-qcox" class="rv" data-t="37.88">= 100 × 100</span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-h8wl" class="ans rv" data-t="40.20">= 10,000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div data-hf-id="hf-3j8u" id="card-step2" class="clip" data-start="42.0" data-duration="11.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-423k" class="solution-card" style="position:absolute;left:600px;top:490px;text-align:center;width:760px;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-9g6s" class="rv" data-t="41.62">Length increases 10% -&gt;</span> <span data-hf-id="hf-ox86" class="hi rv" data-t="44.62">110</span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-vk0b" class="rv" data-t="46.98">Breadth increases 20% -&gt;</span> <span data-hf-id="hf-c16f" class="hi rv" data-t="49.92">120</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div data-hf-id="hf-breg" id="card-step3" class="clip" data-start="51.7" data-duration="14.5" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-z076" class="solution-card" style="position:absolute;left:600px;top:510px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-5uj0" class="rv" data-t="55.24">New Area</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-qg67" class="rv" data-t="57.92">= 110 × 120</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-znyv" class="ans rv" data-t="59.74">= 13,200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div data-hf-id="hf-k0ls" id="card-step4" class="clip" data-start="64.7" data-duration="17.7" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-kqly" class="solution-card" style="position:absolute;left:560px;top:470px;text-align:center;width:800px;">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-4pch" class="chip">Step 4</span>
+        <div data-hf-id="hf-lgo5" class="math">
+          <span data-hf-id="hf-boql" class="rv" data-t="62.98">Increase = 13,200 - 10,000</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-zfjb" class="ans rv" data-t="67.74">= 3,200</span><br data-hf-id="hf-r05r">
+          <span data-hf-id="hf-eyp8" class="rv" data-t="72.04">% Increase =</span>
+          <span data-hf-id="hf-w8z2" class="frac rv" data-t="73.38"><span data-hf-id="hf-wij2" class="top hi">3,200</span><span data-hf-id="hf-wi6w" class="bot hi">10,000</span></span>
+          <span data-hf-id="hf-xzhm" class="rv" data-t="73.38">× 100</span><br data-hf-id="hf-p0mm">
+          <span data-hf-id="hf-3foo" class="ans rv" data-t="78.96">= 32%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-9gib" id="stack-given" class="clip" data-start="36.0" data-duration="52" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-mofk" class="math">
+          Length = <span data-hf-id="hf-y6sn" class="hi">100</span><br data-hf-id="hf-ombl">
+          Breadth = <span data-hf-id="hf-doqv" class="hi">100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-umsy" id="stack-step1" class="clip" data-start="41.0" data-duration="47" data-track-index="12" style="position:absolute;left:100px;top:250px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-cswx" class="math">
+          Original Area = 100 × 100<br data-hf-id="hf-qsyj">
+          = <span data-hf-id="hf-ukya" class="ans">10,000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-b4px" id="stack-step2" class="clip" data-start="50.7" data-duration="37" data-track-index="13" style="position:absolute;left:100px;top:400px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-gmxw" class="math">
+          New Length = <span data-hf-id="hf-xf4u" class="hi">110</span><br data-hf-id="hf-r79k">
+          New Breadth = <span data-hf-id="hf-wnh1" class="hi">120</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-p05j" id="stack-step3" class="clip" data-start="63.7" data-duration="24" data-track-index="14" style="position:absolute;left:100px;top:530px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-xe81" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-nbgp" class="math">
+          New Area = 110 × 120<br data-hf-id="hf-q0ch">
+          = <span data-hf-id="hf-vqi5" class="ans">13,200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-s7jg" id="stack-step4" class="clip" data-start="79.9" data-duration="8" data-track-index="15" style="position:absolute;left:100px;top:660px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2fcs" class="stack-card">
+      <div data-hf-id="hf-xsj2" class="card-content">
+        <span data-hf-id="hf-y1wg" class="step-circle">4</span>
+        <div data-hf-id="hf-tdi6" class="math">
+          Increase = 3,200<br data-hf-id="hf-qeni">
+          % Increase = <span data-hf-id="hf-nb8l" class="ans">32%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-j29c" id="line-g-1" class="clip stack-line" data-start="41.0" data-duration="47" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-em1k" id="line-1-2" class="clip stack-line" data-start="50.7" data-duration="37" data-track-index="17" style="opacity:0;"></div>
+  <div data-hf-id="hf-wbdd" id="line-2-3" class="clip stack-line" data-start="63.7" data-duration="24" data-track-index="18" style="opacity:0;"></div>
+  <div data-hf-id="hf-3nvx" id="line-3-4" class="clip stack-line" data-start="79.9" data-duration="8" data-track-index="19" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-d4k2" id="options-reveal" class="clip" data-start="80.9" data-duration="6.8" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-2oye" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>30%</div>
+        <div data-hf-id="hf-bfni" class="opt-btn correct"><span data-hf-id="hf-r8xd" class="letter">B</span>32%</div>
+        <div data-hf-id="hf-bb2i" class="opt-btn"><span data-hf-id="hf-rn8e" class="letter">C</span>34%</div>
+        <div data-hf-id="hf-xz6k" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>36%</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+  apt.setStackLine("#line-3-4", "#stack-step3 .step-circle", "#stack-step4 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.8; // "...one more problem." ends 3.779
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // ── Illustration build (Scene 2) ──
+  tl.fromTo("#square-original", { scale: 0.85, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)", transformOrigin: "278px 271px" }, 4.3);
+
+  apt.fadeIn(tl, "#arrow-length-dir", 5.6);
+  tl.fromTo("#chip-length-pct", { y: 10, opacity: 0, scale: 0.85 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 8.2);
+
+  apt.fadeIn(tl, "#arrow-breadth-dir", 9.76);
+  tl.fromTo("#chip-breadth-pct", { y: 10, opacity: 0, scale: 0.85 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 11.3);
+
+  apt.emphasize(tl, "#square-original", 12.72);
+
+  // ── Formula row (Scene 3) ──
+  apt.fadeIn(tl, "#eq-caption-find", 16.4);
+  apt.fadeIn(tl, "#eq-eq1", 18.46);
+  apt.fadeIn(tl, "#eq-term-L", 18.46);
+  apt.fadeIn(tl, "#eq-eq2", 20.34);
+  apt.fadeIn(tl, "#eq-term-B", 20.34);
+
+  // ── Foreshadow the growth (Scene 4) ──
+  apt.fadeIn(tl, "#rect-after", 22.12);
+  apt.fadeIn(tl, "#chip-question", 22.12);
+  apt.emphasize(tl, "#rect-after", 25.32);
+
+  // ── PIN FLOW (Scene 5) ──
+  const PIN_TIME = 27.9;
+  const GIVEN_TIME = 29.7;
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+  apt.fadeOut(tl, "#eq-row", PIN_TIME, 0.4);
+
+  // ── GIVEN card (Scene 6) ──
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  tl.to("#square-pinned", { stroke: "#6373db", duration: 0.3 }, 31.5);
+  tl.fromTo("#chip-side-original", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 31.8);
+  tl.fromTo("#chip-side-original-v", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 34.9);
+
+  // ── STEP 1 (Scene 7) ──
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 36.0);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 37.0);
+  apt.textReveal(tl, "#card-step1 .math");
+
+  tl.fromTo("#chip-area-original-pinned", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 40.2);
+  apt.emphasize(tl, "#square-pinned", 40.2);
+
+  // ── STEP 2 (Scene 8) - dashed "?" outline resolves to true green rectangle ──
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 41.0);
+  apt.stackLineGrow(tl, "#line-g-1", 41.0);
+  apt.cardEnter(tl, "#card-step2 .solution-card", 42.0);
+  apt.textReveal(tl, "#card-step2 .math");
+
+  tl.to("#chip-area-original-pinned", { opacity: 0, duration: 0.3 }, 44.9);
+  tl.to("#rect-after-pinned", { stroke: "#4eb85f", opacity: 1, duration: 0.3 }, 44.9);
+  tl.to("#rect-after-pinned", { attr: { width: 238 }, duration: 0.8, ease: "power2.out" }, 45.0); // 100 * 1.10 scale = 238 true px
+  tl.fromTo("#chip-side-after-h-pinned", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 45.4);
+
+  tl.to("#rect-after-pinned", { attr: { height: 260, y: 120 }, duration: 0.8, ease: "power2.out" }, 50.1); // 100 * 1.20 scale = 260 true px, anchored bottom
+  tl.fromTo("#chip-side-after-v-pinned", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 50.5);
+
+  // ── STEP 3 (Scene 9) ──
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 50.7);
+  apt.stackLineGrow(tl, "#line-1-2", 50.7);
+  apt.cardEnter(tl, "#card-step3 .solution-card", 51.7);
+  apt.textReveal(tl, "#card-step3 .math");
+
+  tl.fromTo("#chip-area-after-pinned", { opacity: 0, y: 10, scale: 0.85 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 60.2);
+  apt.emphasize(tl, "#rect-after-pinned", 60.2);
+
+  // ── STEP 4 (Scene 10) ──
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 63.7);
+  apt.stackLineGrow(tl, "#line-2-3", 63.7);
+  apt.cardEnter(tl, "#card-step4 .solution-card", 64.7);
+  apt.textReveal(tl, "#card-step4 .math");
+
+  apt.emphasize(tl, "#chip-area-after-pinned", 67.74);
+  apt.emphasize(tl, "#chip-side-original", 67.74);
+  apt.emphasize(tl, "#rect-after-pinned", 78.96);
+  apt.emphasize(tl, "#square-pinned", 78.96);
+
+  apt.morphToStack(tl, "#card-step4 .solution-card", "#stack-step4 .stack-card", 79.9);
+  apt.stackLineGrow(tl, "#line-3-4", 79.9);
+
+  // ── Recenter - clear the stack column before options reveal, align the pinned
+  // question+options block against it. Illustration has done its job by now. ──
+  const RECENTER_TIME = 79.9;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // ── PHASE 3 - Options reveal ──
+  apt.fadeIn(tl, "#options-reveal", 80.9);
+  apt.optionsStagger(tl, ".opt-btn", 81.5);
+  apt.correctPulse(tl, ".opt-btn.correct", 83.6);
+
+  // ── END FADE ──
+  const END_FADE_TIME = 86.079; // narration ends 85.479 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+
+  tl.set({}, {}, 88.479); // 86.079 + 1.2 + 0.2, nothing beyond this
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

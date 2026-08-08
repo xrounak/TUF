@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  /* Illustration figure labels - illustration_reference.md section 4.
+     design-system.css .chip is scoped to .solution-card/.stack-card, so the
+     illustration's own value/role labels need this separate rule. */
+  .fig-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip.role { border-color: #000000; color: #000000; font-size: 22px; }
+  .fig-chip.done { border-color: #4eb85f; color: #4eb85f; }
+  .fig-chip.unknown { border-color: #949494; color: #949494; }
+
+  /* <!-- font-size 32 -> effective 32*0.862 = 27.58px, clears the 21px pinned floor
+       (illustration_reference.md section 4 - a 22px declared size would only
+       resolve to 18.96px effective, under the floor). --> */
+  .fig-chip-pinned {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 2px solid #6373db;
+    color: #6373db;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .fig-chip-pinned.role { border-color: #000000; color: #000000; }
+  .fig-chip-pinned.done { border-color: #4eb85f; color: #4eb85f; }
+  .fig-chip-pinned.unknown { border-color: #949494; color: #949494; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-89uj" id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080">
+
+  <!-- ══════ BACKGROUND LAYERS (always visible) ══════ -->
+  <div data-hf-id="hf-858h" class="dotted-grid"></div>
+  <div data-hf-id="hf-izuk" class="bottom-strip"></div>
+  <div data-hf-id="hf-ly5i" class="topic-name">Mensuration</div>
+  <div data-hf-id="hf-e319" class="logo"></div>
+
+  <!-- ══════ VOICEOVER ══════ -->
+  <audio data-hf-id="hf-11on" id="voiceover" class="clip" src="voiceover.wav" data-start="0" data-duration="95.5" data-track-index="0"></audio>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 1 - Question + Illustration (0-34.1s)
+       data-duration extends PIN_TIME(34.10) + pinFlow 0.8s + 1.5s buffer.
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-76cg" id="phase1" class="clip" data-start="0" data-duration="36.5" data-track-index="1" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:5;">
+
+    <div data-hf-id="hf-lxc5" id="q-full-card" class="q-card" style="position:absolute;left:50%;top:80px;width:1500px;transform:translateX(-50%);opacity:0;">
+      <div data-hf-id="hf-jlno" class="q-text">
+        <span data-hf-id="hf-abke" class="num">50 men</span> take a dip in a water tank <span data-hf-id="hf-u16h" class="num">50 m</span> long and <span data-hf-id="hf-icee" class="num">20 m</span> broad. If the average displacement of water by a man is <span data-hf-id="hf-lu0b" class="num">4 m³</span>, find the rise in the water level.
+      </div>
+    </div>
+
+    <div data-hf-id="hf-w62k" id="serial-num" class="serial-num" style="left:60px;top:60px;opacity:0;">
+      <div data-hf-id="hf-yfde" class="digit">Q</div>
+    </div>
+
+    <!-- ILLUSTRATION GEOMETRY (category E - composite/displacement)
+      STATEMENT: 50 men enter a tank 50 m long x 20 m broad, each displaces 4 m3,
+        find the rise in water level. rise = (50*4) / (50*20) = 200/1000 = 0.2 m = 20 cm.
+      TRUE GIVEN DIMENSIONS: length = 50 m, breadth = 20 m (both real, used for the
+        isometric footprint - illustration_reference.md 3.1/6.1).
+      DRAWING BUDGET: longest true dimension (length, 50 m) maps to 300px on screen.
+      SCALE FACTOR (length/breadth): 300 / 50 = 6 px/m.
+      DRAWN FOOTPRINT: length = 50*6 = 300px (front face width). breadth = 20*6 = 120px
+        (depth, via the FIXED 30deg isometric shear: dx = 120*cos(30)=120*0.866=103.92,
+        dy = 120*sin(30)*-1 = 120*-0.5 = -60).
+      WALL HEIGHT (140px) IS ILLUSTRATIVE, NOT A GIVEN/DERIVED TRUE DIMENSION - the
+        problem never states the tank's total depth, only the rise. It is drawn tall
+        enough to legibly host a genuinely-thin rise band (illustration_reference.md
+        section 7.5's own worked example uses this exact "50x20 tank, thin band" case).
+        Height-axis scale is therefore its OWN illustrative constant: 140px stands for
+        an assumed 1.4 m of wall, i.e. 100 px per illustrative metre - this constant is
+        used ONLY for the rise band below, never for length/breadth (those use the
+        real 6 px/m scale computed above).
+      VERTICES (isometric cuboid, defined once, reused literally everywhere,
+        FBL = front-bottom-left):
+        FBL = (90,380)                                FBR = FBL+(300,0) = (390,380)
+        FTL = FBL+(0,-140) = (90,240)                  FTR = FBR+(0,-140) = (390,240)
+        BBL = FBL+(103.92,-60) = (193.92,320)          BBR = FBR+(103.92,-60) = (493.92,320)
+        BTL = FTL+(103.92,-60) = (193.92,180)          BTR = FTR+(103.92,-60) = (493.92,180)
+      FACE PERIMETERS (stroke-dasharray = true path length, per penalty rule 4):
+        front (rect 300x140): 2*(300+140) = 880
+        top (FTL-BTL-BTR-FTR): 120+300+120+300 = 840
+        side (FTR-BTR-BBR-FBR): 120+140+120+140 = 520
+      RISE BAND: true rise 0.2 m -> 0.2 * (140/1.4) = 20px tall, at the front face's
+        bottom edge (y 360..380), width = front face width = 300px (illustration_
+        reference.md 7.5: "band height on screen is the true scaled rise... if the
+        true rise is small against a tank drawn ~140px tall, the band is genuinely
+        thin - do not exaggerate it").
+      LENGTH ARROW (horizontal, below the front-bottom edge): y=410 (30px clear of
+        FBL/FBR y=380), x1=90 (FBL.x) x2=390 (FBR.x) -> length 300, matches the true
+        drawn footprint width. Label centered below at (190,422,100x40).
+      BREADTH ARROW (diagonal, parallel to the FBR-BBR receding edge, offset 20px
+        along the edge's own perpendicular unit vector p=(0.5,0.866)):
+        start = FBR + 20*p = (400,397.32)   end = BBR + 20*p = (503.92,337.32)
+        -> length 120, matches the true drawn depth. Label at (414,372,100x40).
+      VIEWBOX: geometry spans x[60(chip-men)..514(label-breadth right edge)]
+        y[60(chip-men top)..465(label-length bottom)], well inside the topic's
+        FIXED "0 0 580 500" canvas contract (illustration_reference.md section 1) -
+        left margin 60px, right margin 66px, top margin 60px, bottom margin 35px.
+    -->
+    <div data-hf-id="hf-scpf" id="illustration" style="position:absolute;left:50%;top:230px;transform:translateX(-50%);overflow:visible;">
+      <svg data-hf-id="hf-rtav" viewBox="0 0 580 500" width="1005" height="866" style="overflow:visible;">
+
+        <g data-hf-id="hf-skck" id="tank-figure">
+          <!-- side face (drawn first, sits behind) -->
+          <path data-hf-id="hf-6v5x" id="tank-side" d="M 390,240 L 493.92,180 L 493.92,320 L 390,380 Z" fill="#dcdffc" stroke="#6373db" stroke-width="4" stroke-dasharray="520 520" stroke-dashoffset="520" opacity="0" />
+          <!-- top face -->
+          <path data-hf-id="hf-8fxu" id="tank-top" d="M 90,240 L 193.92,180 L 493.92,180 L 390,240 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="4" stroke-dasharray="840 840" stroke-dashoffset="840" opacity="0" />
+          <!-- front face -->
+          <rect data-hf-id="hf-9tpq" id="tank-front" x="90" y="240" width="300" height="140" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="4" stroke-dasharray="880 880" stroke-dashoffset="880" opacity="0" />
+        </g>
+
+        <!-- ambient resting water level (illustrative, no height claim - shimmers
+             opacity only through the bucket/stone analogy, per penalty rule 16) -->
+        <rect data-hf-id="hf-drnp" id="water-fill" x="90" y="324" width="300" height="56" fill="#e2e5ff" fill-opacity="0" />
+
+        <!-- "water spreads over the entire bottom" - width-only highlight, no
+             height claim (grows in Scene 8, before Step 3 resolves the height) -->
+        <rect data-hf-id="hf-lsda" id="spread-wash" x="90" y="372" width="0" height="8" fill="#6373db" fill-opacity="0" />
+
+        <!-- rise band (hidden until Step 3 resolves the height) -->
+        <rect data-hf-id="hf-zvw2" id="displace-band" x="90" y="380" width="300" height="0" fill="#4eb85f" fill-opacity="0.25" stroke="#4eb85f" stroke-width="3" stroke-dasharray="6 6" opacity="0" />
+
+        <foreignobject data-hf-id="hf-ubmi" id="band-label-m" x="400" y="350" width="110" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-jyqp" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">0.2 m</div>
+        </foreignobject>
+        <foreignobject data-hf-id="hf-ip1j" id="band-label-cm" x="400" y="350" width="110" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-rnls" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip done">20 cm</div>
+        </foreignobject>
+
+        <!-- rise = ? indicator (grey, real dimension not yet known) -->
+        <foreignobject data-hf-id="hf-gqas" id="rise-indicator" x="300" y="270" width="140" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-qggx" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip unknown">Rise = ?</div>
+        </foreignobject>
+
+        <!-- "50 men" role chip (not drawn as icons - penalty.txt standing item 13) -->
+        <foreignobject data-hf-id="hf-n1bd" id="chip-men" x="60" y="60" width="150" height="44" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-k41j" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip role">50 men</div>
+        </foreignobject>
+
+        <!-- "4 m3 per man" value chip -->
+        <foreignobject data-hf-id="hf-55q9" id="chip-displace" x="380" y="60" width="170" height="44" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-6k29" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">4 m³ / man</div>
+        </foreignobject>
+
+        <!-- length arrow (horizontal, true drawn length 300px) -->
+        <g data-hf-id="hf-6kmn" id="arrow-length" opacity="0">
+          <line data-hf-id="hf-t5cq" x1="90" y1="410" x2="390" y2="410" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-uv2m" d="M 90,410 L 108,397 L 108,423 Z" fill="#000000" />
+          <path data-hf-id="hf-x9mh" d="M 390,410 L 372,397 L 372,423 Z" fill="#000000" />
+        </g>
+        <foreignobject data-hf-id="hf-kv9m" id="label-length" x="190" y="422" width="100" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-bpr2" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">50 m</div>
+        </foreignobject>
+
+        <!-- breadth arrow (diagonal, parallel to the receding edge, true drawn length 120px) -->
+        <g data-hf-id="hf-99zf" id="arrow-breadth" opacity="0">
+          <line data-hf-id="hf-tir4" x1="412.5" y1="418.97" x2="516.42" y2="358.97" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+          <path data-hf-id="hf-uyxd" d="M 412.5,418.97 L 434.59,421.23 L 421.59,398.71 Z" fill="#000000" />
+          <path data-hf-id="hf-vb9w" d="M 516.42,358.97 L 507.33,379.23 L 494.33,356.71 Z" fill="#000000" />
+        </g>
+        <foreignobject data-hf-id="hf-qnqd" id="label-breadth" x="450" y="372" width="110" height="40" style="overflow:visible;opacity:0;">
+          <div data-hf-id="hf-9cmp" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip">20 m</div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 2 - Pinned question (34.1s onwards)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-e30z" id="q-pinned" class="clip" data-start="34.1" data-duration="61.4" data-track-index="2" style="position:absolute;width:100%;top:0;left:0;z-index:6;opacity:0;">
+    <div data-hf-id="hf-9jf4" class="q-card pinned" style="position:absolute;left:385px;top:30px;width:1275px;">
+      <div data-hf-id="hf-fddt" class="q-text">
+        Tank <span data-hf-id="hf-zivh" class="num">50 m</span> x <span data-hf-id="hf-0rii" class="num">20 m</span>, 50 men each displace <span data-hf-id="hf-76kr" class="num">4 m³</span>. Find the rise.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned illustration - EXACT coordinate copy of the full-size SVG (same
+       viewBox, same internal numbers, only outer width/height + stroke widths
+       shrink - illustration_reference.md section 1). All the given chips/arrows
+       are static (always visible, no opacity:0) per section 8. The rise-indicator,
+       water-fill, spread-wash and displace-band carry the SAME unresolved state
+       they left off in and resolve here, once Step 3 actually derives the height -
+       these are the "solution-step-timed" elements a pinned copy may still animate.
+       Two extra elements (area-indicator-pinned, area-wash-pinned) exist ONLY on
+       the pinned copy - they have no full-size counterpart because the narration
+       that needs them (finding the area) only happens after PIN_TIME. -->
+  <div data-hf-id="hf-23wu" id="illus-pinned" class="clip" data-start="34.1" data-duration="57.0" data-track-index="3" style="position:absolute;left:230px;top:50px;width:1400px;height:450px;z-index:5;opacity:0;
+              display:flex;align-items:center;justify-content:center;">
+    <svg data-hf-id="hf-g44y" viewBox="0 0 580 500" width="500" height="431" style="overflow:visible;">
+      <path data-hf-id="hf-azv3" id="tank-side-pinned" d="M 390,240 L 493.92,180 L 493.92,320 L 390,380 Z" fill="#dcdffc" stroke="#6373db" stroke-width="3.5" />
+      <path data-hf-id="hf-ogzd" id="tank-top-pinned" d="M 90,240 L 193.92,180 L 493.92,180 L 390,240 Z" fill="#f4f5ff" stroke="#6373db" stroke-width="3.5" />
+      <rect data-hf-id="hf-ue93" id="tank-front-pinned" x="90" y="240" width="300" height="140" fill="#e2e5ff" fill-opacity="0.4" stroke="#6373db" stroke-width="3.5" />
+
+      <rect data-hf-id="hf-ukvy" id="water-fill-pinned" x="90" y="324" width="300" height="56" fill="#e2e5ff" fill-opacity="0.35" />
+      <rect data-hf-id="hf-307a" id="spread-wash-pinned" x="90" y="372" width="0" height="8" fill="#6373db" fill-opacity="0.5" />
+      <!-- area confirmation wash - pinned-only, fades in once Step 2 resolves 1000 m2 -->
+      <rect data-hf-id="hf-lp7u" id="area-wash-pinned" x="90" y="240" width="300" height="140" fill="#4eb85f" fill-opacity="0" />
+
+      <rect data-hf-id="hf-i4q5" id="displace-band-pinned" x="90" y="380" width="300" height="0" fill="#4eb85f" fill-opacity="0.25" stroke="#4eb85f" stroke-width="2.5" stroke-dasharray="5 5" opacity="0" />
+      <!-- label foreignObject widths/heights are sized for the pinned copy's own
+           32px font (bigger than full-size's 24px, needed to clear the 21px
+           effective floor after the 0.862 shrink) - the DRAWN GEOMETRY above
+           (tank paths/rect, arrow lines) stays coordinate-identical to the
+           full-size copy; only these text-label boxes are pinned-specific,
+           same precedent as q1's chip-area-given-pinned. -->
+      <foreignobject data-hf-id="hf-1v8u" id="band-label-m-pinned" x="300" y="296" width="130" height="46" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-gjna" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned done">0.2 m</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-07vl" id="band-label-cm-pinned" x="300" y="296" width="130" height="46" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-90pr" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned done">20 cm</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-dwdg" id="rise-indicator-pinned" x="300" y="270" width="180" height="46" style="overflow:visible;">
+        <div data-hf-id="hf-0g5u" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned unknown">Rise = ?</div>
+      </foreignobject>
+      <!-- area = ? indicator - pinned-only (no full-size counterpart, see comment above) -->
+      <foreignobject data-hf-id="hf-awhs" id="area-indicator-pinned" x="140" y="286" width="180" height="46" style="overflow:visible;opacity:0;">
+        <div data-hf-id="hf-4e5i" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned unknown">Area = ?</div>
+      </foreignobject>
+
+      <foreignobject data-hf-id="hf-ttx7" id="chip-men-pinned" x="55" y="85" width="150" height="50" style="overflow:visible;">
+        <div data-hf-id="hf-iika" xmlns="http://www.w3.org/1999/xhtml" class=" role" style="font-size: 28px;">50 men</div>
+      </foreignobject>
+      <foreignobject data-hf-id="hf-43un" id="chip-displace-pinned" x="330" y="85" width="225" height="50" style="overflow:visible;">
+        <div data-hf-id="hf-2kuu" xmlns="http://www.w3.org/1999/xhtml" class="" style="font-size: 28px;">4 m³ / man</div>
+      </foreignobject>
+
+      <g data-hf-id="hf-umju" id="arrow-length-pinned">
+        <line data-hf-id="hf-2zts" x1="90" y1="410" x2="390" y2="410" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-gyqa" d="M 90,410 L 108,397 L 108,423 Z" fill="#000000" />
+        <path data-hf-id="hf-nmq5" d="M 390,410 L 372,397 L 372,423 Z" fill="#000000" />
+      </g>
+      <foreignobject data-hf-id="hf-mpd0" id="label-length-pinned" x="180" y="420" width="120" height="46" style="overflow:visible;">
+        <div data-hf-id="hf-752t" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">50 m</div>
+      </foreignobject>
+
+      <g data-hf-id="hf-5tyu" id="arrow-breadth-pinned">
+        <line data-hf-id="hf-bywq" x1="412.5" y1="418.97" x2="516.42" y2="358.97" stroke="#000000" stroke-width="2.5" stroke-linecap="round" />
+        <path data-hf-id="hf-xccl" d="M 412.5,418.97 L 434.59,421.23 L 421.59,398.71 Z" fill="#000000" />
+        <path data-hf-id="hf-ty3w" d="M 516.42,358.97 L 507.33,379.23 L 494.33,356.71 Z" fill="#000000" />
+      </g>
+      <foreignobject data-hf-id="hf-2obs" id="label-breadth-pinned" x="426" y="386" width="130" height="46" style="overflow:visible;">
+        <div data-hf-id="hf-vfze" xmlns="http://www.w3.org/1999/xhtml" class="fig-chip-pinned">20 m</div>
+      </foreignobject>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SOLUTION CARDS - Given -> Step 1 (volume) -> Step 2 (area) -> Step 3 (height)
+       ══════════════════════════════════════════════ -->
+
+  <!-- GIVEN - GIVEN_TIME (34.90) is its own timestamp, separate from PIN_TIME (34.10). -->
+  <div data-hf-id="hf-klx2" id="card-given" class="clip" data-start="34.9" data-duration="5.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-f272" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-3rv6" class="card-content">
+        <span data-hf-id="hf-7r0o" class="chip">Given</span>
+        <div data-hf-id="hf-8tlu" class="math">
+          <span data-hf-id="hf-3j3t" class="rv" data-t="34.95">Men = <span data-hf-id="hf-v6mh" class="hi">50</span></span><br data-hf-id="hf-x5px">
+          <span data-hf-id="hf-55f9" class="rv" data-t="35.45">Length = <span data-hf-id="hf-ch5e" class="hi">50 m</span></span><br data-hf-id="hf-rsrt">
+          <span data-hf-id="hf-kytu" class="rv" data-t="35.95">Breadth = <span data-hf-id="hf-z1od" class="hi">20 m</span></span><br data-hf-id="hf-szow">
+          <span data-hf-id="hf-4qag" class="rv" data-t="36.45">Displacement/man = <span data-hf-id="hf-y8sc" class="hi">4 m³</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 - total volume displaced: 50 x 4 = 200 m3. -->
+  <div data-hf-id="hf-7sbj" id="card-step1" class="clip" data-start="37.7" data-duration="9.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-a1ig" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-0yza" class="card-content">
+        <span data-hf-id="hf-3ife" class="chip">Step 1</span>
+        <div data-hf-id="hf-ng7a" class="math">
+          <span data-hf-id="hf-vrhs" class="rv" data-t="37.70">1 man displaces = <span data-hf-id="hf-z954" class="hi rv" data-t="38.76">4 m³</span></span><br data-hf-id="hf-sldv">
+          <span data-hf-id="hf-0ijq" class="rv" data-t="41.90">50</span> <span data-hf-id="hf-we3n" class="rv" data-t="42.04">x</span> <span data-hf-id="hf-bhc6" class="rv" data-t="42.32">4</span> <span data-hf-id="hf-1iy7" class="rv" data-t="42.78">=</span> <span data-hf-id="hf-5nsd" class="ans rv" id="step1-ans" data-t="43.30">200 m³</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 - bottom area: 50 x 20 = 1000 m2. -->
+  <div data-hf-id="hf-rx4i" id="card-step2" class="clip" data-start="52.1" data-duration="11.0" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-vb4w" class="solution-card" style="position:absolute;left:640px;top:470px;text-align:center;">
+      <div data-hf-id="hf-1dab" class="card-content">
+        <span data-hf-id="hf-3wqf" class="chip">Step 2</span>
+        <div data-hf-id="hf-nuib" class="math">
+          <span data-hf-id="hf-g5p3" class="rv" data-t="54.14">Area = Length x Breadth</span><br data-hf-id="hf-qluq">
+          <span data-hf-id="hf-he4n" class="rv" data-t="57.12">50</span> <span data-hf-id="hf-jr3u" class="rv" data-t="57.30">x</span> <span data-hf-id="hf-h82x" class="rv" data-t="57.80">20</span> <span data-hf-id="hf-kek5" class="rv" data-t="58.66">=</span> <span data-hf-id="hf-tm8x" class="ans rv" id="step2-ans" data-t="59.14">1000 m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 - height (the rise): V = A x h, so h = V/A = 200/1000 = 0.2 m = 20 cm. -->
+  <div data-hf-id="hf-6c5i" id="card-step3" class="clip" data-start="66.3" data-duration="22.2" data-track-index="4" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-8hiu" class="solution-card" style="position:absolute;left:600px;top:470px;text-align:center;width:720px;">
+      <div data-hf-id="hf-1rlc" class="card-content">
+        <span data-hf-id="hf-4b1g" class="chip">Step 3</span>
+        <div data-hf-id="hf-o8tc" class="math">
+          <span data-hf-id="hf-06r2" class="rv" data-t="66.40">Volume = Area x Height</span><br data-hf-id="hf-q7jp">
+          <span data-hf-id="hf-z407" class="rv" data-t="74.84">Height</span> <span data-hf-id="hf-m6ks" class="rv" data-t="75.60">=</span>
+          <span data-hf-id="hf-rwm2" class="frac rv" data-t="75.90"><span data-hf-id="hf-oxzt" class="top hi">Volume</span><span data-hf-id="hf-m4kk" class="bot hi">Area</span></span>
+          <span data-hf-id="hf-hlpm" class="rv" data-t="77.60">=</span>
+          <span data-hf-id="hf-cpgc" class="frac rv" data-t="78.06"><span data-hf-id="hf-olro" class="top hi" id="num-200">200</span><span data-hf-id="hf-uhew" class="bot hi" id="num-1000">1000</span></span>
+          <span data-hf-id="hf-eujk" class="rv" data-t="79.60">=</span> <span data-hf-id="hf-wfx1" class="ans rv" id="height-m" data-t="79.88">0.2 m</span><br data-hf-id="hf-regs">
+          <span data-hf-id="hf-wc5s" class="rv" data-t="84.20">=</span> <span data-hf-id="hf-oc0s" class="ans rv" id="height-cm" data-t="84.92">20 cm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unit-conversion callout (illustration_reference.md section 7.2) -->
+  <div data-hf-id="hf-fkvf" id="conv-note-wrap" class="clip" data-start="81.1" data-duration="14.4" data-track-index="9" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:7;">
+    <div data-hf-id="hf-fsg4" id="conv-note" class="fig-chip role" style="position:absolute;left:1360px;top:560px;opacity:0;">0.2 m = 20 cm</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       LEFT STACK CARDS
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-9mo3" id="stack-given" class="clip" data-start="37.3" data-duration="58.2" data-track-index="11" style="position:absolute;left:100px;top:140px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-usjn" class="stack-card">
+      <div data-hf-id="hf-yzg5" class="card-content">
+        <span data-hf-id="hf-snhl" class="step-circle">G</span>
+        <div data-hf-id="hf-pz3x" class="math">
+          Men = <span data-hf-id="hf-b0hp" class="hi">50</span>, L = <span data-hf-id="hf-fymu" class="hi">50 m</span>, B = <span data-hf-id="hf-dr2p" class="hi">20 m</span><br data-hf-id="hf-r05r">
+          Displacement = <span data-hf-id="hf-rv97" class="hi">4 m³/man</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-6uhn" id="stack-step1" class="clip" data-start="44.4" data-duration="51.1" data-track-index="12" style="position:absolute;left:100px;top:250px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-3m9v" class="stack-card">
+      <div data-hf-id="hf-zdr6" class="card-content">
+        <span data-hf-id="hf-w2db" class="step-circle">1</span>
+        <div data-hf-id="hf-olsv" class="math">Volume = 50 x 4 = <span data-hf-id="hf-ykah" class="ans">200 m³</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3zgi" id="stack-step2" class="clip" data-start="60.6" data-duration="34.9" data-track-index="13" style="position:absolute;left:100px;top:360px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-37yu" class="stack-card">
+      <div data-hf-id="hf-zs27" class="card-content">
+        <span data-hf-id="hf-vo2a" class="step-circle">2</span>
+        <div data-hf-id="hf-a4w6" class="math">Area = 50 x 20 = <span data-hf-id="hf-1hhh" class="ans">1000 m²</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-5yyg" id="stack-step3" class="clip" data-start="86.0" data-duration="9.5" data-track-index="14" style="position:absolute;left:100px;top:470px;z-index:6;opacity:0;">
+    <div data-hf-id="hf-2tnt" class="stack-card">
+      <div data-hf-id="hf-06d8" class="card-content">
+        <span data-hf-id="hf-v9r9" class="step-circle">3</span>
+        <div data-hf-id="hf-8lob" class="math">Height = 200/1000 = 0.2 m = <span data-hf-id="hf-nn17" class="ans">20 cm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-3b6w" id="line-g-1" class="clip stack-line" data-start="44.4" data-duration="51.1" data-track-index="15" style="opacity:0;"></div>
+  <div data-hf-id="hf-j4l7" id="line-1-2" class="clip stack-line" data-start="60.6" data-duration="34.9" data-track-index="16" style="opacity:0;"></div>
+  <div data-hf-id="hf-hk22" id="line-2-3" class="clip stack-line" data-start="86.0" data-duration="9.5" data-track-index="17" style="opacity:0;"></div>
+
+  <!-- ══════════════════════════════════════════════
+       PHASE 3 - OPTIONS REVEAL (89.1-95.5s)
+       ══════════════════════════════════════════════ -->
+  <div data-hf-id="hf-tiwd" id="options-reveal" class="clip" data-start="89.1" data-duration="6.4" data-track-index="10" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:8;opacity:0;">
+    <div data-hf-id="hf-2tfv" class="pinned-col" style="top:400px;">
+      <div data-hf-id="hf-6knj" class="options-grid">
+        <div data-hf-id="hf-17q3" class="opt-btn"><span data-hf-id="hf-sfug" class="letter">A</span>10 cm</div>
+        <div data-hf-id="hf-7ssq" class="opt-btn"><span data-hf-id="hf-r8xd" class="letter">B</span>15 cm</div>
+        <div data-hf-id="hf-ioew" class="opt-btn correct"><span data-hf-id="hf-rn8e" class="letter">C</span>20 cm</div>
+        <div data-hf-id="hf-fo2r" class="opt-btn"><span data-hf-id="hf-qgbb" class="letter">D</span>25 cm</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end root -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  apt.setStackLine("#line-g-1", "#stack-given .step-circle", "#stack-step1 .step-circle");
+  apt.setStackLine("#line-1-2", "#stack-step1 .step-circle", "#stack-step2 .step-circle");
+  apt.setStackLine("#line-2-3", "#stack-step2 .step-circle", "#stack-step3 .step-circle");
+
+  const tl = gsap.timeline({ paused: true });
+
+  // PHASE 1 - Question reveal
+  const HERO_OFFSET_Y = 180;
+  const RISE_TIME = 3.78; // "...one more problem." ends
+  apt.heroEnterLowered(tl, "#q-full-card", HERO_OFFSET_Y, RISE_TIME);
+
+  tl.fromTo("#serial-num",
+    { scale: 0, rotation: -45, opacity: 0, y: HERO_OFFSET_Y },
+    { scale: 1, rotation: 0, opacity: 1, y: HERO_OFFSET_Y, duration: 0.55, ease: "back.out(2)" },
+    0.8);
+  tl.to("#serial-num", { y: 0, duration: 0.6, ease: "power2.inOut" }, RISE_TIME);
+
+  // Tank stroke-draw build order (illustration_reference.md 3.1 + VIDEO_BUILD_PROMPT 5.4)
+  tl.to("#tank-side", { opacity: 1, strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 2.00);
+  tl.to("#tank-top",  { opacity: 1, strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 2.60);
+  tl.to("#tank-front",{ opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 3.20);
+
+  // "50 men enter a water tank." - word "50" lands at 5.26
+  tl.fromTo("#chip-men", { opacity: 0, scale: 0.85, y: 8 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 5.26);
+
+  // "The tank is 50 meter long and 20 meter broad."
+  tl.fromTo("#arrow-length", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 7.62);
+  tl.fromTo("#label-length", { opacity: 0, scale: 0.85, y: 8 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 7.62);
+  tl.fromTo("#arrow-breadth", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.74);
+  tl.fromTo("#label-breadth", { opacity: 0, scale: 0.85, y: 8 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 8.74);
+
+  // "Each man displaces four cubic meter of water." - word "four" lands at 11.20
+  tl.fromTo("#chip-displace", { opacity: 0, scale: 0.85, y: 8 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 11.20);
+
+  // "We need to find how much the water level rises." - the unknown, grey/dashed
+  tl.fromTo("#rise-indicator", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 13.28);
+
+  // Bucket/stone analogy (15.90-33.34) - no new geometry, only pulses/shimmer
+  // (penalty rule 16: nothing may resolve before Step 3 derives it).
+  apt.emphasize(tl, "#rise-indicator", 15.90);
+  tl.fromTo("#water-fill", { fillOpacity: 0 }, { fillOpacity: 0.35, duration: 0.4 }, 17.90);
+  tl.to("#water-fill", { fillOpacity: 0.55, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 20.30);
+  tl.to("#water-fill", { fillOpacity: 0.55, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 23.00);
+  tl.to("#water-fill", { fillOpacity: 0.55, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 25.40);
+  apt.emphasize(tl, "#chip-men", 27.50);
+  apt.emphasize(tl, "#chip-displace", 30.30);
+  tl.to("#water-fill", { fillOpacity: 0.55, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 32.00);
+
+  // PHASE 2 - Pin, then Given (two separate timestamps)
+  const PIN_TIME = 34.10;
+  const GIVEN_TIME = 34.90;
+
+  apt.pinFlow(tl, "#q-full-card", "#q-pinned", PIN_TIME);
+  apt.pinFlow(tl, "#illustration", "#illus-pinned", PIN_TIME);
+  apt.fadeOut(tl, "#serial-num", PIN_TIME, 0.5);
+
+  apt.cardEnter(tl, "#card-given .solution-card", GIVEN_TIME);
+  apt.textReveal(tl, "#card-given .math");
+
+  // Given -> stack, Step 1 opens ("One man displaces four cubic meter...")
+  apt.morphToStack(tl, "#card-given .solution-card", "#stack-given .stack-card", 37.30);
+  apt.cardEnter(tl, "#card-step1 .solution-card", 37.70);
+  apt.textReveal(tl, "#card-step1 .math");
+  // LINK: the pinned "4 m3/man" chip pulses with "4" landing in Step 1
+  apt.emphasize(tl, "#chip-displace-pinned", 38.76);
+  // LINK: "200" resolving pulses the pinned "50 men" chip too
+  apt.emphasize(tl, "#chip-men-pinned", 43.30);
+
+  // Step 1 -> stack; bridge beats to Step 2 (52.08-53.72s "find the bottom area")
+  apt.morphToStack(tl, "#card-step1 .solution-card", "#stack-step1 .stack-card", 44.40);
+  apt.stackLineGrow(tl, "#line-g-1", 44.40);
+  apt.emphasize(tl, "#stack-step1 .ans", 47.68);
+  tl.to("#tank-front-pinned", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, 48.98);
+  tl.fromTo("#area-indicator-pinned", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 51.46);
+
+  apt.cardEnter(tl, "#card-step2 .solution-card", 52.10);
+  apt.textReveal(tl, "#card-step2 .math");
+  // "=1000 square meter" resolves - area confirmation wash + grey indicator clears
+  apt.fadeOut(tl, "#area-indicator-pinned", 59.60, 0.25);
+  tl.fromTo("#area-wash-pinned", { fillOpacity: 0 }, { fillOpacity: 0.30, duration: 0.5 }, 59.60);
+
+  // Step 2 -> stack; "water spreads over the entire bottom" (width-only, no height claim)
+  apt.morphToStack(tl, "#card-step2 .solution-card", "#stack-step2 .stack-card", 60.60);
+  apt.stackLineGrow(tl, "#line-1-2", 60.60);
+  tl.to("#spread-wash-pinned", { fillOpacity: 0.5, attr: { width: 300 }, duration: 0.6, ease: "power2.out" }, 62.48);
+  apt.emphasize(tl, "#area-wash-pinned", 64.50);
+
+  apt.cardEnter(tl, "#card-step3 .solution-card", 66.30);
+  apt.textReveal(tl, "#card-step3 .math");
+  // LINK: stack Step1/Step2 answers pulse as Step 3 states "we already know volume and area"
+  apt.emphasize(tl, "#stack-step1 .ans", 68.20);
+  apt.emphasize(tl, "#stack-step2 .ans", 69.00);
+  // "the only unknown is the height... which is the rise in water level" - ties h to the tank
+  apt.emphasize(tl, "#rise-indicator-pinned", 72.90);
+  // LINK: substituted numbers pulse together with their stack chips
+  apt.emphasize(tl, "#num-200", 78.06);
+  apt.emphasize(tl, "#stack-step1 .ans", 78.06);
+  apt.emphasize(tl, "#num-1000", 78.40);
+  apt.emphasize(tl, "#stack-step2 .ans", 78.40);
+
+  // "= 0.2 meter" resolves - this is the payoff: the rise band only appears now,
+  // never before the arithmetic proves it (penalty rule 16).
+  apt.fadeOut(tl, "#rise-indicator-pinned", 80.30, 0.25);
+  tl.to("#displace-band-pinned", { opacity: 1, attr: { y: 360, height: 20 }, duration: 0.6, ease: "power2.out" }, 80.30);
+  tl.fromTo("#band-label-m-pinned", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 80.60);
+
+  // Unit conversion (81.06-89.04): "asked in centimeter, 0.2 m = 20 cm"
+  apt.fadeIn(tl, "#conv-note", 81.10);
+  apt.emphasize(tl, "#conv-note", 83.52);
+  apt.fadeOut(tl, "#band-label-m-pinned", 84.72, 0.2);
+  tl.fromTo("#band-label-cm-pinned", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 84.92);
+  apt.emphasize(tl, "#conv-note", 84.92);
+
+  // Step 3 -> stack
+  apt.morphToStack(tl, "#card-step3 .solution-card", "#stack-step3 .stack-card", 86.00);
+  apt.stackLineGrow(tl, "#line-2-3", 86.00);
+  // "the water level rises by 20 centimeter" - restate/confirm
+  apt.emphasize(tl, "#band-label-cm-pinned", 86.40);
+  apt.emphasize(tl, "#stack-step3 .ans", 87.60);
+
+  // Recenter + clear illustration before options
+  const RECENTER_TIME = 89.10;
+  apt.fadeOut(tl, "#illus-pinned", RECENTER_TIME);
+  apt.fadeOut(tl, "#conv-note", RECENTER_TIME);
+  apt.recenterForOptions(tl, "#q-pinned", 160, 180, RECENTER_TIME);
+
+  // PHASE 3 - Options reveal, "which is option C" lands the correct pulse
+  apt.fadeIn(tl, "#options-reveal", 89.20);
+  apt.optionsStagger(tl, ".opt-btn", 89.80);
+  apt.correctPulse(tl, ".opt-btn.correct", 92.80);
+
+  // END FADE
+  const END_FADE_TIME = 94.079; // NARR_END 93.479 + 0.6
+  apt.fadeOut(tl, "#root > div", END_FADE_TIME, 1.2);
+  tl.set({}, {}, 95.479); // 94.079 + 1.2 + 0.2
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+</body>
+</html>
